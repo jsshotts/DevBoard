@@ -1,0 +1,11 @@
+language: java
+jdk:
+- openjdk8
+
+addons:
+  sonarcloud:
+    organization: jsshotts
+    token: c1353fecf13961a7fdf1106032b90dfde25a192f
+script:
+- ant build
+- sonar-scanner
