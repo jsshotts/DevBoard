@@ -8,12 +8,18 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
+	
+	public static final String LOGIN_SCREEN = "../Boundary/Login.fxml";
+	public static final String FINDPROJ_SCREEN = "../Boundary/DevFindProject.fxml";
+	public static final int WIN_WIDTH = 900, WIN_HEIGHT = 600;
+	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage){
+		//LoginScreen loginScreen = new LoginScreen(primaryStage);
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("../Boundary/Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource(LOGIN_SCREEN));
 	        
-			primaryStage.setScene(new Scene(root, 600, 600));
+			primaryStage.setScene(new Scene(root, WIN_WIDTH, WIN_HEIGHT));
 			primaryStage.setTitle("DevBoard");
 			primaryStage.show();
 			
