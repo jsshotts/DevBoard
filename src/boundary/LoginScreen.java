@@ -1,4 +1,4 @@
-package Boundary;
+package boundary;
 
 import application.Main;
 import javafx.event.ActionEvent;
@@ -23,7 +23,6 @@ public class LoginScreen{
 	 * This function changes the scene to the 'Find Projects' Scene
 	 */	
 	public void login(ActionEvent event) {
-		System.out.println("logging in");
 		
 		//Here is where the scene is switched
 		try {
