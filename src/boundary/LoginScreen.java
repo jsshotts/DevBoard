@@ -2,12 +2,10 @@ package boundary;
 
 import application.Main;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
@@ -16,7 +14,7 @@ import javafx.stage.Stage;
  * links the fxml file to this class. Then, I can set the onAction attribute of the login button to any function in this class 
  */
 
-public class LoginScreen{
+public class LoginScreen {
 		
 	
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.

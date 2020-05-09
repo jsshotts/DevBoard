@@ -2,7 +2,7 @@ package entity;
 
 public abstract class User {
 	
-	private int ID;
+	private int id;
 	private String name;
 	public String bio;
 
