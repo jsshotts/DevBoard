@@ -22,7 +22,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage){
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(NAVBAR_VIEW));
+			Parent root = FXMLLoader.load(getClass().getResource(LOGIN_SCREEN));
 	        
 			primaryStage.setScene(new Scene(root, WIN_WIDTH, WIN_HEIGHT));
 			primaryStage.setTitle("DevBoard");
