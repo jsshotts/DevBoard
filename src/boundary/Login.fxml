@@ -15,7 +15,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button alignment="CENTER" mnemonicParsing="false" text="Project Owner" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#login" text="Developer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="projectOwnerLogin" alignment="CENTER" mnemonicParsing="false" onAction="#login" text="Project Owner" GridPane.rowIndex="1" />
+      <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Developer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

@@ -2,10 +2,12 @@ package boundary;
 
 import application.Main;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
@@ -16,6 +18,14 @@ import javafx.stage.Stage;
 
 public class LoginScreen {
 		
+	@FXML
+	public Button devLogin;
+	
+	@FXML
+	public Button projectOwnerLogin;
+	
+	@FXML
+	private void initialize() {}
 	
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
 	 * This function changes the scene to the 'Find Projects' Scene
@@ -25,9 +35,18 @@ public class LoginScreen {
 		//Here is where the scene is switched
 		try {
 			
-			//load new FXML that you want to switch to (here I load the FXML of the Find Projects screen)
-			Parent findProjParent = FXMLLoader.load(getClass().getResource(Main.FINDPROJ_SCREEN));
-			Scene newScene = new Scene(findProjParent, Main.WIN_WIDTH, Main.WIN_HEIGHT);
+			Scene newScene;
+			
+			if(event.getSource() == devLogin) {
+				//load new FXML that you want to switch to (here I load the FXML of the Find Projects screen)
+				Parent findProjParent = FXMLLoader.load(getClass().getResource(Main.FINDPROJ_SCREEN));
+				newScene = new Scene(findProjParent, Main.WIN_WIDTH, Main.WIN_HEIGHT);
+			}
+			else {
+				//load new FXML that you want to switch to (here I load the FXML of the Find Projects screen)
+				Parent postProjParent = FXMLLoader.load(getClass().getResource(Main.POSTPROJ_SCREEN));
+				newScene = new Scene(postProjParent, Main.WIN_WIDTH, Main.WIN_HEIGHT);
+			}
 			
 			//Get access to the current stage
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
