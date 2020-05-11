@@ -10,6 +10,10 @@ public class Main extends Application {
 	
 	public static final String LOGIN_SCREEN = "../Boundary/Login.fxml";
 	public static final String FINDPROJ_SCREEN = "../Boundary/DevFindProject.fxml";
+	public static final String DEV_PROFILE_SCREEN = "../Boundary/devProfile.fxml";
+	public static final String ACTIVEPROJ_SCREEN = "../Boundary/DevActiveProjects.fxml";
+	public static final String PO_MYPROJECTS_SCREEN = "../Boundary/POMyProjects.fxml";
+	public static final String POSTPROJECTS_SCREEN = "../Boundary/postProject.fxml";
 	public static final int WIN_WIDTH = 900;
 	public static final int WIN_HEIGHT = 600;
 	

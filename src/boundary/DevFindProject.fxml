@@ -20,7 +20,7 @@
                         <MenuItem mnemonicParsing="false" text="Action 1" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="FIND PROJECT">
+                  <Menu mnemonicParsing="false" onAction="#findProject" text="FIND PROJECT">
                      <graphic>
                         <Region prefHeight="3.0" prefWidth="270.0" />
                      </graphic>
@@ -28,7 +28,7 @@
                         <MenuItem mnemonicParsing="false" text="Close" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="ACTIVE PROJCTS">
+                  <Menu mnemonicParsing="false" onAction="#activeProjects" text="ACTIVE PROJCTS">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
@@ -38,7 +38,7 @@
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="PROFILE">
+                  <Menu mnemonicParsing="false" onAction="#devProfile" text="PROFILE">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Action 1" />
                      </items>
