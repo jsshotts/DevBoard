@@ -1,8 +1,9 @@
 package boundary;
 
 import application.Main;
+
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,18 +14,21 @@ import javafx.stage.Stage;
 import javafx.scene.text.*;
 
 public class NavBar {
-	
+	@FXML
 	public Text DevBoardLogo;
+	@FXML
 	public Button findProjectsButton;
+	@FXML
 	public Button activeProjectsButton;
+	@FXML
 	public Button myProjectsButton;
+	@FXML
 	public Button profileButton;
 	
 	public void navBar(ActionEvent event) {
 		try {
 			Scene newScene;
 			Parent switchScreen;
-			System.out.println("ddd");
 			if (event.getSource() == findProjectsButton) {
 				switchScreen = FXMLLoader.load(getClass().getResource(Main.FINDPROJ_SCREEN));
 				newScene = new Scene(switchScreen, Main.WIN_WIDTH, Main.WIN_HEIGHT);
