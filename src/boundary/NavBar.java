@@ -24,7 +24,6 @@ public class NavBar {
 		try {
 			Scene newScene;
 			Parent switchScreen;
-			System.out.println("ddd");
 			if (event.getSource() == findProjectsButton) {
 				switchScreen = FXMLLoader.load(getClass().getResource(Main.FINDPROJ_SCREEN));
 				newScene = new Scene(switchScreen, Main.WIN_WIDTH, Main.WIN_HEIGHT);
