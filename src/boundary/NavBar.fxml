@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.NavBar">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#102a50" height="57.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Text fx:id="DevBoardLogo" fill="WHITE" layoutX="23.0" layoutY="33.0" onMouseClicked="#login" strokeType="OUTSIDE" strokeWidth="0.0" text="DevBoard" />
+      <Button fx:id="findProjectsButton" layoutX="100.0" layoutY="15.0" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Find Projects" />
+      <Button fx:id="activeProjectsButton" layoutX="220.0" layoutY="15.0" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Active Projects" />
+      <Button fx:id="myApplicationsButton" layoutX="340.0" layoutY="15.0" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="My Applications" />
+      <Button fx:id="profileButton" layoutX="460.0" layoutY="15.0" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Profile" />
+   </children>
+</AnchorPane>
