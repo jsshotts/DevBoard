@@ -7,8 +7,8 @@ public class ProjectOwner extends User{
 	
 	public List<Project> projects;
 	
-	public ProjectOwner() {
+	public ProjectOwner(String name, String bio) {
+		super(name,  bio);
 		projects = new ArrayList<>();
 	}
-
 }

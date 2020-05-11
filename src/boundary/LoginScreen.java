@@ -30,14 +30,14 @@ public class LoginScreen {
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
 	 * This function changes the scene to the 'Find Projects' Scene
 	 */	
-	public void login(ActionEvent event) {
+	public void login(ActionEvent event){
 		
 		//Here is where the scene is switched
 		try {
 			
 			Scene newScene;
 			
-			if(event.getSource() == devLogin) {
+			if(event.getSource() == devLogin){
 				//load new FXML that you want to switch to (here I load the FXML of the Find Projects screen)
 				Parent findProjParent = FXMLLoader.load(getClass().getResource(Main.FINDPROJ_SCREEN));
 				newScene = new Scene(findProjParent, Main.WIN_WIDTH, Main.WIN_HEIGHT);
@@ -54,7 +54,7 @@ public class LoginScreen {
 			//set the new scene
 			window.setScene(newScene);
 		}
-		catch(Exception e) {
+		catch(Exception e){
 			e.printStackTrace();
 		}
 	}

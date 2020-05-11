@@ -27,7 +27,7 @@ public class Main extends Application {
 			primaryStage.setTitle("DevBoard");
 			primaryStage.show();
 			
-		} catch(Exception e) {
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
