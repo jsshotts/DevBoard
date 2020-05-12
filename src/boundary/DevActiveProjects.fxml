@@ -7,54 +7,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MenuBar>
-        <menus>
-            <Menu mnemonicParsing="false" text="DevBoard                     " />
-          <Menu mnemonicParsing="false" text="Find Projects                     ">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Active Projects                     ">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="My Applications                     ">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Profile                     ">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <Region prefHeight="13.0" prefWidth="600.0" />
-      <Label text="Active Projects" />
-      <Region prefHeight="13.0" prefWidth="600.0" />
-      <Region prefHeight="10.0" prefWidth="600.0" />
+      <Region prefHeight="13.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <AnchorPane>
+         <children>
+            <Label layoutX="252.0" layoutY="4.0" text="Active Projects" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </AnchorPane>
+      <Region prefHeight="10.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <VBox prefHeight="223.0" prefWidth="600.0">
          <children>
             <HBox prefHeight="94.0" prefWidth="600.0">
                <children>
-                  <Region prefHeight="42.0" prefWidth="31.0" />
+                  <Region prefHeight="42.0" prefWidth="31.0" HBox.hgrow="ALWAYS" />
                   <VBox prefHeight="147.0" prefWidth="141.0">
                      <children>
                         <Label text="Project Name" />
                         <Label text="Project Owner Name" />
                      </children>
                   </VBox>
-                  <Region prefHeight="196.0" prefWidth="11.0" />
+                  <Region prefHeight="196.0" prefWidth="11.0" HBox.hgrow="ALWAYS" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" stroke="BLACK" strokeType="INSIDE" width="67.0" />
-                  <Region prefHeight="49.0" prefWidth="12.0" />
+                  <Region prefHeight="49.0" prefWidth="12.0" HBox.hgrow="ALWAYS" />
                   <Label text="Status: Planning" />
-                  <Region prefHeight="49.0" prefWidth="12.0" />
+                  <Region prefHeight="49.0" prefWidth="12.0" HBox.hgrow="ALWAYS" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" stroke="BLACK" strokeType="INSIDE" width="67.0" />
                </children>
             </HBox>
@@ -64,9 +44,9 @@
                   <Label text="Latest Message" />
                </children>
             </HBox>
-            <Region prefHeight="19.0" prefWidth="600.0" />
+            <Region prefHeight="19.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <Label alignment="TOP_LEFT" prefHeight="76.0" prefWidth="599.0" text="This is my latest message, check it out. Just filling up this entire text box with text to see what it looks like. Just filling up this entire text box with text to see what it looks like. Just filling up this entire text box with text to see what it looks like. Just filling up this entire text box with text to see what it looks like. Just filling up this entire text box with text to see what it looks like. Just filling up this entire text box with text to see what it looks like." wrapText="true" />
-            <Region prefHeight="23.0" prefWidth="600.0" />
+            <Region prefHeight="23.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <HBox prefHeight="35.0" prefWidth="600.0">
                <children>
                   <Button mnemonicParsing="false" text="Project Requirements" />
@@ -76,7 +56,7 @@
             </HBox>
          </children>
       </VBox>
-      <Region prefHeight="75.0" prefWidth="600.0" />
+      <Region prefHeight="75.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <VBox prefHeight="223.0" prefWidth="600.0">
          <children>
             <HBox prefHeight="94.0" prefWidth="600.0">
