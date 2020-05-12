@@ -13,41 +13,6 @@
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar fx:id="menuBar">
-               <menus>
-                  <Menu mnemonicParsing="false" onAction="#backToLogin" text="DevBoard">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" onAction="#findProject" text="FIND PROJECT">
-                     <graphic>
-                        <Region prefHeight="3.0" prefWidth="270.0" />
-                     </graphic>
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" onAction="#activeProjects" text="ACTIVE PROJCTS">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="MY APPLICATIONS">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" onAction="#devProfile" text="PROFILE">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-               </menus>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </MenuBar>
             <HBox>
                <children>
                   <TextField promptText="Search Projects">

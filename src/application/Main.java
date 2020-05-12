@@ -1,30 +1,23 @@
 package application;
 	
+import boundary.WindowManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	
-	public static final String LOGIN_SCREEN = "../Boundary/Login.fxml";
-	public static final String FINDPROJ_SCREEN = "../Boundary/DevFindProject.fxml";
-	public static final String POSTPROJ_SCREEN = "../Boundary/postProject.fxml";
-	public static final String DEV_PROFILE_SCREEN = "../Boundary/devProfile.fxml";
-	public static final String ACTIVEPROJ_SCREEN = "../Boundary/DevActiveProjects.fxml";
-	public static final String MYPROJECTS_SCREEN = "../Boundary/POMyProjects.fxml";
-	public static final String POSTPROJECTS_SCREEN = "../Boundary/postProject.fxml";
-	public static final String NAVBAR_VIEW= "../Boundary/NavBar.fxml";
-	public static final int WIN_WIDTH = 900;
-	public static final int WIN_HEIGHT = 600;
 	
 	@Override
 	public void start(Stage primaryStage){
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(LOGIN_SCREEN));
+			Parent login = FXMLLoader.load(getClass().getResource(WindowManager.LOGIN_SCREEN));
+			BorderPane borderPane = new BorderPane();
+			borderPane.setCenter(login);
 	        
-			primaryStage.setScene(new Scene(root, WIN_WIDTH, WIN_HEIGHT));
+			primaryStage.setScene(new Scene(borderPane, WindowManager.WIN_WIDTH, WindowManager.WIN_HEIGHT));
 			primaryStage.setTitle("DevBoard");
 			primaryStage.show();
 			
