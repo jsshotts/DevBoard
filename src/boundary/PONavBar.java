@@ -10,11 +10,11 @@ import javafx.scene.layout.BorderPane;
 
 public class PONavBar {
 	
-	static <T> void swapTo(ActionEvent event, Class<T> obj)
+	static void swapTo(ActionEvent event)
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(obj.getResource(WindowManager.PO_NAVBAR_VIEW));
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.PO_NAVBAR_VIEW));
 			borderPane.setTop(switchScreen);
 		}
 		catch(Exception e) {
@@ -34,10 +34,10 @@ public class PONavBar {
 	public void navBar(ActionEvent event) {
 		
 		if (event.getSource() == createProjectButton) {
-			POPostProject.swapTo(event, getClass());
+			POPostProject.swapTo(event);
 		}
 		if (event.getSource() == myProjectsButton) {
-			POMyProjects.swapTo(event, getClass());
+			POMyProjects.swapTo(event);
 		}
 	}
 }

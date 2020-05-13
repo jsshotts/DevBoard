@@ -27,12 +27,12 @@ public class LoginScreen {
 	public void login(ActionEvent event){
 
 		if(event.getSource() == devLogin){
-			DevNavBar.swapTo(event, getClass());
-			DevFindProject.swapTo(event, getClass());
+			DevNavBar.swapTo(event);
+			DevFindProject.swapTo(event);
 		}
 		else {
-			PONavBar.swapTo(event, getClass());
-			POPostProject.swapTo(event, getClass());
+			PONavBar.swapTo(event);
+			POPostProject.swapTo(event);
 		}	
 
 	}

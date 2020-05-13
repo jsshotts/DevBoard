@@ -11,11 +11,11 @@ import javafx.scene.text.*;
 
 public class DevNavBar {
 	
-	static <T> void swapTo(ActionEvent event, Class<T> obj)
+	static void swapTo(ActionEvent event)
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(obj.getResource(WindowManager.DEV_NAVBAR_VIEW));
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.DEV_NAVBAR_VIEW));
 			borderPane.setTop(switchScreen);
 		}
 		catch(Exception e) {
@@ -35,13 +35,13 @@ public class DevNavBar {
 	public void navBar(ActionEvent event) {
 
 		if (event.getSource() == findProjectsButton) {
-			DevFindProject.swapTo(event, getClass());
+			DevFindProject.swapTo(event);
 		}
 		if (event.getSource() == activeProjectsButton) {
-			DevActiveProjects.swapTo(event, getClass());
+			DevActiveProjects.swapTo(event);
 		}
 		if (event.getSource() == profileButton) {
-			DevProfile.swapTo(event, getClass());
+			DevProfile.swapTo(event);
 		}
 	}
 }

@@ -13,7 +13,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage){
 		try {
-			Parent login = FXMLLoader.load(getClass().getResource(WindowManager.LOGIN_SCREEN));
+			Parent login = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.LOGIN_SCREEN));
 			BorderPane borderPane = new BorderPane();
 			borderPane.setCenter(login);
 	        

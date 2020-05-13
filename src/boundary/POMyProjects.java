@@ -8,11 +8,11 @@ import javafx.scene.layout.BorderPane;
 
 public class POMyProjects {
 
-	static <T> void swapTo(ActionEvent event, Class<T> obj)
+	static void swapTo(ActionEvent event)
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(obj.getResource(WindowManager.PO_MYPROJECTS_SCREEN));
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.PO_MYPROJECTS_SCREEN));
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e) {
