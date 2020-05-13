@@ -48,6 +48,7 @@ public class LoginScreen {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
 			
 			if(event.getSource() == devLogin){
+				
 				//load new FXML that you want to switch to (here I load the FXML of the Find Projects screen)
 				Parent devNavBar = FXMLLoader.load(getClass().getResource(WindowManager.DEV_NAVBAR_VIEW));
 				Parent findProject = FXMLLoader.load(getClass().getResource(WindowManager.FINDPROJ_SCREEN));

@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox spacing="10.0" style="-fx-background-color: #102a50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox spacing="10.0" style="-fx-background-color: #102a50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.PONavBar">
    <children>
       <Text fx:id="DevBoardLogo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DevBoard">
          <HBox.margin>
@@ -17,11 +17,11 @@
          </HBox.margin>
       </Text>
       <Region HBox.hgrow="ALWAYS" />
-      <Button fx:id="createProjectButton" minWidth="105.0" mnemonicParsing="false" text="Create Project" />
+      <Button fx:id="createProjectButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Create Project" />
       <Region layoutX="95.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="myProjectsButton" minWidth="105.0" mnemonicParsing="false" text="My Projects" />
+      <Button fx:id="myProjectsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="My Projects" />
       <Region layoutX="220.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="profileButton" minWidth="105.0" mnemonicParsing="false" text="Profile" />
+      <Button fx:id="profileButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Profile" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
