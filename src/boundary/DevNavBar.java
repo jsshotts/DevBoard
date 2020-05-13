@@ -1,17 +1,12 @@
 package boundary;
 
-import application.Main;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import javafx.scene.text.*;
 
 public class DevNavBar {
@@ -33,9 +28,7 @@ public class DevNavBar {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
 			
 			if (event.getSource() == findProjectsButton) {
-				
-				switchScreen = FXMLLoader.load(getClass().getResource(WindowManager.FINDPROJ_SCREEN));
-				borderPane.setCenter(switchScreen);
+				DevFindProject.createScreen(event, getClass());
 			}
 			else if (event.getSource() == activeProjectsButton) {
 				
