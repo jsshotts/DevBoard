@@ -9,7 +9,7 @@ import javafx.scene.layout.BorderPane;
 
 public class DevFindProject {
 	
-	static <T> void createScreen(ActionEvent event, Class<T> obj)
+	static <T> void swapTo(ActionEvent event, Class<T> obj)
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();

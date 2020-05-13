@@ -28,7 +28,7 @@ public class DevNavBar {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
 			
 			if (event.getSource() == findProjectsButton) {
-				DevFindProject.createScreen(event, getClass());
+				DevFindProject.swapTo(event, getClass());
 			}
 			else if (event.getSource() == activeProjectsButton) {
 				
