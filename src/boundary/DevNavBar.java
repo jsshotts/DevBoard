@@ -37,10 +37,10 @@ public class DevNavBar {
 		if (event.getSource() == findProjectsButton) {
 			DevFindProject.swapTo(event, getClass());
 		}
-		else if (event.getSource() == activeProjectsButton) {
+		if (event.getSource() == activeProjectsButton) {
 			DevActiveProjects.swapTo(event, getClass());
 		}
-		else if (event.getSource() == profileButton) {
+		if (event.getSource() == profileButton) {
 			DevProfile.swapTo(event, getClass());
 		}
 	}

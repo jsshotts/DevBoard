@@ -32,17 +32,12 @@ public class PONavBar {
 	private Button profileButton;
 	
 	public void navBar(ActionEvent event) {
-		try {
-			if (event.getSource() == createProjectButton) {
-				POPostProject.swapTo(event, getClass());
-			}
-			else if (event.getSource() == myProjectsButton) {
-				POMyProjects.swapTo(event, getClass());
-			}
+		
+		if (event.getSource() == createProjectButton) {
+			POPostProject.swapTo(event, getClass());
 		}
-		catch(Exception e) {
-			e.printStackTrace();
+		if (event.getSource() == myProjectsButton) {
+			POMyProjects.swapTo(event, getClass());
 		}
-
 	}
 }
