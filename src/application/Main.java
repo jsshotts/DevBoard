@@ -18,6 +18,7 @@ public class Main extends Application {
 			borderPane.setCenter(login);
 	        
 			primaryStage.setScene(new Scene(borderPane, WindowManager.WIN_WIDTH, WindowManager.WIN_HEIGHT));
+			primaryStage.setMaximized(true);
 			primaryStage.setTitle("DevBoard");
 			primaryStage.show();
 			
