@@ -10,8 +10,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.*;
 
 public class DevNavBar {
-	@FXML
-	public Text DevBoardLogo;
+	
+	static <T> void swapTo(ActionEvent event, Class<T> obj)
+	{
+		try {
+			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+			Parent switchScreen = FXMLLoader.load(obj.getResource(WindowManager.DEV_NAVBAR_VIEW));
+			borderPane.setTop(switchScreen);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@FXML
 	public Button findProjectsButton;
 	@FXML
@@ -22,28 +33,15 @@ public class DevNavBar {
 	public Button profileButton;
 	
 	public void navBar(ActionEvent event) {
-		try {
-			
-			Parent switchScreen;
-			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			
-			if (event.getSource() == findProjectsButton) {
-				DevFindProject.swapTo(event, getClass());
-			}
-			else if (event.getSource() == activeProjectsButton) {
-				
-				switchScreen = FXMLLoader.load(getClass().getResource(WindowManager.ACTIVEPROJ_SCREEN));
-				borderPane.setCenter(switchScreen);
-			}
-			else  if (event.getSource() == profileButton){
-				
-				switchScreen = FXMLLoader.load(getClass().getResource(WindowManager.DEV_PROFILE_SCREEN));
-				borderPane.setCenter(switchScreen);
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
 
+		if (event.getSource() == findProjectsButton) {
+			DevFindProject.swapTo(event, getClass());
+		}
+		else if (event.getSource() == activeProjectsButton) {
+			DevActiveProjects.swapTo(event, getClass());
+		}
+		else if (event.getSource() == profileButton) {
+			DevProfile.swapTo(event, getClass());
+		}
 	}
 }
