@@ -66,7 +66,7 @@ public class DevFindProject {
 		
 		try {	
 			
-			for(int i = 0; i < 100; i++) {
+			for(int i = 0; i < 50; i++) {
 				Node projectCard = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				gridPane.add(projectCard, (i%2)*2+1,i/2);
 			}
