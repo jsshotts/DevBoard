@@ -33,7 +33,7 @@ public class DevFindProject {
 	        }
 	    };
 
-         task.setOnSucceeded((succeededEvent) -> {
+         task.setOnSucceeded(succeededEvent -> {
         	 scrollPane.setContent(gridPane);
  			 gridPane.prefWidthProperty().bind(scrollPane.widthProperty());
  			 scrollPane.setFitToHeight(true);
@@ -70,10 +70,16 @@ public class DevFindProject {
 				Node projectCard = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				gridPane.add(projectCard, (i%2)*2+1,i/2);
 			}
+			
 			gridPane.setHgap(100);
 			gridPane.setVgap(100);
 			
-			ColumnConstraints column1 = new ColumnConstraints(), column2 = new ColumnConstraints(), column3 = new ColumnConstraints(), column4 = new ColumnConstraints(), column5 = new ColumnConstraints();
+			ColumnConstraints column1 = new ColumnConstraints();
+			ColumnConstraints column2 = new ColumnConstraints();
+			ColumnConstraints column3 = new ColumnConstraints();
+			ColumnConstraints column4 = new ColumnConstraints(); 
+			ColumnConstraints column5 = new ColumnConstraints();
+			
 			column1.setHgrow(Priority.ALWAYS);
 			column3.setHgrow(Priority.ALWAYS);
 			column5.setHgrow(Priority.ALWAYS);

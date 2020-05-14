@@ -2,20 +2,20 @@ package entity;
 
 public class Filters {
 	
-	public static enum Language {
-		Python,
-		Java,
+	public enum Language {
+		PYTHON,
+		JAVA,
 		C,
-		JavaScript,
-		Swift,
-		Kotlin		
+		JAVASCRIPT,
+		SWIFT,
+		KOTLIN		
 	}
 	
-	public static enum ProjectPlatform {
+	public enum ProjectPlatform {
 		IOS,
-		Android,
-		Windows,
-		Linux,
-		Mac
+		ANDROID,
+		WINDOWS,
+		LINUX,
+		MAC
 	}
 }
