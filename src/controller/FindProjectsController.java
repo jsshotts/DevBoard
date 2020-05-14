@@ -11,5 +11,4 @@ public class FindProjectsController{
 	public List<Project> getAllProjects(){
 		return database.getAllProjects();
 	}
-
 }
