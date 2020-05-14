@@ -6,7 +6,7 @@ public abstract class User {
 	
 	private String id;
 	private String name;
-	public String bio;
+	private String bio;
 
 	public User(String name, String bio){
 		this.id = UUID.randomUUID().toString();

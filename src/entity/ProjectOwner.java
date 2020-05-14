@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ProjectOwner extends User{
 	
-	public List<Project> projects;
+	private List<Project> projects;
 	
 	public ProjectOwner(String name, String bio) {
 		super(name,  bio);

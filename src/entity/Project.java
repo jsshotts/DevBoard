@@ -5,11 +5,11 @@ import entity.Filters.ProjectPlatform;
 
 public class Project {
 	
-	public String projectOwnerID;
-	public String description, title, location, duration;
-	public Language language;
-	public ProjectPlatform platform;
-	public boolean remote;
+	private String projectOwnerID;
+	private String description, title, location, duration;
+	private Language language;
+	private ProjectPlatform platform;
+	private boolean remote;
 	
 	public Project() {}
 	
@@ -24,7 +24,7 @@ public class Project {
 		this.title = "Sample Project Title";
 		this.location = "San Luis Obispo";
 		this.duration = "5 weeks";
-		this.language = Language.Python;
-		this.platform = ProjectPlatform.Linux;
+		this.language = Language.PYTHON;
+		this.platform = ProjectPlatform.LINUX;
 	}
 }
