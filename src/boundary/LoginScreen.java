@@ -18,9 +18,6 @@ public class LoginScreen {
 	@FXML
 	public Button projectOwnerLogin;
 	
-	@FXML
-	private void initialize() {	}
-	
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
 	 * This function changes the scene to the 'Find Projects' Scene
 	 */	

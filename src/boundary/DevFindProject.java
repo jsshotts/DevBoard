@@ -20,8 +20,4 @@ public class DevFindProject {
 			e.printStackTrace();
 		}
 	}
-	
-	@FXML
-	private void initialize() {}
-	
 }
