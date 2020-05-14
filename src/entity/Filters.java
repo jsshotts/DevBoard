@@ -11,7 +11,7 @@ public class Filters {
 		Kotlin		
 	}
 	
-	public static enum Platform {
+	public static enum ProjectPlatform {
 		IOS,
 		Android,
 		Windows,

@@ -1,14 +1,14 @@
 package entity;
 
 import entity.Filters.Language;
-import entity.Filters.Platform;
+import entity.Filters.ProjectPlatform;
 
 public class Project {
 	
 	public String projectOwnerID;
 	public String description, title, location, duration;
 	public Language language;
-	public Platform platform;
+	public ProjectPlatform platform;
 	public boolean remote;
 	
 	public Project() {}
@@ -25,6 +25,6 @@ public class Project {
 		this.location = "San Luis Obispo";
 		this.duration = "5 weeks";
 		this.language = Language.Python;
-		this.platform = Platform.Linux;
+		this.platform = ProjectPlatform.Linux;
 	}
 }

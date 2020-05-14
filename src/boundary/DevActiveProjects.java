@@ -8,6 +8,10 @@ import javafx.scene.layout.BorderPane;
 
 public class DevActiveProjects {
 	
+	public DevActiveProjects() {
+		
+	}
+	
 	static void swapTo(ActionEvent event)
 	{
 		try {
