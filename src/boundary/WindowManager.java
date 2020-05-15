@@ -18,6 +18,8 @@ public class WindowManager {
 	public static final String PO_MYPROJECTS_SCREEN = "boundary/POMyProjects.fxml";
 	
 	public static final String SMALL_PROJECT_VIEW = "boundary/SmallProjectView.fxml";
+	public static final String LARGE_PROJECT_VIEW = "boundary/LargeProjectView.fxml";
+	public static final String OFFER_VIEW = "boundary/OfferView.fxml";
 	
 	public static final int WIN_WIDTH = 900;
 	public static final int WIN_HEIGHT = 600;
