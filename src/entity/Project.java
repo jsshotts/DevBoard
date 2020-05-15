@@ -29,6 +29,7 @@ public class Project {
 		this.duration = "5 weeks";
 		this.language = Language.PYTHON;
 		this.platform = ProjectPlatform.LINUX;
+		this.description += ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 	}
 	
 	public String getDescription() {
@@ -45,5 +46,9 @@ public class Project {
 	
 	public String getDuration() {
 		return duration;
+	}
+	
+	public String getPlatform() {
+		return platform.getString();
 	}
 }

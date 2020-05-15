@@ -29,6 +29,6 @@ public class SmallProjectView {
 		description.setText(project.getDescription());
 		duration.setText(project.getDuration());
 		projectLocation.setText(project.getLocation());
-		platform.setText("Android");
+		platform.setText(project.getPlatform());
 	}
 }

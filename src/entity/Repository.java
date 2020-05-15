@@ -27,6 +27,21 @@ public class Repository {
 			Arrays.asList(
 					new Project("IOS App", projectOwners.get(0).getID()),
 					new Project("Android App", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation", projectOwners.get(1).getID()),
+					new Project("Linux Script", projectOwners.get(0).getID()),
+					new Project("Windows Application", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation", projectOwners.get(1).getID()),
+					new Project("IOS App", projectOwners.get(0).getID()),
+					new Project("Linux Script", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation", projectOwners.get(1).getID()),
+					new Project("Windows Application", projectOwners.get(0).getID()),
+					new Project("Android App", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation", projectOwners.get(1).getID()),
+					new Project("Linux Script", projectOwners.get(0).getID()),
+					new Project("Windows Application", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation", projectOwners.get(1).getID()),
+					new Project("IOS App", projectOwners.get(0).getID()),
+					new Project("Windows Application", projectOwners.get(0).getID()),
 					new Project("Warehouse Automation", projectOwners.get(1).getID()))
 			);
 	
