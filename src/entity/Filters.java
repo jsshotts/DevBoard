@@ -3,19 +3,40 @@ package entity;
 public class Filters {
 	
 	public enum Language {
-		PYTHON,
-		JAVA,
-		C,
-		JAVASCRIPT,
-		SWIFT,
-		KOTLIN		
+		PYTHON("Python"),
+		JAVA("Java"),
+		C("C"),
+		CPP("C++"),
+		JAVASCRIPT("JavaScript"),
+		SWIFT("Swift"),
+		KOTLIN("Kotlin");	
+		
+		private String language;
+		
+		Language(String lang) {
+			this.language = lang;
+		}
+		
+		public String getString() {
+			return this.language;
+		}
 	}
 	
 	public enum ProjectPlatform {
-		IOS,
-		ANDROID,
-		WINDOWS,
-		LINUX,
-		MAC
+		IOS("iOS"),
+		ANDROID("Android"),
+		WINDOWS("Windows"),
+		LINUX("Linux"),
+		MAC("Mac");
+		
+		private String projectPlatform;
+		
+		ProjectPlatform(String plat){
+			this.projectPlatform = plat;
+		}
+		
+		public String getString() {
+			return projectPlatform;
+		}
 	}
 }
