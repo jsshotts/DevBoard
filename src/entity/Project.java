@@ -6,7 +6,10 @@ import entity.Filters.ProjectPlatform;
 public class Project {
 	
 	private String projectOwnerID;
-	private String description, title, location, duration;
+	private String description;
+	private String title;
+	private String location;
+	private String duration;
 	private Language language;
 	private ProjectPlatform platform;
 	private boolean remote;
@@ -26,5 +29,21 @@ public class Project {
 		this.duration = "5 weeks";
 		this.language = Language.PYTHON;
 		this.platform = ProjectPlatform.LINUX;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public String getDuration() {
+		return duration;
 	}
 }

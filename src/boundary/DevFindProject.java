@@ -1,8 +1,11 @@
 package boundary;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import controller.FindProjectsController;
+import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +23,7 @@ public class DevFindProject {
 	@FXML
 	private ScrollPane scrollPane;
 	
-	private GridPane gridPane = new GridPane();
+	private GridPane gridPane;
 	
 	@FXML
 	private void initialize() {
@@ -28,7 +31,7 @@ public class DevFindProject {
 		Task<Void> task = new Task<Void>() {
 	        @Override
 	        protected Void call() throws Exception {
-	            initializeGrid();
+	            initializeGrid(getProjects());
 	            return null;
 	        }
 	    };
@@ -41,7 +44,7 @@ public class DevFindProject {
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
-        executorService.shutdown();	
+        executorService.shutdown();
 	}
 	
 	static void swapTo(ActionEvent event)
@@ -51,13 +54,19 @@ public class DevFindProject {
 			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.DEV_FINDPROJ_SCREEN));
 			borderPane.setCenter(switchScreen);
 		}
-		catch(Exception e) {
+		catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
-	private void initializeGrid() {
+	private List<Project> getProjects(){
+		FindProjectsController controller = new FindProjectsController();
+		return controller.getAllProjects();
+	}
+	
+	private void initializeGrid(List<Project> projects) {
 		
+		gridPane = new GridPane();
 		gridPane.addColumn(0);
 		gridPane.addColumn(1);
 		gridPane.addColumn(2);
@@ -66,8 +75,12 @@ public class DevFindProject {
 		
 		try {	
 			
-			for(int i = 0; i < 50; i++) {
-				Node projectCard = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
+			for(int i = 0; i < projects.size(); i++) {
+				
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
+				Node projectCard = fxmlLoader.load();
+				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
+				smallProjectView.populate(projects.get(i));
 				gridPane.add(projectCard, (i%2)*2+1,i/2);
 			}
 			
