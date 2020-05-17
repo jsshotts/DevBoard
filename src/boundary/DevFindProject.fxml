@@ -115,7 +115,10 @@
             <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="412.0" prefWidth="746.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets />
-               </VBox.margin></ScrollPane>
+               </VBox.margin>
+               <padding>
+                  <Insets top="20.0" />
+               </padding></ScrollPane>
          </children>
       </VBox>
    </children>
