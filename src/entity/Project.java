@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Random;
+
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 
@@ -30,6 +32,7 @@ public class Project {
 		this.language = Language.PYTHON;
 		this.platform = ProjectPlatform.LINUX;
 		this.description += ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+		this.remote = new Random().nextInt() % 2 == 0;
 	}
 	
 	public String getDescription() {
@@ -50,5 +53,12 @@ public class Project {
 	
 	public String getPlatform() {
 		return platform.getString();
+	}
+	
+	public String getRemote() {
+		if(remote) {
+			return "Yes";
+		}
+		return "No";
 	}
 }
