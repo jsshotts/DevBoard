@@ -26,26 +26,82 @@
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                 <content>
-                                  <CheckBox focusTraversable="false" text="Click Me" />
+                                  <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Python" />
                                 </content>
                               </CustomMenuItem>
-                              <CheckMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Java" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="C" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="C++" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Swift" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Kotlin" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Javascript" />
+                                 </content>
+                              </CustomMenuItem>
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Platform" />
-                        <Menu mnemonicParsing="false" text="Duration">
+                        <Menu mnemonicParsing="false" text="Platform">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Action 1" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Location">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="Action 1" />
-                           </items>
-                        </Menu>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="iOS" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Android" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Windows" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Linux" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="MacOS" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items></Menu>
+                        <Menu mnemonicParsing="false" text="Duration" />
                         <Menu mnemonicParsing="false" text="Remote">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Action 1" />
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Yes" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
+                                 <content>
+                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="No" />
+                                 </content>
+                              </CustomMenuItem>
                            </items>
                         </Menu>
                      </menus>
