@@ -30,5 +30,6 @@ public class SmallProjectView {
 		duration.setText(project.getDuration());
 		projectLocation.setText(project.getLocation());
 		platform.setText(project.getPlatform());
+		remote.setText(project.getRemote());
 	}
 }
