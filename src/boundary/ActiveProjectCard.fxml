@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="419.0" prefWidth="1401.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="419.0" prefWidth="1401.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ActiveProjectCard">
    <children>
       <ImageView fitHeight="85.0" fitWidth="107.0" layoutX="217.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +23,7 @@
             <Font size="16.0" />
          </font></Text>
       <Button layoutX="266.0" layoutY="329.0" mnemonicParsing="false" text="Project Requirements" />
-      <Button layoutX="558.0" layoutY="343.0" mnemonicParsing="false" text="Message Project Owner" />
+      <Button fx:id="messageButton" layoutX="558.0" layoutY="343.0" mnemonicParsing="false" text="Message Project Owner" />
       <Label alignment="TOP_LEFT" layoutX="103.0" layoutY="148.0" prefHeight="175.0" prefWidth="715.0" text="Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself." wrapText="true">
          <font>
             <Font size="15.0" />

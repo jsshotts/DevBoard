@@ -52,8 +52,6 @@ public class DevActiveProjects {
 				Node projectCard = fxmlLoader.load();
 				vbox.getChildren().add(projectCard);
 			}
-			System.out.println(vbox.getChildren());
-			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
