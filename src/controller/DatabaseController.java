@@ -20,10 +20,6 @@ public class DatabaseController {
 	
 	private Repository repo = new Repository();
 	
-	public DatabaseController() {
-		test();
-	}
-	
 	public List<Project> getAllProjects(){
 		return repo.projects;
 	}
@@ -34,19 +30,12 @@ public class DatabaseController {
 	
 	public List<ProjectOwner> getAllProjectOwners(){
 		return repo.projectOwners;
-	}	
-	
-	public void test() { 
-		Gson gson = new Gson();
-		//gson.toJson(new Project())
-		System.out.println("in test");
 	}
 
-    public static void sendGET(String GET_URL) throws IOException {
-		URL obj = new URL(GET_URL);
+    public static void sendGET(String url) throws IOException {
+		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-		//con.setRequestMethod("GET");
-		//con.setRequestProperty("User-Agent", USER_AGENT);
+		con.setRequestMethod("GET");
 		int responseCode = con.getResponseCode();
 		
 		System.out.println("GET Response Code :: " + responseCode);
@@ -54,7 +43,7 @@ public class DatabaseController {
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 					con.getInputStream()));
 			String inputLine;
-			StringBuffer response = new StringBuffer();
+			StringBuilder response = new StringBuilder();
 
 			while ((inputLine = in.readLine()) != null) {
 				response.append(inputLine);
@@ -66,39 +55,100 @@ public class DatabaseController {
 		} else {
 			System.out.println("GET request not worked");
 		}
-
 	}
-//    private static void sendPOST(String POST_URL) throws IOException {
-//		URL obj = new URL(POST_URL);
-//		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//		con.setRequestMethod("POST");
-//
-//		// For POST only - START
-//		con.setDoOutput(true);
-//		OutputStream os = con.getOutputStream();
-//		os.write(POST_PARAMS.getBytes());
-//		os.flush();
-//		os.close();
-//		// For POST only - END
-//
-//		int responseCode = con.getResponseCode();
-//		System.out.println("POST Response Code :: " + responseCode);
-//
-//		if (responseCode == HttpURLConnection.HTTP_OK) { //success
-//			BufferedReader in = new BufferedReader(new InputStreamReader(
-//					con.getInputStream()));
-//			String inputLine;
-//			StringBuffer response = new StringBuffer();
-//
-//			while ((inputLine = in.readLine()) != null) {
-//				response.append(inputLine);
-//			}
-//			in.close();
-//
-//			// print result
-//			System.out.println(response.toString());
-//		} else {
-//			System.out.println("POST request not worked");
-//		}
-//	}
+    
+    public static void sendDELETE(String url) throws IOException {
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		con.setRequestMethod("DELETE");
+		int responseCode = con.getResponseCode();
+		
+		System.out.println("GET Response Code :: " + responseCode);
+		if (responseCode == HttpURLConnection.HTTP_OK) { // success
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+			String inputLine;
+			StringBuilder response = new StringBuilder();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// print result
+			System.out.println(response.toString());
+		} else {
+			System.out.println("GET request not worked");
+		}
+	}
+    
+    public static void sendPATCH(String url) throws IOException {
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		con.setRequestProperty("X-HTTP-Method-Override", "PATCH");
+
+		// For POST only - START
+		con.setDoOutput(true);
+		OutputStream os = con.getOutputStream();
+		Gson gson = new Gson();
+		os.write(gson.toJson(new Project("a", "asdg")).getBytes());
+		os.flush();
+		os.close();
+		// For POST only - END
+
+		int responseCode = con.getResponseCode();
+		System.out.println("POST Response Code :: " + responseCode);
+
+		if (responseCode == HttpURLConnection.HTTP_OK) { //success
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+			String inputLine;
+			StringBuilder response = new StringBuilder();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// print result
+			System.out.println(response.toString());
+		} else {
+			System.out.println("POST request not worked");
+		}
+	}
+    
+    public static void sendPUT(String url) throws IOException {
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		con.setRequestProperty("X-HTTP-Method-Override", "PUT");
+
+		// For POST only - START
+		con.setDoOutput(true);
+		OutputStream os = con.getOutputStream();
+		Gson gson = new Gson();
+		os.write(gson.toJson(new Project("THIS IS A PUT", "REALLY THIS WAS A PUT")).getBytes());
+		os.flush();
+		os.close();
+		// For POST only - END
+
+		int responseCode = con.getResponseCode();
+		System.out.println("POST Response Code :: " + responseCode);
+
+		if (responseCode == HttpURLConnection.HTTP_OK) { //success
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+			String inputLine;
+			StringBuilder response = new StringBuilder();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// print result
+			System.out.println(response.toString());
+		} else {
+			System.out.println("POST request not worked");
+		}
+	}
 }

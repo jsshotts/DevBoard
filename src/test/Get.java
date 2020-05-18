@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.junit.Test;
 import controller.DatabaseController;
 
-public class Http {
+public class Get {
 
 	@Test
 	public void testGet() {
@@ -17,4 +17,5 @@ public class Http {
 			e.printStackTrace();
 		}
 	}
+
 }
