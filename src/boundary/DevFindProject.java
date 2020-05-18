@@ -40,6 +40,7 @@ public class DevFindProject {
         	 scrollPane.setContent(gridPane);
  			 gridPane.prefWidthProperty().bind(scrollPane.widthProperty());
  			 scrollPane.setFitToHeight(true);
+ 			 scrollPane.setFitToWidth(true);
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
