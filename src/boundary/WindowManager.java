@@ -14,6 +14,7 @@ public class WindowManager {
 	public static final String DEV_PROFILE_SCREEN = "boundary/DevProfile.fxml";
 	public static final String DEV_ACTIVEPROJ_SCREEN = "boundary/DevActiveProjects.fxml";
 	public static final String DEV_MYAPPLICATIONS_SCREEN = "boundary/DevMyApplications.fxml";
+	public static final String PO_PROFILE_SCREEN = "boundary/POProfile.fxml";
 	
 	public static final String PO_NAVBAR_VIEW = "boundary/PONavBar.fxml";
 	public static final String PO_POSTPROJ_SCREEN = "boundary/POPostProject.fxml";

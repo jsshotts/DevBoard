@@ -39,5 +39,8 @@ public class PONavBar {
 		if (event.getSource() == myProjectsButton) {
 			POMyProjects.swapTo(event);
 		}
+		if (event.getSource() == profileButton) {
+			POProfile.swapTo(event);
+		}
 	}
 }
