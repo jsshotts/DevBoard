@@ -52,7 +52,7 @@ public class HttpGet {
 	@Test
 	public void testGetEmail() {
 		System.out.println("\nA user based on Email:");
-		System.out.println(controller.getOne(Developer.class, "email", "te1@gmail.com").toString());
+		System.out.println(controller.getAll(DatabaseController.DEVELOPER_TYPE, "email", "test1@gmail.com").toString());
 	}
 	
 }

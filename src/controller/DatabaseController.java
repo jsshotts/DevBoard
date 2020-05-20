@@ -50,9 +50,9 @@ public class DatabaseController {
 		if (type.equals(PROJECT_TYPE))
 			target = PROJECTS;
 		if (type.equals(DEVELOPER_TYPE))
-			target = PROJECTOWNERS;
-		if (type.equals(PROJECTOWNER_TYPE))
 			target = DEVELOPERS;
+		if (type.equals(PROJECTOWNER_TYPE))
+			target = PROJECTOWNERS;
 		
 		String url = BASEURL + target + JSON;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
@@ -70,13 +70,12 @@ public class DatabaseController {
 		if (type.equals(PROJECT_TYPE))
 			target = PROJECTS;
 		if (type.equals(DEVELOPER_TYPE))
-			target = PROJECTOWNERS;
-		if (type.equals(PROJECTOWNER_TYPE))
 			target = DEVELOPERS;
+		if (type.equals(PROJECTOWNER_TYPE))
+			target = PROJECTOWNERS;
 		
 		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
-		
 		if (responseStr == null)
 		{
 			return Collections.emptyMap();
