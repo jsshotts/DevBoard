@@ -114,7 +114,7 @@ public class DatabaseController {
 		if (cls.equals(Developer.class))
 			result = this.getAll(DEVELOPER_TYPE, key, value);
 		
-		if (result == null)
+		if (result == null || result.isEmpty())
 			return null;
 		
 		return cls.cast(result.values().iterator().next());
