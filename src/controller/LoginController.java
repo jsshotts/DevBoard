@@ -19,7 +19,7 @@ public class LoginController {
 			if(dev != null) {
 				System.out.println("Logged In! as: " + dev.getName());
 				SessionController session = SessionController.getInstance();
-				session.setUser(new Developer("John", "Python"));
+				session.setUser(dev);
 			}
 		}
 	}
