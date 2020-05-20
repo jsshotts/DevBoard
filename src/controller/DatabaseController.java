@@ -108,11 +108,11 @@ public class DatabaseController {
 	{
 		Map<UUID, T> result = null;
 		if (cls.equals(Project.class))
-			result = this.getAll(PROJECT_TYPE);
+			result = this.getAll(PROJECT_TYPE, key, value);
 		if (cls.equals(ProjectOwner.class))
-			result = this.getAll(PROJECTOWNER_TYPE);
+			result = this.getAll(PROJECTOWNER_TYPE, key, value);
 		if (cls.equals(Developer.class))
-			result = this.getAll(DEVELOPER_TYPE);
+			result = this.getAll(DEVELOPER_TYPE, key, value);
 		
 		if (result == null)
 			return null;
