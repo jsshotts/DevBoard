@@ -54,8 +54,7 @@ public class DatabaseController {
 		if (responseStr == null)
 		{
 			return Collections.emptyMap();
-		}
-		
+		}		
 		return gson.fromJson(responseStr, type);
 	}
 	
