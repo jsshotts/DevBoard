@@ -49,4 +49,10 @@ public class HttpGet {
 		System.out.println(controller.getOne(UUID.fromString("7758627d-3f6d-4fd1-9464-33172ea4cac7"), ProjectOwner.class).toString());
 	}
 	
+	@Test
+	public void testGetEmail() {
+		System.out.println("\nA user based on Email:");
+		System.out.println(controller.getOne(Developer.class, "email", "test1@gmail.com").toString());
+	}
+	
 }

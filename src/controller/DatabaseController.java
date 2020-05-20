@@ -25,12 +25,17 @@ public class DatabaseController {
 	
 	private static final Gson gson = new Gson();
 	
+	
 	private static final String REQUESTPROPERTY = "X-HTTP-Method-Override";
 	private static final String BASEURL = "https://devboard-b0a1d.firebaseio.com/";
 	private static final String PROJECTS = "Projects/";
 	private static final String DEVELOPERS = "Users/Developers/";
 	private static final String PROJECTOWNERS = "Users/ProjectOwners/";
 	private static final String JSON = ".json";
+	
+	private static final String ORDERBY_STRING = "?orderBy=\"";
+	private static final String EQUALTO_STRING = "\"&equalTo=\"";
+	private static final String QUOTE = "\"";
 	
 	public static final Type PROJECT_TYPE = new TypeToken<Map<UUID, Project>>(){}.getType();
 	public static final Type DEVELOPER_TYPE = new TypeToken<Map<UUID, Developer>>(){}.getType();
@@ -58,6 +63,27 @@ public class DatabaseController {
 		return gson.fromJson(responseStr, type);
 	}
 	
+	public <T> Map<UUID, T> getAll(Type type, String key, String value)
+	{
+		String target = null;
+		if (type.equals(PROJECT_TYPE))
+			target = PROJECTS;
+		if (type.equals(DEVELOPER_TYPE))
+			target = PROJECTOWNERS;
+		if (type.equals(PROJECTOWNER_TYPE))
+			target = DEVELOPERS;
+		
+		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
+		String responseStr = sendHttpRequest(url, RequestType.GET);
+		
+		if (responseStr == null)
+		{
+			return Collections.emptyMap();
+		}
+		
+		return gson.fromJson(responseStr, type);
+	}
+	
 	public <T> T getOne(UUID id, Class<T> cls)
 	{
 		String target = null;
@@ -69,6 +95,27 @@ public class DatabaseController {
 			target = DEVELOPERS;
 		
 		String url = BASEURL + target + id + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.GET);
+		
+		if (responseStr == null)
+		{
+			return null;
+		}
+		return gson.fromJson(responseStr, cls);
+	}
+	
+	public <T> T getOne(Class<T> cls, String key, String value)
+	{
+		String target = null;
+		if (cls.equals(Project.class))
+			target = PROJECTS;
+		if (cls.equals(ProjectOwner.class))
+			target = PROJECTOWNERS;
+		if (cls.equals(Developer.class))
+			target = DEVELOPERS;
+		
+		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
+		System.out.println(url);
 		String responseStr = sendHttpRequest(url, RequestType.GET);
 		
 		if (responseStr == null)
