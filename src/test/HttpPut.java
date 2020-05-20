@@ -23,12 +23,16 @@ public class HttpPut {
 	@Test
 	public void testPutDev() {
 		System.out.println("\n New Developer:");
-		System.out.println(controller.pushNew(new Developer("John", "Let's get this bread.")));
+		Developer dev = new Developer("John", "Let's get this bread.");
+		dev.setEmail("test1@gmail.com");
+		System.out.println(controller.pushNew(dev));
 	}
 	
 	@Test
 	public void testPutPO() {
 		System.out.println("\n New Project Owner:");
-		System.out.println(controller.pushNew(new ProjectOwner("Mary", "Super Project")));
+		ProjectOwner po = new ProjectOwner("Mary", "Super Project");
+		po.setEmail("test2@gmail.com");
+		System.out.println(controller.pushNew(po));
 	}
 }
