@@ -8,6 +8,7 @@ import entity.Filters.ProjectPlatform;
 
 public class Project {
 	
+	private UUID id;
 	private UUID projectOwnerID;
 	private String description;
 	private String title;
@@ -22,6 +23,7 @@ public class Project {
 	public Project(String description, UUID poID) {
 		this.description = description;
 		this.projectOwnerID = poID;
+		this.id = UUID.randomUUID();
 		//for now, set dummy data for testing
 		this.setTestData();
 	}
@@ -61,5 +63,9 @@ public class Project {
 			return "Yes";
 		}
 		return "No";
+	}
+	
+	public UUID getID() {
+		return this.id;
 	}
 }

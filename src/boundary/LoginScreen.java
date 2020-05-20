@@ -4,6 +4,7 @@ import controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 
 /* This class manages the login screen, and is associated with Login.fxml
@@ -19,6 +20,9 @@ public class LoginScreen {
 	@FXML
 	public Button projectOwnerLogin;
 	
+	@FXML
+	private TextField usernameInput;
+	
 	private LoginController loginController = new LoginController();
 	
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
@@ -27,12 +31,12 @@ public class LoginScreen {
 	public void login(ActionEvent event){
 
 		if(event.getSource() == devLogin){
-			loginController.loginDeveloper();
+			loginController.loginDeveloper(usernameInput.getText());
 			DevNavBar.swapTo(event);
 			DevFindProject.swapTo(event);
 		}
 		else {
-			loginController.loginProjectOwner();
+			loginController.loginProjectOwner(usernameInput.getText());
 			PONavBar.swapTo(event);
 			POPostProject.swapTo(event);
 		}	

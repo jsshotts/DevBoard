@@ -127,7 +127,7 @@ public class DatabaseController {
 
 	public UUID pushNew(Project project)
 	{
-		UUID projectId = UUID.randomUUID();
+		UUID projectId = project.getID();
 		String url = BASEURL + PROJECTS + projectId + JSON;
 		return sendHttpRequest(url, RequestType.PUT, project) == null ? null : projectId;
 	}

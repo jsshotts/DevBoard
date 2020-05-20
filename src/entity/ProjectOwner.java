@@ -8,7 +8,12 @@ public class ProjectOwner extends User{
 	private List<Project> projects;
 	
 	public ProjectOwner(String name, String bio) {
-		super(name,  bio);
+		super(name,  bio, null);
+		projects = new LinkedList<>();
+	}
+	
+	public ProjectOwner(String name, String bio, String email) {
+		super(name,  bio, email);
 		projects = new LinkedList<>();
 	}
 	

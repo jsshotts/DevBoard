@@ -9,10 +9,11 @@ public abstract class User {
 	private String bio;
 	private String email;
 
-	public User(String name, String bio){
+	public User(String name, String bio, String email){
 		this.id = UUID.randomUUID();
 		this.name = name;
 		this.bio = bio;
+		this.email = email;
 	}
 	
 	public UUID getID() {

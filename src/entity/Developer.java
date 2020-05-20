@@ -12,7 +12,11 @@ public class Developer extends User {
 	private List<String> experience;
 	
 	public Developer(String name, String bio) {
-		super(name,  bio);
+		super(name,  bio, null);
+	}
+	
+	public Developer(String name, String bio, String email) {
+		super(name,  bio, email);
 	}
 	
 	public void addLanguage(Language lang) {
