@@ -106,22 +106,18 @@ public class DatabaseController {
 	
 	public <T> T getOne(Class<T> cls, String key, String value)
 	{
-		String target = null;
+		Map<UUID, T> result = null;
 		if (cls.equals(Project.class))
-			target = PROJECTS;
+			result = this.getAll(PROJECT_TYPE);
 		if (cls.equals(ProjectOwner.class))
-			target = PROJECTOWNERS;
+			result = this.getAll(PROJECTOWNER_TYPE);
 		if (cls.equals(Developer.class))
-			target = DEVELOPERS;
+			result = this.getAll(DEVELOPER_TYPE);
 		
-		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
-		System.out.println(url);
-		String responseStr = sendHttpRequest(url, RequestType.GET);
-		if (responseStr == null)
-		{
+		if (result.values() == null)
 			return null;
-		}
-		return gson.fromJson(responseStr, cls);
+		
+		return cls.cast(result.values().iterator().next());
 	}
 
 	public UUID pushNew(Project project)
