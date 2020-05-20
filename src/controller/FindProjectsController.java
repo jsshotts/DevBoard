@@ -10,6 +10,7 @@ public class FindProjectsController{
 	private DatabaseController database = new DatabaseController();
 	
 	public Map<UUID, Project> getAllProjects(){
-		return database.getAllProjects();
+		return database.getAll(DatabaseController.PROJECT_TYPE);
 	}
+	
 }

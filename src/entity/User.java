@@ -4,17 +4,17 @@ import java.util.UUID;
 
 public abstract class User {
 	
-	private String id;
+	private UUID id;
 	private String name;
 	private String bio;
 
 	public User(String name, String bio){
-		this.id = UUID.randomUUID().toString();
+		this.id = UUID.randomUUID();
 		this.name = name;
 		this.bio = bio;
 	}
 	
-	public String getID() {
+	public UUID getID() {
 		return this.id;
 	}
 }

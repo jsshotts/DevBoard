@@ -1,13 +1,14 @@
 package controller;
 
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
 import entity.Developer;
 import entity.Project;
 import entity.ProjectOwner;
-import entity.Repository;
+import entity.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,41 +23,83 @@ import com.google.gson.reflect.TypeToken;
 
 public class DatabaseController {
 	
-	private final Gson gson = new Gson();
-	private Repository repo = new Repository();
+	private static final Gson gson = new Gson();
+	
 	private static final String REQUESTPROPERTY = "X-HTTP-Method-Override";
-	private final String BASEURL = "https://devboard-b0a1d.firebaseio.com/";
-	public enum RequestType { GET, DELETE, PUT, PATCH }
+	private static final String BASEURL = "https://devboard-b0a1d.firebaseio.com/";
+	private static final String PROJECTS = "Projects/";
+	private static final String DEVELOPERS = "Users/Developers/";
+	private static final String PROJECTOWNERS = "Users/ProjectOwners/";
+	private static final String JSON = ".json";
 	
-	public List<Developer> getAllDevelopers() {
-		return repo.developers;
-	}
+	public static final Type PROJECT_TYPE = new TypeToken<Map<UUID, Project>>(){}.getType();
+	public static final Type DEVELOPER_TYPE = new TypeToken<Map<UUID, Developer>>(){}.getType();
+	public static final Type PROJECTOWNER_TYPE = new TypeToken<Map<UUID, ProjectOwner>>(){}.getType();
 	
-	public List<ProjectOwner> getAllProjectOwners(){
-		return repo.projectOwners;
-	}
+	private enum RequestType { GET, DELETE, PUT, PATCH }
 	
-	public Map<UUID, Project> getAllProjects()
+	public <T> Map<UUID, T> getAll(Type type)
 	{
-		String responseStr = sendHttpRequest(BASEURL + "Projects.json", RequestType.GET);
-		Type type = new TypeToken<Map<UUID, Project>>(){}.getType();
+		String target = null;
+		if (type.equals(PROJECT_TYPE))
+			target = PROJECTS;
+		if (type.equals(DEVELOPER_TYPE))
+			target = PROJECTOWNERS;
+		if (type.equals(PROJECTOWNER_TYPE))
+			target = DEVELOPERS;
+		
+		String url = BASEURL + target + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.GET);
+		
+		if (responseStr == null)
+		{
+			return Collections.emptyMap();
+		}
+		
 		return gson.fromJson(responseStr, type);
 	}
 	
-	public Project getProject(UUID projectId)
+	public <T> T getOne(UUID id, Class<T> cls)
 	{
-		String responseStr = sendHttpRequest(BASEURL + "Projects/" + projectId + ".json", RequestType.GET);
-		return gson.fromJson(responseStr, Project.class);
+		String target = null;
+		if (cls.equals(Project.class))
+			target = PROJECTS;
+		if (cls.equals(ProjectOwner.class))
+			target = PROJECTOWNERS;
+		if (cls.equals(Developer.class))
+			target = DEVELOPERS;
+		
+		String url = BASEURL + target + id + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.GET);
+		
+		if (responseStr == null)
+		{
+			return null;
+		}
+		return gson.fromJson(responseStr, cls);
 	}
-	
-	public UUID createProject(Project project)
+
+	public UUID pushNew(Project project)
 	{
 		UUID projectId = UUID.randomUUID();
-		sendHttpRequest(BASEURL + "Projects/" + projectId + ".json", RequestType.PUT, project);
-		return projectId;
+		String url = BASEURL + PROJECTS + projectId + JSON;
+		return sendHttpRequest(url, RequestType.PUT, project) == null ? null : projectId;
 	}
 	
-	private String sendHttpRequest(String url, RequestType type){
+	public UUID pushNew(User user)
+	{
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
+		
+		String url = BASEURL + target + user.getID() + JSON;
+		return sendHttpRequest(url, RequestType.PUT, user) == null ? null : user.getID();
+	}
+	
+	private String sendHttpRequest(String url, RequestType type)
+	{
 		try
 		{
 			URL target = new URL(url);
@@ -65,11 +108,12 @@ public class DatabaseController {
 			return getJsonStrResponse(con);
 		} catch (IOException e) {
 			e.printStackTrace();
-			return "Http Request Broke";
+			return null;
 		}
 	}
 	
-	private String sendHttpRequest(String url, RequestType type, Object obj) {
+	private String sendHttpRequest(String url, RequestType type, Object obj) 
+	{
 		try
 		{
 			URL target = new URL(url);
@@ -85,12 +129,12 @@ public class DatabaseController {
 			return getJsonStrResponse(con);
 		} catch (IOException e) {
 			e.printStackTrace();
-			return "Http Request Broke";
+			return null;
 		}
 	}
 	
-	private String getJsonStrResponse(HttpURLConnection con) throws IOException{
-		
+	private String getJsonStrResponse(HttpURLConnection con) throws IOException
+	{	
 		int responseCode = con.getResponseCode();
 		if (responseCode == HttpURLConnection.HTTP_OK) {
 			String inputLine;

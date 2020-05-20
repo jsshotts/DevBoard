@@ -1,13 +1,14 @@
 package entity;
 
 import java.util.Random;
+import java.util.UUID;
 
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 
 public class Project {
 	
-	private String projectOwnerID;
+	private UUID projectOwnerID;
 	private String description;
 	private String title;
 	private String location;
@@ -18,7 +19,7 @@ public class Project {
 	
 	public Project() {}
 	
-	public Project(String description, String poID) {
+	public Project(String description, UUID poID) {
 		this.description = description;
 		this.projectOwnerID = poID;
 		//for now, set dummy data for testing
