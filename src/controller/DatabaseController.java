@@ -36,6 +36,7 @@ public class DatabaseController {
 	private static final String ORDERBY_STRING = "?orderBy=\"";
 	private static final String EQUALTO_STRING = "\"&equalTo=\"";
 	private static final String QUOTE = "\"";
+	private static final String EMPTYRESPONSE = "{}";
 	
 	public static final Type PROJECT_TYPE = new TypeToken<Map<UUID, Project>>(){}.getType();
 	public static final Type DEVELOPER_TYPE = new TypeToken<Map<UUID, Developer>>(){}.getType();
@@ -117,7 +118,6 @@ public class DatabaseController {
 		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
 		System.out.println(url);
 		String responseStr = sendHttpRequest(url, RequestType.GET);
-		
 		if (responseStr == null)
 		{
 			return null;
@@ -192,6 +192,8 @@ public class DatabaseController {
 			}
 			
 			in.close();
+			if (response.toString().equals(EMPTYRESPONSE)) 
+				return null;
 			return response.toString();
 		}
 		throw new IOException("Http request failed with reponse code: " + responseCode);
