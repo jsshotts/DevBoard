@@ -22,7 +22,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="iOS">
+            <Label fx:id="platform" text="iOS">
                <font>
                   <Font size="13.0" />
                </font>
@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="San Luis Obispo">
+            <Label fx:id="projectLocation" text="San Luis Obispo">
                <font>
                   <Font size="13.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="6 Weeks">
+            <Label fx:id="duration" text="6 Weeks">
                <font>
                   <Font size="13.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Yes">
+            <Label fx:id="remote" text="Yes">
                <font>
                   <Font size="13.0" />
                </font>
@@ -122,12 +122,12 @@
             <DatePicker prefHeight="0.0" prefWidth="180.0" />
          </children>
       </VBox>
-      <Label layoutX="22.0" layoutY="68.0" text="Project Headline">
+      <Label fx:id="headline" layoutX="22.0" layoutY="68.0" text="Project Headline">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="152.0" prefHeight="55.0" prefWidth="632.0" text="This is a short descriptive of a project. For instance: Our startup needs a mobile app prototype so we can test our idea with customers." wrapText="true">
+      <Label fx:id="description" layoutX="22.0" layoutY="152.0" prefHeight="55.0" prefWidth="632.0" text="This is a short descriptive of a project. For instance: Our startup needs a mobile app prototype so we can test our idea with customers." wrapText="true">
          <font>
             <Font size="13.0" />
          </font>

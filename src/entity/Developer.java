@@ -2,13 +2,14 @@ package entity;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import entity.Filters.Language;
 
 public class Developer extends User {
 	
 	private List<Language> languages;
-	
+	private List<UUID> appliedProjectsIDs;
 	private List<String> experience;
 	
 	public Developer(String name, String bio) {

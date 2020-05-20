@@ -4,6 +4,8 @@ import java.util.concurrent.ExecutorService;
 
 import java.util.concurrent.Executors;
 
+import controller.Log;
+import java.util.logging.Level;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +53,7 @@ public class DevActiveProjects {
 			}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
@@ -63,7 +65,7 @@ public class DevActiveProjects {
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 }

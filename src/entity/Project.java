@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ public class Project {
 	
 	private UUID id;
 	private UUID projectOwnerID;
+	private List<UUID> appliedDeveloperIDs;
 	private String description;
 	private String title;
 	private String location;

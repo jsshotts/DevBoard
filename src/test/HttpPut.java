@@ -3,9 +3,11 @@ package test;
 import static org.junit.Assert.*;
 
 import java.util.UUID;
+import java.util.logging.Level;
 
 import org.junit.Test;
 import controller.DatabaseController;
+import controller.Log;
 import entity.Developer;
 import entity.Project;
 import entity.ProjectOwner;
@@ -16,23 +18,23 @@ public class HttpPut {
 	
 	@Test
 	public void testPutProject() {
-		System.out.println("\n New Project:");
-		System.out.println(controller.pushNew(new Project("Rick", UUID.randomUUID())));
+		Log.logger.log(Level.INFO, "\n New Project:");
+		Log.logger.log(Level.INFO, () -> controller.pushNew(new Project("Rick", UUID.randomUUID())).toString());
 	}
 	
 	@Test
 	public void testPutDev() {
-		System.out.println("\n New Developer:");
+		Log.logger.log(Level.INFO, "\n New Developer:");
 		Developer dev = new Developer("John", "Let's get this bread.");
 		dev.setEmail("test1@gmail.com");
-		System.out.println(controller.pushNew(dev));
+		Log.logger.log(Level.INFO, () -> controller.pushNew(dev).toString());
 	}
 	
 	@Test
 	public void testPutPO() {
-		System.out.println("\n New Project Owner:");
+		Log.logger.log(Level.INFO, "\n New Project Owner:");
 		ProjectOwner po = new ProjectOwner("Mary", "Super Project");
 		po.setEmail("test2@gmail.com");
-		System.out.println(controller.pushNew(po));
+		Log.logger.log(Level.INFO, () -> controller.pushNew(po).toString());
 	}
 }

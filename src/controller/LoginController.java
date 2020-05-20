@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.logging.Level;
+
 import entity.Developer;
 import entity.ProjectOwner;
 
@@ -11,7 +13,7 @@ public class LoginController {
 
 		Developer dev = database.getOne(Developer.class, "email", email);
 		if(dev != null) {
-			System.out.println("Logged In! as: " + dev.getName());
+			Log.logger.log(Level.INFO, () -> "Logged In! as: " + dev.getName());
 			SessionController session = SessionController.getInstance();
 			session.setUser(dev);
 		}

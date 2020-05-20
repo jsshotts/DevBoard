@@ -1,6 +1,9 @@
 package application;
 	
+import java.util.logging.Level;
+
 import boundary.WindowManager;
+import controller.Log;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -8,7 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
+
+
 public class Main extends Application {
+
 	
 	@Override
 	public void start(Stage primaryStage){
@@ -23,11 +29,12 @@ public class Main extends Application {
 			primaryStage.show();
 			
 		}catch(Exception e){
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
 	public static void main(String[] args) {
+		Log.initLogger();
 		launch(args);
 	}
 }

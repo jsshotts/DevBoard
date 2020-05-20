@@ -3,6 +3,7 @@ package controller;
 import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Level;
 
 import entity.Developer;
 import entity.Project;
@@ -24,7 +25,6 @@ import com.google.gson.reflect.TypeToken;
 public class DatabaseController {
 	
 	private static final Gson gson = new Gson();
-	
 	
 	private static final String REQUESTPROPERTY = "X-HTTP-Method-Override";
 	private static final String BASEURL = "https://devboard-b0a1d.firebaseio.com/";
@@ -148,7 +148,7 @@ public class DatabaseController {
 			con.setRequestProperty(REQUESTPROPERTY, type.toString());
 			return getJsonStrResponse(con);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 			return null;
 		}
 	}
@@ -169,7 +169,7 @@ public class DatabaseController {
 	
 			return getJsonStrResponse(con);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 			return null;
 		}
 	}

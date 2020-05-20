@@ -27,9 +27,6 @@ public class SessionController {
 	}
 	
 	public boolean isDeveloper() {
-		if(user instanceof Developer) {
-			return true;
-		}
-		return false;
+		return user instanceof Developer;
 	}
 }
