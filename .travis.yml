@@ -7,5 +7,4 @@ addons:
     organization: jsshotts
     token: f4eae9519e82c5cd360870a8b66594e92c048f2a
 script:
-- ant build
 - sonar-scanner
