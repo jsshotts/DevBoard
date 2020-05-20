@@ -34,19 +34,19 @@ public class HttpGet {
 	@Test
 	public void testGetProject() {
 		System.out.println("\nA single project:");
-		System.out.println(controller.getOne(UUID.fromString("d2e507a3-4314-4b27-9930-4bf2fa106553"), Project.class).toString());
+		System.out.println(controller.getOne(Project.class, UUID.fromString("d2e507a3-4314-4b27-9930-4bf2fa106553")).toString());
 	}
 	
 	@Test
 	public void testGetDeveloper() {
 		System.out.println("\nA single Developer:");
-		System.out.println(controller.getOne(UUID.fromString("71711750-9eb8-4548-8e15-1f22fae0e5b9"), Developer.class).toString());
+		System.out.println(controller.getOne(Developer.class, UUID.fromString("71711750-9eb8-4548-8e15-1f22fae0e5b9")).toString());
 	}
 	
 	@Test
 	public void testGetProjectOwner() {
 		System.out.println("\nA single projectOwner:");
-		System.out.println(controller.getOne(UUID.fromString("7758627d-3f6d-4fd1-9464-33172ea4cac7"), ProjectOwner.class).toString());
+		System.out.println(controller.getOne(ProjectOwner.class, UUID.fromString("7758627d-3f6d-4fd1-9464-33172ea4cac7")).toString());
 	}
 	
 	@Test

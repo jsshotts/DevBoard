@@ -84,7 +84,7 @@ public class DatabaseController {
 		return gson.fromJson(responseStr, type);
 	}
 	
-	public <T> T getOne(UUID id, Class<T> cls)
+	public <T> T getOne(Class<T> cls, UUID id)
 	{
 		String target = null;
 		if (cls.equals(Project.class))
