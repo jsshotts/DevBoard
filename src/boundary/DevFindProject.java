@@ -1,6 +1,8 @@
 package boundary;
 
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -60,12 +62,12 @@ public class DevFindProject {
 		}
 	}
 	
-	private List<Project> getProjects(){
+	private Map<UUID, Project> getProjects(){
 		FindProjectsController controller = new FindProjectsController();
 		return controller.getAllProjects();
 	}
 	
-	private void initializeGrid(List<Project> projects) {
+	private void initializeGrid(Map<UUID, Project> projects) {
 		
 		gridPane = new GridPane();
 		gridPane.addColumn(0);
@@ -75,14 +77,15 @@ public class DevFindProject {
 		gridPane.addColumn(4);
 		
 		try {	
-			
-			for(int i = 0; i < projects.size(); i++) {
+			int i = 0;
+			for(Project p : projects.values()) {
 				
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
 				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
-				smallProjectView.populate(projects.get(i));
+				smallProjectView.populate(p);
 				gridPane.add(projectCard, (i%2)*2+1,i/2);
+				i++;
 			}
 			
 			gridPane.setHgap(100);
