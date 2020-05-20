@@ -25,13 +25,13 @@
         </Label>
             <Pane layoutX="23.0" prefHeight="319.0" prefWidth="611.0">
                <children>
-                  <TextField layoutX="35.0" layoutY="30.0" text="Project Name" />
-                  <TextField layoutX="221.0" layoutY="30.0" text="Platform" />
-                  <TextField layoutX="400.0" layoutY="81.0" text="Location" />
-                  <TextField layoutX="221.0" layoutY="81.0" text="Language" />
-                  <TextField layoutX="35.0" layoutY="81.0" text="Duration" />
-                  <TextField layoutX="407.0" layoutY="30.0" text="Remote" />
-                  <TextField alignment="TOP_LEFT" layoutX="35.0" layoutY="135.0" prefHeight="170.0" prefWidth="442.0" text="Description" />
+                  <TextField layoutX="35.0" layoutY="30.0" promptText="Project Name" />
+                  <TextField layoutX="221.0" layoutY="30.0" promptText="Platform" />
+                  <TextField layoutX="400.0" layoutY="81.0" promptText="Location" />
+                  <TextField layoutX="221.0" layoutY="81.0" promptText="Language" />
+                  <TextField layoutX="35.0" layoutY="81.0" promptText="Duration" />
+                  <TextField layoutX="407.0" layoutY="30.0" promptText="Remote" />
+                  <TextField alignment="TOP_LEFT" layoutX="35.0" layoutY="135.0" prefHeight="170.0" prefWidth="442.0" promptText="Description" />
                   <Button layoutX="493.0" layoutY="293.0" mnemonicParsing="false" text="Submit project" />
                </children>
             </Pane>
