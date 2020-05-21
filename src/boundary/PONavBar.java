@@ -1,5 +1,8 @@
 package boundary;
 
+import java.util.logging.Level;
+
+import controller.Log;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +21,7 @@ public class PONavBar {
 			borderPane.setTop(switchScreen);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	

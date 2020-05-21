@@ -2,7 +2,9 @@ package boundary;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 
+import controller.Log;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,8 +33,6 @@ public class POMyProjects {
 		};
 		task.setOnSucceeded(succeededEvent -> {
         	 scrollPane.setContent(vbox);
-        	 //vbox.prefHeightProperty().bind(scrollPane.widthProperty());
- 			 //vbox.prefWidthProperty().bind(scrollPane.widthProperty());
  			 scrollPane.setFitToHeight(true);
          });
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -48,7 +48,7 @@ public class POMyProjects {
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
@@ -65,7 +65,7 @@ public class POMyProjects {
 			}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}	
 }

@@ -4,8 +4,10 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 
 import controller.FindProjectsController;
+import controller.Log;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -57,7 +59,7 @@ public class DevFindProject {
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
@@ -102,7 +104,7 @@ public class DevFindProject {
 			gridPane.getColumnConstraints().addAll(column1,column2, column3, column4, column5);
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 }
