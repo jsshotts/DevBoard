@@ -2,7 +2,9 @@ package boundary;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 
+import controller.Log;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,10 +60,10 @@ public class DevMyApplications {
 				Node projectCard = fxmlLoader.load();
 				vbox.getChildren().add(projectCard);
 			}
-			System.out.println(vbox.getChildren());
+			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 		return vbox;
 	}
@@ -74,7 +76,7 @@ public class DevMyApplications {
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 }
