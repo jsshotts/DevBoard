@@ -20,17 +20,20 @@ public class HttpPut {
 	public void testPushRepoDataToFirebase() {
 		Log.logger.log(Level.INFO, "\n Add Repo Projects:");
 		for(Project project : Repository.getProjects()) {
-			Log.logger.log(Level.INFO, () -> controller.pushNew(project).toString());
+			String result = controller.pushNew(project).toString();
+			Log.logger.log(Level.INFO, result);
 		}
 		
 		Log.logger.log(Level.INFO, "\n Add Repo Developers:");
 		for(Developer dev : Repository.getDevelopers()) {
-			Log.logger.log(Level.INFO, () -> controller.pushNew(dev).toString());
+			String result = controller.pushNew(dev).toString();
+			Log.logger.log(Level.INFO, result);
 		}
 		
 		Log.logger.log(Level.INFO, "\n Add Repo Project Owners:");
 		for(ProjectOwner po : Repository.getProjectOwners()) {
-			Log.logger.log(Level.INFO, () -> controller.pushNew(po).toString());
+			String result = controller.pushNew(po).toString();
+			Log.logger.log(Level.INFO, result);
 		}
 	}
 }
