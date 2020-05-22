@@ -10,7 +10,7 @@ public class Developer extends User {
 	
 	private List<UUID> offerIds;
 	private List<Language> languages;
-	private List<UUID> applicationIds;
+	private List<UUID> appliedProjectIds;
 	private List<UUID> activeProjectIds;
 	private List<String> experience;
 	
@@ -72,6 +72,23 @@ public class Developer extends User {
 	public void removeActiveProjectId(UUID projectId) {
 		if(activeProjectIds != null) {
 			activeProjectIds.remove(projectId);
+		}
+	}
+	
+	public List<UUID> getAppliedProjectIds(){
+		return this.appliedProjectIds;
+	}
+	
+	public void addAppliedProjectId(UUID projectId){
+		if(appliedProjectIds == null) {
+			appliedProjectIds = new LinkedList<>();
+		}
+		appliedProjectIds.add(projectId);
+	}
+	
+	public void removeAppliedProjectId(UUID projectId) {
+		if(appliedProjectIds != null) {
+			appliedProjectIds.remove(projectId);
 		}
 	}
 }

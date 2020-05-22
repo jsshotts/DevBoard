@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -101,5 +102,26 @@ public class Project {
 	public String getStatus() {
 		return status;
 
+	}
+	
+	public UUID getProjectOwnerId() {
+		return this.projectOwnerID;
+	}
+	
+	public List<UUID> getAppliedDeveloperIDs(){
+		return this.appliedDeveloperIDs;
+	}
+	
+	public void addAppliedDeveloperID(UUID devId){
+		if(appliedDeveloperIDs == null) {
+			appliedDeveloperIDs = new LinkedList<>();
+		}
+		appliedDeveloperIDs.add(devId);
+	}
+	
+	public void removeAppliedDeveloperIDs(UUID devId) {
+		if(appliedDeveloperIDs != null) {
+			appliedDeveloperIDs.remove(devId);
+		}
 	}
 }

@@ -46,7 +46,7 @@ public class Repository {
 			);
 	
 	public Repository() {
-		Offer offer = new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message");
+		Offer offer = offers.get(0);
 		developers.get(0).addOfferId(offer.getId());
 		projects.get(0).setOfferId(offer.getId());
 		
