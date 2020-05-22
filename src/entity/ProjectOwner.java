@@ -2,31 +2,32 @@ package entity;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 public class ProjectOwner extends User{
 	
-	private List<Project> projects;
+	private List<UUID> projectIds;
 	
 	public ProjectOwner(String name, String bio) {
 		super(name,  bio, null);
-		projects = new LinkedList<>();
+		projectIds = new LinkedList<>();
 	}
 	
 	public ProjectOwner(String name, String bio, String email) {
 		super(name,  bio, email);
-		projects = new LinkedList<>();
+		projectIds = new LinkedList<>();
 	}
 	
-	public void addProject(Project proj) {
-		if(projects == null) {
-			projects = new LinkedList<Project>();
+	public void addProjectId(UUID projectId) {
+		if(projectIds == null) {
+			projectIds = new LinkedList<UUID>();
 		}
-		projects.add(proj);
+		projectIds.add(projectId);
 	}
 	
-	public void removeProject(Project proj) {
-		if(projects != null) {
-			projects.remove(proj);
+	public void removeProjectId(UUID projectId) {
+		if(projectIds != null) {
+			projectIds.remove(projectId);
 		}
 	}
 }

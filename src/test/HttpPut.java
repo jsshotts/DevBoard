@@ -37,4 +37,9 @@ public class HttpPut {
 		po.setEmail("test2@gmail.com");
 		Log.logger.log(Level.INFO, () -> controller.pushNew(po).toString());
 	}
+	
+	@Test
+	public void testPutOffer() {
+		Log.logger.log(Level.INFO, "\n New Offer:");
+	}
 }

@@ -12,6 +12,7 @@ public class Project {
 	private UUID id;
 	private UUID projectOwnerID;
 	private List<UUID> appliedDeveloperIDs;
+	private UUID offerId;
 	private String description;
 	private String title;
 	private String location;
@@ -69,5 +70,13 @@ public class Project {
 	
 	public UUID getID() {
 		return this.id;
+	}
+	
+	public void setOfferId(UUID offerId) {
+		this.offerId = offerId;
+	}
+	
+	public UUID getOfferId() {
+		return this.offerId;
 	}
 }

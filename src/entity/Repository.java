@@ -9,18 +9,18 @@ public class Repository {
 	
 	public static List<Developer> developers = new ArrayList<>(
 			Arrays.asList(
-					new Developer("Joe Python", "I am a Python Developer", "test4@gmail.com"),
-					new Developer("Fred Java", "I am a Java Developer", "test5@gmail.com"),
-					new Developer("Bob John", "I am an IOS developer", "test6@gmail.com"),
-					new Developer("John Kotlin", "I am an Android Developer", "test7@gmail.com"))
+					new Developer("Joe Python", "I am a Python Developer", "joe@gmail.com"),
+					new Developer("Fred Java", "I am a Java Developer", "fred@gmail.com"),
+					new Developer("Bob John", "I am an IOS developer", "bob@gmail.com"),
+					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"))
 			);
 	
 	public static List<ProjectOwner> projectOwners = new ArrayList<>(
 			Arrays.asList(
-					new ProjectOwner("Flex Technologies", "We are a fitness company", "test8@gmail.com"),
-					new ProjectOwner("Proactive Co", "We sell local art to the community", "test9@gmail.com"),
-					new ProjectOwner("Better Italian", "We make the best Italian food in the county", "test10@gmail.com"),
-					new ProjectOwner("Kayak Today", "We rent kayaks to the community", "test11@gmail.com"))
+					new ProjectOwner("Flex Technologies", "We are a fitness company", "flex@gmail.com"),
+					new ProjectOwner("Proactive Co", "We sell local art to the community", "proactive@gmail.com"),
+					new ProjectOwner("Better Italian", "We make the best Italian food in the county", "italian@gmail.com"),
+					new ProjectOwner("Kayak Today", "We rent kayaks to the community", "kayak@gmail.com"))
 			);
 	
 	public static List<Project> projects = new ArrayList<>(
@@ -45,4 +45,17 @@ public class Repository {
 					new Project("Warehouse Automation", projectOwners.get(1).getID()))
 			);
 	
+	public Repository() {
+		Offer offer = new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message");
+		developers.get(0).addOfferId(offer.getId());
+		projects.get(0).setOfferId(offer.getId());
+		
+		developers.get(1).addActiveProjectId(projects.get(1).getID());
+		developers.get(1).addActiveProjectId(projects.get(2).getID());
+	}
+	
+	public static List<Offer> offers = new ArrayList<>(
+			Arrays.asList(
+					new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"))
+			);
 }

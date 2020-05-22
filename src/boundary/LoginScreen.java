@@ -40,6 +40,5 @@ public class LoginScreen {
 			PONavBar.swapTo(event);
 			POPostProject.swapTo(event);
 		}	
-
 	}
 }

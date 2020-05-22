@@ -8,8 +8,10 @@ import entity.Filters.Language;
 
 public class Developer extends User {
 	
+	private List<UUID> offerIds;
 	private List<Language> languages;
-	private List<UUID> appliedProjectsIDs;
+	private List<UUID> applicationIds;
+	private List<UUID> activeProjectIds;
 	private List<String> experience;
 	
 	public Developer(String name, String bio) {
@@ -36,6 +38,40 @@ public class Developer extends User {
 	public void addExperience(String exp) {
 		if(experience == null) {
 			experience = new LinkedList<String>();
+		}
+	}
+	
+	public void addOfferId(UUID offerId) {
+		if(offerIds == null) {
+			offerIds = new LinkedList<>();
+		}
+		offerIds.add(offerId);
+	}
+	
+	public List<UUID> getOfferIds(){
+		return offerIds;
+	}
+	
+	public void removeOfferId(UUID offerId) {
+		if(offerIds != null) {
+			offerIds.remove(offerId);
+		}
+	}
+	
+	public void addActiveProjectId(UUID projectId) {
+		if(activeProjectIds == null) {
+			activeProjectIds = new LinkedList<>();
+		}
+		activeProjectIds.add(projectId);
+	}
+	
+	public List<UUID> getActiveProjectIds(){
+		return activeProjectIds;
+	}
+	
+	public void removeActiveProjectId(UUID projectId) {
+		if(activeProjectIds != null) {
+			activeProjectIds.remove(projectId);
 		}
 	}
 }
