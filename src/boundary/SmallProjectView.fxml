@@ -50,7 +50,7 @@
             </Label>
          </children>
       </VBox>
-      <Button layoutX="368.0" layoutY="86.0" mnemonicParsing="false" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="86.0" />
+      <Button fx:id="moreDetailsButton" layoutX="368.0" layoutY="86.0" mnemonicParsing="false" onAction="#moreDetails" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="86.0" />
       <ImageView fitHeight="66.0" fitWidth="100.0" layoutX="402.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.topAnchor="11.0">
          <image>
             <Image url="@../Downloads/logos-21-23-.jpg" />
