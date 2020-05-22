@@ -8,19 +8,22 @@ import entity.ProjectOwner;
 public class LoginController {
 	
 	DatabaseController database = new DatabaseController();
+	SessionController session = SessionController.getInstance();
 	
 	public void loginDeveloper(String email) {
 
 		Developer dev = database.getOne(Developer.class, "email", email);
 		if(dev != null) {
 			Log.logger.log(Level.INFO, () -> "Logged In! as: " + dev.getName());
-			SessionController session = SessionController.getInstance();
 			session.setUser(dev);
 		}
 	}
 	
 	public void loginProjectOwner(String email) {
-		SessionController session = SessionController.getInstance();
-		session.setUser(new ProjectOwner("Proactive Tech", "We are a company"));
+		ProjectOwner po = database.getOne(ProjectOwner.class, "email", email);
+		if(po != null) {
+			Log.logger.log(Level.INFO, () -> "Logged In! as: " + po.getName());
+			session.setUser(po);
+		}
 	}
 }
