@@ -25,7 +25,7 @@
         </Label>
             <Pane layoutX="23.0" prefHeight="319.0" prefWidth="611.0">
                <children>
-                  <TextField layoutX="35.0" layoutY="30.0" promptText="Project Name" />
+                  <TextField fx:id="projectName" layoutX="35.0" layoutY="30.0" promptText="Project Name" />
                   <TextField layoutX="221.0" layoutY="30.0" promptText="Platform" />
                   <TextField layoutX="400.0" layoutY="81.0" promptText="Location" />
                   <TextField layoutX="221.0" layoutY="81.0" promptText="Language" />

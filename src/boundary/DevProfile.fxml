@@ -9,7 +9,6 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-
 <HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
@@ -18,7 +17,7 @@
                <children>
                   <VBox layoutX="200.0" layoutY="14.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe">
+                        <Text fx:id="devName" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe">
                            <font>
                               <Font size="37.0" />
                            </font>

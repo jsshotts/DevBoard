@@ -26,15 +26,15 @@ public class DevFindProject {
 	@FXML
 	private ScrollPane scrollPane;
 	
-	private GridPane gridPane;
-	
 	@FXML
 	private void initialize() {
+		
+		GridPane gridPane = new GridPane();
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
 	        protected Void call() throws Exception {
-	            initializeGrid(getProjects());
+	            initializeGrid(getProjects(), gridPane);
 	            return null;
 	        }
 	    };
@@ -68,9 +68,8 @@ public class DevFindProject {
 		return controller.getAllProjects();
 	}
 	
-	private void initializeGrid(Map<UUID, Project> projects) {
+	private void initializeGrid(Map<UUID, Project> projects, GridPane gridPane) {
 		
-		gridPane = new GridPane();
 		gridPane.addColumn(0);
 		gridPane.addColumn(1);
 		gridPane.addColumn(2);

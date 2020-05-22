@@ -17,7 +17,7 @@
                <children>
                   <VBox layoutX="200.0" layoutY="14.0">
                      <children>
-                        <Label text="Mason Briggs">
+                        <Label fx:id="projectOwnerName" text="Mason Briggs">
                            <font>
                               <Font size="37.0" />
                            </font>
