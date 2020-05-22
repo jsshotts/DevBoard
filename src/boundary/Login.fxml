@@ -5,69 +5,65 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.LoginScreen">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.LoginScreen">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #102a50;">
+      <HBox prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #102a50;" />
+      <HBox prefHeight="13.0" prefWidth="600.0" style="-fx-background-color: #102a50;">
          <children>
-            <Region prefHeight="100.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="100.0" prefWidth="55.0">
-               <children>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-                  <Label prefHeight="17.0" prefWidth="55.0" text="DevBoard" textFill="WHITE" />
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-               </children>
-            </VBox>
-            <Region prefHeight="130.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
+            <Region prefHeight="200.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
+            <Label text="DevBoard" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            <Region prefHeight="200.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="31.0" prefWidth="600.0" />
-      <HBox prefHeight="16.0" prefWidth="600.0">
+      <HBox prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #102a50;" VBox.vgrow="ALWAYS" />
+      <Region prefHeight="14.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="57.0" text="Username" />
+            <Label prefHeight="17.0" prefWidth="57.0" text="Username" HBox.hgrow="ALWAYS" />
             <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="26.0" prefWidth="600.0">
+      <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
-            <TextField fx:id="usernameInput" />
+            <TextField fx:id="usernameInput" HBox.hgrow="ALWAYS" />
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="18.0" prefWidth="600.0" />
-      <HBox prefHeight="16.0" prefWidth="600.0">
+      <Region prefHeight="18.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="273.0" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="54.0" text="Password" />
+            <Label prefHeight="17.0" prefWidth="54.0" text="Password" HBox.hgrow="ALWAYS" />
             <Region prefHeight="49.0" prefWidth="273.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="26.0" prefWidth="600.0">
+      <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
-            <TextField />
+            <TextField HBox.hgrow="ALWAYS" />
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="16.0" prefWidth="600.0" />
-      <HBox prefHeight="16.0" prefWidth="600.0">
+      <Region prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="LOGIN" />
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="LOGIN" HBox.hgrow="ALWAYS" />
             <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="32.0" prefWidth="600.0" />
-      <HBox prefHeight="16.0" prefWidth="600.0">
+      <Region prefHeight="32.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="212.0" text="CREATE NEW ACCOUNT" />
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="212.0" text="CREATE NEW ACCOUNT" HBox.hgrow="ALWAYS" />
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <Region prefHeight="31.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Developer" />
-      <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Project Owner" />
+      <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Developer" VBox.vgrow="ALWAYS" />
+      <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Project Owner" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
