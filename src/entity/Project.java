@@ -13,6 +13,8 @@ public class Project {
 	private UUID projectOwnerID;
 	private List<UUID> appliedDeveloperIDs;
 	private UUID offerId;
+	private String projectOwnerName;
+	private String status;
 	private String description;
 	private String title;
 	private String location;
@@ -29,6 +31,18 @@ public class Project {
 		this.id = UUID.randomUUID();
 		//for now, set dummy data for testing
 		this.setTestData();
+		this.projectOwnerName = "";
+		this.status = "Hiring";
+	}
+	
+	public Project(String description, UUID poID, String poName) {
+		this.description = description;
+		this.projectOwnerID = poID;
+		this.id = UUID.randomUUID();
+		//for now, set dummy data for testing
+		this.setTestData();
+		this.projectOwnerName = poName;
+		this.status = "Hiring";
 	}
 	
 	public void setTestData() {
@@ -71,12 +85,21 @@ public class Project {
 	public UUID getID() {
 		return this.id;
 	}
-	
+
 	public void setOfferId(UUID offerId) {
 		this.offerId = offerId;
 	}
 	
 	public UUID getOfferId() {
 		return this.offerId;
+	}
+
+	public String getProjectOwnerName() {
+		return projectOwnerName;
+	}
+	
+	public String getStatus() {
+		return status;
+
 	}
 }
