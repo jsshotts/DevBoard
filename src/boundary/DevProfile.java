@@ -1,5 +1,8 @@
 package boundary;
 
+import java.util.logging.Level;
+
+import controller.Log;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,7 +18,7 @@ public class DevProfile {
 			borderPane.setCenter(switchScreen);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 }

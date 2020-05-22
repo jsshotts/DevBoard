@@ -11,14 +11,14 @@ public class Filters {
 		SWIFT("Swift"),
 		KOTLIN("Kotlin");	
 		
-		private String language;
+		private String lang;
 		
 		Language(String lang) {
-			this.language = lang;
+			this.lang = lang;
 		}
 		
 		public String getString() {
-			return this.language;
+			return this.lang;
 		}
 	}
 	
@@ -29,14 +29,14 @@ public class Filters {
 		LINUX("Linux"),
 		MAC("Mac");
 		
-		private String projectPlatform;
+		private String plat;
 		
 		ProjectPlatform(String plat){
-			this.projectPlatform = plat;
+			this.plat = plat;
 		}
 		
 		public String getString() {
-			return projectPlatform;
+			return plat;
 		}
 	}
 }

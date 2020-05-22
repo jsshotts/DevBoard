@@ -24,7 +24,7 @@ public class Developer extends User {
 	
 	public void addLanguage(Language lang) {
 		if(languages == null) {
-			languages = new LinkedList<Language>();
+			languages = new LinkedList<>();
 		}
 		languages.add(lang);
 	}
@@ -37,8 +37,9 @@ public class Developer extends User {
 	
 	public void addExperience(String exp) {
 		if(experience == null) {
-			experience = new LinkedList<String>();
+			experience = new LinkedList<>();
 		}
+		experience.add(exp);
 	}
 	
 	public void addOfferId(UUID offerId) {

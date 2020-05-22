@@ -20,7 +20,7 @@ public class ProjectOwner extends User{
 	
 	public void addProjectId(UUID projectId) {
 		if(projectIds == null) {
-			projectIds = new LinkedList<UUID>();
+			projectIds = new LinkedList<>();
 		}
 		projectIds.add(projectId);
 	}
