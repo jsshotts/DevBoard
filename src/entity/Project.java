@@ -70,4 +70,8 @@ public class Project {
 	public UUID getID() {
 		return this.id;
 	}
+	
+	public UUID getProjectOwnerID() {
+		return projectOwnerID;
+	}
 }
