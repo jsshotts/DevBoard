@@ -20,14 +20,16 @@ public class DevActiveProjects {
 	
 	@FXML
 	private ScrollPane scrollPane;
-	private VBox vbox;
 	
 	@FXML
 	private void initialize() {
+		VBox vbox = new VBox();
+		
 		Task<Void> task = new Task<Void>() {
+			
 			@Override
 			protected Void call() throws Exception {
-				initializeListView();
+				initializeListView(vbox);
 				return null;
 			}
 		};
@@ -42,8 +44,7 @@ public class DevActiveProjects {
         executorService.shutdown();	
 	}
 	
-	private void initializeListView() {
-		vbox = new VBox();
+	private void initializeListView(VBox vbox) {
 		try {	
 			
 			for(int i = 0; i < 10; i++) {

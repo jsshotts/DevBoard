@@ -13,11 +13,6 @@ public class Log {
 
 	public static final void initLogger() {
 		logger.setLevel(Level.ALL);
-
-//		ConsoleHandler handler = new ConsoleHandler();
-//		handler.setFormatter(new SimpleFormatter());
-//		handler.setLevel(Level.ALL);
-//		logger.addHandler(handler);
 	}
 	
 }

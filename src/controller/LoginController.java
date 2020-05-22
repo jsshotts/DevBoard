@@ -14,7 +14,7 @@ public class LoginController {
 
 		Developer dev = database.getOne(Developer.class, "email", email);
 		if(dev != null) {
-			Log.logger.log(Level.INFO, () -> "Logged In! as: " + dev.getName());
+			Log.logger.log(Level.INFO, () -> "Logged In! as Dev: " + dev.getName());
 			session.setUser(dev);
 		}
 	}
@@ -22,7 +22,7 @@ public class LoginController {
 	public void loginProjectOwner(String email) {
 		ProjectOwner po = database.getOne(ProjectOwner.class, "email", email);
 		if(po != null) {
-			Log.logger.log(Level.INFO, () -> "Logged In! as: " + po.getName());
+			Log.logger.log(Level.INFO, () -> "Logged In! as PO: " + po.getName());
 			session.setUser(po);
 		}
 	}
