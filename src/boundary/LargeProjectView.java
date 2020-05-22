@@ -1,16 +1,10 @@
 package boundary;
 
-import java.util.logging.Level;
-
-import controller.Log;
+import controller.ApplyController;
 import entity.Project;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 
 public class LargeProjectView {
 	
@@ -32,24 +26,24 @@ public class LargeProjectView {
 	@FXML
 	private Label remote;
 	
-	static void swapTo(ActionEvent event)
-	{
-		try {
-			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.LARGE_PROJECT_VIEW));
-			borderPane.setCenter(switchScreen);
-		}
-		catch(Exception e){
-			Log.logger.log(Level.WARNING, e.getMessage());
-		}
-	}
+	@FXML
+	private Button apply;
+	
+	private Project project;
 	
 	public void populate(Project project) {	
-		headline.setText(project.getTitle());
+		this.project = project;
 		description.setText(project.getDescription());
 		duration.setText(project.getDuration());
+		headline.setText(project.getTitle());
 		projectLocation.setText(project.getLocation());
 		platform.setText(project.getPlatform());
 		remote.setText(project.getRemote());
 	}
+	
+	public void apply() { 
+		ApplyController applyController = new ApplyController();
+		applyController.apply(project);
+	}
+
 }

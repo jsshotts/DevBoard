@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.LargeProjectView">
    <children>
-      <Button layoutX="861.0" layoutY="543.0" mnemonicParsing="false" text="APPLY" />
+      <Button fx:id="apply" layoutX="861.0" layoutY="543.0" mnemonicParsing="false" onAction="#apply" text="APPLY" />
       <ImageView fitHeight="135.0" fitWidth="164.0" layoutX="614.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
             <Image url="@../Downloads/logos-21-23-.jpg" />

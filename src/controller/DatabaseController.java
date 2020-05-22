@@ -119,12 +119,29 @@ public class DatabaseController {
 		
 		return cls.cast(result.values().iterator().next());
 	}
+	
+	public UUID update(Project project)
+	{
+		String url = BASEURL + PROJECTS + project.getID() + JSON;
+		return sendHttpRequest(url, RequestType.PATCH, project) == null ? null : project.getID();
+	}
+	
+	public UUID update(User user)
+	{
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
+		
+		String url = BASEURL + target + user.getID() + JSON;
+		return sendHttpRequest(url, RequestType.PATCH, user) == null ? null : user.getID();
+	}
 
 	public UUID pushNew(Project project)
 	{
-		UUID projectId = project.getID();
-		String url = BASEURL + PROJECTS + projectId + JSON;
-		return sendHttpRequest(url, RequestType.PUT, project) == null ? null : projectId;
+		String url = BASEURL + PROJECTS + project.getID() + JSON;
+		return sendHttpRequest(url, RequestType.PUT, project) == null ? null : project.getID();
 	}
 	
 	public UUID pushNew(User user)
