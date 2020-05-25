@@ -1,10 +1,13 @@
 package boundary;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.FindProjectsController;
 import controller.Log;
+import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,8 +33,8 @@ public class DevMyApplications {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				projectOffersBox = initScrollView(WindowManager.OFFER_VIEW);
-				submittedApplicationsBox = initScrollView(WindowManager.SMALL_PROJECT_VIEW);
+				projectOffersBox = initOffersView();
+				submittedApplicationsBox = initApplicationsView(getApplications());
 				return null;
 			}
 		};
@@ -51,13 +54,41 @@ public class DevMyApplications {
         executorService.shutdown();
 	}
 	
-	private VBox initScrollView(String resource) {
+	private List<Project> getApplications() {
+		FindProjectsController controller = new FindProjectsController();
+		return controller.getUserApplications();
+	}
+	
+	private VBox initApplicationsView(List<Project> projects) {
 		VBox vbox = new VBox();
+		vbox.setSpacing(30);
 		try {
 			
-			for(int i = 0; i < 10; i++) {
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(resource));
+			for(Project p : projects) {
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
+				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
+				smallProjectView.populate(p);
+				vbox.getChildren().add(projectCard);
+			}
+			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
+		}
+		catch (Exception e) {
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
+		return vbox;
+	}
+	
+	private VBox initOffersView() {
+		VBox vbox = new VBox();
+		vbox.setSpacing(30);
+		try {
+			
+			for(int i = 0; i < 2; i++) {
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.OFFER_VIEW));
+				Node projectCard = fxmlLoader.load();
+				//SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
+				//smallProjectView.populate(p);
 				vbox.getChildren().add(projectCard);
 			}
 			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());

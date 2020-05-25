@@ -10,7 +10,8 @@ public class ApplyController{
 	private DatabaseController database = new DatabaseController();
 	
 	public void apply(Project project){
-		Developer dev = (Developer) SessionController.getInstance().getUser();
+		SessionController session = SessionController.getInstance();
+		Developer dev = (Developer) session.getUser();
 		
 		if (dev.getAppliedProjectIds() != null && dev.getAppliedProjectIds().contains(project.getID()))
 			return;
@@ -23,6 +24,8 @@ public class ApplyController{
 		
 		Log.logger.log(Level.INFO, () -> "project id:" + project.getID().toString());
 		database.update(project);
+		
+		session.setUser(dev);
 	}
 	
 }

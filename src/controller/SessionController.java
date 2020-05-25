@@ -26,6 +26,13 @@ public class SessionController {
 		return this.user;
 	}
 	
+	public Developer getDeveloper() {
+		if(this.user instanceof Developer){
+			return (Developer)user;
+		}
+		return null;
+	}
+	
 	public boolean isDeveloper() {
 		return user instanceof Developer;
 	}
