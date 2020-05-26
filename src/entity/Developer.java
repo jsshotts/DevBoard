@@ -8,11 +8,11 @@ import entity.Filters.Language;
 
 public class Developer extends User {
 	
-	private List<UUID> offerIds;
-	private List<Language> languages;
-	private List<UUID> appliedProjectIds;
-	private List<UUID> activeProjectIds;
-	private List<String> experience;
+	private List<UUID> offerIds = new LinkedList<>();
+	private List<Language> languages = new LinkedList<>();
+	private List<UUID> appliedProjectIds = new LinkedList<>();
+	private List<UUID> activeProjectIds = new LinkedList<>();
+	private List<String> experience = new LinkedList<>();
 	
 	public Developer(String name, String bio) {
 		super(name,  bio, null);

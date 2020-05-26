@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class ProjectOwner extends User{
 	
-	private List<UUID> projectIds;
+	private List<UUID> projectIds = new LinkedList<>();
 	
 	public ProjectOwner(String name, String bio) {
 		super(name,  bio, null);

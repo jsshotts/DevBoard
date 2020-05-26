@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import entity.Developer;
+import entity.Offer;
 import entity.Project;
 import entity.ProjectOwner;
 
@@ -38,5 +39,10 @@ public class HireController {
 					);
 		}
 		return developers;
+	}
+	
+	public void sendOffer(Project project, Developer developer) {
+		Offer offer = new Offer(project.getID(), developer.getID(), "");
+		database.pushNew(offer);
 	}
 }

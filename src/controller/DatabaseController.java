@@ -6,6 +6,7 @@ import java.util.UUID;
 import java.util.logging.Level;
 
 import entity.Developer;
+import entity.Offer;
 import entity.Project;
 import entity.ProjectOwner;
 import entity.User;
@@ -29,6 +30,7 @@ public class DatabaseController {
 	private static final String REQUESTPROPERTY = "X-HTTP-Method-Override";
 	private static final String BASEURL = "https://devboard-b0a1d.firebaseio.com/";
 	private static final String PROJECTS = "Projects/";
+	private static final String OFFERS = "Offers/";
 	private static final String DEVELOPERS = "Users/Developers/";
 	private static final String PROJECTOWNERS = "Users/ProjectOwners/";
 	private static final String JSON = ".json";
@@ -93,6 +95,8 @@ public class DatabaseController {
 			target = PROJECTOWNERS;
 		if (cls.equals(Developer.class))
 			target = DEVELOPERS;
+		if (cls.equals(Offer.class))
+			target = OFFERS;
 		
 		String url = BASEURL + target + id + JSON;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
@@ -154,6 +158,12 @@ public class DatabaseController {
 		
 		String url = BASEURL + target + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PUT, user) == null ? null : user.getID();
+	}
+	
+	public UUID pushNew(Offer offer)
+	{	
+		String url = BASEURL + OFFERS + offer.getId() + JSON;
+		return sendHttpRequest(url, RequestType.PUT, offer) == null ? null : offer.getId();
 	}
 	
 	private String sendHttpRequest(String url, RequestType type)

@@ -42,6 +42,8 @@ public class ActiveProjectCard {
 	
 	private boolean applicantsVisible = false;
 	
+	private boolean getApplicantsInProgress = false;
+	
 	private HireController hireController = new HireController();
 	
 	private Project activeProject;
@@ -58,11 +60,14 @@ public class ActiveProjectCard {
 	}
 	
 	public void toggleApplicants() {
+		
 		if(applicantsVisible && rootVbox.getChildren().contains(applicantsView)) {
 			rootVbox.getChildren().remove(applicantsView);
 			applicantsVisible = false;
 		}
-		else {
+		else if(!getApplicantsInProgress){
+			
+			getApplicantsInProgress = true;
 			displayProjectApplicants();
 		}
 	}
@@ -80,6 +85,7 @@ public class ActiveProjectCard {
          task.setOnSucceeded(succeededEvent -> {
         	 rootVbox.getChildren().add(applicantsView);
 			 applicantsVisible = true;
+			 getApplicantsInProgress = false;
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -88,11 +94,13 @@ public class ActiveProjectCard {
 	}
 	
 	public void setApplicantsView() {
+		
 		try {
+				
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PROJECT_APPLICANTS_VIEW));
 			applicantsView = fxmlLoader.load();
 			ProjectApplicantsView projectApplicantsView = fxmlLoader.<ProjectApplicantsView>getController();
-			projectApplicantsView.initialize(getApplicants());
+			projectApplicantsView.initialize(activeProject, getApplicants());
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

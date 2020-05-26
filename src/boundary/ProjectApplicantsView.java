@@ -22,11 +22,15 @@ public class ProjectApplicantsView {
 	
 	private VBox applicantViewBox;
 	
+	private Project project;
+	
 	private int childCount = 0;
 	
 	private static int childSize = 52;
 	
-	public void initialize(List<Developer> applicants) {
+	public void initialize(Project project, List<Developer> applicants) {
+		
+		this.project = project;
 		
 		Task<Void> task = new Task<Void>() {
 			@Override
@@ -58,7 +62,7 @@ public class ProjectApplicantsView {
 				Node applicantCard = fxmlLoader.load();
 				ApplicantCard applicantController = fxmlLoader.<ApplicantCard>getController();
 				
-				applicantController.populate(developer);
+				applicantController.populate(developer, project);
 				
 				vbox.getChildren().add(applicantCard);
 			}

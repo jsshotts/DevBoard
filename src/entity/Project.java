@@ -12,7 +12,7 @@ public class Project {
 	
 	private UUID id;
 	private UUID projectOwnerID;
-	private List<UUID> appliedDeveloperIDs;
+	private List<UUID> appliedDeveloperIDs = new LinkedList<>();
 	private UUID offerId;
 	private String projectOwnerName;
 	private String status;
