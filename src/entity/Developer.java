@@ -50,6 +50,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getOfferIds(){
+		if(offerIds == null) {
+			return new LinkedList<>();
+		}
 		return offerIds;
 	}
 	
@@ -67,6 +70,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getActiveProjectIds(){
+		if(activeProjectIds == null) {
+			return new LinkedList<>();
+		}
 		return activeProjectIds;
 	}
 	
@@ -77,6 +83,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getAppliedProjectIds(){
+		if(this.appliedProjectIds == null) {
+			return new LinkedList<>();
+		}
 		return this.appliedProjectIds;
 	}
 	
@@ -91,5 +100,12 @@ public class Developer extends User {
 		if(appliedProjectIds != null) {
 			appliedProjectIds.remove(projectId);
 		}
+	}
+	
+	public boolean hasOffer(UUID offerId) {
+		if(this.offerIds == null) {
+			return false;
+		}
+		return this.offerIds.contains(offerId);
 	}
 }

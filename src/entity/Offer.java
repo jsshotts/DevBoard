@@ -35,4 +35,8 @@ public class Offer {
 	public String getMessage() {
 		return this.message;
 	}
+	
+	public void setId(UUID id) {
+		this.id = id;
+	}
 }
