@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -14,28 +15,69 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Region layoutX="935.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Pane layoutX="23.0" prefHeight="319.0" prefWidth="611.0">
+            <VBox layoutX="58.0" layoutY="30.0" spacing="20.0">
                <children>
-                  <TextField fx:id="projectName" layoutX="35.0" layoutY="30.0" promptText="Project Name" />
-                  <TextField layoutX="221.0" layoutY="30.0" promptText="Platform" />
-                  <TextField layoutX="400.0" layoutY="81.0" promptText="Location" />
-                  <TextField layoutX="221.0" layoutY="81.0" promptText="Language" />
-                  <TextField layoutX="35.0" layoutY="81.0" promptText="Duration" />
-                  <TextField layoutX="407.0" layoutY="30.0" promptText="Remote" />
-                  <TextField alignment="TOP_LEFT" layoutX="35.0" layoutY="135.0" prefHeight="170.0" prefWidth="442.0" promptText="Description" />
-                  <Button layoutX="493.0" layoutY="293.0" mnemonicParsing="false" text="Submit project" />
+                  <HBox layoutX="58.0" layoutY="30.0" spacing="40.0">
+                     <children>
+                        <TextField fx:id="projectName" layoutX="58.0" layoutY="30.0" promptText="Project Name">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <TextField layoutX="244.0" layoutY="30.0" promptText="Platform">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <TextField layoutX="430.0" layoutY="30.0" promptText="Remote">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="58.0" layoutY="81.0" spacing="40.0">
+                     <children>
+                        <TextField layoutX="58.0" layoutY="81.0" promptText="Duration">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <TextField layoutX="244.0" layoutY="81.0" promptText="Language">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <TextField layoutX="423.0" layoutY="81.0" promptText="Location">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
                </children>
-            </Pane>
+            </VBox>
+            <Button layoutX="405.0" layoutY="614.0" mnemonicParsing="false" text="Post Project">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <TextField alignment="TOP_LEFT" layoutX="147.0" layoutY="224.0" prefHeight="320.0" prefWidth="650.0" promptText="Description">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
       </children>
-    </AnchorPane>
-  </children>
-</VBox>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </AnchorPane>
+      <Region HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>
