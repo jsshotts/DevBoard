@@ -24,8 +24,9 @@ public class DevMyApplications {
 	private ScrollPane projectOffers;
 	@FXML
 	private ScrollPane submittedApplications;
-	VBox projectOffersBox;
-	VBox submittedApplicationsBox;
+	
+	private VBox projectOffersBox;
+	private VBox submittedApplicationsBox;
 	
 	@FXML
 	private void initialize() {
@@ -49,6 +50,9 @@ public class DevMyApplications {
 			submittedApplicationsBox.prefWidthProperty().bind(submittedApplications.widthProperty());
 			submittedApplications.setFitToHeight(true);
          });
+		task.setOnFailed(failedEvent -> {
+			System.out.println(task.getException().getMessage());
+		});
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();

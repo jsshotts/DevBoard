@@ -19,7 +19,7 @@ public class FindProjectsController{
 	public List<Project> getUserApplications(){		
 		List<Project> projects = new LinkedList<>();
 		Developer developer = SessionController.getInstance().getDeveloper();
-		if(developer != null) {
+		if(developer != null && developer.getAppliedProjectIds() != null) {
 			for(UUID uid : developer.getAppliedProjectIds()) {
 				projects.add(
 						database.getOne(Project.class, uid)
