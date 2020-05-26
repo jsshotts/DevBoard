@@ -27,24 +27,24 @@ public class Repository {
 	
 	protected static List<Project> projects = new ArrayList<>(
 			Arrays.asList(
-					new Project("IOS App ", projectOwners.get(0).getID()),
-					new Project("Android App", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation ", projectOwners.get(1).getID()),
-					new Project("Linux Script ", projectOwners.get(0).getID()),
-					new Project("Windows Application0", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation1", projectOwners.get(1).getID()),
-					new Project("IOS App", projectOwners.get(0).getID()),
-					new Project("Linux Script", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation ", projectOwners.get(1).getID()),
-					new Project("Windows Application2", projectOwners.get(0).getID()),
-					new Project("Android App", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation3", projectOwners.get(1).getID()),
-					new Project("Linux Script", projectOwners.get(0).getID()),
-					new Project("Windows Application", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation", projectOwners.get(1).getID()),
-					new Project("IOS App", projectOwners.get(0).getID()),
-					new Project("Windows Application", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation", projectOwners.get(1).getID()))
+					new Project("Fitness IOS App ", projectOwners.get(0).getID()),
+					new Project("Art Android App", projectOwners.get(1).getID()),
+					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID()),
+					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID()),
+					new Project("Windows Application-0", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation-1", projectOwners.get(1).getID()),
+					new Project("IOS App-2", projectOwners.get(2).getID()),
+					new Project("Linux Script-2", projectOwners.get(3).getID()),
+					new Project("Warehouse Automation-6", projectOwners.get(0).getID()),
+					new Project("Windows Application-2", projectOwners.get(1).getID()),
+					new Project("Android App-2", projectOwners.get(2).getID()),
+					new Project("Warehouse Automation-3", projectOwners.get(3).getID()),
+					new Project("Linux Script-3", projectOwners.get(0).getID()),
+					new Project("Windows Application-4", projectOwners.get(1).getID()),
+					new Project("Warehouse Automation-5", projectOwners.get(2).getID()),
+					new Project("IOS App-3", projectOwners.get(3).getID()),
+					new Project("Windows Application-3", projectOwners.get(0).getID()),
+					new Project("Warehouse Automation-4", projectOwners.get(1).getID()))
 			);
 	
 	protected static List<Offer> offers = new ArrayList<>(
@@ -60,6 +60,15 @@ public class Repository {
 		Offer offer = offers.get(0);
 		developers.get(0).addOfferId(offer.getId());
 		projects.get(0).setOfferId(offer.getId());
+		
+		projects.get(0).addAppliedDeveloperID(developers.get(0).getID());
+		projects.get(0).addAppliedDeveloperID(developers.get(1).getID());
+		projects.get(0).addAppliedDeveloperID(developers.get(2).getID());
+		projects.get(0).addAppliedDeveloperID(developers.get(3).getID());
+		developers.get(0).addAppliedProjectId(projects.get(0).getID());
+		developers.get(1).addAppliedProjectId(projects.get(0).getID());
+		developers.get(2).addAppliedProjectId(projects.get(0).getID());
+		developers.get(3).addAppliedProjectId(projects.get(0).getID());
 		
 		developers.get(1).addActiveProjectId(projects.get(1).getID());
 		developers.get(1).addActiveProjectId(projects.get(2).getID());

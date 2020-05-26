@@ -26,8 +26,8 @@ public class Project {
 	
 	public Project() {}
 	
-	public Project(String description, UUID poID) {
-		this.description = description;
+	public Project(String title, UUID poID) {
+		this.title = title;
 		this.projectOwnerID = poID;
 		this.id = UUID.randomUUID();
 		this.setLanguage(null);
@@ -48,12 +48,11 @@ public class Project {
 	}
 	
 	public void setTestData() {
-		this.title = "Sample Project Title";
 		this.location = "San Luis Obispo";
 		this.duration = "5 weeks";
 		this.setLanguage(Language.PYTHON);
 		this.platform = ProjectPlatform.LINUX;
-		this.description += ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+		this.description = "This is a " + this.title + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 		this.remote = new Random().nextInt() % 2 == 0;
 	}
 	

@@ -6,6 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.Log;
+import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -21,21 +22,23 @@ public class ProjectApplicantsView {
 	
 	private VBox applicantViewBox;
 	
-	@FXML
-	private void initialize() {
+	private int childCount = 0;
+	
+	private static int childSize = 52;
+	
+	public void initialize(List<Developer> applicants) {
 		
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				applicantViewBox = initApplicantsView();
+				applicantViewBox = initApplicantsView(applicants);
 				return null;
 			}
 		};
 		
 		task.setOnSucceeded(succeededEvent -> {
 			 scrollPane.setContent(applicantViewBox);
- 			 scrollPane.setFitToHeight(true);
- 			 scrollPane.setFitToWidth(true);
+			 scrollPane.setMinViewportHeight(calculateScrollPaneHeight()); 	
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -43,23 +46,35 @@ public class ProjectApplicantsView {
         executorService.shutdown();
 	}
 	
-	private VBox initApplicantsView() {
+	private VBox initApplicantsView(List<Developer> applicants) {
+		
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
+		
 		try {
-			
-			for(int i = 0; i < 5; i++) {
+			for(Developer developer : applicants) {
+				
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.APPLICANT_CARD));
 				Node applicantCard = fxmlLoader.load();
-				//SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
-				//smallProjectView.populate(p);
+				ApplicantCard applicantController = fxmlLoader.<ApplicantCard>getController();
+				
+				applicantController.populate(developer);
+				
 				vbox.getChildren().add(applicantCard);
 			}
-			//Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+		childCount = applicants.size();
 		return vbox;
+	}
+	
+	public int calculateScrollPaneHeight() {
+		int height = childCount * childSize;
+		if(height > 500) {
+			height = 500;
+		}
+		return height;
 	}
 }
