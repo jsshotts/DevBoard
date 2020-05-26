@@ -1,6 +1,7 @@
 package controller;
 
 import entity.Developer;
+import entity.ProjectOwner;
 import entity.User;
 
 public class SessionController {
@@ -29,6 +30,13 @@ public class SessionController {
 	public Developer getDeveloper() {
 		if(this.user instanceof Developer){
 			return (Developer)user;
+		}
+		return null;
+	}
+	
+	public ProjectOwner getProjectOwner() {
+		if(this.user instanceof ProjectOwner){
+			return (ProjectOwner)user;
 		}
 		return null;
 	}

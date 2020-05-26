@@ -18,6 +18,7 @@ public class HttpPut {
 	
 	@Test
 	public void testPushRepoDataToFirebase() {
+		Repository.init();
 		Log.logger.log(Level.INFO, "\n Add Repo Projects:");
 		for(Project project : Repository.getProjects()) {
 			String result = controller.pushNew(project).toString();

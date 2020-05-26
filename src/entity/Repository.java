@@ -63,5 +63,13 @@ public class Repository {
 		
 		developers.get(1).addActiveProjectId(projects.get(1).getID());
 		developers.get(1).addActiveProjectId(projects.get(2).getID());
+		
+		for(Project project : projects) {
+			for(ProjectOwner po : projectOwners) {
+				if(project.getProjectOwnerId().equals(po.getID())) {
+					po.addProjectId(project.getID());
+				}
+			}
+		}
 	}
 }

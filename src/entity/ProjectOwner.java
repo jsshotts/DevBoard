@@ -30,4 +30,8 @@ public class ProjectOwner extends User{
 			projectIds.remove(projectId);
 		}
 	}
+	
+	public List<UUID> getProjectIds(){
+		return projectIds;
+	}
 }

@@ -1,14 +1,18 @@
 package boundary;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.HireController;
 import controller.Log;
+import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -19,19 +23,20 @@ public class POMyProjects {
 	
 	@FXML
 	private ScrollPane scrollPane;
+	
+	private VBox rootVbox;
 
 	@FXML
 	private void initialize() {
-		VBox vbox = new VBox();
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				initializeListView(vbox);
+				rootVbox = initializeListView(getActiveProjects());
 				return null;
 			}
 		};
 		task.setOnSucceeded(succeededEvent -> {
-        	 scrollPane.setContent(vbox);
+        	 scrollPane.setContent(rootVbox);
  			 scrollPane.setFitToHeight(true);
          });
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -51,19 +56,30 @@ public class POMyProjects {
 		}
 	}
 	
-	private void initializeListView(VBox vbox) {
+	private List<Project> getActiveProjects(){
+		HireController hireController = new HireController();
+		return hireController.getPOActiveProjects();
+	}
+	
+	private VBox initializeListView(List<Project> projects) {
+		VBox vbox = new VBox();
 		try {	
 			
-			for(int i = 0; i < 10; i++) {
+			for(Project project : projects) {
+				
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.ACTIVE_PROJECT_VIEW));
-				Node projectCard = fxmlLoader.load();
+				Node projectCard = fxmlLoader.load();			
 				ActiveProjectCard activeProjectCard = fxmlLoader.<ActiveProjectCard>getController();
+				
 				activeProjectCard.initPOCard();
+				activeProjectCard.populate(project);
+				
 				vbox.getChildren().add(projectCard);
 			}
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+		return vbox;
 	}	
 }

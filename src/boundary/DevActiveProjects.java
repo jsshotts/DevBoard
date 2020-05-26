@@ -50,6 +50,8 @@ public class DevActiveProjects {
 			for(int i = 0; i < 10; i++) {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.ACTIVE_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
+				ActiveProjectCard activeProjectCard = fxmlLoader.<ActiveProjectCard>getController();
+				activeProjectCard.initDevCard();
 				vbox.getChildren().add(projectCard);
 			}
 		}
