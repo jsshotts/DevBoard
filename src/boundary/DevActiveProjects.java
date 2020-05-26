@@ -1,10 +1,15 @@
 package boundary;
 
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 
 import java.util.concurrent.Executors;
 
+import controller.ActiveProjectController;
 import controller.Log;
+import entity.Project;
+
 import java.util.logging.Level;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -29,7 +34,7 @@ public class DevActiveProjects {
 			
 			@Override
 			protected Void call() throws Exception {
-				initializeListView(vbox);
+				initializeListView(getDevActiveProjects(), vbox);
 				return null;
 			}
 		};
@@ -44,19 +49,26 @@ public class DevActiveProjects {
         executorService.shutdown();	
 	}
 	
-	private void initializeListView(VBox vbox) {
-		try {	
-			
-			for(int i = 0; i < 10; i++) {
+	private Map<UUID, Project> getDevActiveProjects()
+	{
+		ActiveProjectController activeProjectController = new ActiveProjectController();
+		return activeProjectController.getDevActiveProjects();
+	}
+	
+	private void initializeListView(Map<UUID, Project> projects, VBox vbox) {
+		try {
+			for(Project p : projects.values()) {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.ACTIVE_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
 				ActiveProjectCard activeProjectCard = fxmlLoader.<ActiveProjectCard>getController();
 				activeProjectCard.initDevCard();
+				activeProjectCard.populate(p);
 				vbox.getChildren().add(projectCard);
 			}
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	

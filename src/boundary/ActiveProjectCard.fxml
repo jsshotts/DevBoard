@@ -21,7 +21,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="461.0" layoutY="54.0" spacing="10.0">
+                  <HBox layoutX="561.0" layoutY="54.0" spacing="10.0">
                      <children>
                         <Label layoutX="412.0" layoutY="69.0" text="Status:">
                            <font>
@@ -35,7 +35,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Label fx:id="projectTitle" layoutX="165.0" layoutY="50.0" text="Project Name">
+                  <Label fx:id="projectTitle" layoutX="165.0" layoutY="50.0" text="Project Name" textAlignment="CENTER">
                      <font>
                         <Font size="24.0" />
                      </font>

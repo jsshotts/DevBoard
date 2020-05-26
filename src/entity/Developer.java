@@ -108,4 +108,15 @@ public class Developer extends User {
 		}
 		return this.offerIds.contains(offerId);
 	}
+
+	@Override
+	public String toString() {
+		String result = super.toString();
+		result += offerIds == null ? "" : String.format("offerIds: %s%n", offerIds.toString());
+		result += languages == null ? "" : String.format("languages: %s%n", languages.toString());
+		result += experience == null ? "" : String.format("experience: %s%n", experience.toString());
+		result += appliedProjectIds == null ? "" : String.format("appliedProjectIds: %s%n", appliedProjectIds.toString());
+		result += activeProjectIds == null ? "" : String.format("activeProjectIds: %s%n", activeProjectIds.toString());
+		return result;
+	}
 }

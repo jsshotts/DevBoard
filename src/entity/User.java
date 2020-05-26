@@ -43,4 +43,14 @@ public abstract class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		result += String.format("id: %s%n", id.toString());
+		result += String.format("name: %s%n", name);
+		result += String.format("bio: %s%n", bio);
+		result += String.format("email: %s%n", email);
+		return result;
+	}
 }
