@@ -10,18 +10,21 @@
       <HBox prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #102a50;" />
       <HBox prefHeight="13.0" prefWidth="600.0" style="-fx-background-color: #102a50;">
          <children>
-            <Region prefHeight="200.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
-            <Label text="DevBoard" textFill="WHITE" HBox.hgrow="ALWAYS" />
-            <Region prefHeight="200.0" prefWidth="272.5" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="DevBoard" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #102a50;" VBox.vgrow="ALWAYS" />
       <Region prefHeight="14.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="57.0" text="Username" HBox.hgrow="ALWAYS" />
-            <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Username" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
@@ -34,9 +37,9 @@
       <Region prefHeight="18.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="49.0" prefWidth="273.0" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="54.0" text="Password" HBox.hgrow="ALWAYS" />
-            <Region prefHeight="49.0" prefWidth="273.0" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Password" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
@@ -49,9 +52,9 @@
       <Region prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="LOGIN" HBox.hgrow="ALWAYS" />
-            <Region prefHeight="49.0" prefWidth="271.5" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" text="LOGIN" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <Region prefHeight="32.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
