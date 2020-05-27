@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevProfile">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
          <children>
@@ -17,27 +17,32 @@
                <children>
                   <VBox layoutX="200.0" layoutY="14.0">
                      <children>
-                        <Text fx:id="devName" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe">
+                        <Label fx:id="devName" text="John Doe">
                            <font>
                               <Font size="37.0" />
                            </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Developer">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="10.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education: Cal Poly SLO" />
+                        </Label>
+                        <HBox prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <Label text="email:  " />
+                              <Label fx:id="email" text="johnDDoe@gmail.com" />
+                           </children>
+                        </HBox>
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </VBox>
-                  <Text layoutX="10.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bio: I am a very good developer, you want it I can make it. My parents gave me the K&amp;R when I was in third grade and I’ve been a natural ever since. I’ve got some extra time from my jobs at Apple, and Google, so I’m looking for some quick dough, and as my friends always say, you can’t go wrong with Joe Doe!" wrappingWidth="557.0">
+                  <Label fx:id="bio" alignment="TOP_LEFT" layoutX="14.0" layoutY="148.0" prefHeight="87.0" prefWidth="575.0" text="Bio: I am a very good developer, you want it I can make it. My parents gave me the K&amp;R when I was in third grade and I’ve been a natural ever since. I’ve got some extra time from my jobs at Apple, and Google, so I’m looking for some quick dough, and as my friends always say, you can’t go wrong with Joe Doe!" wrapText="true">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
-                  </Text>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="119.0" prefHeight="27.0" prefWidth="48.0" text="Bio:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <VBox prefHeight="200.0" prefWidth="561.0" spacing="20.0">
@@ -60,23 +65,41 @@
       <Region prefHeight="719.0" prefWidth="247.0" HBox.hgrow="ALWAYS" />
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="206.0" prefWidth="563.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Skills" textAlignment="CENTER" wrappingWidth="542.3759765625">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programming Languages: C, C++, Java" textAlignment="CENTER" wrappingWidth="542.3759765625">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="20.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experience: Website Development, App Development" textAlignment="CENTER" wrappingWidth="542.3759765625">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Programming Languages:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="languages" prefHeight="30.0" prefWidth="228.0" text="     C, C++, Java" textAlignment="RIGHT">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Experience:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="experience" text="     Website Development, App Development">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
