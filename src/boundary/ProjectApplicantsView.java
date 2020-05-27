@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.HireController;
 import controller.Log;
 import entity.Developer;
 import entity.Project;
@@ -22,20 +23,18 @@ public class ProjectApplicantsView {
 	
 	private VBox applicantViewBox;
 	
-	private Project project;
-	
 	private int childCount = 0;
 	
 	private static int childSize = 52;
 	
-	public void initialize(Project project, List<Developer> applicants) {
-		
-		this.project = project;
+	private HireController hireController = new HireController();
+	
+	public void initialize(Project project) {
 		
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				applicantViewBox = initApplicantsView(applicants);
+				applicantViewBox = initApplicantsView(project, getApplicants(project));
 				return null;
 			}
 		};
@@ -50,7 +49,7 @@ public class ProjectApplicantsView {
         executorService.shutdown();
 	}
 	
-	private VBox initApplicantsView(List<Developer> applicants) {
+	private VBox initApplicantsView(Project project, List<Developer> applicants) {
 		
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
@@ -72,6 +71,10 @@ public class ProjectApplicantsView {
 		}
 		childCount = applicants.size();
 		return vbox;
+	}
+	
+	public List<Developer> getApplicants(Project project) {
+		return hireController.getProjectApplicants(project);
 	}
 	
 	public int calculateScrollPaneHeight() {

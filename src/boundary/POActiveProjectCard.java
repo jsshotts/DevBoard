@@ -53,8 +53,6 @@ public class POActiveProjectCard {
 	
 	private boolean getOffersInProgress = false;
 	
-	private HireController hireController = new HireController();
-	
 	private Project activeProject;
 	
 	@FXML
@@ -103,17 +101,13 @@ public class POActiveProjectCard {
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PROJECT_APPLICANTS_VIEW));
 			applicantsView = fxmlLoader.load();
 			ProjectApplicantsView projectApplicantsView = fxmlLoader.<ProjectApplicantsView>getController();
-			projectApplicantsView.initialize(activeProject, getApplicants());
+			projectApplicantsView.initialize(activeProject);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
-	
-	public List<Developer> getApplicants() {
-		return hireController.getProjectApplicants(activeProject);
-	}
-	
+		
 	public void populate(Project project) {
 		this.activeProject = project;
 		projectTitle.setText(project.getTitle());

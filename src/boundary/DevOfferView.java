@@ -1,5 +1,7 @@
 package boundary;
 
+import java.util.UUID;
+
 import entity.Offer;
 import entity.Project;
 import javafx.fxml.FXML;
@@ -41,7 +43,13 @@ public class DevOfferView {
 	@FXML
 	private Button viewProjectDetailsButton;
 	
+	private UUID projectId;
+	
+	private UUID offerId;
+	
 	public void populate(Project project, Offer offer) {
+		this.projectId = project.getID();
+		this.offerId = offer.getId();
 		projectTitle.setText(project.getTitle());
 		bigDescription.setText(project.getDescription());
 		language.setText(project.getLanguage().getString());
@@ -50,6 +58,7 @@ public class DevOfferView {
 		projectLocation.setText(project.getLocation());
 	}
 	
-	
-
+	public void acceptOffer() {
+		
+	}
 }
