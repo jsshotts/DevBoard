@@ -66,7 +66,6 @@ public class DevMyApplications {
 	
 	private List<Project> getOffers() {
 		MyAppsController controller = new MyAppsController();
-		System.out.println(controller.getUserOffers());
 		return controller.getUserOffers();
 	}
 	
