@@ -58,10 +58,9 @@ public class DevActiveProjects {
 	private void initializeListView(Map<UUID, Project> projects, VBox vbox) {
 		try {
 			for(Project p : projects.values()) {
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.ACTIVE_PROJECT_VIEW));
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_ACTIVE_PROJECT_CARD));
 				Node projectCard = fxmlLoader.load();
-				ActiveProjectCard activeProjectCard = fxmlLoader.<ActiveProjectCard>getController();
-				activeProjectCard.initDevCard();
+				DevActiveProjectCard activeProjectCard = fxmlLoader.<DevActiveProjectCard>getController();
 				activeProjectCard.populate(p);
 				vbox.getChildren().add(projectCard);
 			}

@@ -18,7 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class ActiveProjectCard {
+public class POActiveProjectCard {
 	
 	@FXML
 	private Button messageButton;
@@ -50,14 +50,6 @@ public class ActiveProjectCard {
 	
 	@FXML
 	private AnchorPane anchor;
-	
-	public void initDevCard() {
-		anchor.getChildren().remove(applicantsButton);
-	}
-	
-	public void initPOCard() {
-		messageButton.setText("Message Developer");
-	}
 	
 	public void toggleApplicants() {
 		
