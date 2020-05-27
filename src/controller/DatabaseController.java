@@ -166,6 +166,34 @@ public class DatabaseController {
 		return sendHttpRequest(url, RequestType.PUT, offer) == null ? null : offer.getId();
 	}
 	
+	public boolean deleteOffer(UUID uid) {
+		
+		Offer offer = getOne(Offer.class, uid);
+		if(offer == null) {
+			return false;
+		}
+		
+		String url = BASEURL + OFFERS + offer.getId() + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.DELETE);
+		
+		Developer dev = getOne(Developer.class, offer.getDeveloperId());
+		dev.removeOfferId(offer.getId());
+		
+		Project project = getOne(Project.class, offer.getProjectId());
+		if(project.getPendingOfferId().equals(uid)) {
+			project.setPendingOfferId(null);
+		}
+		
+		pushNew(dev);
+		pushNew(project);
+		
+		if (responseStr == null)
+		{
+			return false;
+		}
+		return true;	
+	}
+	
 	private String sendHttpRequest(String url, RequestType type)
 	{
 		try

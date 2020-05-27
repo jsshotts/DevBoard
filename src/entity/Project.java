@@ -13,7 +13,8 @@ public class Project {
 	private UUID id;
 	private UUID projectOwnerID;
 	private List<UUID> appliedDeveloperIDs = new LinkedList<>();
-	private UUID offerId;
+	private UUID pendingOfferId;
+	private List<UUID> closedOfferIds = new LinkedList<>();
 	private String projectOwnerName;
 	private String status;
 	private String description;
@@ -87,12 +88,33 @@ public class Project {
 		return this.id;
 	}
 
-	public void setOfferId(UUID offerId) {
-		this.offerId = offerId;
+	public void setPendingOfferId(UUID offerId) {
+		this.pendingOfferId = offerId;
+		int test = 0;
 	}
 	
-	public UUID getOfferId() {
-		return this.offerId;
+	public UUID getPendingOfferId() {
+		return this.pendingOfferId;
+	}
+	
+	public void addClosedOfferId(UUID offerId) {
+		if(closedOfferIds == null) {
+			closedOfferIds = new LinkedList<>();
+		}
+		closedOfferIds.add(offerId);
+	}
+	
+	public List<UUID> getClosedOfferIds(){
+		if(closedOfferIds == null) {
+			return new LinkedList<>();
+		}
+		return closedOfferIds;
+	}
+	
+	public void removeClosedOfferId(UUID offerId) {
+		if(closedOfferIds != null) {
+			closedOfferIds.remove(offerId);
+		}
 	}
 
 	public String getProjectOwnerName() {

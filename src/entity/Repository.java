@@ -57,9 +57,9 @@ public class Repository {
 	public static List<Project> getProjects() {return projects;}
 	
 	public static void init() {
-		Offer offer = offers.get(0);
-		developers.get(0).addOfferId(offer.getId());
-		projects.get(0).setOfferId(offer.getId());
+//		Offer offer = offers.get(0);
+//		developers.get(0).addOfferId(offer.getId());
+//		projects.get(0).setOfferId(offer.getId());
 		
 		projects.get(0).addAppliedDeveloperID(developers.get(0).getID());
 		projects.get(0).addAppliedDeveloperID(developers.get(1).getID());

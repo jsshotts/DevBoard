@@ -30,6 +30,9 @@ public class ApplicantCard {
 		this.developer = developer;
 		this.project = project;
 		devName.setText(developer.getName());
+		if(project.getPendingOfferId() != null) {
+			sendOffer.setDisable(true);
+		}
 	}
 	
 	public void sendOffer() {

@@ -12,12 +12,21 @@ public class Offer {
 	private UUID projectId;
 	private UUID developerId;
 	private String message;
+	private int status = PENDING;
 	
 	public Offer(UUID projectId, UUID developerId, String message) {
 		this.id = UUID.randomUUID();
 		this.projectId = projectId;
 		this.developerId = developerId;
 		this.message = message;
+	}
+	
+	public int getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	public UUID getId() {

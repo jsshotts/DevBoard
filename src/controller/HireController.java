@@ -43,15 +43,11 @@ public class HireController {
 	
 	public void sendOffer(Project project, Developer developer) {
 		
-		if(!existingOffer(project, developer)) {
+		if(!existingOffer(project, developer) && project.getPendingOfferId() == null) {
 			
 			Offer offer = new Offer(project.getID(), developer.getID(), "");
 			
-			if(project.getOfferId() != null) {
-				offer.setId(project.getOfferId());
-			}
-			
-			project.setOfferId(offer.getId());
+			project.setPendingOfferId(offer.getId());
 			developer.addOfferId(offer.getId());
 			database.pushNew(offer);
 			database.update(project);
@@ -60,7 +56,7 @@ public class HireController {
 	}
 	
 	public boolean existingOffer(Project project, Developer developer) {
-		if(developer.hasOffer(project.getOfferId())) {
+		if(developer.hasOffer(project.getPendingOfferId())) {
 			return true;
 		}
 		return false;
