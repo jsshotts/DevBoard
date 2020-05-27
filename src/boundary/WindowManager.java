@@ -25,7 +25,7 @@ public class WindowManager {
 	
 	public static final String SMALL_PROJECT_VIEW = "boundary/SmallProjectView.fxml";
 	public static final String LARGE_PROJECT_VIEW = "boundary/LargeProjectView.fxml";
-	public static final String OFFER_VIEW = "boundary/OfferView.fxml";
+	public static final String DEV_OFFER_VIEW = "boundary/DevOfferView.fxml";
 	public static final String PROJECT_APPLICANTS_VIEW = "boundary/ProjectApplicantsView.fxml";
 	public static final String PROJECT_OFFERS_VIEW = "boundary/ProjectOffersView.fxml";
 	public static final String APPLICANT_CARD = "boundary/ApplicantCard.fxml";

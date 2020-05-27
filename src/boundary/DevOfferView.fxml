@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevOfferCard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevOfferView">
    <children>
       <Button fx:id="declineOfferButton" layoutX="334.0" layoutY="361.0" mnemonicParsing="false" text="DECLINE OFFER" />
       <Button fx:id="acceptOfferButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="ACCEPT OFFER" />

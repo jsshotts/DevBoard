@@ -1,6 +1,7 @@
 package boundary;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -8,6 +9,8 @@ import java.util.logging.Level;
 import controller.FindProjectsController;
 import controller.Log;
 import controller.MyAppsController;
+import entity.Developer;
+import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -35,7 +38,7 @@ public class DevMyApplications {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				projectOffersBox = initOffersView(getOffers());
+				projectOffersBox = initOffersView(getOfferMap());
 				submittedApplicationsBox = initApplicationsView(getApplications());
 				return null;
 			}
@@ -64,9 +67,9 @@ public class DevMyApplications {
 		return controller.getUserApplications();
 	}
 	
-	private List<Project> getOffers() {
+	private Map<Project, Offer> getOfferMap() {
 		MyAppsController controller = new MyAppsController();
-		return controller.getUserOffers();
+		return controller.getDevOfferMap();
 	}
 	
 	private VBox initApplicationsView(List<Project> projects) {
@@ -81,7 +84,6 @@ public class DevMyApplications {
 				smallProjectView.populate(p);
 				vbox.getChildren().add(projectCard);
 			}
-			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -89,20 +91,22 @@ public class DevMyApplications {
 		return vbox;
 	}
 	
-	private VBox initOffersView(List <Project> projects) {
+	private VBox initOffersView(Map<Project, Offer> map) {
+		
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
 		try {
 			
-			for(Project p : projects) {
-				System.out.println("rrrip");
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.OFFER_VIEW));
+			for(Map.Entry<Project, Offer> entry : map.entrySet()) {
+				
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_OFFER_VIEW));
 				Node projectCard = fxmlLoader.load();
-				DevOfferCard offerView = fxmlLoader.<DevOfferCard>getController();
-				offerView.populate(p);
+				DevOfferView offerViewController = fxmlLoader.<DevOfferView>getController();
+				
+				offerViewController.populate(entry.getKey(), entry.getValue());
+				
 				vbox.getChildren().add(projectCard);
 			}
-			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

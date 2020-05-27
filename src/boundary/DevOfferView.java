@@ -1,11 +1,12 @@
 package boundary;
 
+import entity.Offer;
 import entity.Project;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class DevOfferCard {
+public class DevOfferView {
 	
 	@FXML
 	private Label projectTitle;
@@ -16,8 +17,8 @@ public class DevOfferCard {
 	@FXML
 	private Label platform;
 	
-	@FXML
-	private Label location;
+	//@FXML
+	//private Label location;
 	
 	@FXML 
 	private Label duration;
@@ -40,13 +41,13 @@ public class DevOfferCard {
 	@FXML
 	private Button viewProjectDetailsButton;
 	
-	public void populate(Project project) {
+	public void populate(Project project, Offer offer) {
 		projectTitle.setText(project.getTitle());
 		bigDescription.setText(project.getDescription());
 		language.setText(project.getLanguage().getString());
 		remote.setText(project.getRemote());
 		platform.setText(project.getPlatform());
-		location.setText(project.getLocation());
+		//location.setText(project.getLocation());
 	}
 	
 	
