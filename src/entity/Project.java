@@ -148,6 +148,9 @@ public class Project {
 	}
 	
 	public List<UUID> getAppliedDeveloperIDs(){
+		if(appliedDeveloperIDs == null) {
+			appliedDeveloperIDs = new LinkedList<>();
+		}
 		return this.appliedDeveloperIDs;
 	}
 	
