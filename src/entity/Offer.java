@@ -48,4 +48,16 @@ public class Offer {
 	public void setId(UUID id) {
 		this.id = id;
 	}
+	
+	public String getStatusString() {
+		if(this.status == ACCEPTED) {
+			return "Accepted";
+		}
+		else if(this.status == DECLINED) {
+			return "Declined";
+		}
+		else {
+			return "Pending";
+		}
+	}
 }

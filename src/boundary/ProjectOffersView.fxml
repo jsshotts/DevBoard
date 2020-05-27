@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ProjectOffersView">
+  <content>
+      <VBox>
+         <children>
+            <Label text="Accepted">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="acceptedOfferBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+            <Label layoutX="10.0" layoutY="10.0" text="Pending">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="pendingOfferBox" alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="200.0" prefWidth="100.0" />
+            <Label layoutX="10.0" layoutY="59.0" text="Declined">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="declinedOfferBox" alignment="CENTER" layoutX="10.0" layoutY="73.0" prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </VBox>
+  </content>
+</ScrollPane>

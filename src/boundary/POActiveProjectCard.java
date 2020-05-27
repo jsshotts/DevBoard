@@ -27,6 +27,9 @@ public class POActiveProjectCard {
 	private Button applicantsButton;
 	
 	@FXML
+	private Button offersButton;
+	
+	@FXML
 	private Label projectTitle;
 	
 	@FXML
@@ -40,9 +43,15 @@ public class POActiveProjectCard {
 	
 	private Node applicantsView;
 	
+	private Node offersView;
+	
 	private boolean applicantsVisible = false;
 	
 	private boolean getApplicantsInProgress = false;
+	
+	private boolean offersVisible = false;
+	
+	private boolean getOffersInProgress = false;
 	
 	private HireController hireController = new HireController();
 	
@@ -53,7 +62,9 @@ public class POActiveProjectCard {
 	
 	public void toggleApplicants() {
 		
-		if(applicantsVisible && rootVbox.getChildren().contains(applicantsView)) {
+		removeOffersView();
+		
+		if(applicantsVisible) {
 			rootVbox.getChildren().remove(applicantsView);
 			applicantsVisible = false;
 		}
@@ -108,5 +119,46 @@ public class POActiveProjectCard {
 		projectTitle.setText(project.getTitle());
 		description.setText(project.getDescription());
 		status.setText(project.getStatusString());
+	}
+	
+	public void toggleOffers() {
+		
+		removeApplicantsView();
+		
+		if(offersVisible) {
+			rootVbox.getChildren().remove(offersView);
+			offersVisible = false;
+		}
+		else if(!getOffersInProgress){			
+			getOffersInProgress = true;
+			displayProjectOffers();
+			offersVisible = true;
+			getOffersInProgress = false;
+		}
+	}
+	
+	public void displayProjectOffers() {
+		
+		try {
+			
+			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PROJECT_OFFERS_VIEW));
+			offersView = fxmlLoader.load();
+			ProjectOffersView projectOffersView = fxmlLoader.<ProjectOffersView>getController();
+			projectOffersView.initOfferView(activeProject);
+			rootVbox.getChildren().add(offersView);
+		}
+		catch(Exception e) {
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
+	}
+	
+	public void removeApplicantsView() {
+		rootVbox.getChildren().remove(applicantsView);
+		applicantsVisible = false;
+	}
+	
+	public void removeOffersView() {
+		rootVbox.getChildren().remove(offersView);
+		offersVisible = false;
 	}
 }

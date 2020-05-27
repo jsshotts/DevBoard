@@ -1,7 +1,9 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import entity.Developer;
@@ -60,5 +62,25 @@ public class HireController {
 			return true;
 		}
 		return false;
+	}
+	
+	public Map<Developer, Offer> getProjectOfferMap(Project project){
+		
+		List<Offer> offers = new LinkedList<>();		
+		for(UUID uid : project.getAllOfferIds()) {
+			offers.add(
+					database.getOne(Offer.class, uid)
+					);
+		}
+		
+		Map<Developer, Offer> map = new HashMap<>();		
+		for(Offer offer : offers) {
+			map.put(
+					database.getOne(Developer.class, offer.getDeveloperId()),
+					offer
+					);
+		}		
+		
+		return map;
 	}
 }
