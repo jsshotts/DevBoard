@@ -1,8 +1,13 @@
 package boundary;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import controller.Log;
+import controller.SessionController;
+import entity.Developer;
+import entity.Filters.Language;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +18,19 @@ import javafx.scene.layout.BorderPane;
 
 public class DevProfile {
 	
+	private static final String WHITESPACE = "     ";
+	
 	@FXML
 	private Label devName;
+	
+	@FXML
+	private Label bio;
+	
+	@FXML
+	private Label languages;
+	
+	@FXML
+	private Label experience;
 	
 	static void swapTo(ActionEvent event)
 	{
@@ -26,5 +42,37 @@ public class DevProfile {
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+	}
+	
+	public void populate() {
+		Developer dev = SessionController.getInstance().getDeveloper();
+		devName.setText(dev.getName());
+		bio.setText(dev.getBio());
+		languages.setText(langsToString(dev.getLanguages()));
+		experience.setText(devExperienceToString(dev.getExperience()));
+	}
+	
+	private String langsToString(List<Language> langs) {
+		
+		if (langs == null || langs.isEmpty())
+			return "";
+		
+		String result = WHITESPACE;
+		List<String> langsAsStr = new ArrayList<>();
+		for (Language L : langs) {
+			langsAsStr.add(L.toString());
+		}
+		result += String.join(", ", langsAsStr);
+		return result;
+	}
+	
+	private String devExperienceToString(List<String> expers) {
+		
+		if (expers == null || expers.isEmpty())
+			return "";
+		
+		String result = WHITESPACE;
+		result += String.join(", ", expers);
+		return result;
 	}
 }

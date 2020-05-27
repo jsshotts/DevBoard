@@ -1,5 +1,6 @@
 package boundary;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
 import controller.Log;
@@ -47,7 +48,17 @@ public class DevNavBar {
 			DevMyApplications.swapTo(event);
 		}
 		if (event.getSource() == profileButton) {
-			DevProfile.swapTo(event);
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_PROFILE_SCREEN));
+				Node devProfileNode = fxmlLoader.load();
+				DevProfile devProfileView = fxmlLoader.<DevProfile>getController();
+				devProfileView.populate();
+				BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+				borderPane.setCenter(devProfileNode);
+			} catch (IOException e) {
+				Log.logger.log(Level.WARNING, e.getMessage());
+				e.printStackTrace();
+			}
 		}
 	}
 }

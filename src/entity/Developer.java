@@ -35,11 +35,19 @@ public class Developer extends User {
 		}
 	}
 	
+	public List<Language> getLanguages(){
+		return languages;
+	}
+	
 	public void addExperience(String exp) {
 		if(experience == null) {
 			experience = new LinkedList<>();
 		}
 		experience.add(exp);
+	}
+	
+	public List<String> getExperience() {
+		return experience;
 	}
 	
 	public void addOfferId(UUID offerId) {
