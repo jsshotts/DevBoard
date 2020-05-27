@@ -7,11 +7,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevOfferCard">
    <children>
-      <Button layoutX="334.0" layoutY="361.0" mnemonicParsing="false" text="DECLINE OFFER" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="ACCEPT OFFER" />
-      <Button layoutX="575.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
+      <Button fx:id="declineOfferButton" layoutX="334.0" layoutY="361.0" mnemonicParsing="false" text="DECLINE OFFER" />
+      <Button fx:id="acceptOfferButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="ACCEPT OFFER" />
+      <Button fx:id="viewProjectDetailsButton" layoutX="575.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
       <ImageView fitHeight="66.0" fitWidth="100.0" layoutX="664.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
             <Image url="@../Downloads/logos-21-23-.jpg" />
@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="iOS">
+            <Label fx:id="platform" text="iOS">
                <font>
                   <Font size="13.0" />
                </font>
@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="San Luis Obispo">
+            <Label fx:id="location" text="San Luis Obispo">
                <font>
                   <Font size="13.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="6 Weeks">
+            <Label fx:id="duration" text="6 Weeks">
                <font>
                   <Font size="13.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Yes">
+            <Label fx:id="remote" text="Yes">
                <font>
                   <Font size="13.0" />
                </font>
@@ -80,7 +80,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Any">
+            <Label fx:id="language" text="Any">
                <font>
                   <Font size="13.0" />
                </font>
@@ -89,13 +89,13 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="27.0" prefHeight="90.0" prefWidth="632.0">
          <children>
-            <Label text="Project Headline">
+            <Label fx:id="projectTitle" text="Project Headline">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Region prefHeight="15.0" prefWidth="650.0" />
-            <Label prefHeight="55.0" prefWidth="632.0" text="This is a short descriptive of a project. For instance: Our startup needs a mobile app prototype so we can test our idea with customers." wrapText="true">
+            <Label fx:id="shortDescription" prefHeight="55.0" prefWidth="632.0" text="This is a short descriptive of a project. For instance: Our startup needs a mobile app prototype so we can test our idea with customers." wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
@@ -109,7 +109,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="290.0" prefWidth="335.0" text="We would like to you to build our app prototype for us. We have updated the proposed schedule, please let us know if this works for you. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Please confirm you would like to work on this project by the end of the week." wrapText="true">
+            <Label fx:id="bigDescription" prefHeight="290.0" prefWidth="335.0" text="We would like to you to build our app prototype for us. We have updated the proposed schedule, please let us know if this works for you. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Please confirm you would like to work on this project by the end of the week." wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>

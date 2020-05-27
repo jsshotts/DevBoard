@@ -7,6 +7,7 @@ import java.util.logging.Level;
 
 import controller.FindProjectsController;
 import controller.Log;
+import controller.MyAppsController;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -34,7 +35,7 @@ public class DevMyApplications {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				projectOffersBox = initOffersView();
+				projectOffersBox = initOffersView(getOffers());
 				submittedApplicationsBox = initApplicationsView(getApplications());
 				return null;
 			}
@@ -59,8 +60,14 @@ public class DevMyApplications {
 	}
 	
 	private List<Project> getApplications() {
-		FindProjectsController controller = new FindProjectsController();
+		MyAppsController controller = new MyAppsController();
 		return controller.getUserApplications();
+	}
+	
+	private List<Project> getOffers() {
+		MyAppsController controller = new MyAppsController();
+		System.out.println(controller.getUserOffers());
+		return controller.getUserOffers();
 	}
 	
 	private VBox initApplicationsView(List<Project> projects) {
@@ -83,16 +90,17 @@ public class DevMyApplications {
 		return vbox;
 	}
 	
-	private VBox initOffersView() {
+	private VBox initOffersView(List <Project> projects) {
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
 		try {
 			
-			for(int i = 0; i < 2; i++) {
+			for(Project p : projects) {
+				System.out.println("rrrip");
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.OFFER_VIEW));
 				Node projectCard = fxmlLoader.load();
-				//SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
-				//smallProjectView.populate(p);
+				DevOfferCard offerView = fxmlLoader.<DevOfferCard>getController();
+				offerView.populate(p);
 				vbox.getChildren().add(projectCard);
 			}
 			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
