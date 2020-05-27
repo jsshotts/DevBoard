@@ -113,6 +113,12 @@ public class Project {
 		return closedOfferIds;
 	}
 	
+	public List<UUID> getAllOfferIds(){
+		List<UUID> allOfferIds = getClosedOfferIds();
+		allOfferIds.add(getPendingOfferId());
+		return allOfferIds;
+	}
+	
 	public void removeClosedOfferId(UUID offerId) {
 		if(closedOfferIds != null) {
 			closedOfferIds.remove(offerId);
