@@ -120,6 +120,9 @@
                   <Insets top="20.0" />
                </padding></ScrollPane>
          </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
       </VBox>
    </children>
 </AnchorPane>

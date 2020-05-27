@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 import controller.Log;
+import controller.SessionController;
+import entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.*;
 
@@ -19,8 +22,13 @@ public class DevNavBar {
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.DEV_NAVBAR_VIEW));
-			borderPane.setTop(switchScreen);
+			
+			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_NAVBAR_VIEW));
+			Node devNavBarNode = fxmlLoader.load();
+			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
+			devNavBarController.init();
+			
+			borderPane.setTop(devNavBarNode);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -35,6 +43,14 @@ public class DevNavBar {
 	public Button myApplicationsButton;
 	@FXML
 	public Button profileButton;
+	@FXML
+	public Label userName;
+	
+	public void init() {
+		SessionController session = SessionController.getInstance();
+		User user = session.getUser();
+		userName.setText(user.getName());
+	}
 	
 	public void navBar(ActionEvent event) {
 

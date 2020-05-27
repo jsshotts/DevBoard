@@ -31,7 +31,7 @@ public class Project {
 	private ProjectPlatform platform;
 	private boolean remote;
 	
-	public Project(String title, UUID poID) {
+	public Project(String title, UUID poID, String poName) {
 		this.title = title;
 		this.projectOwnerID = poID;
 		this.id = UUID.randomUUID();
@@ -40,16 +40,7 @@ public class Project {
 		this.setTestData();
 		this.projectOwnerName = "";
 		this.status = HIRING;
-	}
-	
-	public Project(String description, UUID poID, String poName) {
-		this.description = description;
-		this.projectOwnerID = poID;
-		this.id = UUID.randomUUID();
-		//for now, set dummy data for testing
-		this.setTestData();
 		this.projectOwnerName = poName;
-		this.status = HIRING;
 	}
 	
 	public Project(UUID poId, String poName, String title, 

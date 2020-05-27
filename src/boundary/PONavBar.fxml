@@ -20,6 +20,30 @@
          </font>
       </Text>
       <Region HBox.hgrow="ALWAYS" />
+      <VBox alignment="CENTER">
+         <children>
+            <HBox spacing="6.0">
+               <children>
+                  <Label text="Welcome" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userName" text="Name" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Project Owner" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Region layoutX="234.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
       <Button fx:id="createProjectButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Create Project">
          <font>
             <Font size="20.0" />

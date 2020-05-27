@@ -36,6 +36,9 @@ public class ApplicantCard {
 	}
 	
 	public void sendOffer() {
+		
+		sendOffer.setDisable(true);
+		
 		HireController hireController = new HireController();
 		
 		Task<Void> task = new Task<Void>() {

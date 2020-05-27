@@ -88,7 +88,7 @@ public class DevFindProject {
 				i++;
 			}
 			
-			gridPane.setHgap(100);
+			gridPane.setHgap(50);
 			gridPane.setVgap(100);
 			
 			ColumnConstraints column1 = new ColumnConstraints();

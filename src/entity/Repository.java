@@ -27,24 +27,24 @@ public class Repository {
 	
 	protected static List<Project> projects = new ArrayList<>(
 			Arrays.asList(
-					new Project("Fitness IOS App ", projectOwners.get(0).getID()),
-					new Project("Art Android App", projectOwners.get(1).getID()),
-					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID()),
-					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID()),
-					new Project("Windows Application-0", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation-1", projectOwners.get(1).getID()),
-					new Project("IOS App-2", projectOwners.get(2).getID()),
-					new Project("Linux Script-2", projectOwners.get(3).getID()),
-					new Project("Warehouse Automation-6", projectOwners.get(0).getID()),
-					new Project("Windows Application-2", projectOwners.get(1).getID()),
-					new Project("Android App-2", projectOwners.get(2).getID()),
-					new Project("Warehouse Automation-3", projectOwners.get(3).getID()),
-					new Project("Linux Script-3", projectOwners.get(0).getID()),
-					new Project("Windows Application-4", projectOwners.get(1).getID()),
-					new Project("Warehouse Automation-5", projectOwners.get(2).getID()),
-					new Project("IOS App-3", projectOwners.get(3).getID()),
-					new Project("Windows Application-3", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation-4", projectOwners.get(1).getID()))
+					new Project("Fitness IOS App ", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Art Android App", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Windows Application-0", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Warehouse Automation-1", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("IOS App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Linux Script-2", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Warehouse Automation-6", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Windows Application-2", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Android App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Warehouse Automation-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Linux Script-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Windows Application-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Warehouse Automation-5", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("IOS App-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Windows Application-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Warehouse Automation-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()))
 			);
 	
 	protected static List<Offer> offers = new ArrayList<>(
