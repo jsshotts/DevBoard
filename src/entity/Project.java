@@ -10,13 +10,17 @@ import entity.Filters.ProjectPlatform;
 
 public class Project {
 	
+	public static final int HIRING = 0;
+	public static final int IN_PROGRESS = 1;
+	public static final int CLOSED = 2;
+	
 	private UUID id;
 	private UUID projectOwnerID;
 	private List<UUID> appliedDeveloperIDs = new LinkedList<>();
 	private UUID pendingOfferId;
 	private List<UUID> closedOfferIds = new LinkedList<>();
 	private String projectOwnerName;
-	private String status;
+	private int status;
 	private String description;
 	private String title;
 	private String location;
@@ -24,8 +28,6 @@ public class Project {
 	private Language language;
 	private ProjectPlatform platform;
 	private boolean remote;
-	
-	public Project() {}
 	
 	public Project(String title, UUID poID) {
 		this.title = title;
@@ -35,7 +37,7 @@ public class Project {
 		//for now, set dummy data for testing
 		this.setTestData();
 		this.projectOwnerName = "";
-		this.status = "Hiring";
+		this.status = HIRING;
 	}
 	
 	public Project(String description, UUID poID, String poName) {
@@ -45,7 +47,7 @@ public class Project {
 		//for now, set dummy data for testing
 		this.setTestData();
 		this.projectOwnerName = poName;
-		this.status = "Hiring";
+		this.status = HIRING;
 	}
 	
 	public void setTestData() {
@@ -121,9 +123,24 @@ public class Project {
 		return projectOwnerName;
 	}
 	
-	public String getStatus() {
+	public int getStatus() {
 		return status;
-
+	}
+	
+	public String getStatusString() {
+		if(this.status == HIRING) {
+			return "Hiring";
+		}
+		else if(this.status == IN_PROGRESS) {
+			return "In Progress";
+		}
+		else {
+			return "Closed";
+		}
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	public UUID getProjectOwnerId() {

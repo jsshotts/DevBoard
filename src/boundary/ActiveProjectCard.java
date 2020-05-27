@@ -115,5 +115,6 @@ public class ActiveProjectCard {
 		this.activeProject = project;
 		projectTitle.setText(project.getTitle());
 		description.setText(project.getDescription());
+		status.setText(project.getStatusString());
 	}
 }

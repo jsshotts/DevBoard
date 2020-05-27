@@ -18,16 +18,4 @@ public class utilityTest {
 		UUID uid = UUID.fromString(temp);
 		database.deleteOffer(uid);
 	}
-	
-//	@Test
-//	public void uuidNullTest() {
-//		Project  project = new Project();
-//		System.out.println("uuid: " + project.getOfferId());
-//		
-//		project.setOfferId(UUID.randomUUID());
-//		System.out.println("uuid: " + project.getOfferId());
-//		
-//		project.setOfferId(null);
-//		System.out.println("uuid: " + project.getOfferId());
-//	}
 }
