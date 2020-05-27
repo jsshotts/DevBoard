@@ -49,7 +49,7 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="location" text="San Luis Obispo">
+                              <Label fx:id="projectLocation" text="San Luis Obispo">
                                  <font>
                                     <Font size="16.0" />
                                  </font>

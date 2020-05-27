@@ -17,8 +17,8 @@ public class DevOfferView {
 	@FXML
 	private Label platform;
 	
-	//@FXML
-	//private Label location;
+	@FXML
+	private Label projectLocation;
 	
 	@FXML 
 	private Label duration;
@@ -47,7 +47,7 @@ public class DevOfferView {
 		language.setText(project.getLanguage().getString());
 		remote.setText(project.getRemote());
 		platform.setText(project.getPlatform());
-		//location.setText(project.getLocation());
+		projectLocation.setText(project.getLocation());
 	}
 	
 	
