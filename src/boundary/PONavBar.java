@@ -1,5 +1,6 @@
 package boundary;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
 import controller.Log;
@@ -43,7 +44,16 @@ public class PONavBar {
 			POMyProjects.swapTo(event);
 		}
 		if (event.getSource() == profileButton) {
-			POProfile.swapTo(event);
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PO_PROFILE_SCREEN));
+				Node poProfileNode = fxmlLoader.load();
+				POProfile poProfileView = fxmlLoader.<POProfile>getController();
+				poProfileView.populate();
+				BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+				borderPane.setCenter(poProfileNode);
+			} catch (IOException e) {
+				Log.logger.log(Level.WARNING, e.getMessage());
+			}
 		}
 	}
 }

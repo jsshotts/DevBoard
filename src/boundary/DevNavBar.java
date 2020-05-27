@@ -57,7 +57,6 @@ public class DevNavBar {
 				borderPane.setCenter(devProfileNode);
 			} catch (IOException e) {
 				Log.logger.log(Level.WARNING, e.getMessage());
-				e.printStackTrace();
 			}
 		}
 	}

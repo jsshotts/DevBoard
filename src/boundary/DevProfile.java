@@ -27,6 +27,9 @@ public class DevProfile {
 	private Label bio;
 	
 	@FXML
+	private Label email;
+	
+	@FXML
 	private Label languages;
 	
 	@FXML
@@ -47,6 +50,7 @@ public class DevProfile {
 	public void populate() {
 		Developer dev = SessionController.getInstance().getDeveloper();
 		devName.setText(dev.getName());
+		email.setText(dev.getEmail());
 		bio.setText(dev.getBio());
 		languages.setText(langsToString(dev.getLanguages()));
 		experience.setText(devExperienceToString(dev.getExperience()));
