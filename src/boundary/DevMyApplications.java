@@ -45,17 +45,13 @@ public class DevMyApplications {
 		};
 		task.setOnSucceeded(succeededEvent -> {
 			projectOffers.setContent(projectOffersBox);
-			projectOffersBox.prefHeightProperty().bind(projectOffers.widthProperty());
-			projectOffersBox.prefWidthProperty().bind(projectOffers.widthProperty());
 			projectOffers.setFitToHeight(true);
 			
 			submittedApplications.setContent(submittedApplicationsBox);
-			submittedApplicationsBox.prefHeightProperty().bind(submittedApplications.widthProperty());
-			submittedApplicationsBox.prefWidthProperty().bind(submittedApplications.widthProperty());
 			submittedApplications.setFitToHeight(true);
          });
 		task.setOnFailed(failedEvent -> {
-			System.out.println(task.getException().getMessage());
+			Log.logger.log(Level.WARNING, task.getException().getMessage());
 		});
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
@@ -80,6 +76,7 @@ public class DevMyApplications {
 			for(Project p : projects) {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
+				
 				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
 				smallProjectView.populate(p);
 				vbox.getChildren().add(projectCard);
