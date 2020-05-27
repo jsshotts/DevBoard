@@ -6,7 +6,6 @@ import java.util.concurrent.ExecutorService;
 
 import java.util.concurrent.Executors;
 
-import controller.ActiveProjectController;
 import controller.FindProjectsController;
 import controller.Log;
 import entity.Project;
