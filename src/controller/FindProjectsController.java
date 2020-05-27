@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import java.util.List;
@@ -17,4 +18,14 @@ public class FindProjectsController{
 		return database.getAll(DatabaseController.PROJECT_TYPE);
 	}
 	
+	public Map<UUID, Project> getDevActiveProjects(){
+		Developer dev = (Developer) SessionController.getInstance().getUser();
+		
+		Map<UUID, Project> result = new HashMap<>();
+		for (UUID projectId : dev.getActiveProjectIds()) {
+			Project temp = database.getOne(Project.class, projectId);
+			result.put(projectId, temp);
+		}
+		return result;
+	}	
 }

@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import controller.ActiveProjectController;
+import controller.FindProjectsController;
 import controller.Log;
 import entity.Project;
 
@@ -51,8 +52,8 @@ public class DevActiveProjects {
 	
 	private Map<UUID, Project> getDevActiveProjects()
 	{
-		ActiveProjectController activeProjectController = new ActiveProjectController();
-		return activeProjectController.getDevActiveProjects();
+		FindProjectsController findProjectsController = new FindProjectsController();
+		return findProjectsController.getDevActiveProjects();
 	}
 	
 	private void initializeListView(Map<UUID, Project> projects, VBox vbox) {
