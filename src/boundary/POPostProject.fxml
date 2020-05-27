@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.POPostProject">
    <children>
       <Region layoutX="935.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
@@ -30,12 +29,12 @@
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField layoutX="244.0" layoutY="30.0" promptText="Platform">
+                        <TextField fx:id="platform" layoutX="244.0" layoutY="30.0" promptText="Platform">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField layoutX="430.0" layoutY="30.0" promptText="Remote">
+                        <TextField fx:id="remote" layoutX="430.0" layoutY="30.0" promptText="Remote">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -44,17 +43,17 @@
                   </HBox>
                   <HBox layoutX="58.0" layoutY="81.0" spacing="40.0">
                      <children>
-                        <TextField layoutX="58.0" layoutY="81.0" promptText="Duration">
+                        <TextField fx:id="duration" layoutX="58.0" layoutY="81.0" promptText="Duration">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField layoutX="244.0" layoutY="81.0" promptText="Language">
+                        <TextField fx:id="language" layoutX="244.0" layoutY="81.0" promptText="Language">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField layoutX="423.0" layoutY="81.0" promptText="Location">
+                        <TextField fx:id="loc" layoutX="423.0" layoutY="81.0" promptText="Location">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -63,12 +62,12 @@
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="405.0" layoutY="614.0" mnemonicParsing="false" text="Post Project">
+            <Button layoutX="405.0" layoutY="614.0" mnemonicParsing="false" onAction="#postProject" text="Post Project">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <TextField alignment="TOP_LEFT" layoutX="147.0" layoutY="224.0" prefHeight="320.0" prefWidth="650.0" promptText="Description">
+            <TextField fx:id="description" alignment="TOP_LEFT" layoutX="147.0" layoutY="224.0" prefHeight="320.0" prefWidth="650.0" promptText="Description">
                <font>
                   <Font size="20.0" />
                </font>

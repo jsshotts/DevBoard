@@ -4,7 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+import java.util.logging.Level;
 
+import controller.Log;
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 
@@ -50,6 +52,18 @@ public class Project {
 		this.status = HIRING;
 	}
 	
+	public Project(UUID poId, String poName, String title, 
+			String description, String duration, String location)
+	{
+		this.id = UUID.randomUUID();
+		this.projectOwnerID = poId;
+		this.projectOwnerName = poName;
+		this.title = title;
+		this.description = description;
+		this.duration = duration;
+		this.location = location;
+	}
+	
 	public void setTestData() {
 		this.location = "San Luis Obispo";
 		this.duration = "5 weeks";
@@ -92,7 +106,6 @@ public class Project {
 
 	public void setPendingOfferId(UUID offerId) {
 		this.pendingOfferId = offerId;
-		int test = 0;
 	}
 	
 	public UUID getPendingOfferId() {
@@ -173,5 +186,20 @@ public class Project {
 
 	public void setLanguage(Language language) {
 		this.language = language;
+	}
+
+	public void setRemote(String text) {
+		if (text.equalsIgnoreCase("true") || text.equalsIgnoreCase("t") ||
+				text.equalsIgnoreCase("yes") || text.equalsIgnoreCase("y"))
+			remote = true;
+		else if (text.equalsIgnoreCase("false") || text.equalsIgnoreCase("f") ||
+				text.equalsIgnoreCase("no") || text.equalsIgnoreCase("n"))
+			remote = false;
+		else
+			Log.logger.log(Level.WARNING, "remote must be either true, fale, yes, no, t, f, y, or n");
+	}
+
+	public void setPlatform(ProjectPlatform platform) {
+		this.platform = platform;
 	}
 }
