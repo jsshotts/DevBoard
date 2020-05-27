@@ -5,7 +5,7 @@ import entity.Offer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class OfferCard {
+public class POOfferCard {
 	
 	@FXML
 	private Label name;

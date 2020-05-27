@@ -21,6 +21,7 @@ public class WindowManager {
 	public static final String PO_POSTPROJ_SCREEN = "boundary/POPostProject.fxml";
 	public static final String PO_MYPROJECTS_SCREEN = "boundary/POMyProjects.fxml";
 	public static final String PO_ACTIVE_PROJECT_CARD = "boundary/POActiveProjectCard.fxml";
+	public static final String PO_OFFER_CARD = "boundary/POOfferCard.fxml";
 	
 	public static final String SMALL_PROJECT_VIEW = "boundary/SmallProjectView.fxml";
 	public static final String LARGE_PROJECT_VIEW = "boundary/LargeProjectView.fxml";
@@ -28,7 +29,6 @@ public class WindowManager {
 	public static final String PROJECT_APPLICANTS_VIEW = "boundary/ProjectApplicantsView.fxml";
 	public static final String PROJECT_OFFERS_VIEW = "boundary/ProjectOffersView.fxml";
 	public static final String APPLICANT_CARD = "boundary/ApplicantCard.fxml";
-	public static final String OFFER_CARD = "boundary/OfferCard.fxml";
 	
 	public static final int WIN_WIDTH = 900;
 	public static final int WIN_HEIGHT = 600;

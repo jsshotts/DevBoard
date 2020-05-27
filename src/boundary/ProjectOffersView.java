@@ -81,9 +81,9 @@ public class ProjectOffersView {
 			
 			for(Map.Entry<Developer, Offer> entry : map.entrySet()) {
 				
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.OFFER_CARD));
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PO_OFFER_CARD));
 				Node offerCard = fxmlLoader.load();
-				OfferCard offerCardController = fxmlLoader.<OfferCard>getController();
+				POOfferCard offerCardController = fxmlLoader.<POOfferCard>getController();
 				
 				offerCardController.populate(entry.getKey(), entry.getValue());
 				
