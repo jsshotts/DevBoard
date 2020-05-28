@@ -119,7 +119,9 @@ public class Project {
 	
 	public List<UUID> getAllOfferIds(){
 		List<UUID> allOfferIds = getClosedOfferIds();
-		allOfferIds.add(getPendingOfferId());
+		if(pendingOfferId != null) {
+			allOfferIds.add(pendingOfferId);
+		}
 		return allOfferIds;
 	}
 	

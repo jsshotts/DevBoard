@@ -23,9 +23,8 @@ public class HireController {
 		
 		if(projectOwner != null && projectOwner.getProjectIds() != null) {
 			for(UUID uid : projectOwner.getProjectIds()) {
-				projects.add(
-					database.getOne(Project.class, uid)	
-						);
+				
+				projects.add(database.getOne(Project.class, uid));
 			}
 		}
 		return projects;
@@ -36,9 +35,8 @@ public class HireController {
 		List<Developer> developers = new LinkedList<>();
 		
 		for(UUID uid : project.getAppliedDeveloperIDs()) {
-			developers.add(
-					database.getOne(Developer.class, uid)
-					);
+			
+			developers.add(database.getOne(Developer.class, uid));
 		}
 		return developers;
 	}
@@ -69,17 +67,14 @@ public class HireController {
 		
 		List<Offer> offers = new LinkedList<>();		
 		for(UUID uid : project.getAllOfferIds()) {
-			offers.add(
-					database.getOne(Offer.class, uid)
-					);
+			
+			offers.add(database.getOne(Offer.class, uid));
 		}
 		
 		Map<Developer, Offer> map = new HashMap<>();		
 		for(Offer offer : offers) {
-			map.put(
-					database.getOne(Developer.class, offer.getDeveloperId()),
-					offer
-					);
+			
+			map.put(database.getOne(Developer.class, offer.getDeveloperId()), offer);
 		}		
 		
 		return map;

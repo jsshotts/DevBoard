@@ -47,6 +47,11 @@ public class ProjectOffersView {
 	
 	private List<Node> pending = new LinkedList<>();
 	
+	@FXML
+	public void initialize() {
+		scrollPane.setMinHeight(defaultHeight);
+	}
+	
 	public void initOfferView(Project project) {
 		
 		Task<Void> task = new Task<Void>() {
@@ -59,7 +64,7 @@ public class ProjectOffersView {
 		
 		task.setOnSucceeded(succeededEvent -> {
 			updateOfferBoxes();
-			scrollPane.setMinViewportHeight(getScrollPaneHeight());
+			scrollPane.setMinHeight(getScrollPaneHeight());
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);

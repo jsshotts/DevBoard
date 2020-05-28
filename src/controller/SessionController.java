@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.logging.Level;
+
 import entity.Developer;
 import entity.ProjectOwner;
 import entity.User;
@@ -21,6 +23,15 @@ public class SessionController {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public void updateUser(User user) {
+		if(this.user.getID().equals(user.getID())) {
+			this.user = user;
+		}
+		else {
+			Log.logger.log(Level.WARNING, "attempting to set new user without logging in");
+		}
 	}
 	
 	public User getUser() {
