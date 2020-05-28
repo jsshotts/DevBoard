@@ -33,9 +33,9 @@ public class ProjectOffersView {
 	@FXML
 	private VBox declinedOfferBox;
 	
-	private final int childHeight = 50;
+	private static final int CHILD_HEIGHT = 50;
 	
-	private final int defaultHeight = 150;
+	private static final int DEFAULT_HEIGHT = 150;
 	
 	private int childCount = 0;
 	
@@ -49,7 +49,7 @@ public class ProjectOffersView {
 	
 	@FXML
 	public void initialize() {
-		scrollPane.setMinHeight(defaultHeight);
+		scrollPane.setMinHeight(DEFAULT_HEIGHT);
 	}
 	
 	public void initOfferView(Project project) {
@@ -73,7 +73,7 @@ public class ProjectOffersView {
 	}
 	
 	public int getScrollPaneHeight() {
-		return (childCount * childHeight) + defaultHeight;
+		return (childCount * CHILD_HEIGHT) + DEFAULT_HEIGHT;
 	}
 	
 	public Map<Developer, Offer> getOfferMap(Project project){

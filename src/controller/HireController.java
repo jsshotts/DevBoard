@@ -57,10 +57,7 @@ public class HireController {
 	}
 	
 	public boolean existingOffer(Project project, Developer developer) {
-		if(developer.hasOffer(project.getPendingOfferId())) {
-			return true;
-		}
-		return false;
+		return developer.hasOffer(project.getPendingOfferId());
 	}
 	
 	public Map<Developer, Offer> getProjectOfferMap(Project project){

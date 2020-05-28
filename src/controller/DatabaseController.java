@@ -187,11 +187,7 @@ public class DatabaseController {
 		pushNew(dev);
 		pushNew(project);
 		
-		if (responseStr == null)
-		{
-			return false;
-		}
-		return true;	
+		return responseStr != null;
 	}
 	
 	private String sendHttpRequest(String url, RequestType type)

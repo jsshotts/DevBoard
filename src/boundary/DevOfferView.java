@@ -3,10 +3,8 @@ package boundary;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
 
 import controller.FindProjectsController;
-import controller.Log;
 import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
@@ -55,13 +53,10 @@ public class DevOfferView {
 	@FXML
 	private Button viewProjectDetailsButton;
 	
-	private UUID projectId;
-	
 	private UUID offerId;
 	
 	public void populate(Project project, Offer offer) {
 		
-		this.projectId = project.getID();
 		this.offerId = offer.getId();
 		
 		projectTitle.setText(project.getTitle());

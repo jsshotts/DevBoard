@@ -1,13 +1,10 @@
 package boundary;
 
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
-import controller.HireController;
 import controller.Log;
-import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;

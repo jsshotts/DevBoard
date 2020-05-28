@@ -4,7 +4,6 @@ import java.util.logging.Level;
 
 import controller.Log;
 import controller.SessionController;
-import entity.Developer;
 import entity.ProjectOwner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

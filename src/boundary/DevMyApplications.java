@@ -6,10 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
-import controller.FindProjectsController;
 import controller.Log;
 import controller.MyAppsController;
-import entity.Developer;
 import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
@@ -50,9 +48,9 @@ public class DevMyApplications {
 			submittedApplications.setContent(submittedApplicationsBox);
 			submittedApplications.setFitToHeight(true);
          });
-		task.setOnFailed(failedEvent -> {
-			Log.logger.log(Level.WARNING, task.getException().getMessage());
-		});
+		task.setOnFailed(failedEvent ->
+			Log.logger.log(Level.WARNING, task.getException().getMessage())
+		);
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();

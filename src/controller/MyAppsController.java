@@ -33,7 +33,6 @@ public class MyAppsController {
 		Developer developer = SessionController.getInstance().getDeveloper();
 		
 		List<Offer> devOffers = new LinkedList<>();
-		List<Project> devProjects = new LinkedList<>();
 		Map<Project, Offer> map = new HashMap<>();
 		
 		if (developer != null && !developer.getOfferIds().isEmpty()) {

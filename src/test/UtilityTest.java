@@ -7,9 +7,8 @@ import java.util.UUID;
 import org.junit.Test;
 
 import controller.DatabaseController;
-import entity.Project;
 
-public class utilityTest {
+public class UtilityTest {
 
 	@Test
 	public void test() {
