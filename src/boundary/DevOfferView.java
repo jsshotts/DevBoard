@@ -8,9 +8,12 @@ import controller.FindProjectsController;
 import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class DevOfferView {
 	
@@ -74,19 +77,19 @@ public class DevOfferView {
 		}
 	}
 	
-	public void acceptOffer() {
-		closeOffer(Offer.ACCEPTED);
+	public void acceptOffer(ActionEvent event) {
+		closeOffer(Offer.ACCEPTED, event);
 		acceptOfferButton.setDisable(true);
 		declineOfferButton.setDisable(true);
 	}
 	
-	public void declineOffer() {
-		closeOffer(Offer.DECLINED);
+	public void declineOffer(ActionEvent event) {
+		closeOffer(Offer.DECLINED, event);
 		acceptOfferButton.setDisable(true);
 		declineOfferButton.setDisable(true);
 	}
 	
-	public void closeOffer(int offerStatus) {
+	public void closeOffer(int offerStatus, ActionEvent event) {
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
@@ -98,9 +101,27 @@ public class DevOfferView {
 	            return null;
 	        }
 	    };
+	    
+	    task.setOnSucceeded(succeededEvent -> {
+        	Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+     		Toast toast = Toast.buildToast();
+     		if(offerStatus == Offer.ACCEPTED) {
+     			toast.makeText(primaryStage, "Offer Accepted");
+     		}
+     		else {
+     			toast.makeText(primaryStage, "Offer Declined");
+     		}
+         });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();
+	}
+	
+	public void test(ActionEvent event) {
+		
+		Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+		Toast toast = Toast.buildToast();
+		toast.makeText(primaryStage, "Test Toast");
 	}
 }

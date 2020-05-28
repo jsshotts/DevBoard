@@ -29,6 +29,7 @@ public class WindowManager {
 	public static final String PROJECT_APPLICANTS_VIEW = "boundary/ProjectApplicantsView.fxml";
 	public static final String PROJECT_OFFERS_VIEW = "boundary/ProjectOffersView.fxml";
 	public static final String APPLICANT_CARD = "boundary/ApplicantCard.fxml";
+	public static final String TOAST_CARD = "boundary/Toast.fxml";
 	
 	public static final int WIN_WIDTH = 900;
 	public static final int WIN_HEIGHT = 600;

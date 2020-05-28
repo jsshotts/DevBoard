@@ -5,11 +5,15 @@ import java.util.concurrent.Executors;
 
 import controller.HireController;
 import entity.Developer;
+import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class ApplicantCard {
 	
@@ -35,7 +39,7 @@ public class ApplicantCard {
 		}
 	}
 	
-	public void sendOffer() {
+	public void sendOffer(ActionEvent event) {
 		
 		sendOffer.setDisable(true);
 		
@@ -48,6 +52,12 @@ public class ApplicantCard {
 				return null;
 			}
 		};
+		
+		task.setOnSucceeded(succeededEvent -> {
+        	Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+     		Toast toast = Toast.buildToast();
+     		toast.makeText(primaryStage, "Offer Sent");
+         });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
