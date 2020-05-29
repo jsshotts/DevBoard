@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.logging.Level;
 
 import controller.Log;
-import controller.SessionController;
 import entity.Developer;
 import entity.Filters.Language;
 import javafx.event.ActionEvent;
