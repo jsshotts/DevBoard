@@ -72,11 +72,27 @@ public class DevFindProject {
 	@FXML
 	private CheckBox remoteNo;
 	
+	static void swapTo(ActionEvent event)
+	{
+		try {
+			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.DEV_FINDPROJ_SCREEN));
+			borderPane.setCenter(switchScreen);
+		}
+		catch(Exception e){
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
+	}
+	
+	private Collection<Project> getProjects(){
+		FindProjectsController controller = new FindProjectsController();
+		return controller.getAllProjects().values();
+	}
+	
 	@FXML
 	private void initialize() {
 		initializeGrid(getProjects());
 	}
-	
 	
 	private void initializeGrid(Collection<Project> projects) {
 		
@@ -100,23 +116,6 @@ public class DevFindProject {
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();
-	}
-	
-	static void swapTo(ActionEvent event)
-	{
-		try {
-			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.DEV_FINDPROJ_SCREEN));
-			borderPane.setCenter(switchScreen);
-		}
-		catch(Exception e){
-			Log.logger.log(Level.WARNING, e.getMessage());
-		}
-	}
-	
-	private Collection<Project> getProjects(){
-		FindProjectsController controller = new FindProjectsController();
-		return controller.getAllProjects().values();
 	}
 	
 	private void initializeGridHelper(Collection<Project> projects, GridPane gridPane) {
