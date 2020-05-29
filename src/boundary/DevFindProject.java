@@ -1,13 +1,16 @@
 package boundary;
 
-import java.util.Map;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import controller.FindProjectsController;
 import controller.Log;
+import entity.Filters.Language;
+import entity.Filters.ProjectPlatform;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -15,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -27,14 +31,61 @@ public class DevFindProject {
 	private ScrollPane scrollPane;
 	
 	@FXML
+	private CheckBox langPython;
+	
+	@FXML
+	private CheckBox langJava;
+	
+	@FXML
+	private CheckBox langC;
+	
+	@FXML
+	private CheckBox langCPP;
+	
+	@FXML
+	private CheckBox langSwift;
+	
+	@FXML
+	private CheckBox langKotlin;
+	
+	@FXML
+	private CheckBox langJavascript;
+	
+	@FXML
+	private CheckBox platIOS;
+	
+	@FXML
+	private CheckBox platAndroid;
+	
+	@FXML
+	private CheckBox platWindows;
+	
+	@FXML
+	private CheckBox platLinux;
+	
+	@FXML
+	private CheckBox platMacOS;
+	
+	@FXML
+	private CheckBox remoteYes;
+	
+	@FXML
+	private CheckBox remoteNo;
+	
+	@FXML
 	private void initialize() {
+		initializeGrid(getProjects());
+	}
+	
+	
+	private void initializeGrid(Collection<Project> projects) {
 		
 		GridPane gridPane = new GridPane();
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
 	        protected Void call() throws Exception {
-	            initializeGrid(getProjects(), gridPane);
+	            initializeGridHelper(projects, gridPane);
 	            return null;
 	        }
 	    };
@@ -63,12 +114,12 @@ public class DevFindProject {
 		}
 	}
 	
-	private Map<UUID, Project> getProjects(){
+	private Collection<Project> getProjects(){
 		FindProjectsController controller = new FindProjectsController();
-		return controller.getAllProjects();
+		return controller.getAllProjects().values();
 	}
 	
-	private void initializeGrid(Map<UUID, Project> projects, GridPane gridPane) {
+	private void initializeGridHelper(Collection<Project> projects, GridPane gridPane) {
 		
 		gridPane.addColumn(0);
 		gridPane.addColumn(1);
@@ -78,8 +129,7 @@ public class DevFindProject {
 		
 		try {	
 			int i = 0;
-			for(Project p : projects.values()) {
-				
+			for(Project p : projects) {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
 				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
@@ -105,5 +155,51 @@ public class DevFindProject {
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+	}
+	
+	public void search() {
+		
+		ArrayList<Language> langFilters = new ArrayList<>();
+		if (langPython.isSelected()) 
+			langFilters.add(Language.PYTHON);
+		if (langJava.isSelected()) 
+			langFilters.add(Language.JAVA);
+		if (langC.isSelected()) 
+			langFilters.add(Language.C);
+		if (langCPP.isSelected()) 
+			langFilters.add(Language.CPP);
+		if (langSwift.isSelected()) 
+			langFilters.add(Language.SWIFT);
+		if (langKotlin.isSelected()) 
+			langFilters.add(Language.KOTLIN);
+		if (langJavascript.isSelected()) 
+			langFilters.add(Language.JAVASCRIPT);
+		
+		ArrayList<ProjectPlatform> platFilters = new ArrayList<>();
+		if (platIOS.isSelected()) 
+			platFilters.add(ProjectPlatform.IOS);
+		if (platAndroid.isSelected()) 
+			platFilters.add(ProjectPlatform.ANDROID);
+		if (platWindows.isSelected()) 
+			platFilters.add(ProjectPlatform.WINDOWS);
+		if (platLinux.isSelected()) 
+			platFilters.add(ProjectPlatform.LINUX);
+		if (platMacOS.isSelected()) 
+			platFilters.add(ProjectPlatform.MAC);
+		
+		ArrayList<String> remoteFilters = new ArrayList<>();
+		if (remoteYes.isSelected()) 
+			remoteFilters.add("Yes");
+		if (remoteNo.isSelected()) 
+			remoteFilters.add("No");
+		
+		//the projects must be fully get every time
+		Collection<Project> projects = getProjects();
+		projects = projects.stream().filter(p -> langFilters.contains(p.getLanguage()))
+						 			.filter(p -> platFilters.contains(p.getPlatform()))
+						 			.filter(p -> remoteFilters.contains(p.getRemote()))
+						 			.collect(Collectors.toCollection(ArrayList::new));
+		
+		initializeGrid(projects);
 	}
 }

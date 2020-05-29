@@ -22,41 +22,41 @@
                   </TextField>
                   <MenuBar>
                      <menus>
-                        <Menu mnemonicParsing="false" text="Language">
+                        <Menu fx:id="language" mnemonicParsing="false" text="Language">
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                 <content>
-                                  <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Python" />
+                                  <CheckBox fx:id="langPython" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Python" />
                                 </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Java" />
+                                    <CheckBox fx:id="langJava" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Java" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="C" />
+                                    <CheckBox fx:id="langC" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="C" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="C++" />
+                                    <CheckBox fx:id="langCPP" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="C++" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Swift" />
+                                    <CheckBox fx:id="langSwift" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Swift" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Kotlin" />
+                                    <CheckBox fx:id="langKotlin" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Kotlin" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Javascript" />
+                                    <CheckBox fx:id="langJavascript" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Javascript" />
                                  </content>
                               </CustomMenuItem>
                            </items>
@@ -65,48 +65,47 @@
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="iOS" />
+                                    <CheckBox fx:id="platIOS" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="iOS" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Android" />
+                                    <CheckBox fx:id="platAndroid" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Android" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Windows" />
+                                    <CheckBox fx:id="platWindows" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Windows" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Linux" />
+                                    <CheckBox fx:id="platLinux" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Linux" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="MacOS" />
+                                    <CheckBox fx:id="platMacOS" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="MacOS" />
                                  </content>
                               </CustomMenuItem>
                            </items></Menu>
-                        <Menu mnemonicParsing="false" text="Duration" />
                         <Menu mnemonicParsing="false" text="Remote">
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="Yes" />
+                                    <CheckBox fx:id="remoteYes" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="Yes" />
                                  </content>
                               </CustomMenuItem>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
-                                    <CheckBox focusTraversable="false" style="-fx-text-fill: #000000;" text="No" />
+                                    <CheckBox fx:id="remoteNo" focusTraversable="false" selected="true" style="-fx-text-fill: #000000;" text="No" />
                                  </content>
                               </CustomMenuItem>
                            </items>
                         </Menu>
                      </menus>
                   </MenuBar>
-                  <Button mnemonicParsing="false" text="Search" />
+                  <Button mnemonicParsing="false" onAction="#search" text="Search" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -80,8 +80,8 @@ public class Project {
 		return duration;
 	}
 	
-	public String getPlatform() {
-		return platform.getString();
+	public ProjectPlatform getPlatform() {
+		return platform;
 	}
 	
 	public String getRemote() {

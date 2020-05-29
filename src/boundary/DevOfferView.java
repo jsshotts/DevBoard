@@ -66,7 +66,7 @@ public class DevOfferView {
 		bigDescription.setText(project.getDescription());
 		language.setText(project.getLanguage().getString());
 		remote.setText(project.getRemote());
-		platform.setText(project.getPlatform());
+		platform.setText(project.getPlatform().getString());
 		projectLocation.setText(project.getLocation());
 		offerStatus.setText(offer.getStatusString());
 		projectOwnerName.setText(project.getProjectOwnerName());

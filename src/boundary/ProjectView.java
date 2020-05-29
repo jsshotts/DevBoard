@@ -40,7 +40,7 @@ public abstract class ProjectView {
 		description.setText(project.getDescription());
 		duration.setText(project.getDuration());
 		projectLocation.setText(project.getLocation());
-		platform.setText(project.getPlatform());
+		platform.setText(project.getPlatform().getString());
 		remote.setText(project.getRemote());
 		projectOwnerName.setText(project.getProjectOwnerName());
 	}
