@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 
 public class DevNavBar {
 	
+	private static final String UNDERLINE_TRUE = "-fx-underline: true";
+	private static final String UNDERLINE_FALSE = "-fx-underline: false";
+	
 	static void swapTo(ActionEvent event)
 	{
 		try {
@@ -27,6 +30,7 @@ public class DevNavBar {
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
 			devNavBarController.findProjectsButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
+			devNavBarController.findProjectsButton.setStyle(UNDERLINE_TRUE);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -54,12 +58,24 @@ public class DevNavBar {
 
 		if (event.getSource() == findProjectsButton) {
 			DevFindProject.swapTo(event);
+			findProjectsButton.setStyle(UNDERLINE_TRUE);
+			activeProjectsButton.setStyle(UNDERLINE_FALSE);
+			myApplicationsButton.setStyle(UNDERLINE_FALSE);
+			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == activeProjectsButton) {
 			DevActiveProjects.swapTo(event);
+			findProjectsButton.setStyle(UNDERLINE_FALSE);
+			activeProjectsButton.setStyle(UNDERLINE_TRUE);
+			myApplicationsButton.setStyle(UNDERLINE_FALSE);
+			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == myApplicationsButton) {
 			DevMyApplications.swapTo(event);
+			findProjectsButton.setStyle(UNDERLINE_FALSE);
+			activeProjectsButton.setStyle(UNDERLINE_FALSE);
+			myApplicationsButton.setStyle(UNDERLINE_TRUE);
+			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == profileButton) {
 			try {
@@ -72,6 +88,10 @@ public class DevNavBar {
 			} catch (IOException e) {
 				Log.logger.log(Level.WARNING, e.getMessage());
 			}
+			findProjectsButton.setStyle(UNDERLINE_TRUE);
+			activeProjectsButton.setStyle(UNDERLINE_FALSE);
+			myApplicationsButton.setStyle(UNDERLINE_FALSE);
+			profileButton.setStyle(UNDERLINE_TRUE);
 		}
 	}
 }
