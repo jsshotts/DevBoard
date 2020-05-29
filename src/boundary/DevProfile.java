@@ -52,20 +52,13 @@ public class DevProfile {
 		}
 	}
 	
-	public void showButton() {
-		if(SessionController.getInstance().isDeveloper())
-			back.setVisible(false);
-		else
-			back.setVisible(true);
-	}
-	
 	public void populate(Developer dev) {
 		devName.setText(dev.getName());
 		email.setText(dev.getEmail());
 		bio.setText(dev.getBio());
 		languages.setText(langsToString(dev.getLanguages()));
 		experience.setText(devExperienceToString(dev.getExperience()));
-		showButton();
+		back.setVisible(!SessionController.getInstance().isDeveloper());
 	}
 	
 	private String langsToString(List<Language> langs) {
