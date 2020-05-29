@@ -35,9 +35,14 @@ public class ApplicantCard {
 	
 	private Project project;
 	
-	public void populate(Developer developer, Project project) {
+	private ProjectApplicantsView applicantsView;
+	
+	public void populate(Developer developer, Project project, ProjectApplicantsView applicantsView) {
+		
 		this.developer = developer;
 		this.project = project;
+		this.applicantsView = applicantsView;
+		
 		devName.setText(developer.getName());
 		if(project.getPendingOfferId() != null || project.getStatus() != Project.HIRING) {
 			sendOffer.setDisable(true);
@@ -53,6 +58,7 @@ public class ApplicantCard {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
+				applicantsView.disableOfferButtons();
 				hireController.sendOffer(project, developer);
 				return null;
 			}
@@ -83,5 +89,9 @@ public class ApplicantCard {
 				Log.logger.log(Level.WARNING, e.getMessage());
 			}
 		}
+	}
+	
+	public void disable() {
+		sendOffer.setDisable(true);
 	}
 }

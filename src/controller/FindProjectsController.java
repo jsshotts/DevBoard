@@ -50,7 +50,9 @@ public class FindProjectsController{
 					
 					project.addClosedOfferId(offer.getId());
 					project.setPendingOfferId(null);
-					project.setStatus(Project.IN_PROGRESS);
+					if(status == Offer.ACCEPTED) {
+						project.setStatus(Project.IN_PROGRESS);
+					}
 					
 					developer.addActiveProjectId(project.getID());
 					SessionController.getInstance().updateUser(developer);

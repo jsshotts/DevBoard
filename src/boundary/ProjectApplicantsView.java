@@ -13,6 +13,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -61,7 +62,7 @@ public class ProjectApplicantsView {
 				Node applicantCard = fxmlLoader.load();
 				ApplicantCard applicantController = fxmlLoader.<ApplicantCard>getController();
 				
-				applicantController.populate(developer, project);
+				applicantController.populate(developer, project, this);
 				
 				vbox.getChildren().add(applicantCard);
 			}
@@ -83,5 +84,12 @@ public class ProjectApplicantsView {
 			height = 500;
 		}
 		return height;
+	}
+	
+	public void disableOfferButtons() {
+		for(Node node : applicantViewBox.getChildren()) {
+			Button sendOfferButton = (Button)(node.lookup("#sendOffer"));
+			sendOfferButton.setDisable(true);
+		}
 	}
 }
