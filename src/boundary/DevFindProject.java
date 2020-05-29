@@ -192,7 +192,7 @@ public class DevFindProject {
 		if (remoteNo.isSelected()) 
 			remoteFilters.add("No");
 		
-		//the projects must be fully get every time
+		//all projects must be get every time
 		Collection<Project> projects = getProjects();
 		projects = projects.stream().filter(p -> langFilters.contains(p.getLanguage()))
 						 			.filter(p -> platFilters.contains(p.getPlatform()))

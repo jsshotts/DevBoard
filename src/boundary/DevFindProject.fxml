@@ -15,11 +15,6 @@
          <children>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
-                  <TextField promptText="Search Projects">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
                   <MenuBar>
                      <menus>
                         <Menu fx:id="language" mnemonicParsing="false" text="Language">

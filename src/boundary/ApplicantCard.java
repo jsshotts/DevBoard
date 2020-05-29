@@ -5,7 +5,6 @@ import java.util.concurrent.Executors;
 
 import controller.HireController;
 import entity.Developer;
-import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -54,7 +53,8 @@ public class ApplicantCard {
 		};
 		
 		task.setOnSucceeded(succeededEvent -> {
-        	Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+			Node eventNode = (Node) event.getSource();
+        	Stage primaryStage = (Stage) eventNode.getScene().getWindow();				
      		Toast toast = Toast.buildToast();
      		toast.makeText(primaryStage, "Offer Sent");
          });
