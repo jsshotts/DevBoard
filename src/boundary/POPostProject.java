@@ -1,5 +1,7 @@
 package boundary;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.CreateProjectController;
@@ -9,6 +11,7 @@ import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 import entity.Project;
 import entity.ProjectOwner;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Window;
 
 public class POPostProject {
 	
@@ -54,16 +58,33 @@ public class POPostProject {
 	}
 	
 	public void postProject() {
+		
 		ProjectOwner po = SessionController.getInstance().getProjectOwner();
 		
 		Project project = new Project(po.getID(), po.getName(), projectName.getText(), 
 							description.getText(), duration.getText(), loc.getText());
 		project.setRemote(remote.getText());
 		project.setLanguage(extractLanguage());
-		project.setPlatform(extractPlatform());
+		project.setPlatform(extractPlatform());	
 		
-		CreateProjectController createProjectController = new CreateProjectController();
-		createProjectController.pushNewProject(project);			
+		Task<Void> task = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				CreateProjectController createProjectController = new CreateProjectController();
+				createProjectController.pushNewProject(project);
+				return null;
+			}
+		};
+		
+		task.setOnSucceeded(succeededEvent -> {
+        	Window primaryWindow = projectName.getScene().getWindow();
+     		Toast toast = Toast.buildToast();
+     		toast.makeText(primaryWindow, "Project Created");
+        });
+		
+		ExecutorService executorService = Executors.newFixedThreadPool(1);
+		executorService.execute(task);
+        executorService.shutdown();
 	}
 	
 	private Language extractLanguage() {

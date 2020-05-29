@@ -15,7 +15,11 @@ public class FindProjectsController{
 	private DatabaseController database = new DatabaseController();
 	
 	public Map<UUID, Project> getAllProjects(){
-		return database.getAll(DatabaseController.PROJECT_TYPE);
+		Map<UUID, Project> map = database.getAll(DatabaseController.PROJECT_TYPE);
+		if(map != null) {
+			return map;
+		}
+		return new HashMap<>();
 	}
 	
 	public Map<UUID, Project> getDevActiveProjects(){
