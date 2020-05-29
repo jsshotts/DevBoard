@@ -44,17 +44,17 @@
          </children>
       </VBox>
       <Region layoutX="234.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="createProjectButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Create Project">
+      <Button fx:id="createProjectButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="Create Project">
          <font>
             <Font size="20.0" />
          </font></Button>
       <Region layoutX="95.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="myProjectsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="My Projects">
+      <Button fx:id="myProjectsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="My Projects">
          <font>
             <Font size="20.0" />
          </font></Button>
       <Region layoutX="220.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="profileButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Profile">
+      <Button fx:id="profileButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="Profile">
          <font>
             <Font size="20.0" />
          </font></Button>

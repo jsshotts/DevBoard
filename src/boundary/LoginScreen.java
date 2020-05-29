@@ -46,6 +46,6 @@ public class LoginScreen {
 		 		Toast toast = Toast.buildToast();
 		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
 			}
-		}	
+		}
 	}
 }

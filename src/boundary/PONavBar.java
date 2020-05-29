@@ -27,6 +27,7 @@ public class PONavBar {
 			poNavBarController.init();
 			
 			borderPane.setTop(poNavBarNode);
+			poNavBarController.createProjectButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

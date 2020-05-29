@@ -25,8 +25,8 @@ public class DevNavBar {
 			Node devNavBarNode = fxmlLoader.load();
 			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
 			devNavBarController.init();
-			
 			borderPane.setTop(devNavBarNode);
+			devNavBarController.findProjectsButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

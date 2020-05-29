@@ -36,7 +36,7 @@
                   </Label>
                </children>
             </HBox>
-            <Label text="Developer" textFill="WHITE">
+            <Label alignment="TOP_LEFT" text="Developer" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -44,22 +44,22 @@
          </children>
       </VBox>
       <Region layoutX="234.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="findProjectsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Find Projects">
+      <Button fx:id="findProjectsButton" alignment="TOP_LEFT" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="Find Projects">
          <font>
             <Font size="20.0" />
          </font></Button>
       <Region layoutX="95.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="activeProjectsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Active Projects">
+      <Button fx:id="activeProjectsButton" alignment="TOP_LEFT" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="Active Projects">
          <font>
             <Font size="20.0" />
          </font></Button>
       <Region layoutX="220.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="myApplicationsButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="My Applications">
+      <Button fx:id="myApplicationsButton" alignment="TOP_LEFT" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="My Applications">
          <font>
             <Font size="20.0" />
          </font></Button>
       <Region layoutX="357.0" layoutY="20.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="profileButton" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" text="Profile">
+      <Button fx:id="profileButton" alignment="TOP_LEFT" minWidth="105.0" mnemonicParsing="false" onAction="#navBar" styleClass="navButton" text="Profile">
          <font>
             <Font size="20.0" />
          </font></Button>
