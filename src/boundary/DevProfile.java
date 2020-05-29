@@ -2,9 +2,10 @@ package boundary;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 import java.util.logging.Level;
-
+import controller.SessionController;
 import controller.Log;
 import entity.Developer;
 import entity.Filters.Language;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
@@ -35,6 +37,9 @@ public class DevProfile {
 	@FXML
 	private Label experience;
 	
+	@FXML
+	private Button back;
+	
 	static void swapTo(ActionEvent event)
 	{
 		try {
@@ -53,6 +58,10 @@ public class DevProfile {
 		bio.setText(dev.getBio());
 		languages.setText(langsToString(dev.getLanguages()));
 		experience.setText(devExperienceToString(dev.getExperience()));
+		if(SessionController.getInstance().isDeveloper())
+			back.setVisible(false);
+		else
+			back.setVisible(true);
 	}
 	
 	private String langsToString(List<Language> langs) {
@@ -77,5 +86,11 @@ public class DevProfile {
 		String result = WHITESPACE;
 		result += String.join(", ", expers);
 		return result;
+	}
+	
+	public void back(ActionEvent event) {
+		if(event.getSource() == back) {
+			POMyProjects.swapTo(event);
+		}
 	}
 }
