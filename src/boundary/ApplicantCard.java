@@ -7,9 +7,7 @@ import controller.HireController;
 import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -38,7 +36,7 @@ public class ApplicantCard {
 		}
 	}
 	
-	public void sendOffer(ActionEvent event) {
+	public void sendOffer() {
 		
 		sendOffer.setDisable(true);
 		
@@ -53,8 +51,7 @@ public class ApplicantCard {
 		};
 		
 		task.setOnSucceeded(succeededEvent -> {
-			Node eventNode = (Node) event.getSource();
-        	Stage primaryStage = (Stage) eventNode.getScene().getWindow();				
+        	Stage primaryStage = (Stage) devName.getScene().getWindow();
      		Toast toast = Toast.buildToast();
      		toast.makeText(primaryStage, "Offer Sent");
          });
