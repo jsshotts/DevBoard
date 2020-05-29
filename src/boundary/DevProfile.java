@@ -47,8 +47,7 @@ public class DevProfile {
 		}
 	}
 	
-	public void populate() {
-		Developer dev = SessionController.getInstance().getDeveloper();
+	public void populate(Developer dev) {
 		devName.setText(dev.getName());
 		email.setText(dev.getEmail());
 		bio.setText(dev.getBio());

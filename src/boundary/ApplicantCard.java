@@ -1,16 +1,24 @@
 package boundary;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
+
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 
 import controller.HireController;
+import controller.Log;
 import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
+import javafx.event.ActionEvent;
 
 public class ApplicantCard {
 	
@@ -59,5 +67,21 @@ public class ApplicantCard {
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();
+	}
+	
+	public void viewProfile(ActionEvent event) {
+		if (event.getSource() == viewProfile) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_PROFILE_SCREEN));
+				Node devProfileNode = fxmlLoader.load();
+				DevProfile devProfileView = fxmlLoader.<DevProfile>getController();
+				devProfileView.populate(developer);
+				BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+				borderPane.setCenter(devProfileNode);
+			} 
+			catch (IOException e) {
+				Log.logger.log(Level.WARNING, e.getMessage());
+			}
+		}
 	}
 }

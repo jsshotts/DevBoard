@@ -44,7 +44,7 @@ public class LoginScreen {
 			else {
 				Window primaryWindow = usernameInput.getScene().getWindow();				
 		 		Toast toast = Toast.buildToast();
-		 		toast.makeText(primaryWindow, "Login FailedX\nInvalid Email");
+		 		toast.makeText(primaryWindow, "Login Failed\nInvalid Email");
 			}
 		}	
 	}

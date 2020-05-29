@@ -66,7 +66,7 @@ public class DevNavBar {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_PROFILE_SCREEN));
 				Node devProfileNode = fxmlLoader.load();
 				DevProfile devProfileView = fxmlLoader.<DevProfile>getController();
-				devProfileView.populate();
+				devProfileView.populate(SessionController.getInstance().getDeveloper());
 				BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
 				borderPane.setCenter(devProfileNode);
 			} catch (IOException e) {

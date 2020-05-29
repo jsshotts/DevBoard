@@ -9,7 +9,7 @@
 <HBox alignment="TOP_CENTER" spacing="40.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ApplicantCard">
    <children>
       <Label fx:id="devName" prefHeight="32.0" text="Name" />
-      <Button mnemonicParsing="false" text="View Profile" />
+      <Button fx:id="viewProfile" mnemonicParsing="false" onAction="#viewProfile" text="View Profile" />
       <Button fx:id="sendOffer" layoutX="100.0" layoutY="20.0" mnemonicParsing="false" onAction="#sendOffer" text="Send Offer" />
    </children>
    <padding>
