@@ -10,7 +10,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class ApplicantCard {
 	
@@ -51,10 +51,10 @@ public class ApplicantCard {
 		};
 		
 		task.setOnSucceeded(succeededEvent -> {
-        	Stage primaryStage = (Stage) devName.getScene().getWindow();
+        	Window primaryWindow = devName.getScene().getWindow();
      		Toast toast = Toast.buildToast();
-     		toast.makeText(primaryStage, "Offer Sent");
-         });
+     		toast.makeText(primaryWindow, "Offer Sent");
+        });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);

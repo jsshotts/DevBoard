@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.util.Duration;
 
 public final class Toast
@@ -42,10 +43,10 @@ public final class Toast
 		return toast;
 	}
 	
-    public void makeText(Stage ownerStage, String toastMsg)
+    public void makeText(Window ownerWindow, String toastMsg)
     {
         Stage toastStage=new Stage();
-        toastStage.initOwner(ownerStage);
+        toastStage.initOwner(ownerWindow);
         toastStage.setResizable(false);
         toastStage.initStyle(StageStyle.TRANSPARENT);
        

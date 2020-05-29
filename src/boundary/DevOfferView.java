@@ -8,12 +8,10 @@ import controller.FindProjectsController;
 import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class DevOfferView {
 	
@@ -77,19 +75,19 @@ public class DevOfferView {
 		}
 	}
 	
-	public void acceptOffer(ActionEvent event) {
-		closeOffer(Offer.ACCEPTED, event);
+	public void acceptOffer() {
+		closeOffer(Offer.ACCEPTED);
 		acceptOfferButton.setDisable(true);
 		declineOfferButton.setDisable(true);
 	}
 	
-	public void declineOffer(ActionEvent event) {
-		closeOffer(Offer.DECLINED, event);
+	public void declineOffer() {
+		closeOffer(Offer.DECLINED);
 		acceptOfferButton.setDisable(true);
 		declineOfferButton.setDisable(true);
 	}
 	
-	public void closeOffer(int offerStatus, ActionEvent event) {
+	public void closeOffer(int offerStatus) {
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
@@ -103,13 +101,13 @@ public class DevOfferView {
 	    };
 	    
 	    task.setOnSucceeded(succeededEvent -> {
-        	Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+        	Window primaryWindow = projectTitle.getScene().getWindow();				
      		Toast toast = Toast.buildToast();
      		if(offerStatus == Offer.ACCEPTED) {
-     			toast.makeText(primaryStage, "Offer Accepted");
+     			toast.makeText(primaryWindow, "Offer Accepted");
      		}
      		else {
-     			toast.makeText(primaryStage, "Offer Declined");
+     			toast.makeText(primaryWindow, "Offer Declined");
      		}
          });
 		
@@ -118,10 +116,10 @@ public class DevOfferView {
         executorService.shutdown();
 	}
 	
-	public void test(ActionEvent event) {
+	public void test() {
 		
-		Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+		Window primaryWindow = projectTitle.getScene().getWindow();				
 		Toast toast = Toast.buildToast();
-		toast.makeText(primaryStage, "Test Toast");
+		toast.makeText(primaryWindow, "Test Toast");
 	}
 }

@@ -5,18 +5,16 @@ import java.util.concurrent.Executors;
 
 import controller.ApplyController;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class LargeProjectView extends ProjectView{
 	
 	@FXML
 	private Button apply;
 	
-	public void apply(ActionEvent event) { 	
+	public void apply() { 	
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
@@ -28,9 +26,9 @@ public class LargeProjectView extends ProjectView{
 	    };
 
          task.setOnSucceeded(succeededEvent -> {
-        	Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();				
+        	Window primaryWindow = apply.getScene().getWindow();				
      		Toast toast = Toast.buildToast();
-     		toast.makeText(primaryStage, "Application Sent");
+     		toast.makeText(primaryWindow, "Application Sent");
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
