@@ -1,11 +1,11 @@
 package boundary;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.logging.Level;
 
 import controller.Log;
-import controller.SessionController;
 import entity.Developer;
 import entity.Filters.Language;
 import javafx.event.ActionEvent;
@@ -47,8 +47,7 @@ public class DevProfile {
 		}
 	}
 	
-	public void populate() {
-		Developer dev = SessionController.getInstance().getDeveloper();
+	public void populate(Developer dev) {
 		devName.setText(dev.getName());
 		email.setText(dev.getEmail());
 		bio.setText(dev.getBio());
