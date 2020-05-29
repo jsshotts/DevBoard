@@ -10,20 +10,23 @@ public class LoginController {
 	DatabaseController database = new DatabaseController();
 	SessionController session = SessionController.getInstance();
 	
-	public void loginDeveloper(String email) {
-
+	public boolean loginDeveloper(String email) {
 		Developer dev = database.getOne(Developer.class, "email", email);
 		if(dev != null) {
 			Log.logger.log(Level.INFO, () -> "Logged In! as Dev: " + dev.getName());
 			session.setUser(dev);
+			return true;
 		}
+		return false;
 	}
 	
-	public void loginProjectOwner(String email) {
+	public boolean loginProjectOwner(String email) {
 		ProjectOwner po = database.getOne(ProjectOwner.class, "email", email);
 		if(po != null) {
 			Log.logger.log(Level.INFO, () -> "Logged In! as PO: " + po.getName());
 			session.setUser(po);
+			return true;
 		}
+		return false;
 	}
 }
