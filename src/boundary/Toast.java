@@ -2,23 +2,16 @@ package boundary;
 
 import java.util.logging.Level;
 
-import com.sun.javafx.tk.FontLoader;
-import com.sun.javafx.tk.Toolkit;
-
 import controller.Log;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -40,7 +33,7 @@ public final class Toast
 		Toast toast = null;
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.TOAST_CARD));
-			Parent offerCard = fxmlLoader.load();
+			fxmlLoader.load();
 			toast = fxmlLoader.<Toast>getController();
 		}
 		catch(Exception e) {
@@ -55,26 +48,7 @@ public final class Toast
         toastStage.initOwner(ownerStage);
         toastStage.setResizable(false);
         toastStage.initStyle(StageStyle.TRANSPARENT);
-
-//        Text text = new Text(toastMsg);
-//        text.setFont(Font.font("System", 40));
-//        text.setFill(Color.WHITE);
-
-        //StackPane root = new StackPane(text);
-        //root.setStyle("-fx-background-radius: 20; -fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 50px;");
-        //root.setOpacity(0);
-        
-//        Parent offerCard = new Label("");
-//        try {
-//        	FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.TOAST_CARD));
-//    		offerCard = fxmlLoader.load();
-//    		toastMessage.setText(toastMsg);
-//        }	
-//		catch(Exception e) {
-//			Log.logger.log(Level.WARNING, e.getMessage());
-//		}
-
-        
+       
         toastMessage.setText(toastMsg);
         anchorPane.setOpacity(0);
         
@@ -86,8 +60,8 @@ public final class Toast
         Timeline fadeInTimeline = new Timeline();
         KeyFrame fadeInKey1 = new KeyFrame(Duration.millis(fadeInDelay), new KeyValue (toastStage.getScene().getRoot().opacityProperty(), 1)); 
         fadeInTimeline.getKeyFrames().add(fadeInKey1);   
-        fadeInTimeline.setOnFinished((ae) -> 
-        {
+        fadeInTimeline.setOnFinished(ae -> 
+        
             new Thread(() -> {
                 try
                 {
@@ -96,14 +70,15 @@ public final class Toast
                 catch (InterruptedException e)
                 {
                 	Log.logger.log(Level.WARNING, e.getMessage());
+                	Thread.currentThread().interrupt();
                 }
                    Timeline fadeOutTimeline = new Timeline();
                     KeyFrame fadeOutKey1 = new KeyFrame(Duration.millis(fadeOutDelay), new KeyValue (toastStage.getScene().getRoot().opacityProperty(), 0)); 
                     fadeOutTimeline.getKeyFrames().add(fadeOutKey1);   
-                    fadeOutTimeline.setOnFinished((aeb) -> toastStage.close()); 
+                    fadeOutTimeline.setOnFinished(aeb -> toastStage.close()); 
                     fadeOutTimeline.play();
-            }).start();
-        }); 
+            }).start()
+        ); 
         fadeInTimeline.play();
     }
 }
