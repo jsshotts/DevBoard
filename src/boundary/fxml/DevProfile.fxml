@@ -11,38 +11,38 @@
 
 <HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevProfile">
    <children>
+      <Region layoutX="1162.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <VBox layoutX="200.0" layoutY="14.0">
+                  <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="14.0">
                      <children>
                         <Label fx:id="devName" text="John Doe">
                            <font>
-                              <Font size="37.0" />
+                              <Font name="System Bold" size="37.0" />
                            </font>
                         </Label>
-                        <HBox prefHeight="0.0" prefWidth="200.0">
-                           <children>
-                              <Label text="email:  " />
-                              <Label fx:id="email" text="johnDDoe@gmail.com" />
-                           </children>
-                        </HBox>
+                        <Label fx:id="email" text="johnDDoe@gmail.com" />
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </VBox>
-                  <Label fx:id="bio" alignment="TOP_LEFT" layoutX="14.0" layoutY="148.0" prefHeight="87.0" prefWidth="575.0" text="Bio: I am a very good developer, you want it I can make it. My parents gave me the K&amp;R when I was in third grade and I’ve been a natural ever since. I’ve got some extra time from my jobs at Apple, and Google, so I’m looking for some quick dough, and as my friends always say, you can’t go wrong with Joe Doe!" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="119.0" prefHeight="27.0" prefWidth="48.0" text="Bio:">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="112.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="119.0" prefHeight="27.0" prefWidth="48.0" text="Bio">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bio" alignment="TOP_LEFT" layoutX="14.0" layoutY="148.0" prefHeight="100.0" prefWidth="575.0" text="I am a very good developer, you want it I can make it. My parents gave me the K&amp;R when I was in third grade and I’ve been a natural ever since. I’ve got some extra time from my jobs at Apple, and Google, so I’m looking for some quick dough, and as my friends always say, you can’t go wrong with Joe Doe!" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                   <Button fx:id="back" layoutX="-1.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="79.0" text="Back" />
                </children>
             </AnchorPane>
@@ -50,7 +50,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reviews" textAlignment="CENTER" wrappingWidth="556.3662109375">
                      <font>
-                        <Font size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3/5: Communication" textAlignment="CENTER" wrappingWidth="556.4580078125" />
@@ -66,11 +66,11 @@
       <Region prefHeight="719.0" prefWidth="247.0" HBox.hgrow="ALWAYS" />
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <VBox prefHeight="206.0" prefWidth="563.0">
+            <VBox prefHeight="206.0" prefWidth="563.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Skills" textAlignment="CENTER" wrappingWidth="542.3759765625">
                      <font>
-                        <Font size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -106,11 +106,11 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <VBox>
+            <VBox spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Past Projects" textAlignment="CENTER" wrappingWidth="542.3759765625">
                      <font>
-                        <Font size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
                   <HBox>
@@ -159,5 +159,9 @@
             </VBox>
          </children>
       </VBox>
+      <Region HBox.hgrow="ALWAYS" />
    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </HBox>

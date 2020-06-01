@@ -24,7 +24,7 @@ public abstract class ProjectView {
 	@FXML
 	public Button moreDetailsButton;
 	
-	private Project project;
+	protected Project project;
 
 	public Project getProject() {
 		return project;

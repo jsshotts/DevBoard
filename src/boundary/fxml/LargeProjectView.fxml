@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.LargeProjectView">
    <children>
       <HBox VBox.vgrow="NEVER">
@@ -15,7 +14,11 @@
             <Region layoutX="1030.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
             <AnchorPane style="-fx-border-color: gray; -fx-border-width: 2; -fx-border-radius: 10;">
                <children>
-                  <Button fx:id="apply" layoutX="861.0" layoutY="543.0" mnemonicParsing="false" onAction="#apply" text="APPLY" />
+                  <VBox alignment="CENTER" layoutX="816.0" layoutY="543.0" prefWidth="150.0">
+                     <children>
+                        <Button fx:id="apply" layoutX="861.0" layoutY="543.0" mnemonicParsing="false" onAction="#apply" text="APPLY" />
+                     </children>
+                  </VBox>
                   <VBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="207.0" prefHeight="135.0" prefWidth="647.0">
                      <children>
                         <Label text="Overview" VBox.vgrow="NEVER">

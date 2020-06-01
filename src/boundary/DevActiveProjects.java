@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -27,22 +28,42 @@ public class DevActiveProjects {
 	private ScrollPane scrollPane;
 	
 	@FXML
+	private Label emptyActiveProjectsLabel;
+	
+	private boolean isEmpty = false;
+	
+	@FXML
 	private void initialize() {
+		
+		emptyActiveProjectsLabel.setVisible(false);
+		
 		VBox vbox = new VBox();
 		
 		Task<Void> task = new Task<Void>() {
 			
 			@Override
 			protected Void call() throws Exception {
-				initializeListView(getDevActiveProjects(), vbox);
+				Map<UUID, Project> map = getDevActiveProjects();
+				if(!map.isEmpty()) {
+					initializeListView(getDevActiveProjects(), vbox);
+				}
+				else {
+					isEmpty = true;
+				}
 				return null;
 			}
 		};
 		task.setOnSucceeded(succeededEvent -> {
-        	 scrollPane.setContent(vbox);
-        	 vbox.prefHeightProperty().bind(scrollPane.widthProperty());
- 			 vbox.prefWidthProperty().bind(scrollPane.widthProperty());
- 			 scrollPane.setFitToHeight(true);
+			
+			if(isEmpty) {
+ 				emptyActiveProjectsLabel.setVisible(true);
+ 			}
+			
+			scrollPane.setContent(vbox);
+			vbox.prefHeightProperty().bind(scrollPane.widthProperty());
+			vbox.prefWidthProperty().bind(scrollPane.widthProperty());
+			scrollPane.setFitToHeight(true);
+ 			 
          });
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
