@@ -111,9 +111,6 @@ public class DevFindProject {
  			 gridPane.prefWidthProperty().bind(scrollPane.widthProperty());
  			 scrollPane.setFitToHeight(true);
  			 scrollPane.setFitToWidth(true);
- 			 
- 			 gridPane.getScene().getStylesheets().add(WindowManager.CARDBOX_STYLE);
- 			gridPane.getScene().getStylesheets().add(WindowManager.SMALLPROJECTVIEW_STYLE);
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -136,15 +133,8 @@ public class DevFindProject {
 				Node projectCard = fxmlLoader.load();
 				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
 				smallProjectView.populate(p);
-				
-				
-				
-				//projectCard.getStyleClass().add("boundary/css/smallProjectView.css");
-				
 				gridPane.add(projectCard, (i%2)*2+1,i/2);
 				i++;
-				
-				//smallProjectView.description.getScene().getStylesheets().add("boundary/css/smallProjectView.css");
 			}
 			
 			gridPane.setHgap(50);

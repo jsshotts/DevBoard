@@ -23,14 +23,11 @@ public class DevNavBar {
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
-			
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_NAVBAR_VIEW));
 			Node devNavBarNode = fxmlLoader.load();
 			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
-			
-			devNavBarController.findProjectsButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
 			devNavBarController.findProjectsButton.setStyle(UNDERLINE_TRUE);
 		}
 		catch(Exception e) {

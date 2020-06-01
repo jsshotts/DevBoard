@@ -23,6 +23,10 @@ public class LoginScreen {
 
 	public void login(ActionEvent event){
 
+		devLogin.getScene().getStylesheets().add(WindowManager.CARDBOX_STYLE);
+		devLogin.getScene().getStylesheets().add(WindowManager.SMALLPROJECTVIEW_STYLE);
+		devLogin.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
+		
 		if(event.getSource() == devLogin){
 			if (loginController.loginDeveloper(usernameInput.getText()))
 			{

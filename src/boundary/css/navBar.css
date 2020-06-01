@@ -1,5 +1,6 @@
 .navButton {
 	-fx-background-color: transparent;
+	-fx-text-fill: #063c8d;
 	-fx-font-size: 20px;
 	-fx-font-weight: bold;
 	-fx-font-family: Roboto;
@@ -11,6 +12,7 @@
 
 .navButton:hover {
 	-fx-background-color: transparent;
+	-fx-text-fill: #063c8d;
 	-fx-font-size: 20px;
 	-fx-font-weight: bold;
 	-fx-font-family: Roboto;
