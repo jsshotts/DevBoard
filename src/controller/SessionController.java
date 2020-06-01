@@ -1,16 +1,23 @@
 package controller;
 
+import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 
 import entity.Developer;
 import entity.ProjectOwner;
 import entity.User;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 
 public class SessionController {
 	
 	private static SessionController instance;
 	
 	private User user;
+	
+	private String prevWindow = null;
 	
 	private SessionController() {}
 	
@@ -54,5 +61,24 @@ public class SessionController {
 	
 	public boolean isDeveloper() {
 		return user instanceof Developer;
+	}
+
+	public String getPrevWindow() {
+		return prevWindow;
+	}
+
+	public void setPrevWindow(String prevWindow) {
+		this.prevWindow = prevWindow;
+	}
+	
+	public void back(ActionEvent event) {
+		try {
+			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(prevWindow));
+			borderPane.setCenter(switchScreen);
+		}
+		catch(Exception e) {
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
 	}
 }
