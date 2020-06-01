@@ -47,24 +47,33 @@
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <Region prefHeight="10.0" prefWidth="600.0" />
+      <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" text="LOGIN" HBox.hgrow="ALWAYS" />
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="220.0">
+               <children>
+                  <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Login Developer" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="220.0">
+               <children>
+                  <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Login Project Owner" />
+               </children>
+            </VBox>
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="32.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="212.0" text="CREATE NEW ACCOUNT" HBox.hgrow="ALWAYS" />
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="275.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="212.0" text="Create New Account" HBox.hgrow="ALWAYS" />
+               </children>
+            </VBox>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="31.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Developer" VBox.vgrow="ALWAYS" />
-      <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Project Owner" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
