@@ -29,6 +29,7 @@ public class DevNavBar {
 			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
+			
 			devNavBarController.findProjectsButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
 			devNavBarController.findProjectsButton.setStyle(UNDERLINE_TRUE);
 		}

@@ -31,6 +31,7 @@ public class PONavBar {
 			
 			borderPane.setTop(poNavBarNode);
 			poNavBarController.createProjectButton.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
+			poNavBarController.createProjectButton.getScene().getStylesheets().add(WindowManager.CARDBOX_STYLE);
 			poNavBarController.createProjectButton.setStyle(UNDERLINE_TRUE);
 		}
 		catch(Exception e) {

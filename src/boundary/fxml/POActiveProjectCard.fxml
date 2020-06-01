@@ -10,7 +10,7 @@
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.POActiveProjectCard">
    <children>
       <Region HBox.hgrow="ALWAYS" />
-      <VBox fx:id="rootVbox" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 2;">
+      <VBox fx:id="rootVbox" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-radius: 10;" styleClass="cardBox">
          <children>
             <AnchorPane fx:id="anchor">
                <children>
@@ -57,4 +57,7 @@
    <padding>
       <Insets bottom="30.0" top="30.0" />
    </padding>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </HBox>
