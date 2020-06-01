@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class POProfile {
@@ -23,6 +25,15 @@ public class POProfile {
 	
 	@FXML
 	private Label bio;
+	
+	@FXML
+	private ImageView imageView;
+	
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/poProfile.png");
+		imageView.setImage(img);
+	}
 	
 	static void swapTo(ActionEvent event)
 	{
