@@ -14,11 +14,23 @@
             <Region HBox.hgrow="ALWAYS" />
             <AnchorPane HBox.hgrow="ALWAYS">
                <children>
-                  <HBox layoutX="21.0" layoutY="521.0" spacing="175.0">
+                  <HBox layoutX="21.0" layoutY="521.0" spacing="150.0">
                      <children>
-                        <Button fx:id="acceptOfferButton" layoutX="22.0" layoutY="361.0" mnemonicParsing="false" onAction="#acceptOffer" text="ACCEPT OFFER" />
-                        <Button fx:id="declineOfferButton" layoutX="248.0" layoutY="361.0" mnemonicParsing="false" onAction="#declineOffer" text="DECLINE OFFER" />
-                        <Button fx:id="viewProjectDetailsButton" layoutX="457.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
+                        <VBox alignment="CENTER" prefHeight="30.0" prefWidth="180.0">
+                           <children>
+                              <Button fx:id="acceptOfferButton" layoutX="22.0" layoutY="361.0" mnemonicParsing="false" onAction="#acceptOffer" text="ACCEPT OFFER" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="180.0">
+                           <children>
+                              <Button fx:id="declineOfferButton" layoutX="248.0" layoutY="361.0" mnemonicParsing="false" onAction="#declineOffer" text="DECLINE OFFER" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="60.0" prefWidth="250.0">
+                           <children>
+                              <Button fx:id="viewProjectDetailsButton" layoutX="457.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <VBox alignment="CENTER" layoutX="16.0" layoutY="14.0" prefWidth="811.0">

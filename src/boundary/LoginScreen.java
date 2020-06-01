@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Window;
 
 
@@ -19,7 +21,16 @@ public class LoginScreen {
 	@FXML
 	private TextField usernameInput;
 	
+	@FXML
+	private ImageView imageView;
+	
 	private LoginController loginController = new LoginController();
+	
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/LogoWhite.png");
+		imageView.setImage(img);
+	}
 
 	public void login(ActionEvent event){
 

@@ -26,19 +26,19 @@
                <children>
                   <Label text="Welcome" textFill="WHITE">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="userName" text="Name" textFill="WHITE">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <Label alignment="TOP_LEFT" text="Developer" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>
