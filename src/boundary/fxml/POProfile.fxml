@@ -38,11 +38,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="133.0" fitWidth="123.0" layoutX="65.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/business-man.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imageView" fitHeight="133.0" fitWidth="123.0" layoutX="65.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
                   <Label layoutX="14.0" layoutY="142.0" text="Bio:">
                      <font>
                         <Font size="16.0" />

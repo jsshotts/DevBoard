@@ -42,6 +42,15 @@ public class DevProfile {
 	@FXML
 	private Button back;
 	
+	@FXML
+	private ImageView imageView;
+	
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/devProfile.png");
+		imageView.setImage(img);
+	}
+	
 	static void swapTo(ActionEvent event)
 	{
 		try {

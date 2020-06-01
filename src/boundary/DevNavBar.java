@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class DevNavBar {
@@ -42,6 +44,14 @@ public class DevNavBar {
 	public Button profileButton;
 	@FXML
 	public Label userName;
+	@FXML
+	private ImageView imageView;
+	
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/LogoWhite.png");
+		imageView.setImage(img);
+	}
 	
 	public void init() {
 		SessionController session = SessionController.getInstance();
