@@ -194,9 +194,12 @@
                            </font>
                         </Text>
                         <Region HBox.hgrow="ALWAYS" />
-                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="170.0">
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" text="MORE DETAILS" />
+                              <Button mnemonicParsing="false" text="MORE DETAILS">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children>
@@ -212,9 +215,12 @@
                            </font>
                         </Text>
                         <Region HBox.hgrow="ALWAYS" />
-                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="170.0">
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" text="MORE DETAILS" />
+                              <Button mnemonicParsing="false" text="MORE DETAILS">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children>
@@ -230,9 +236,12 @@
                            </font>
                         </Text>
                         <Region HBox.hgrow="ALWAYS" />
-                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="170.0">
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" text="MORE DETAILS" />
+                              <Button mnemonicParsing="false" text="MORE DETAILS">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children>

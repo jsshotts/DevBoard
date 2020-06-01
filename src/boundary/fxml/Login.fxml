@@ -51,14 +51,20 @@
       <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="220.0">
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Login Developer" />
+                  <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Login Developer">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="220.0">
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Login Project Owner" />
+                  <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Login Project Owner">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
                </children>
             </VBox>
             <Region HBox.hgrow="ALWAYS" />
@@ -67,9 +73,12 @@
       <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="275.0">
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="340.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="212.0" text="Create New Account" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" text="Create New Account" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
                </children>
             </VBox>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />

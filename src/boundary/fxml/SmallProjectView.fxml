@@ -9,7 +9,7 @@
 
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.SmallProjectView">
    <children>
-      <HBox fillHeight="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray; -fx-border-width: 2;" styleClass="cardBox" HBox.hgrow="ALWAYS">
+      <HBox fillHeight="false" styleClass="cardBox" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
