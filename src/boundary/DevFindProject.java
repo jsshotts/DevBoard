@@ -113,6 +113,7 @@ public class DevFindProject {
  			 scrollPane.setFitToWidth(true);
  			 
  			 gridPane.getScene().getStylesheets().add(WindowManager.CARDBOX_STYLE);
+ 			gridPane.getScene().getStylesheets().add(WindowManager.SMALLPROJECTVIEW_STYLE);
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);

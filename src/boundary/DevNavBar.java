@@ -16,8 +16,8 @@ import javafx.scene.layout.BorderPane;
 
 public class DevNavBar {
 	
-	private static final String UNDERLINE_TRUE = "-fx-underline: true";
-	private static final String UNDERLINE_FALSE = "-fx-underline: false";
+	private static final String UNDERLINE_TRUE = "-fx-border-color: White;";
+	private static final String UNDERLINE_FALSE = "-fx-border-color: transparent;";
 	
 	static void swapTo(ActionEvent event)
 	{
@@ -89,7 +89,7 @@ public class DevNavBar {
 			} catch (IOException e) {
 				Log.logger.log(Level.WARNING, e.getMessage());
 			}
-			findProjectsButton.setStyle(UNDERLINE_TRUE);
+			findProjectsButton.setStyle(UNDERLINE_FALSE);
 			activeProjectsButton.setStyle(UNDERLINE_FALSE);
 			myApplicationsButton.setStyle(UNDERLINE_FALSE);
 			profileButton.setStyle(UNDERLINE_TRUE);

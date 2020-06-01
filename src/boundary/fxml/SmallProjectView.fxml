@@ -96,11 +96,15 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button fx:id="moreDetailsButton" layoutX="151.0" layoutY="89.0" mnemonicParsing="false" onAction="#moreDetails" style="-fx-background-color: transparent;" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="89.0">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Button>
+                  <VBox alignment="CENTER" layoutX="151.0" layoutY="89.0" prefHeight="54.0" prefWidth="194.0">
+                     <children>
+                        <Button fx:id="moreDetailsButton" layoutX="151.0" layoutY="89.0" mnemonicParsing="false" onAction="#moreDetails" style="-fx-background-color: transparent;" styleClass="moreDetails" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="89.0">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </children>
