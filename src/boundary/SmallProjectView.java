@@ -3,6 +3,7 @@ package boundary;
 import java.util.logging.Level;
 
 import controller.Log;
+import controller.SessionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,6 +17,7 @@ public class SmallProjectView extends ProjectView{
 			Node largeProjectNode = fxmlLoader.load();
 			LargeProjectView largeProjectView = fxmlLoader.<LargeProjectView>getController();
 			largeProjectView.populate(getProject());
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_FINDPROJ_SCREEN);
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
 			borderPane.setCenter(largeProjectNode);
 		}
@@ -23,5 +25,4 @@ public class SmallProjectView extends ProjectView{
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
-		
 }
