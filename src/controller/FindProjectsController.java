@@ -15,8 +15,16 @@ public class FindProjectsController{
 	private DatabaseController database = new DatabaseController();
 	
 	public Map<UUID, Project> getAllProjects(){
+		
 		Map<UUID, Project> map = database.getAll(DatabaseController.PROJECT_TYPE);
+		
 		if(map != null) {
+			
+			for(Map.Entry<UUID, Project> entry : map.entrySet()) {
+				if(entry.getValue().getStatus() != Project.HIRING) {
+					map.remove(entry);
+				}
+			}
 			return map;
 		}
 		return new HashMap<>();
@@ -52,10 +60,9 @@ public class FindProjectsController{
 					project.setPendingOfferId(null);
 					if(status == Offer.ACCEPTED) {
 						project.setStatus(Project.IN_PROGRESS);
+						developer.addActiveProjectId(project.getID());
+						SessionController.getInstance().updateUser(developer);
 					}
-					
-					developer.addActiveProjectId(project.getID());
-					SessionController.getInstance().updateUser(developer);
 					
 					database.pushNew(offer);
 					database.pushNew(project);
