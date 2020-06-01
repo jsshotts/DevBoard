@@ -16,9 +16,6 @@ import javafx.scene.layout.BorderPane;
 
 public class PONavBar {
 	
-	private static final String UNDERLINE_TRUE = "-fx-underline: true";
-	private static final String UNDERLINE_FALSE = "-fx-underline: false";
-	
 	static void swapTo(ActionEvent event)
 	{
 		try {
@@ -28,9 +25,7 @@ public class PONavBar {
 			Node poNavBarNode = fxmlLoader.load();
 			PONavBar poNavBarController = fxmlLoader.<PONavBar>getController();
 			poNavBarController.init();
-			
 			borderPane.setTop(poNavBarNode);
-			poNavBarController.createProjectButton.setStyle(UNDERLINE_TRUE);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -59,15 +54,9 @@ public class PONavBar {
 		
 		if (event.getSource() == createProjectButton) {
 			POPostProject.swapTo(event);
-			createProjectButton.setStyle(UNDERLINE_TRUE);
-			myProjectsButton.setStyle(UNDERLINE_FALSE);
-			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == myProjectsButton) {
 			POMyProjects.swapTo(event);
-			createProjectButton.setStyle(UNDERLINE_FALSE);
-			myProjectsButton.setStyle(UNDERLINE_TRUE);
-			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == profileButton) {
 			try {
@@ -80,9 +69,6 @@ public class PONavBar {
 			} catch (IOException e) {
 				Log.logger.log(Level.WARNING, e.getMessage());
 			}
-			createProjectButton.setStyle(UNDERLINE_FALSE);
-			myProjectsButton.setStyle(UNDERLINE_FALSE);
-			profileButton.setStyle(UNDERLINE_TRUE);
 		}
 	}
 }

@@ -16,19 +16,16 @@ import javafx.scene.layout.BorderPane;
 
 public class DevNavBar {
 	
-	private static final String UNDERLINE_TRUE = "-fx-border-color: White;";
-	private static final String UNDERLINE_FALSE = "-fx-border-color: transparent;";
-	
 	static void swapTo(ActionEvent event)
 	{
 		try {
 			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+			
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_NAVBAR_VIEW));
 			Node devNavBarNode = fxmlLoader.load();
 			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
-			devNavBarController.findProjectsButton.setStyle(UNDERLINE_TRUE);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -56,24 +53,12 @@ public class DevNavBar {
 
 		if (event.getSource() == findProjectsButton) {
 			DevFindProject.swapTo(event);
-			findProjectsButton.setStyle(UNDERLINE_TRUE);
-			activeProjectsButton.setStyle(UNDERLINE_FALSE);
-			myApplicationsButton.setStyle(UNDERLINE_FALSE);
-			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == activeProjectsButton) {
 			DevActiveProjects.swapTo(event);
-			findProjectsButton.setStyle(UNDERLINE_FALSE);
-			activeProjectsButton.setStyle(UNDERLINE_TRUE);
-			myApplicationsButton.setStyle(UNDERLINE_FALSE);
-			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == myApplicationsButton) {
 			DevMyApplications.swapTo(event);
-			findProjectsButton.setStyle(UNDERLINE_FALSE);
-			activeProjectsButton.setStyle(UNDERLINE_FALSE);
-			myApplicationsButton.setStyle(UNDERLINE_TRUE);
-			profileButton.setStyle(UNDERLINE_FALSE);
 		}
 		if (event.getSource() == profileButton) {
 			try {
@@ -86,10 +71,6 @@ public class DevNavBar {
 			} catch (IOException e) {
 				Log.logger.log(Level.WARNING, e.getMessage());
 			}
-			findProjectsButton.setStyle(UNDERLINE_FALSE);
-			activeProjectsButton.setStyle(UNDERLINE_FALSE);
-			myApplicationsButton.setStyle(UNDERLINE_FALSE);
-			profileButton.setStyle(UNDERLINE_TRUE);
 		}
 	}
 }
