@@ -67,6 +67,8 @@ public class Repository {
 		developers.get(2).addAppliedProjectId(projects.get(0).getID());
 		developers.get(3).addAppliedProjectId(projects.get(0).getID());
 		
+		projects.get(1).setStatus(Project.IN_PROGRESS);
+		projects.get(2).setStatus(Project.IN_PROGRESS);
 		developers.get(1).addActiveProjectId(projects.get(1).getID());
 		developers.get(1).addActiveProjectId(projects.get(2).getID());
 		

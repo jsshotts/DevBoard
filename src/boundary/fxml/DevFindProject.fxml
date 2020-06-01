@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
@@ -17,7 +18,7 @@
                <children>
                   <MenuBar>
                      <menus>
-                        <Menu fx:id="language" mnemonicParsing="false" text="Language">
+                        <Menu fx:id="language" mnemonicParsing="false" style="-fx-font-size: 20;" text="Language">
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                 <content>
@@ -56,7 +57,7 @@
                               </CustomMenuItem>
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Platform">
+                        <Menu mnemonicParsing="false" style="-fx-font-size: 20;" text="Platform">
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
@@ -85,7 +86,7 @@
                               </CustomMenuItem>
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Remote">
+                        <Menu mnemonicParsing="false" style="-fx-font-size: 20;" text="Remote">
                            <items>
                               <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Test">
                                  <content>
@@ -103,7 +104,10 @@
                   </MenuBar>
                   <VBox alignment="CENTER" prefHeight="50.0" prefWidth="130.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#search" text="Search" />
+                        <Button mnemonicParsing="false" onAction="#search" text="Search">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
                      </children>
                   </VBox>
                </children>
