@@ -3,11 +3,24 @@ package entity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
+import entity.Filters.Language;
+import entity.Filters.ProjectPlatform;
 
 //Dummy Data class to be used until we have Firebase fully functional
 public class Repository {
 	
 	private Repository() { throw new IllegalStateException("Utility class"); }
+	
+	protected static String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
+			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
+	
+	protected static Language[] languages = {Language.PYTHON, Language.C, Language.CPP, Language.JAVA,
+			Language.JAVASCRIPT, Language.KOTLIN, Language.SWIFT};
+	
+	protected static ProjectPlatform[] platforms = {ProjectPlatform.IOS, ProjectPlatform.ANDROID, ProjectPlatform.LINUX,
+			ProjectPlatform.MAC, ProjectPlatform.WINDOWS};
 	
 	protected static List<Developer> developers = new ArrayList<>(
 			Arrays.asList(
@@ -58,6 +71,8 @@ public class Repository {
 	
 	public static void init() {
 		
+		setProjectData();
+		
 		projects.get(0).addAppliedDeveloperID(developers.get(0).getID());
 		projects.get(0).addAppliedDeveloperID(developers.get(1).getID());
 		projects.get(0).addAppliedDeveloperID(developers.get(2).getID());
@@ -78,6 +93,17 @@ public class Repository {
 					po.addProjectId(project.getID());
 				}
 			}
+		}
+	}
+	
+	private static void setProjectData() {
+		Random random = new Random();
+		for(Project project : projects) {
+			int i = Math.abs(random.nextInt());
+			project.setData(
+					locations[i % (locations.length-1)], 
+					languages[i % (languages.length-1)], 
+					platforms[i % (platforms.length-1)]);
 		}
 	}
 }

@@ -39,6 +39,7 @@ public class Project {
 		this.projectOwnerID = poID;
 		this.id = UUID.randomUUID();
 		this.setLanguage(null);
+		
 		//for now, set dummy data for testing
 		this.setTestData();
 		this.projectOwnerName = "";
@@ -59,14 +60,21 @@ public class Project {
 	}
 	
 	public void setTestData() {
+		Random random = new Random();
 		this.location = "San Luis Obispo";
-		this.duration = "5 weeks";
+		this.duration = (Math.abs(random.nextInt()) % 10) + 1 + " weeks";
 		this.setLanguage(Language.PYTHON);
 		this.platform = ProjectPlatform.LINUX;
 		this.description = "This is a " + this.title + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
-		this.remote = new Random().nextInt() % 2 == 0;
+		this.remote = random.nextInt() % 2 == 0;
 		this.startDate = LocalDate.of(2020, 6, 17);
 		this.endDate = LocalDate.of(2020, 7, 15);
+	}
+	
+	public void setData(String location, Language language, ProjectPlatform platform) {
+		this.location = location;
+		this.language = language;
+		this.platform = platform;
 	}
 	
 	public String getDescription() {
