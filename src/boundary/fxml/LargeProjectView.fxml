@@ -43,7 +43,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker prefHeight="0.0" prefWidth="180.0" />
+                        <DatePicker fx:id="startDatePicker" prefHeight="0.0" prefWidth="180.0" />
                         <Region prefHeight="174.0" prefWidth="202.0" />
                         <Label text="End Date">
                            <font>
@@ -53,7 +53,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker prefHeight="0.0" prefWidth="180.0" />
+                        <DatePicker fx:id="endDatePicker" prefHeight="0.0" prefWidth="180.0" />
                      </children>
                   </VBox>
                   <VBox layoutY="14.0">

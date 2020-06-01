@@ -1,5 +1,6 @@
 package entity;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -30,6 +31,8 @@ public class Project {
 	private Language language;
 	private ProjectPlatform platform;
 	private boolean remote;
+	private LocalDate startDate;
+	private LocalDate endDate;
 	
 	public Project(String title, UUID poID, String poName) {
 		this.title = title;
@@ -62,6 +65,8 @@ public class Project {
 		this.platform = ProjectPlatform.LINUX;
 		this.description = "This is a " + this.title + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 		this.remote = new Random().nextInt() % 2 == 0;
+		this.startDate = LocalDate.of(2020, 6, 17);
+		this.endDate = LocalDate.of(2020, 7, 15);
 	}
 	
 	public String getDescription() {
@@ -200,5 +205,21 @@ public class Project {
 
 	public void setPlatform(ProjectPlatform platform) {
 		this.platform = platform;
+	}
+	
+	public LocalDate getStartDate() {
+		return this.startDate;
+	}
+	
+	public void setStartDate(LocalDate start) {
+		this.startDate = start;
+	}
+	
+	public LocalDate getEndDate() {
+		return this.endDate;
+	}
+	
+	public void setEndDate(LocalDate start) {
+		this.endDate = start;
 	}
 }
