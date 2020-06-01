@@ -96,9 +96,9 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button fx:id="moreDetailsButton" layoutX="151.0" layoutY="89.0" mnemonicParsing="false" onAction="#moreDetails" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="89.0">
+                  <Button fx:id="moreDetailsButton" layoutX="151.0" layoutY="89.0" mnemonicParsing="false" onAction="#moreDetails" style="-fx-background-color: transparent;" text="MORE DETAILS" textAlignment="CENTER" textFill="#063c8d" AnchorPane.topAnchor="89.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
                </children>
