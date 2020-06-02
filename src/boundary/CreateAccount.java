@@ -79,9 +79,25 @@ public class CreateAccount {
 	public void createAccount(ActionEvent event){
 		
 		if(!email.getText().contains("@")) {
-			email.setText("Invalid email");
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Invalid Email");
 			return;
-		} 
+		}
+		
+		if(!Dcheck.isSelected() && !POcheck.isSelected()) {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Please Check One: Developer or ProjectOwner");
+	 		return;
+		}
+		
+		if(name.getText().length() < 1) {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Name is Required");
+	 		return;
+		}
 		
 		if (Dcheck.isSelected()) {
 			
@@ -90,6 +106,11 @@ public class CreateAccount {
 			if (dev != null) {								
 				attemptLoginDeveloper(event, dev);
 			}
+			else {
+				Window primaryWindow = name.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
+			}
 		}
 		if (POcheck.isSelected()) {
 			
@@ -97,6 +118,11 @@ public class CreateAccount {
 			
 			if (projectOwner != null) {
 				attemptLoginProjectOwner(event, projectOwner);
+			}
+			else {
+				Window primaryWindow = name.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
 			}
 		}
 	}
