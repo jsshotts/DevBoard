@@ -1,12 +1,18 @@
 package boundary;
 
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.CreateAccountController;
 import controller.Log;
 import controller.LoginController;
 import entity.Developer;
+import entity.Project;
 import entity.ProjectOwner;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +45,7 @@ public class CreateAccount {
 	private TextField bio;
 	
 	private CreateAccountController createAccount = new CreateAccountController();
+	
 	private LoginController loginController = new LoginController();
 	
 	static void swapTo(ActionEvent event)
@@ -51,11 +58,6 @@ public class CreateAccount {
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
-	}
-	
-	@FXML
-	public void initialize() {
-		
 	}
 	
 	public void checkDev(ActionEvent event) {
@@ -99,59 +101,69 @@ public class CreateAccount {
 	 		return;
 		}
 		
-		if (Dcheck.isSelected()) {
-			
-			Developer dev = createAccount.AddDeveloper(name.getText(), bio.getText(), email.getText());
-			
-			if (dev != null) {								
-				attemptLoginDeveloper(event, dev);
-			}
-			else {
-				Window primaryWindow = name.getScene().getWindow();				
-		 		Toast toast = Toast.buildToast();
-		 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
-			}
+		if (Dcheck.isSelected()) {			
+			createDeveloper(event);
 		}
-		if (POcheck.isSelected()) {
+		else if (POcheck.isSelected()) {
+			createProjectOwner(event);
+		}			
+	}
+	
+	public void createDeveloper(ActionEvent event) {
+		
+		Developer dev = createAccount.AddDeveloper(name.getText(), bio.getText(), email.getText());
+		
+		if (dev != null) {
 			
-			ProjectOwner projectOwner = createAccount.AddOwner(name.getText(), bio.getText(), email.getText());
-			
-			if (projectOwner != null) {
-				attemptLoginProjectOwner(event, projectOwner);
-			}
-			else {
+			if (loginController.loginDeveloper(dev.getEmail())){
+				
 				Window primaryWindow = name.getScene().getWindow();				
 		 		Toast toast = Toast.buildToast();
-		 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
+		 		toast.makeText(primaryWindow, "Account Created Successfully");
+		 		
+				DevNavBar.swapTo(event);
+				DevFindProject.swapTo(event);
 			}
+			else {
+				Window primaryWindow = email.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
+		}		
+		else {
+			
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
 		}
 	}
 	
-	public void attemptLoginDeveloper(ActionEvent event, Developer dev) {
+	public void createProjectOwner(ActionEvent event) {
 		
-		if (loginController.loginDeveloper(dev.getEmail())){
-			DevNavBar.swapTo(event);
-			DevFindProject.swapTo(event);
+		ProjectOwner projectOwner = createAccount.AddOwner(name.getText(), bio.getText(), email.getText());
+		
+		if (projectOwner != null) {
+			
+			if (loginController.loginProjectOwner(projectOwner.getEmail())){
+				
+				Window primaryWindow = name.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Account Created Successfully");
+				
+				PONavBar.swapTo(event);
+				POPostProject.swapTo(event);
+			}
+			else {
+				Window primaryWindow = email.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
 		}
 		else {
-			Window primaryWindow = email.getScene().getWindow();				
+			Window primaryWindow = name.getScene().getWindow();				
 	 		Toast toast = Toast.buildToast();
-	 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
-		}
-	}
-	
-	public void attemptLoginProjectOwner(ActionEvent event, ProjectOwner projectOwner) {
-		
-		if (loginController.loginProjectOwner(projectOwner.getEmail()))
-		{
-			PONavBar.swapTo(event);
-			POPostProject.swapTo(event);
-		}
-		else {
-			Window primaryWindow = email.getScene().getWindow();				
-	 		Toast toast = Toast.buildToast();
-	 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
-		}
+	 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
+		}	
 	}
 	
 //	public void createAccount(ActionEvent event){
