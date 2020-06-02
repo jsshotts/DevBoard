@@ -12,7 +12,6 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -67,11 +66,10 @@ public class POMyProjects {
 			
 			for(Project project : projects) {
 				
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.ACTIVE_PROJECT_VIEW));
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PO_ACTIVE_PROJECT_CARD));
 				Node projectCard = fxmlLoader.load();			
-				ActiveProjectCard activeProjectCard = fxmlLoader.<ActiveProjectCard>getController();
+				POActiveProjectCard activeProjectCard = fxmlLoader.<POActiveProjectCard>getController();
 				
-				activeProjectCard.initPOCard();
 				activeProjectCard.populate(project);
 				
 				vbox.getChildren().add(projectCard);

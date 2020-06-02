@@ -5,12 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Window;
 
-
-/* This class manages the login screen, and is associated with Login.fxml
- * In SceneBuilder, I set the fx:controller attribute of Login.fxml to "Boundary.LoginScreen" (i.e. this class), and that
- * links the fxml file to this class. Then, I can set the onAction attribute of the login button to any function in this class 
- */
 
 public class LoginScreen {
 	
@@ -26,8 +24,12 @@ public class LoginScreen {
 	@FXML
 	private TextField usernameInput;
 	
+	@FXML
+	private ImageView imageView;
+	
 	private LoginController loginController = new LoginController();
 	
+<<<<<<< HEAD
 	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
 	 * This function changes the scene to the 'Find Projects' Scene
 	 */	
@@ -39,11 +41,39 @@ public class LoginScreen {
 			loginController.loginDeveloper(usernameInput.getText());
 			DevNavBar.swapTo(event);
 			DevFindProject.swapTo(event);
+=======
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/LogoWhite.png");
+		imageView.setImage(img);
+	}
+
+	public void login(ActionEvent event){
+		
+		if(event.getSource() == devLogin){
+			if (loginController.loginDeveloper(usernameInput.getText()))
+			{
+				DevNavBar.swapTo(event);
+				DevFindProject.swapTo(event);
+			}
+			else {
+				Window primaryWindow = usernameInput.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
+>>>>>>> b786755f09aa94870f65dab101b2a18261f5d684
 		}
 		else {
-			loginController.loginProjectOwner(usernameInput.getText());
-			PONavBar.swapTo(event);
-			POPostProject.swapTo(event);
-		}	
+			if (loginController.loginProjectOwner(usernameInput.getText()))
+			{
+				PONavBar.swapTo(event);
+				POPostProject.swapTo(event);
+			}
+			else {
+				Window primaryWindow = usernameInput.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
+		}
 	}
 }

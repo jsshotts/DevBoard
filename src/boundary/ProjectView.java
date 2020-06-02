@@ -10,6 +10,8 @@ public abstract class ProjectView {
 	@FXML
 	public Label headline;
 	@FXML
+	public Label projectOwnerName;
+	@FXML
 	public Label description;
 	@FXML
 	public Label platform;
@@ -22,7 +24,7 @@ public abstract class ProjectView {
 	@FXML
 	public Button moreDetailsButton;
 	
-	private Project project;
+	protected Project project;
 
 	public Project getProject() {
 		return project;
@@ -32,14 +34,14 @@ public abstract class ProjectView {
 		this.project = project;
 	}
 	
-	public void populate(Project project) {	
+	public void populate(Project project) {
 		setProject(project);
 		headline.setText(project.getTitle());
 		description.setText(project.getDescription());
 		duration.setText(project.getDuration());
 		projectLocation.setText(project.getLocation());
-		platform.setText(project.getPlatform());
+		platform.setText(project.getPlatform().getString());
 		remote.setText(project.getRemote());
+		projectOwnerName.setText(project.getProjectOwnerName());
 	}
-
 }

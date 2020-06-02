@@ -1,0 +1,35 @@
+.navButton {
+	-fx-background-color: transparent;
+	-fx-text-fill: #063c8d;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-font-family: Roboto;
+	-fx-text-fill: White;
+	-fx-border-color: transparent;
+	-fx-border-width: 6;
+	-fx-border-radius: 8;
+}
+
+.navButton:hover {
+	-fx-background-color: transparent;
+	-fx-text-fill: #063c8d;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-font-family: Roboto;
+	-fx-text-fill: White;
+	-fx-border-color: White;
+	-fx-border-width: 6;
+	-fx-border-radius: 8;
+}
+
+.navButton:focused {
+	-fx-background-color: transparent;
+	-fx-text-fill: #063c8d;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-font-family: Roboto;
+	-fx-text-fill: White;
+	-fx-border-color: White;
+	-fx-border-width: 6;
+	-fx-border-radius: 8;
+}

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevOfferView">
+   <children>
+      <HBox style="-fx-border-color: gray; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="cardBox" HBox.hgrow="ALWAYS">
+         <children>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox layoutX="21.0" layoutY="521.0" spacing="150.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="30.0" prefWidth="180.0">
+                           <children>
+                              <Button fx:id="acceptOfferButton" layoutX="22.0" layoutY="361.0" mnemonicParsing="false" onAction="#acceptOffer" text="ACCEPT OFFER" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="180.0">
+                           <children>
+                              <Button fx:id="declineOfferButton" layoutX="248.0" layoutY="361.0" mnemonicParsing="false" onAction="#declineOffer" text="DECLINE OFFER" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="60.0" prefWidth="250.0">
+                           <children>
+                              <Button fx:id="viewProjectDetailsButton" layoutX="457.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutX="16.0" layoutY="14.0" prefWidth="811.0">
+                     <children>
+                        <Label fx:id="projectTitle" text="Project Headline">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="projectOwnerName" text="Project Owner Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox alignment="BOTTOM_LEFT" layoutX="160.0" layoutY="92.0" spacing="20.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="172.0" layoutY="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Platform">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="platform" text="iOS">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="272.0" layoutY="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Location">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="projectLocation" text="San Luis Obispo">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="384.0" layoutY="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Duration">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="duration" text="6 Weeks">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="468.0" layoutY="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Remote">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="remote" text="Yes">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="553.0" layoutY="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Language">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="language" text="Any">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="21.0" layoutY="286.0" prefHeight="204.0" prefWidth="335.0">
+                     <children>
+                        <Label text="Offer Description">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bigDescription" prefHeight="174.0" prefWidth="450.0" text="We would like to you to build our app prototype for us. We have updated the proposed schedule, please let us know if this works for you. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Please confirm you would like to work on this project by the end of the week." wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="559.0" layoutY="248.0" prefHeight="156.0" prefWidth="181.0">
+                     <children>
+                        <Label text="Start Date">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker prefHeight="0.0" prefWidth="180.0" />
+                        <Region prefHeight="48.0" prefWidth="269.0" />
+                        <Label text="End Date">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker prefHeight="0.0" prefWidth="180.0" />
+                     </children>
+                  </VBox>
+                  <Label fx:id="shortDescription" layoutX="21.0" layoutY="168.0" maxHeight="100.0" maxWidth="488.0" prefWidth="488.0" text="This is a short descriptive of a project. For instance: Our startup needs a mobile app prototype so we can test our idea with customers." wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" layoutX="558.0" layoutY="179.0" spacing="10.0">
+                     <children>
+                        <Label layoutX="599.0" layoutY="113.0" text="Offer Status:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="offerStatus" layoutX="623.0" layoutY="140.0" text="Pending">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+            <Region layoutX="870.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</HBox>

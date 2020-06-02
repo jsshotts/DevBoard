@@ -1,0 +1,22 @@
+.button {
+	-fx-text-fill: #063c8d;
+	-fx-background-color: transparent;
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+}
+
+.button:hover {
+	-fx-text-fill: #063c8d;
+	-fx-background-color: transparent;
+	-fx-border-color: black;
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+	-fx-border-radius: 10;
+	-fx-border-width: 2;
+}
+
+.moreDetails:hover {
+	-fx-border-color: black;
+	-fx-border-radius: 10;
+	-fx-border-width: 2;
+}

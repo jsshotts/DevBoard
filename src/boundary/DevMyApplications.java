@@ -1,12 +1,14 @@
 package boundary;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
-import controller.FindProjectsController;
 import controller.Log;
+import controller.MyAppsController;
+import entity.Offer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -34,33 +36,34 @@ public class DevMyApplications {
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				projectOffersBox = initOffersView();
+				projectOffersBox = initOffersView(getOfferMap());
 				submittedApplicationsBox = initApplicationsView(getApplications());
 				return null;
 			}
 		};
 		task.setOnSucceeded(succeededEvent -> {
 			projectOffers.setContent(projectOffersBox);
-			projectOffersBox.prefHeightProperty().bind(projectOffers.widthProperty());
-			projectOffersBox.prefWidthProperty().bind(projectOffers.widthProperty());
 			projectOffers.setFitToHeight(true);
 			
 			submittedApplications.setContent(submittedApplicationsBox);
-			submittedApplicationsBox.prefHeightProperty().bind(submittedApplications.widthProperty());
-			submittedApplicationsBox.prefWidthProperty().bind(submittedApplications.widthProperty());
 			submittedApplications.setFitToHeight(true);
          });
-		task.setOnFailed(failedEvent -> {
-			System.out.println(task.getException().getMessage());
-		});
+		task.setOnFailed(failedEvent ->
+			Log.logger.log(Level.WARNING, task.getException().getMessage())
+		);
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();
 	}
 	
 	private List<Project> getApplications() {
-		FindProjectsController controller = new FindProjectsController();
+		MyAppsController controller = new MyAppsController();
 		return controller.getUserApplications();
+	}
+	
+	private Map<Project, Offer> getOfferMap() {
+		MyAppsController controller = new MyAppsController();
+		return controller.getDevOfferMap();
 	}
 	
 	private VBox initApplicationsView(List<Project> projects) {
@@ -71,11 +74,11 @@ public class DevMyApplications {
 			for(Project p : projects) {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.SMALL_PROJECT_VIEW));
 				Node projectCard = fxmlLoader.load();
+				
 				SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
 				smallProjectView.populate(p);
 				vbox.getChildren().add(projectCard);
 			}
-			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -83,19 +86,22 @@ public class DevMyApplications {
 		return vbox;
 	}
 	
-	private VBox initOffersView() {
+	private VBox initOffersView(Map<Project, Offer> map) {
+		
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
 		try {
 			
-			for(int i = 0; i < 2; i++) {
-				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.OFFER_VIEW));
+			for(Map.Entry<Project, Offer> entry : map.entrySet()) {
+				
+				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_OFFER_VIEW));
 				Node projectCard = fxmlLoader.load();
-				//SmallProjectView smallProjectView = fxmlLoader.<SmallProjectView>getController();
-				//smallProjectView.populate(p);
+				DevOfferView offerViewController = fxmlLoader.<DevOfferView>getController();
+				
+				offerViewController.populate(entry.getKey(), entry.getValue());
+				
 				vbox.getChildren().add(projectCard);
 			}
-			Log.logger.log(Level.INFO, () -> vbox.getChildren().toString());
 		}
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

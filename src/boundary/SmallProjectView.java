@@ -3,6 +3,7 @@ package boundary;
 import java.util.logging.Level;
 
 import controller.Log;
+import controller.SessionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,6 +23,17 @@ public class SmallProjectView extends ProjectView{
 		catch (Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+		highlightNav();
 	}
+	public void highlightNav() {
+		SessionController session = SessionController.getInstance();
+		String prev = session.getPrevWindow();
 		
+		if (prev.equals(WindowManager.DEV_FINDPROJ_SCREEN))
+			session.getDevNavBar().findProjectsButton.requestFocus();
+		if (prev.equals(WindowManager.DEV_MYAPPLICATIONS_SCREEN))
+			session.getDevNavBar().myApplicationsButton.requestFocus();
+		if (prev.equals(WindowManager.DEV_PROFILE_SCREEN))
+			session.getDevNavBar().profileButton.requestFocus();
+	}
 }

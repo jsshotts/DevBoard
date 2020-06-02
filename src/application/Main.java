@@ -12,9 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
-
 public class Main extends Application {
-
 	
 	@Override
 	public void start(Stage primaryStage){
@@ -28,6 +26,10 @@ public class Main extends Application {
 			primaryStage.setMaximized(true);
 			primaryStage.setTitle("DevBoard");
 			primaryStage.show();
+			primaryStage.getScene().getStylesheets().add(WindowManager.CARDBOX_STYLE);
+			primaryStage.getScene().getStylesheets().add(WindowManager.SMALLPROJECTVIEW_STYLE);
+			primaryStage.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
+			primaryStage.getScene().getStylesheets().add(WindowManager.BIGBUTTON_STYLE);
 			
 		}catch(Exception e){
 			Log.logger.log(Level.WARNING, e.getMessage());

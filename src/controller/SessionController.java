@@ -1,14 +1,27 @@
 package controller;
 
+import java.util.logging.Level;
+
+import boundary.DevNavBar;
+import boundary.PONavBar;
 import entity.Developer;
 import entity.ProjectOwner;
 import entity.User;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 
 public class SessionController {
 	
 	private static SessionController instance;
 	
 	private User user;
+	
+	private String prevWindow = null;
+	private DevNavBar devNavBar;
+	private PONavBar poNavBar;
 	
 	private SessionController() {}
 	
@@ -21,6 +34,15 @@ public class SessionController {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public void updateUser(User user) {
+		if(this.user.getID().equals(user.getID())) {
+			this.user = user;
+		}
+		else {
+			Log.logger.log(Level.WARNING, "attempting to set new user without logging in");
+		}
 	}
 	
 	public User getUser() {
@@ -43,5 +65,40 @@ public class SessionController {
 	
 	public boolean isDeveloper() {
 		return user instanceof Developer;
+	}
+
+	public String getPrevWindow() {
+		return prevWindow;
+	}
+
+	public void setPrevWindow(String prevWindow) {
+		this.prevWindow = prevWindow;
+	}
+	
+	public void back(ActionEvent event) {
+		try {
+			BorderPane borderPane = (BorderPane)((Node)event.getSource()).getScene().getRoot();
+			Parent switchScreen = FXMLLoader.load(ClassLoader.getSystemResource(prevWindow));
+			borderPane.setCenter(switchScreen);
+		}
+		catch(Exception e) {
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
+	}
+
+	public DevNavBar getDevNavBar() {
+		return devNavBar;
+	}
+
+	public void setDevNavBar(DevNavBar devNavBar) {
+		this.devNavBar = devNavBar;
+	}
+
+	public PONavBar getPoNavBar() {
+		return poNavBar;
+	}
+
+	public void setPoNavBar(PONavBar poNavBar) {
+		this.poNavBar = poNavBar;
 	}
 }

@@ -8,11 +8,11 @@ import entity.Filters.Language;
 
 public class Developer extends User {
 	
-	private List<UUID> offerIds;
-	private List<Language> languages;
-	private List<UUID> appliedProjectIds;
-	private List<UUID> activeProjectIds;
-	private List<String> experience;
+	private List<UUID> offerIds = new LinkedList<>();
+	private List<Language> languages = new LinkedList<>();
+	private List<UUID> appliedProjectIds = new LinkedList<>();
+	private List<UUID> activeProjectIds = new LinkedList<>();
+	private List<String> experience = new LinkedList<>();
 	
 	public Developer(String name, String bio) {
 		super(name,  bio, null, null);
@@ -39,11 +39,19 @@ public class Developer extends User {
 		}
 	}
 	
+	public List<Language> getLanguages(){
+		return languages;
+	}
+	
 	public void addExperience(String exp) {
 		if(experience == null) {
 			experience = new LinkedList<>();
 		}
 		experience.add(exp);
+	}
+	
+	public List<String> getExperience() {
+		return experience;
 	}
 	
 	public void addOfferId(UUID offerId) {
@@ -54,6 +62,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getOfferIds(){
+		if(offerIds == null) {
+			return new LinkedList<>();
+		}
 		return offerIds;
 	}
 	
@@ -71,6 +82,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getActiveProjectIds(){
+		if(activeProjectIds == null) {
+			return new LinkedList<>();
+		}
 		return activeProjectIds;
 	}
 	
@@ -81,6 +95,9 @@ public class Developer extends User {
 	}
 	
 	public List<UUID> getAppliedProjectIds(){
+		if(this.appliedProjectIds == null) {
+			return new LinkedList<>();
+		}
 		return this.appliedProjectIds;
 	}
 	
@@ -95,5 +112,23 @@ public class Developer extends User {
 		if(appliedProjectIds != null) {
 			appliedProjectIds.remove(projectId);
 		}
+	}
+	
+	public boolean hasOffer(UUID offerId) {
+		if(this.offerIds == null) {
+			return false;
+		}
+		return this.offerIds.contains(offerId);
+	}
+
+	@Override
+	public String toString() {
+		String result = super.toString();
+		result += offerIds == null ? "" : String.format("offerIds: %s%n", offerIds.toString());
+		result += languages == null ? "" : String.format("languages: %s%n", languages.toString());
+		result += experience == null ? "" : String.format("experience: %s%n", experience.toString());
+		result += appliedProjectIds == null ? "" : String.format("appliedProjectIds: %s%n", appliedProjectIds.toString());
+		result += activeProjectIds == null ? "" : String.format("activeProjectIds: %s%n", activeProjectIds.toString());
+		return result;
 	}
 }

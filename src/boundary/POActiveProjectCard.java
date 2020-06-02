@@ -1,13 +1,10 @@
 package boundary;
 
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
-import controller.HireController;
 import controller.Log;
-import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -18,13 +15,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class ActiveProjectCard {
+public class POActiveProjectCard {
 	
 	@FXML
 	private Button messageButton;
 	
 	@FXML
 	private Button applicantsButton;
+	
+	@FXML
+	private Button offersButton;
 	
 	@FXML
 	private Label projectTitle;
@@ -40,29 +40,32 @@ public class ActiveProjectCard {
 	
 	private Node applicantsView;
 	
+	private Node offersView;
+	
 	private boolean applicantsVisible = false;
 	
-	private HireController hireController = new HireController();
+	private boolean getApplicantsInProgress = false;
+	
+	private boolean offersVisible = false;
+	
+	private boolean getOffersInProgress = false;
 	
 	private Project activeProject;
 	
 	@FXML
 	private AnchorPane anchor;
 	
-	public void initDevCard() {
-		anchor.getChildren().remove(applicantsButton);
-	}
-	
-	public void initPOCard() {
-		messageButton.setText("Message Developer");
-	}
-	
 	public void toggleApplicants() {
-		if(applicantsVisible && rootVbox.getChildren().contains(applicantsView)) {
+		
+		removeOffersView();
+		
+		if(applicantsVisible) {
 			rootVbox.getChildren().remove(applicantsView);
 			applicantsVisible = false;
 		}
-		else {
+		else if(!getApplicantsInProgress){
+			
+			getApplicantsInProgress = true;
 			displayProjectApplicants();
 		}
 	}
@@ -80,6 +83,7 @@ public class ActiveProjectCard {
          task.setOnSucceeded(succeededEvent -> {
         	 rootVbox.getChildren().add(applicantsView);
 			 applicantsVisible = true;
+			 getApplicantsInProgress = false;
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -88,24 +92,64 @@ public class ActiveProjectCard {
 	}
 	
 	public void setApplicantsView() {
+		
 		try {
+				
 			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PROJECT_APPLICANTS_VIEW));
 			applicantsView = fxmlLoader.load();
 			ProjectApplicantsView projectApplicantsView = fxmlLoader.<ProjectApplicantsView>getController();
-			projectApplicantsView.initialize(getApplicants());
+			projectApplicantsView.initialize(activeProject);
+		}
+		catch(Exception e) {
+			Log.logger.log(Level.WARNING, e.getMessage());
+		}
+	}
+		
+	public void populate(Project project) {
+		this.activeProject = project;
+		projectTitle.setText(project.getTitle());
+		description.setText(project.getDescription());
+		status.setText(project.getStatusString());
+	}
+	
+	public void toggleOffers() {
+		
+		removeApplicantsView();
+		
+		if(offersVisible) {
+			rootVbox.getChildren().remove(offersView);
+			offersVisible = false;
+		}
+		else if(!getOffersInProgress){			
+			getOffersInProgress = true;
+			displayProjectOffers();
+			offersVisible = true;
+			getOffersInProgress = false;
+		}
+	}
+	
+	public void displayProjectOffers() {
+		
+		try {
+			
+			FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PROJECT_OFFERS_VIEW));
+			offersView = fxmlLoader.load();
+			ProjectOffersView projectOffersView = fxmlLoader.<ProjectOffersView>getController();
+			projectOffersView.initOfferView(activeProject);
+			rootVbox.getChildren().add(offersView);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
-	public List<Developer> getApplicants() {
-		return hireController.getProjectApplicants(activeProject);
+	public void removeApplicantsView() {
+		rootVbox.getChildren().remove(applicantsView);
+		applicantsVisible = false;
 	}
 	
-	public void populate(Project project) {
-		this.activeProject = project;
-		projectTitle.setText(project.getTitle());
-		description.setText(project.getDescription());
+	public void removeOffersView() {
+		rootVbox.getChildren().remove(offersView);
+		offersVisible = false;
 	}
 }

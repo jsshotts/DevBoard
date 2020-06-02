@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevActiveProjectCard">
+   <children>
+      <Region HBox.hgrow="ALWAYS" />
+      <VBox fx:id="rootVbox" styleClass="cardBox">
+         <children>
+            <AnchorPane fx:id="anchor">
+               <children>
+                  <VBox alignment="CENTER" layoutX="26.0" layoutY="100.0" spacing="20.0">
+                     <children>
+                        <Label fx:id="description" alignment="TOP_LEFT" layoutX="26.0" layoutY="100.0" maxWidth="715.0" prefWidth="715.0" text="Dev: Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" layoutX="64.0" layoutY="210.0" spacing="120.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="124.0" layoutY="195.0" prefHeight="60.0" prefWidth="260.0">
+                                 <children>
+                                    <Button layoutX="124.0" layoutY="195.0" mnemonicParsing="false" text="Project Requirements">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="460.0" layoutY="195.0" prefHeight="60.0" prefWidth="260.0">
+                                 <children>
+                                    <Button fx:id="messageButton" layoutX="460.0" layoutY="195.0" mnemonicParsing="false" text="Message Project Owner">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" layoutX="541.0" layoutY="54.0" spacing="10.0">
+                     <children>
+                        <Label layoutX="412.0" layoutY="69.0" text="Status:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="status" layoutX="465.0" layoutY="67.0" text="In Progress">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutX="26.0" layoutY="37.0" maxWidth="450.0" prefWidth="450.0">
+                     <children>
+                        <Label fx:id="projectTitle" layoutX="64.0" layoutY="46.0" text="Project Name" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Region layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+   </children>
+   <padding>
+      <Insets bottom="30.0" top="30.0" />
+   </padding>
+</HBox>

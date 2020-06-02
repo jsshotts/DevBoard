@@ -3,11 +3,24 @@ package entity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
+import entity.Filters.Language;
+import entity.Filters.ProjectPlatform;
 
 //Dummy Data class to be used until we have Firebase fully functional
 public class Repository {
 	
 	private Repository() { throw new IllegalStateException("Utility class"); }
+	
+	protected static String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
+			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
+	
+	protected static Language[] languages = {Language.PYTHON, Language.C, Language.CPP, Language.JAVA,
+			Language.JAVASCRIPT, Language.KOTLIN, Language.SWIFT};
+	
+	protected static ProjectPlatform[] platforms = {ProjectPlatform.IOS, ProjectPlatform.ANDROID, ProjectPlatform.LINUX,
+			ProjectPlatform.MAC, ProjectPlatform.WINDOWS};
 	
 	protected static List<Developer> developers = new ArrayList<>(
 			Arrays.asList(
@@ -27,24 +40,24 @@ public class Repository {
 	
 	protected static List<Project> projects = new ArrayList<>(
 			Arrays.asList(
-					new Project("Fitness IOS App ", projectOwners.get(0).getID()),
-					new Project("Art Android App", projectOwners.get(1).getID()),
-					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID()),
-					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID()),
-					new Project("Windows Application-0", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation-1", projectOwners.get(1).getID()),
-					new Project("IOS App-2", projectOwners.get(2).getID()),
-					new Project("Linux Script-2", projectOwners.get(3).getID()),
-					new Project("Warehouse Automation-6", projectOwners.get(0).getID()),
-					new Project("Windows Application-2", projectOwners.get(1).getID()),
-					new Project("Android App-2", projectOwners.get(2).getID()),
-					new Project("Warehouse Automation-3", projectOwners.get(3).getID()),
-					new Project("Linux Script-3", projectOwners.get(0).getID()),
-					new Project("Windows Application-4", projectOwners.get(1).getID()),
-					new Project("Warehouse Automation-5", projectOwners.get(2).getID()),
-					new Project("IOS App-3", projectOwners.get(3).getID()),
-					new Project("Windows Application-3", projectOwners.get(0).getID()),
-					new Project("Warehouse Automation-4", projectOwners.get(1).getID()))
+					new Project("Fitness IOS App ", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Art Android App", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Windows Application-0", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Warehouse Automation-1", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("IOS App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Linux Script-2", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Warehouse Automation-6", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Windows Application-2", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Android App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Warehouse Automation-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Linux Script-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Windows Application-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Warehouse Automation-5", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("IOS App-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Windows Application-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Warehouse Automation-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()))
 			);
 	
 	protected static List<Offer> offers = new ArrayList<>(
@@ -57,9 +70,8 @@ public class Repository {
 	public static List<Project> getProjects() {return projects;}
 	
 	public static void init() {
-		Offer offer = offers.get(0);
-		developers.get(0).addOfferId(offer.getId());
-		projects.get(0).setOfferId(offer.getId());
+		
+		setProjectData();
 		
 		projects.get(0).addAppliedDeveloperID(developers.get(0).getID());
 		projects.get(0).addAppliedDeveloperID(developers.get(1).getID());
@@ -70,6 +82,8 @@ public class Repository {
 		developers.get(2).addAppliedProjectId(projects.get(0).getID());
 		developers.get(3).addAppliedProjectId(projects.get(0).getID());
 		
+		projects.get(1).setStatus(Project.IN_PROGRESS);
+		projects.get(2).setStatus(Project.IN_PROGRESS);
 		developers.get(1).addActiveProjectId(projects.get(1).getID());
 		developers.get(1).addActiveProjectId(projects.get(2).getID());
 		
@@ -79,6 +93,17 @@ public class Repository {
 					po.addProjectId(project.getID());
 				}
 			}
+		}
+	}
+	
+	private static void setProjectData() {
+		Random random = new Random();
+		for(Project project : projects) {
+			int i = Math.abs(random.nextInt());
+			project.setData(
+					locations[i % (locations.length-1)], 
+					languages[i % (languages.length-1)], 
+					platforms[i % (platforms.length-1)]);
 		}
 	}
 }

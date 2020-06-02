@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane fx:id="anchorPane" prefHeight="130.0" style="-fx-background-color: #102a50; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.Toast">
+   <children>
+      <Label fx:id="toastMessage" alignment="CENTER" contentDisplay="CENTER" layoutY="43.0" text="Application Submitted" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </Label>
+   </children>
+</AnchorPane>

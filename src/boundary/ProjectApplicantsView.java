@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.HireController;
 import controller.Log;
 import entity.Developer;
 import entity.Project;
@@ -12,6 +13,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -26,12 +28,14 @@ public class ProjectApplicantsView {
 	
 	private static int childSize = 52;
 	
-	public void initialize(List<Developer> applicants) {
+	private HireController hireController = new HireController();
+	
+	public void initialize(Project project) {
 		
 		Task<Void> task = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
-				applicantViewBox = initApplicantsView(applicants);
+				applicantViewBox = initApplicantsView(project, getApplicants(project));
 				return null;
 			}
 		};
@@ -46,7 +50,7 @@ public class ProjectApplicantsView {
         executorService.shutdown();
 	}
 	
-	private VBox initApplicantsView(List<Developer> applicants) {
+	private VBox initApplicantsView(Project project, List<Developer> applicants) {
 		
 		VBox vbox = new VBox();
 		vbox.setSpacing(30);
@@ -58,7 +62,7 @@ public class ProjectApplicantsView {
 				Node applicantCard = fxmlLoader.load();
 				ApplicantCard applicantController = fxmlLoader.<ApplicantCard>getController();
 				
-				applicantController.populate(developer);
+				applicantController.populate(developer, project, this);
 				
 				vbox.getChildren().add(applicantCard);
 			}
@@ -70,11 +74,22 @@ public class ProjectApplicantsView {
 		return vbox;
 	}
 	
+	public List<Developer> getApplicants(Project project) {
+		return hireController.getProjectApplicants(project);
+	}
+	
 	public int calculateScrollPaneHeight() {
 		int height = childCount * childSize;
 		if(height > 500) {
 			height = 500;
 		}
 		return height;
+	}
+	
+	public void disableOfferButtons() {
+		for(Node node : applicantViewBox.getChildren()) {
+			Button sendOfferButton = (Button)(node.lookup("#sendOffer"));
+			sendOfferButton.setDisable(true);
+		}
 	}
 }
