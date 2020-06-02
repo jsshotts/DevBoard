@@ -1,11 +1,13 @@
 package controller;
 
-import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 
+import boundary.DevNavBar;
+import boundary.PONavBar;
 import entity.Developer;
 import entity.ProjectOwner;
 import entity.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -18,6 +20,8 @@ public class SessionController {
 	private User user;
 	
 	private String prevWindow = null;
+	private DevNavBar devNavBar;
+	private PONavBar poNavBar;
 	
 	private SessionController() {}
 	
@@ -80,5 +84,21 @@ public class SessionController {
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
 		}
+	}
+
+	public DevNavBar getDevNavBar() {
+		return devNavBar;
+	}
+
+	public void setDevNavBar(DevNavBar devNavBar) {
+		this.devNavBar = devNavBar;
+	}
+
+	public PONavBar getPoNavBar() {
+		return poNavBar;
+	}
+
+	public void setPoNavBar(PONavBar poNavBar) {
+		this.poNavBar = poNavBar;
 	}
 }

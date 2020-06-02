@@ -3,7 +3,6 @@ package boundary;
 import entity.Project;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 public abstract class ProjectView {
@@ -35,7 +34,7 @@ public abstract class ProjectView {
 		this.project = project;
 	}
 	
-	public void populate(Project project) {	
+	public void populate(Project project) {
 		setProject(project);
 		headline.setText(project.getTitle());
 		description.setText(project.getDescription());

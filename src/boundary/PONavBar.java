@@ -37,6 +37,7 @@ public class PONavBar {
 			PONavBar poNavBarController = fxmlLoader.<PONavBar>getController();
 			poNavBarController.init();
 			borderPane.setTop(poNavBarNode);
+			SessionController.getInstance().setPoNavBar(poNavBarController);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

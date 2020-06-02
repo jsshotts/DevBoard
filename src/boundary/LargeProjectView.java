@@ -8,12 +8,15 @@ import controller.SessionController;
 import entity.Developer;
 import entity.Project;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Window;
 
-public class LargeProjectView extends ProjectView{
+public class LargeProjectView extends ProjectView {
+	
+	private static final String FEEDBACK = "Application Sent";
 	
 	@FXML
 	private Button apply;
@@ -31,12 +34,12 @@ public class LargeProjectView extends ProjectView{
 		
 		Developer developer = SessionController.getInstance().getDeveloper();
 		if(developer != null && developer.getAppliedProjectIds().contains(this.project.getID())) {
-			apply.setText("Application Sent");
+			apply.setText(FEEDBACK);
 			apply.setDisable(true);
 		}
 	}
 	
-	public void apply() { 	
+	public void apply() {
 		
 		Task<Void> task = new Task<Void>() {
 	        @Override
@@ -50,13 +53,28 @@ public class LargeProjectView extends ProjectView{
          task.setOnSucceeded(succeededEvent -> {
         	Window primaryWindow = apply.getScene().getWindow();				
      		Toast toast = Toast.buildToast();
-     		toast.makeText(primaryWindow, "Application Sent");
-     		apply.setText("Application Sent");
+     		toast.makeText(primaryWindow, FEEDBACK);
+     		apply.setText(FEEDBACK);
 			apply.setDisable(true);
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
 		executorService.execute(task);
         executorService.shutdown();
+	}
+	
+	@FXML
+	public void back(ActionEvent event) {
+		SessionController session = SessionController.getInstance();
+		String prev = session.getPrevWindow();
+		
+		session.back(event);
+		
+		if (prev.equals(WindowManager.DEV_FINDPROJ_SCREEN))
+			session.getDevNavBar().findProjectsButton.requestFocus();
+		if (prev.equals(WindowManager.DEV_MYAPPLICATIONS_SCREEN))
+			session.getDevNavBar().myApplicationsButton.requestFocus();
+		if (prev.equals(WindowManager.DEV_PROFILE_SCREEN))
+			session.getDevNavBar().profileButton.requestFocus();
 	}
 }

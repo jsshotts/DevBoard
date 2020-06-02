@@ -28,6 +28,7 @@ public class DevNavBar {
 			DevNavBar devNavBarController = fxmlLoader.<DevNavBar>getController();
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
+			SessionController.getInstance().setDevNavBar(devNavBarController);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -63,14 +64,17 @@ public class DevNavBar {
 
 		if (event.getSource() == findProjectsButton) {
 			DevFindProject.swapTo(event);
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_FINDPROJ_SCREEN);
 		}
 		if (event.getSource() == activeProjectsButton) {
 			DevActiveProjects.swapTo(event);
 		}
 		if (event.getSource() == myApplicationsButton) {
 			DevMyApplications.swapTo(event);
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_MYAPPLICATIONS_SCREEN);
 		}
 		if (event.getSource() == profileButton) {
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_PROFILE_SCREEN);
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.DEV_PROFILE_SCREEN));
 				Node devProfileNode = fxmlLoader.load();
