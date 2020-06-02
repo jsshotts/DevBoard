@@ -29,28 +29,23 @@ public class LoginScreen {
 	
 	private LoginController loginController = new LoginController();
 	
-<<<<<<< HEAD
-	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
-	 * This function changes the scene to the 'Find Projects' Scene
-	 */	
-	public void login(ActionEvent event){
-		
-		if(event.getSource() == createAccount){
-			CreateAccount.swapTo(event);
-		}else if(event.getSource() == devLogin){
-			loginController.loginDeveloper(usernameInput.getText());
-			DevNavBar.swapTo(event);
-			DevFindProject.swapTo(event);
-=======
 	@FXML
 	private void initialize() {
 		Image img = new Image("res/LogoWhite.png");
 		imageView.setImage(img);
 	}
 
+	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
+	 * This function changes the scene to the 'Find Projects' Scene
+	 */	
+
+	
+
 	public void login(ActionEvent event){
 		
-		if(event.getSource() == devLogin){
+		if(event.getSource() == createAccount){
+			CreateAccount.swapTo(event);
+		}else if(event.getSource() == devLogin){
 			if (loginController.loginDeveloper(usernameInput.getText()))
 			{
 				DevNavBar.swapTo(event);
@@ -61,7 +56,6 @@ public class LoginScreen {
 		 		Toast toast = Toast.buildToast();
 		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
 			}
->>>>>>> b786755f09aa94870f65dab101b2a18261f5d684
 		}
 		else {
 			if (loginController.loginProjectOwner(usernameInput.getText()))
