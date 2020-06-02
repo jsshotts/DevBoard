@@ -31,7 +31,10 @@
       <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
-            <TextField fx:id="usernameInput" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="usernameInput" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
@@ -49,25 +52,28 @@
       <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
-            <TextField HBox.hgrow="ALWAYS" />
+            <TextField HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <Region prefHeight="10.0" prefWidth="600.0" />
-      <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="80.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0">
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="320.0">
                <children>
-                  <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" text="Login Developer">
+                  <Button fx:id="devLogin" mnemonicParsing="false" onAction="#login" styleClass="bigButton" text="Login Developer">
                      <font>
                         <Font size="20.0" />
                      </font></Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0">
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="320.0">
                <children>
-                  <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" text="Login Project Owner">
+                  <Button fx:id="projectOwnerLogin" mnemonicParsing="false" onAction="#login" styleClass="bigButton" text="Login Project Owner">
                      <font>
                         <Font size="20.0" />
                      </font></Button>
@@ -76,12 +82,12 @@
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="60.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="80.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="340.0">
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="375.0">
                <children>
-                  <Button mnemonicParsing="false" text="Create New Account" HBox.hgrow="ALWAYS">
+                  <Button mnemonicParsing="false" styleClass="bigButton" text="Create New Account" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="20.0" />
                      </font></Button>

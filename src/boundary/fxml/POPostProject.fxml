@@ -64,7 +64,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="343.0" layoutY="613.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0">
                <children>
-                  <Button layoutX="405.0" layoutY="614.0" mnemonicParsing="false" onAction="#postProject" text="Post Project">
+                  <Button layoutX="405.0" layoutY="614.0" mnemonicParsing="false" onAction="#postProject" styleClass="bigButton" text="Post Project">
                      <font>
                         <Font size="20.0" />
                      </font>

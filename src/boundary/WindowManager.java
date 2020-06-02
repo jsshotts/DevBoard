@@ -35,6 +35,7 @@ public class WindowManager {
 	public static final String NAVBAR_STYLE = "boundary/css/navBar.css";
 	public static final String CARDBOX_STYLE = "boundary/css/cardBox.css";
 	public static final String SMALLPROJECTVIEW_STYLE = "boundary/css/smallProjectView.css";
+	public static final String BIGBUTTON_STYLE = "boundary/css/bigButton.css";
 	
 	public static final int WIN_WIDTH = 900;
 	public static final int WIN_HEIGHT = 600;
