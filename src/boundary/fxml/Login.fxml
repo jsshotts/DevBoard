@@ -21,7 +21,10 @@
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <Label text="Username" HBox.hgrow="ALWAYS" />
+            <Label text="Username" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
@@ -36,7 +39,10 @@
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <Label text="Password" HBox.hgrow="ALWAYS" />
+            <Label text="Password" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
