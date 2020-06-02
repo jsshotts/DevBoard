@@ -1,6 +1,11 @@
 package controller;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Level;
+
+import com.google.gson.reflect.TypeToken;
 
 import entity.Developer;
 import entity.ProjectOwner;
@@ -15,8 +20,9 @@ public class CreateAccountController {
 		return dev;
 	}
 	
-	public void AddOwner(String name, String bio, String email) {
-		ProjectOwner d = new ProjectOwner(name, bio, email);
-		Log.logger.log(Level.INFO, database.pushNew(d).toString());
+	public ProjectOwner AddOwner(String name, String bio, String email) {
+		ProjectOwner projectOwner = new ProjectOwner(name, bio, email);
+		Log.logger.log(Level.INFO, database.pushNew(projectOwner).toString());
+		return projectOwner;
 	}
 }

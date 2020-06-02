@@ -27,13 +27,13 @@
          </children>
       </HBox>
       <HBox prefHeight="41.0" prefWidth="600.0" styleClass="background" VBox.vgrow="ALWAYS" />
-      <CheckBox fx:id="POcheck" mnemonicParsing="false" prefHeight="17.0" prefWidth="105.0" text="ProjectOwner" />
-      <CheckBox fx:id="Dcheck" mnemonicParsing="false" text="Developer" />
+      <CheckBox fx:id="POcheck" mnemonicParsing="false" onAction="#checkPO" prefHeight="17.0" prefWidth="105.0" text="ProjectOwner" />
+      <CheckBox fx:id="Dcheck" mnemonicParsing="false" onAction="#checkDev" text="Developer" />
       <Region prefHeight="14.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label prefHeight="17.0" prefWidth="103.0" text="Username" HBox.hgrow="ALWAYS" />
-            <TextField fx:id="username" />
+            <Label prefHeight="17.0" prefWidth="103.0" text="Name" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="name" />
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
@@ -44,12 +44,12 @@
             <TextField fx:id="email" prefHeight="25.0" prefWidth="153.0" />
          </children>
       </HBox>
-      <HBox fx:id="bio" prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <HBox prefHeight="16.0" prefWidth="600.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="103.0" text="Bio" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="usernameInput3" prefHeight="26.0" prefWidth="386.0" />
+                  <TextField fx:id="bio" prefHeight="26.0" prefWidth="386.0" />
                   <Region HBox.hgrow="ALWAYS" />
                </children>
             </HBox>

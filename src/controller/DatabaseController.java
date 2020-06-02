@@ -77,6 +77,7 @@ public class DatabaseController {
 			target = PROJECTOWNERS;
 		
 		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
+		System.out.println(url);
 		String responseStr = sendHttpRequest(url, RequestType.GET);
 		if (responseStr == null)
 		{

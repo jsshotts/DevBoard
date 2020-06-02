@@ -33,7 +33,7 @@ public class LoginScreen {
 	private void initialize() {
 		Image img = new Image("res/LogoWhite.png");
 		imageView.setImage(img);
-	}
+	}	
 
 	public void login(ActionEvent event){
 		

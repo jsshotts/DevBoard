@@ -8,7 +8,7 @@ public class WindowManager {
 	} 
 
 
-	public static final String CREATE_PROFILE = "boundary/CreateAccount.fxml";
+	public static final String CREATE_PROFILE = "boundary/fxml/CreateAccount.fxml";
 	public static final String LOGIN_SCREEN = "boundary/fxml/Login.fxml";
 	
 	public static final String DEV_NAVBAR_VIEW = "boundary/fxml/DevNavBar.fxml";
