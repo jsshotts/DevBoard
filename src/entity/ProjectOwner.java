@@ -9,12 +9,17 @@ public class ProjectOwner extends User{
 	private List<UUID> projectIds;
 	
 	public ProjectOwner(String name, String bio) {
-		super(name,  bio, null);
+		super(name,  bio, null, null);
 		projectIds = new LinkedList<>();
 	}
 	
 	public ProjectOwner(String name, String bio, String email) {
-		super(name,  bio, email);
+		super(name,  bio, email, null);
+		projectIds = new LinkedList<>();
+	}
+	
+	public ProjectOwner(String name, String bio, String email, String password) {
+		super(name,  bio, email, password);
 		projectIds = new LinkedList<>();
 	}
 	

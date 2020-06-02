@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
  */
 
 public class LoginScreen {
+	
+	@FXML
+	public Button createAccount;
 		
 	@FXML
 	public Button devLogin;
@@ -29,8 +32,10 @@ public class LoginScreen {
 	 * This function changes the scene to the 'Find Projects' Scene
 	 */	
 	public void login(ActionEvent event){
-
-		if(event.getSource() == devLogin){
+		
+		if(event.getSource() == createAccount){
+			CreateAccount.swapTo(event);
+		}else if(event.getSource() == devLogin){
 			loginController.loginDeveloper(usernameInput.getText());
 			DevNavBar.swapTo(event);
 			DevFindProject.swapTo(event);

@@ -15,11 +15,15 @@ public class Developer extends User {
 	private List<String> experience;
 	
 	public Developer(String name, String bio) {
-		super(name,  bio, null);
+		super(name,  bio, null, null);
 	}
 	
 	public Developer(String name, String bio, String email) {
-		super(name,  bio, email);
+		super(name,  bio, email, null);
+	}
+	
+	public Developer(String name, String bio, String email, String password) {
+		super(name,  bio, email, password);
 	}
 	
 	public void addLanguage(Language lang) {
