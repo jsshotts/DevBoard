@@ -71,10 +71,10 @@ public class Project {
 		this.endDate = LocalDate.of(2020, 7, 15);
 	}
 	
-	public void setData(String location, Language language, ProjectPlatform platform) {
+	public void setData(String location, Language language, ProjectPlatform projectPlatform) {
 		this.location = location;
 		this.language = language;
-		this.platform = platform;
+		this.platform = projectPlatform;
 	}
 	
 	public String getDescription() {

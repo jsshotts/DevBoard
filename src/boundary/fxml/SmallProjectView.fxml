@@ -45,7 +45,7 @@
                                     <Font name="System Bold" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="platform" text="iOS">
+                              <Label fx:id="projectPlatform" text="iOS">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
