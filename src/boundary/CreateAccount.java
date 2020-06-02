@@ -65,16 +65,38 @@ public class CreateAccount {
 	public void createAccount(ActionEvent event){
 		if(usernameInput2.getText().contains("@")) {
 			if(event.getSource() == cAccount){
+				boolean worked = true;
 				if (Dcheck.isSelected()) {
-					
-					createAccount.AddDeveloper(usernameInput.getText(), usernameInput3.getText(), usernameInput2.getText(), usernameInput1.getText());
-				} else if (POcheck.isSelected()) {
-					createAccount.AddOwner(usernameInput.getText(), usernameInput3.getText(), usernameInput2.getText(), usernameInput1.getText());
-				} else {
-					return;
+					if (1 == createAccount.
+							AddDeveloper(usernameInput.getText(), 
+									usernameInput3.getText(), 
+									usernameInput2.getText(), 
+									usernameInput1.getText())) {
+						POcheck.setStyle("-fx-background-color: #00ff00");
+					} else {
+						worked = false;
+						Dcheck.setStyle("-fx-background-color: #ff0000");
+						Dcheck.setText("Developer: ERROR USERNAME OR EMAIL ALREADY IN USE");
+					}
 				}
-				DevNavBar.swapTo(event);
-				DevFindProject.swapTo(event);
+				if (POcheck.isSelected()) {
+					System.out.println(1);
+					if (1 == createAccount.
+							AddOwner(usernameInput.getText(), 
+									usernameInput3.getText(), 
+									usernameInput2.getText(), 
+									usernameInput1.getText())) {
+						POcheck.setStyle("-fx-background-color: #00ff00");
+					} else {
+						worked = false;
+						POcheck.setStyle("-fx-background-color: #ff0000");
+						POcheck.setText("Project Owner: ERROR USERNAME OR EMAIL ALREADY IN USE");
+					}
+				} 
+				if (worked) {
+					DevNavBar.swapTo(event);
+					DevFindProject.swapTo(event);
+				}
 			}
 		} else {
 			usernameInput2.setText("Invalid email");
