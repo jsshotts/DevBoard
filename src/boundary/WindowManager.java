@@ -7,7 +7,12 @@ public class WindowManager {
 	    throw new IllegalStateException("Utility class");
 	} 
 
+<<<<<<< HEAD
+	public static final String LOGIN_SCREEN = "boundary/Login.fxml";
+	public static final String CREATE_PROFILE = "boundary/CreateAccount.fxml";
+=======
 	public static final String LOGIN_SCREEN = "boundary/fxml/Login.fxml";
+>>>>>>> b786755f09aa94870f65dab101b2a18261f5d684
 	
 	public static final String DEV_NAVBAR_VIEW = "boundary/fxml/DevNavBar.fxml";
 	public static final String DEV_FINDPROJ_SCREEN = "boundary/fxml/DevFindProject.fxml";

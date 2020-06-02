@@ -20,6 +20,7 @@ public class Main extends Application {
 			Parent login = FXMLLoader.load(ClassLoader.getSystemResource(WindowManager.LOGIN_SCREEN));
 			BorderPane borderPane = new BorderPane();
 			borderPane.setCenter(login);
+			borderPane.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 	        
 			primaryStage.setScene(new Scene(borderPane, WindowManager.WIN_WIDTH, WindowManager.WIN_HEIGHT));
 			primaryStage.setMaximized(true);
