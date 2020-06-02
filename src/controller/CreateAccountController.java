@@ -9,13 +9,14 @@ public class CreateAccountController {
 	DatabaseController database = new DatabaseController();
 	SessionController session = SessionController.getInstance();
 	
-	public void AddDeveloper(String name, String bio, String email, String password) {
-		Developer d = new Developer(name, bio, email, password);
-		Log.logger.log(Level.INFO, database.pushNew(d).toString());
+	public Developer AddDeveloper(String name, String bio, String email) {
+		Developer dev = new Developer(name, bio, email);
+		Log.logger.log(Level.INFO, database.pushNew(dev).toString());
+		return dev;
 	}
 	
-	public void AddOwner(String name, String bio, String email, String password) {
-		ProjectOwner d = new ProjectOwner(name, bio, email, password);
+	public void AddOwner(String name, String bio, String email) {
+		ProjectOwner d = new ProjectOwner(name, bio, email);
 		Log.logger.log(Level.INFO, database.pushNew(d).toString());
 	}
 }

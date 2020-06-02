@@ -4,6 +4,8 @@ import java.util.logging.Level;
 
 import controller.CreateAccountController;
 import controller.Log;
+import controller.LoginController;
+import entity.Developer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,29 +28,16 @@ public class CreateAccount {
 	public Button cAccount;
 	
 	@FXML
-	private TextField usernameInput; //username
+	private TextField username;
 	
 	@FXML
-	private TextField usernameInput1; //password
+	private TextField email;
 	
 	@FXML
-	private TextField usernameInput2; //email
-	
-	@FXML
-	private TextField usernameInput3; //bio
+	private TextField bio;
 	
 	private CreateAccountController createAccount = new CreateAccountController();
-	
-	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
-	 * This function changes the scene to the 'Find Projects' Scene
-	 */	
-	
-	public void navBar(ActionEvent event) {
-		
-		if (event.getSource() == cAccount) {
-			swapTo(event);
-		}
-	}
+	private LoginController loginController = new LoginController();
 	
 	static void swapTo(ActionEvent event)
 	{
@@ -63,21 +52,27 @@ public class CreateAccount {
 	}
 	
 	public void createAccount(ActionEvent event){
-		if(usernameInput2.getText().contains("@")) {
+		
+		if(email.getText().contains("@")) {
+			
 			if(event.getSource() == cAccount){
+				
 				if (Dcheck.isSelected()) {
 					
-					createAccount.AddDeveloper(usernameInput.getText(), usernameInput3.getText(), usernameInput2.getText(), usernameInput1.getText());
+					Developer dev = createAccount.AddDeveloper(username.getText(), bio.getText(), email.getText());
+					
 				} else if (POcheck.isSelected()) {
-					createAccount.AddOwner(usernameInput.getText(), usernameInput3.getText(), usernameInput2.getText(), usernameInput1.getText());
+					
+					createAccount.AddOwner(username.getText(), bio.getText(), email.getText());
 				} else {
+					
 					return;
 				}
 				DevNavBar.swapTo(event);
 				DevFindProject.swapTo(event);
 			}
 		} else {
-			usernameInput2.setText("Invalid email");
+			email.setText("Invalid email");
 		}
 	}
 }
