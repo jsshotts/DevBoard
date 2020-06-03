@@ -57,10 +57,7 @@
       <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
-            <TextField HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="18.0" />
-               </font></TextField>
+            <PasswordField maxHeight="40.0" maxWidth="625.0" minHeight="40.0" prefHeight="40.0" prefWidth="625.0" />
             <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
