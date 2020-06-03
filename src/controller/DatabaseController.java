@@ -48,63 +48,34 @@ public class DatabaseController implements DataSource{
 	
 	public <T> Map<UUID, T> getAll(Type type)
 	{
-		String target = null;
-		if (type.equals(PROJECT_TYPE))
-			target = PROJECTS;
-		if (type.equals(DEVELOPER_TYPE))
-			target = DEVELOPERS;
-		if (type.equals(PROJECTOWNER_TYPE))
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + JSON;
+		String url = BASEURL + getTarget(type) + JSON;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
 		
 		if (responseStr == null)
-		{
 			return Collections.emptyMap();
-		}
+		
 		return gson.fromJson(responseStr, type);
 	}
 	
 	public <T> Map<UUID, T> getAll(Type type, String key, String value)
-	{
-		String target = null;
-		if (type.equals(PROJECT_TYPE))
-			target = PROJECTS;
-		if (type.equals(DEVELOPER_TYPE))
-			target = DEVELOPERS;
-		if (type.equals(PROJECTOWNER_TYPE))
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
+	{	
+		String url = BASEURL + getTarget(type) + JSON + ORDERBY_STRING + key + EQUALTO_STRING + value + QUOTE;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
+		
 		if (responseStr == null)
-		{
 			return Collections.emptyMap();
-		}
 		
 		return gson.fromJson(responseStr, type);
 	}
 	
 	public <T> T getOne(Class<T> cls, UUID id)
 	{
-		String target = null;
-		if (cls.equals(Project.class))
-			target = PROJECTS;
-		if (cls.equals(ProjectOwner.class))
-			target = PROJECTOWNERS;
-		if (cls.equals(Developer.class))
-			target = DEVELOPERS;
-		if (cls.equals(Offer.class))
-			target = OFFERS;
-		
-		String url = BASEURL + target + id + JSON;
+		String url = BASEURL + getTarget(cls) + id + JSON;
 		String responseStr = sendHttpRequest(url, RequestType.GET);
 		
 		if (responseStr == null)
-		{
 			return null;
-		}
+		
 		return gson.fromJson(responseStr, cls);
 	}
 	
@@ -132,13 +103,7 @@ public class DatabaseController implements DataSource{
 	
 	public UUID update(User user)
 	{
-		String target = null;
-		if (user instanceof Developer)
-			target = DEVELOPERS;
-		if (user instanceof ProjectOwner)
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + user.getID() + JSON;
+		String url = BASEURL + getTarget(user) + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PATCH, user) == null ? null : user.getID();
 	}
 
@@ -149,14 +114,8 @@ public class DatabaseController implements DataSource{
 	}
 	
 	public UUID pushNew(User user)
-	{
-		String target = null;
-		if (user instanceof Developer)
-			target = DEVELOPERS;
-		if (user instanceof ProjectOwner)
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + user.getID() + JSON;
+	{		
+		String url = BASEURL + getTarget(user) + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PUT, user) == null ? null : user.getID();
 	}
 	
@@ -188,6 +147,56 @@ public class DatabaseController implements DataSource{
 		pushNew(project);
 		
 		return responseStr != null;
+	}
+	
+	public <T> UUID delete(Class<T> cls, UUID id)
+	{
+		String url = BASEURL + getTarget(cls) + id + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.DELETE);
+		
+		if (responseStr == null)
+			return null;
+	
+		return id;
+	}
+	
+	private String getTarget(Type type)
+	{
+		String target = null;
+		if (type.equals(PROJECT_TYPE))
+			target = PROJECTS;
+		if (type.equals(DEVELOPER_TYPE))
+			target = DEVELOPERS;
+		if (type.equals(PROJECTOWNER_TYPE))
+			target = PROJECTOWNERS;
+		
+		return target;
+	}
+	
+	private <T> String getTarget(Class<T> cls)
+	{
+		String target = null;
+		if (cls.equals(Project.class))
+			target = PROJECTS;
+		if (cls.equals(ProjectOwner.class))
+			target = PROJECTOWNERS;
+		if (cls.equals(Developer.class))
+			target = DEVELOPERS;
+		if (cls.equals(Offer.class))
+			target = OFFERS;
+		
+		return target;
+	}
+	
+	private String getTarget(User user)
+	{
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
+		
+		return target;
 	}
 	
 	private String sendHttpRequest(String url, RequestType type)

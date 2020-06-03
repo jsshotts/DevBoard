@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import controller.FindProjectsController;
 import controller.Log;
+import controller.SessionController;
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 import entity.Project;
@@ -157,6 +158,8 @@ public class DevFindProject {
 	}
 	
 	public void search() {
+		
+		SessionController.getInstance().highlightDevNavBar();
 		
 		ArrayList<Language> langFilters = new ArrayList<>();
 		if (langPython.isSelected()) 

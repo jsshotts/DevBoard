@@ -27,10 +27,6 @@ public class HttpGet {
 		Log.logger.log(Level.INFO, () -> controller.getAll(DatabaseController.DEVELOPER_TYPE).toString());
 	}
 	
-	public void testPrintDeveloperTarget() {
-		
-	}
-	
 	@Test
 	public void testGetAllProjectOwners() {
 		Log.logger.log(Level.INFO, "\nAll ProjectOwners:");

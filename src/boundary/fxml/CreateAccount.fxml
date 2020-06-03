@@ -28,12 +28,12 @@
          <children>
             <VBox spacing="20.0">
                <children>
-                  <CheckBox fx:id="POcheck" mnemonicParsing="false" onAction="#checkPO" text="ProjectOwner">
+                  <CheckBox fx:id="poCheck" mnemonicParsing="false" onAction="#checkPO" text="ProjectOwner">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="Dcheck" mnemonicParsing="false" onAction="#checkDev" text="Developer">
+                  <CheckBox fx:id="devCheck" mnemonicParsing="false" onAction="#checkDev" text="Developer">
                      <font>
                         <Font size="20.0" />
                      </font>

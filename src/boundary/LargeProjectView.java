@@ -20,6 +20,7 @@ public class LargeProjectView extends ProjectView {
 	
 	@FXML
 	private Button apply;
+
 	@FXML
 	public DatePicker startDatePicker;
 	@FXML
@@ -63,7 +64,6 @@ public class LargeProjectView extends ProjectView {
         executorService.shutdown();
 	}
 	
-	@FXML
 	public void back(ActionEvent event) {
 		SessionController session = SessionController.getInstance();
 		session.back(event);

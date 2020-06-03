@@ -9,16 +9,19 @@
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.LargeProjectView">
    <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="599.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="120.0" text="Back">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
       <HBox VBox.vgrow="NEVER">
          <children>
             <Region layoutX="1030.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
             <AnchorPane style="-fx-border-color: gray; -fx-border-width: 2; -fx-border-radius: 10;">
                <children>
-                  <VBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="70.0" text="Back" />
-                     </children>
-                  </VBox>
                   <VBox alignment="CENTER" layoutX="816.0" layoutY="543.0" prefWidth="150.0">
                      <children>
                         <Button fx:id="apply" layoutX="861.0" layoutY="543.0" mnemonicParsing="false" onAction="#apply" prefHeight="25.0" prefWidth="98.0" text="APPLY" />
@@ -65,7 +68,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" layoutY="14.0" prefWidth="1000.0">
                            <children>
-                              <HBox alignment="CENTER">
+                              <HBox alignment="CENTER" prefHeight="47.0" prefWidth="783.0">
                                  <children>
                                     <Label fx:id="headline" alignment="CENTER" text="Project Headline" textAlignment="CENTER">
                                        <font>
