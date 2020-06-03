@@ -31,6 +31,5 @@ public class CreateAccountController {
 		projectOwner = new ProjectOwner(name, bio, email);
 		database.pushNew(projectOwner);
 		return projectOwner;
-//>>>>>>> 7fbf598d1ff0b447b564a495f510e212b4208988
 	}
 }
