@@ -9,7 +9,6 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevProfile">
    <children>
       <VBox prefHeight="85.0">
@@ -151,7 +150,7 @@
                </HBox.margin>
             </VBox>
             <Region prefHeight="719.0" prefWidth="247.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="180.0">
+            <VBox prefHeight="657.0" prefWidth="583.0" spacing="100.0">
                <children>
                   <VBox prefHeight="206.0" prefWidth="563.0" spacing="10.0" style="-fx-background-radius: 10;" styleClass="cardBox">
                      <children>
@@ -193,14 +192,14 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </VBox>
-                  <VBox spacing="10.0" style="-fx-background-radius: 10;" styleClass="cardBox">
+                  <VBox prefHeight="600.0" prefWidth="583.0" spacing="10.0" style="-fx-background-radius: 10;" styleClass="cardBox">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Past Projects" textAlignment="CENTER" wrappingWidth="542.3759765625">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Text>
-                        <HBox alignment="CENTER">
+                        <HBox alignment="CENTER" maxHeight="110.0" minHeight="110.0" prefHeight="110.0" prefWidth="543.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Hospital App" textAlignment="CENTER" wrappingWidth="198.3759765625">
                                  <font>
@@ -208,9 +207,9 @@
                                  </font>
                               </Text>
                               <Region HBox.hgrow="ALWAYS" />
-                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                              <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="MORE DETAILS">
+                                    <Button mnemonicParsing="false" prefHeight="30.0" text="MORE DETAILS">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -222,7 +221,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0">
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" maxHeight="110.0" minHeight="110.0" prefHeight="110.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Food Service Website" textAlignment="CENTER" wrappingWidth="198.3759765625">
                                  <font>
@@ -230,9 +229,9 @@
                                  </font>
                               </Text>
                               <Region HBox.hgrow="ALWAYS" />
-                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                              <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="MORE DETAILS">
+                                    <Button mnemonicParsing="false" prefHeight="30.0" text="MORE DETAILS">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -244,7 +243,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="87.0">
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="87.0" maxHeight="110.0" minHeight="110.0" prefHeight="110.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Super Mario Bros Knockoff" textAlignment="CENTER" wrappingWidth="249.3759765625">
                                  <font>
@@ -252,9 +251,9 @@
                                  </font>
                               </Text>
                               <Region HBox.hgrow="ALWAYS" />
-                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                              <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="MORE DETAILS">
+                                    <Button mnemonicParsing="false" prefHeight="30.0" text="MORE DETAILS">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

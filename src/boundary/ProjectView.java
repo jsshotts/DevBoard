@@ -14,7 +14,7 @@ public abstract class ProjectView {
 	@FXML
 	public Label description;
 	@FXML
-	public Label platform;
+	public Label projectPlatform;
 	@FXML
 	public Label duration;
 	@FXML
@@ -40,7 +40,7 @@ public abstract class ProjectView {
 		description.setText(project.getDescription());
 		duration.setText(project.getDuration());
 		projectLocation.setText(project.getLocation());
-		platform.setText(project.getPlatform().getString());
+		projectPlatform.setText(project.getPlatform().getString());
 		remote.setText(project.getRemote());
 		projectOwnerName.setText(project.getProjectOwnerName());
 	}

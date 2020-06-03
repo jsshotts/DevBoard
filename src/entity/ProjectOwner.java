@@ -18,6 +18,11 @@ public class ProjectOwner extends User{
 		projectIds = new LinkedList<>();
 	}
 	
+	public ProjectOwner(UUID uid, String name, String bio, String email) {
+		super(uid, name,  bio, email);
+		projectIds = new LinkedList<>();
+	}
+	
 	public ProjectOwner(String name, String bio, String email, String password) {
 		super(name,  bio, email, password);
 		projectIds = new LinkedList<>();

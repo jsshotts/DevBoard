@@ -4,6 +4,7 @@ import java.util.logging.Level;
 
 import boundary.DevNavBar;
 import boundary.PONavBar;
+import boundary.WindowManager;
 import entity.Developer;
 import entity.ProjectOwner;
 import entity.User;
@@ -43,6 +44,24 @@ public class SessionController {
 		else {
 			Log.logger.log(Level.WARNING, "attempting to set new user without logging in");
 		}
+	}
+	
+	public void highlightDevNavBar() {
+		if (prevWindow.equals(WindowManager.DEV_FINDPROJ_SCREEN))
+			devNavBar.findProjectsButton.requestFocus();
+		if (prevWindow.equals(WindowManager.DEV_MYAPPLICATIONS_SCREEN))
+			devNavBar.myApplicationsButton.requestFocus();
+		if (prevWindow.equals(WindowManager.DEV_PROFILE_SCREEN))
+			devNavBar.profileButton.requestFocus();
+	}
+	
+	public void highlightPoNavBar() {
+		if (prevWindow.equals(WindowManager.PO_POSTPROJ_SCREEN))
+			poNavBar.createProjectButton.requestFocus();
+		if (prevWindow.equals(WindowManager.PO_MYPROJECTS_SCREEN))
+			poNavBar.myProjectsButton.requestFocus();
+		if (prevWindow.equals(WindowManager.PO_PROFILE_SCREEN))
+			devNavBar.profileButton.requestFocus();
 	}
 	
 	public User getUser() {

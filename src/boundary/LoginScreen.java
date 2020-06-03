@@ -1,5 +1,6 @@
 package boundary;
 
+import controller.DatabaseController;
 import controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,27 +28,26 @@ public class LoginScreen {
 	@FXML
 	private ImageView imageView;
 	
+<<<<<<< HEAD
 	public LoginController loginController = new LoginController();
+=======
+	private LoginController loginController = new LoginController(new DatabaseController());
+>>>>>>> 7fbf598d1ff0b447b564a495f510e212b4208988
 	
 	@FXML
 	private void initialize() {
 		Image img = new Image("res/LogoWhite.png");
 		imageView.setImage(img);
-	}
-
-	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
-	 * This function changes the scene to the 'Find Projects' Scene
-	 */	
-
-	
+	}	
 
 	public void login(ActionEvent event){
 		
 		if(event.getSource() == createAccount){
 			CreateAccount.swapTo(event);
-		}else if(event.getSource() == devLogin){
-			if (loginController.loginDeveloper(usernameInput.getText()))
-			{
+		}
+		else if(event.getSource() == devLogin){
+			
+			if (loginController.loginDeveloper(usernameInput.getText())){
 				DevNavBar.swapTo(event);
 				DevFindProject.swapTo(event);
 			}

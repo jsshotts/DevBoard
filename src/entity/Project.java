@@ -1,9 +1,9 @@
 package entity;
 
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 import java.util.logging.Level;
 
@@ -47,6 +47,19 @@ public class Project {
 		this.projectOwnerName = poName;
 	}
 	
+	public Project(UUID uid, String title, UUID poID, String poName) {
+		this.title = title;
+		this.projectOwnerID = poID;
+		this.id = uid;
+		this.setLanguage(null);
+		
+		//for now, set dummy data for testing
+		this.setTestData();
+		this.projectOwnerName = "";
+		this.status = HIRING;
+		this.projectOwnerName = poName;
+	}
+	
 	public Project(UUID poId, String poName, String title, 
 			String description, String duration, String location)
 	{
@@ -59,10 +72,12 @@ public class Project {
 		this.location = location;
 	}
 	
+	private static final SecureRandom random = new SecureRandom();
 	public void setTestData() {
-		Random random = new Random();
 		this.location = "San Luis Obispo";
-		this.duration = (Math.abs(random.nextInt()) % 10) + 1 + " weeks";
+		int i = random.nextInt();
+		i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
+		this.duration = i % 10 + 1 + " weeks";
 		this.setLanguage(Language.PYTHON);
 		this.platform = ProjectPlatform.LINUX;
 		this.description = "This is a " + this.title + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
@@ -71,10 +86,10 @@ public class Project {
 		this.endDate = LocalDate.of(2020, 7, 15);
 	}
 	
-	public void setData(String location, Language language, ProjectPlatform platform) {
+	public void setData(String location, Language language, ProjectPlatform projectPlatform) {
 		this.location = location;
 		this.language = language;
-		this.platform = platform;
+		this.platform = projectPlatform;
 	}
 	
 	public String getDescription() {

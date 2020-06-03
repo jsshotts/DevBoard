@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.util.logging.Level;
 
 import org.junit.Test;
@@ -12,33 +10,27 @@ import entity.Project;
 import entity.ProjectOwner;
 import entity.Repository;
 
-public class HttpPut {
+public class PushDataToFireBase {
 
 	DatabaseController controller = new DatabaseController();
 	
 	@Test
-	public void testAddUser() {
-		Developer d = new Developer("test", "test", "test@gmail.com", "test");
-		System.out.println(controller.pushNew(d).toString());
-	}
-	
-	@Test
 	public void testPushRepoDataToFirebase() {
-		Repository.init();
+		Repository repo = new Repository();
 		Log.logger.log(Level.INFO, "\n Add Repo Projects:");
-		for(Project project : Repository.getProjects()) {
+		for(Project project : repo.getProjects()) {
 			String result = controller.pushNew(project).toString();
 			Log.logger.log(Level.INFO, result);
 		}
 		
 		Log.logger.log(Level.INFO, "\n Add Repo Developers:");
-		for(Developer dev : Repository.getDevelopers()) {
+		for(Developer dev : repo.getDevelopers()) {
 			String result = controller.pushNew(dev).toString();
 			Log.logger.log(Level.INFO, result);
 		}
 		
 		Log.logger.log(Level.INFO, "\n Add Repo Project Owners:");
-		for(ProjectOwner po : Repository.getProjectOwners()) {
+		for(ProjectOwner po : repo.getProjectOwners()) {
 			String result = controller.pushNew(po).toString();
 			Log.logger.log(Level.INFO, result);
 		}

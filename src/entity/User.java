@@ -18,6 +18,14 @@ public abstract class User {
 		this.password = password;
 	}
 	
+	public User(UUID uid, String name, String bio, String email){
+		this.id = uid;
+		this.name = name;
+		this.bio = bio;
+		this.email = email;
+		this.password = null;
+	}
+	
 	public String getPassword() {
 		return this.password;
 	}

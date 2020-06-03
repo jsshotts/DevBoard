@@ -3,7 +3,11 @@ package boundary;
 import java.util.logging.Level;
 
 import controller.CreateAccountController;
+import controller.DatabaseController;
 import controller.Log;
+import controller.LoginController;
+import entity.Developer;
+import entity.ProjectOwner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,42 +16,42 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Window;
 
 public class CreateAccount {
 	
 	@FXML
-	public CheckBox POcheck;
+	public CheckBox poCheck;
 	
 	@FXML
-	public CheckBox Dcheck;
+	public CheckBox devCheck;
 	
 	@FXML
 	public Button cAccount;
 	
 	@FXML
-	private TextField usernameInput; //username
+	private TextField name;
 	
 	@FXML
-	private TextField usernameInput1; //password
+	private TextField email;
 	
 	@FXML
-	private TextField usernameInput2; //email
+	private TextField bio;
 	
 	@FXML
-	private TextField usernameInput3; //bio
+	private ImageView imageView;
 	
-	private CreateAccountController createAccount = new CreateAccountController();
+	private CreateAccountController createAccountController = new CreateAccountController();
 	
-	/* In SceneBuilder, I designated this function to be called when the "Developer" button is pushed.
-	 * This function changes the scene to the 'Find Projects' Scene
-	 */	
+	private LoginController loginController = new LoginController(new DatabaseController());
 	
-	public void navBar(ActionEvent event) {
-		
-		if (event.getSource() == cAccount) {
-			swapTo(event);
-		}
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/LogoWhite.png");
+		imageView.setImage(img);
 	}
 	
 	static void swapTo(ActionEvent event)
@@ -62,44 +66,99 @@ public class CreateAccount {
 		}
 	}
 	
+	public void checkDev() {
+		poCheck.setDisable(devCheck.isSelected());
+	}
+	
+	public void checkPO() {
+		devCheck.setDisable(poCheck.isSelected());
+	}
+	
 	public void createAccount(ActionEvent event){
-		if(usernameInput2.getText().contains("@")) {
-			if(event.getSource() == cAccount){
-				boolean worked = true;
-				if (Dcheck.isSelected()) {
-					if (1 == createAccount.
-							AddDeveloper(usernameInput.getText(), 
-									usernameInput3.getText(), 
-									usernameInput2.getText(), 
-									usernameInput1.getText())) {
-						POcheck.setStyle("-fx-background-color: #00ff00");
-					} else {
-						worked = false;
-						Dcheck.setStyle("-fx-background-color: #ff0000");
-						Dcheck.setText("Developer: ERROR USERNAME OR EMAIL ALREADY IN USE");
-					}
-				}
-				if (POcheck.isSelected()) {
-					System.out.println(1);
-					if (1 == createAccount.
-							AddOwner(usernameInput.getText(), 
-									usernameInput3.getText(), 
-									usernameInput2.getText(), 
-									usernameInput1.getText())) {
-						POcheck.setStyle("-fx-background-color: #00ff00");
-					} else {
-						worked = false;
-						POcheck.setStyle("-fx-background-color: #ff0000");
-						POcheck.setText("Project Owner: ERROR USERNAME OR EMAIL ALREADY IN USE");
-					}
-				} 
-				if (worked) {
-					DevNavBar.swapTo(event);
-					DevFindProject.swapTo(event);
-				}
-			}
-		} else {
-			usernameInput2.setText("Invalid email");
+		
+		if(!email.getText().contains("@")) {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Invalid Email");
+			return;
 		}
+		
+		if(!devCheck.isSelected() && !poCheck.isSelected()) {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Please Check One: Developer or ProjectOwner");
+	 		return;
+		}
+		
+		if(name.getText().length() < 1 || bio.getText().length() < 1) {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "All Fields Are Required");
+	 		return;
+		}
+		
+		if (devCheck.isSelected()) {			
+			createDeveloper(event);
+		}
+		else if (poCheck.isSelected()) {
+			createProjectOwner(event);
+		}			
+	}
+	
+	public void createDeveloper(ActionEvent event) {
+		
+		Developer dev = createAccountController.addDeveloper(name.getText(), bio.getText(), email.getText());
+		
+		if (dev != null) {
+			
+			if (loginController.loginDeveloper(dev.getEmail())){
+				
+				Window primaryWindow = name.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Account Created Successfully");
+		 		
+				DevNavBar.swapTo(event);
+				DevFindProject.swapTo(event);
+			}
+			else {
+				Window primaryWindow = email.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
+		}		
+		else {
+			
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
+		}
+	}
+	
+	public void createProjectOwner(ActionEvent event) {
+		
+		ProjectOwner projectOwner = createAccountController.addOwner(name.getText(), bio.getText(), email.getText());
+		
+		if (projectOwner != null) {
+			
+			if (loginController.loginProjectOwner(projectOwner.getEmail())){
+				
+				Window primaryWindow = name.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Account Created Successfully");
+				
+				PONavBar.swapTo(event);
+				POPostProject.swapTo(event);
+			}
+			else {
+				Window primaryWindow = email.getScene().getWindow();				
+		 		Toast toast = Toast.buildToast();
+		 		toast.makeText(primaryWindow, "Login Failed: Invalid Email");
+			}
+		}
+		else {
+			Window primaryWindow = name.getScene().getWindow();				
+	 		Toast toast = Toast.buildToast();
+	 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
+		}	
 	}
 }

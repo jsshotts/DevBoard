@@ -21,6 +21,13 @@ public class Offer {
 		this.message = message;
 	}
 	
+	public Offer(UUID uid, UUID projectId) {
+		this.id = uid;
+		this.projectId = projectId;
+		this.developerId = null;
+		this.message = null;
+	}
+	
 	public int getStatus() {
 		return this.status;
 	}

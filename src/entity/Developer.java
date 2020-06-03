@@ -26,6 +26,10 @@ public class Developer extends User {
 		super(name,  bio, email, password);
 	}
 	
+	public Developer(UUID uid, String name, String bio, String email) {
+		super(uid, name,  bio, email);
+	}
+	
 	public void addLanguage(Language lang) {
 		if(languages == null) {
 			languages = new LinkedList<>();

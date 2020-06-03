@@ -1,12 +1,5 @@
 package controller;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.UUID;
-import java.util.logging.Level;
-
-import com.google.gson.reflect.TypeToken;
-
 import entity.Developer;
 import entity.ProjectOwner;
 
@@ -14,6 +7,7 @@ public class CreateAccountController {
 	DatabaseController database = new DatabaseController();
 	SessionController session = SessionController.getInstance();
 	
+<<<<<<< HEAD
 	public int AddDeveloper(String name, String bio, String email, String password) {
 		/*if (Collections.emptyMap() == database.getOne(Developer.class, "name", name) &&
 				Collections.emptyMap() == database.getOne(Developer.class, "email", email)) {*/
@@ -36,5 +30,31 @@ public class CreateAccountController {
 		/*}
 		return 0;*/
 
+=======
+	public Developer addDeveloper(String name, String bio, String email) {
+		
+		Developer dev = database.getOne(Developer.class, "email", email);
+		
+		if(dev != null) {
+			return null;
+		}
+		
+		dev = new Developer(name, bio, email);
+		database.pushNew(dev);
+		return dev;
+	}
+	
+	public ProjectOwner addOwner(String name, String bio, String email) {
+		
+		ProjectOwner projectOwner = database.getOne(ProjectOwner.class, "email", email);
+		
+		if(projectOwner != null) {
+			return null;
+		}
+		
+		projectOwner = new ProjectOwner(name, bio, email);
+		database.pushNew(projectOwner);
+		return projectOwner;
+>>>>>>> 7fbf598d1ff0b447b564a495f510e212b4208988
 	}
 }
