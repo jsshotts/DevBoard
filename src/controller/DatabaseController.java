@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-public class DatabaseController implements DataSource{
+public class DatabaseController implements DataSource {
 	
 	private static final Gson gson = new Gson();
 	
@@ -103,7 +103,13 @@ public class DatabaseController implements DataSource{
 	
 	public UUID update(User user)
 	{
-		String url = BASEURL + getTarget(user) + user.getID() + JSON;
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
+		
+		String url = BASEURL + target + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PATCH, user) == null ? null : user.getID();
 	}
 
@@ -114,8 +120,14 @@ public class DatabaseController implements DataSource{
 	}
 	
 	public UUID pushNew(User user)
-	{		
-		String url = BASEURL + getTarget(user) + user.getID() + JSON;
+	{	
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
+		
+		String url = BASEURL + target + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PUT, user) == null ? null : user.getID();
 	}
 	
@@ -187,18 +199,7 @@ public class DatabaseController implements DataSource{
 		
 		return target;
 	}
-	
-	private String getTarget(User user)
-	{
-		String target = null;
-		if (user instanceof Developer)
-			target = DEVELOPERS;
-		if (user instanceof ProjectOwner)
-			target = PROJECTOWNERS;
 		
-		return target;
-	}
-	
 	private String sendHttpRequest(String url, RequestType type)
 	{
 		try
@@ -253,5 +254,4 @@ public class DatabaseController implements DataSource{
 		}
 		throw new IOException("Http request failed with reponse code: " + responseCode);
 	}
- 
 }
