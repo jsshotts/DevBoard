@@ -53,7 +53,6 @@ public class POPostProject {
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
-			e.printStackTrace();
 		}
 	}
 	

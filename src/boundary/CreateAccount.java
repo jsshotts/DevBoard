@@ -1,18 +1,12 @@
 package boundary;
 
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.CreateAccountController;
 import controller.Log;
 import controller.LoginController;
 import entity.Developer;
-import entity.Project;
 import entity.ProjectOwner;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,10 +23,10 @@ import javafx.stage.Window;
 public class CreateAccount {
 	
 	@FXML
-	public CheckBox POcheck;
+	public CheckBox poCheck;
 	
 	@FXML
-	public CheckBox Dcheck;
+	public CheckBox devCheck;
 	
 	@FXML
 	public Button cAccount;
@@ -49,7 +43,7 @@ public class CreateAccount {
 	@FXML
 	private ImageView imageView;
 	
-	private CreateAccountController createAccount = new CreateAccountController();
+	private CreateAccountController createAccountController = new CreateAccountController();
 	
 	private LoginController loginController = new LoginController();
 	
@@ -71,22 +65,12 @@ public class CreateAccount {
 		}
 	}
 	
-	public void checkDev(ActionEvent event) {
-		if(Dcheck.isSelected()) {
-			POcheck.setDisable(true);
-		}
-		else {
-			POcheck.setDisable(false);
-		}
+	public void checkDev() {
+		poCheck.setDisable(devCheck.isSelected());
 	}
 	
-	public void checkPO(ActionEvent event) {
-		if(POcheck.isSelected()) {
-			Dcheck.setDisable(true);
-		}
-		else {
-			Dcheck.setDisable(false);
-		}
+	public void checkPO() {
+		devCheck.setDisable(poCheck.isSelected());
 	}
 	
 	public void createAccount(ActionEvent event){
@@ -98,7 +82,7 @@ public class CreateAccount {
 			return;
 		}
 		
-		if(!Dcheck.isSelected() && !POcheck.isSelected()) {
+		if(!devCheck.isSelected() && !poCheck.isSelected()) {
 			Window primaryWindow = name.getScene().getWindow();				
 	 		Toast toast = Toast.buildToast();
 	 		toast.makeText(primaryWindow, "Please Check One: Developer or ProjectOwner");
@@ -112,17 +96,17 @@ public class CreateAccount {
 	 		return;
 		}
 		
-		if (Dcheck.isSelected()) {			
+		if (devCheck.isSelected()) {			
 			createDeveloper(event);
 		}
-		else if (POcheck.isSelected()) {
+		else if (poCheck.isSelected()) {
 			createProjectOwner(event);
 		}			
 	}
 	
 	public void createDeveloper(ActionEvent event) {
 		
-		Developer dev = createAccount.AddDeveloper(name.getText(), bio.getText(), email.getText());
+		Developer dev = createAccountController.AddDeveloper(name.getText(), bio.getText(), email.getText());
 		
 		if (dev != null) {
 			
@@ -151,7 +135,7 @@ public class CreateAccount {
 	
 	public void createProjectOwner(ActionEvent event) {
 		
-		ProjectOwner projectOwner = createAccount.AddOwner(name.getText(), bio.getText(), email.getText());
+		ProjectOwner projectOwner = createAccountController.AddOwner(name.getText(), bio.getText(), email.getText());
 		
 		if (projectOwner != null) {
 			
@@ -176,49 +160,4 @@ public class CreateAccount {
 	 		toast.makeText(primaryWindow, "Account Creation Failed: Email Taken");
 		}	
 	}
-	
-//	public void createAccount(ActionEvent event){
-//		
-//		if(email.getText().contains("@")) {
-//			
-//			if(event.getSource() == cAccount){
-//				
-//				boolean worked = true;
-//				
-//				if (Dcheck.isSelected()) {
-//					
-//					if (createAccount.AddDeveloper(username.getText(), bio.getText(), email.getText())) {
-//						
-//						POcheck.setStyle("-fx-background-color: #00ff00");
-//					}
-//					else {
-//						worked = false;
-//						Dcheck.setStyle("-fx-background-color: #ff0000");
-//						Dcheck.setText("Developer: ERROR USERNAME OR EMAIL ALREADY IN USE");
-//					}
-//				}
-//				if (POcheck.isSelected()) {
-//					
-//					System.out.println(1);
-//					
-//					if (createAccount.AddOwner(username.getText(), bio.getText(), email.getText())) {
-//						
-//						POcheck.setStyle("-fx-background-color: #00ff00");
-//					}
-//					else {
-//						worked = false;
-//						POcheck.setStyle("-fx-background-color: #ff0000");
-//						POcheck.setText("Project Owner: ERROR USERNAME OR EMAIL ALREADY IN USE");
-//					}
-//				} 
-//				if (worked) {
-//					DevNavBar.swapTo(event);
-//					DevFindProject.swapTo(event);
-//				}
-//			}
-//		} 
-//		else {		
-//			email.setText("Invalid email");
-//		}
-//	}
 }
