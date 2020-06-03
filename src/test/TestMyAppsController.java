@@ -1,9 +1,9 @@
 package test;
 
-import controller.DatabaseController;
 import controller.MyAppsController;
 import controller.SessionController;
 import entity.Developer;
+import entity.Repository;
 
 import static org.junit.Assert.*;
 
@@ -15,23 +15,33 @@ public class TestMyAppsController {
 
 	@Test
 	public void testGetUserApps() {
-		DatabaseController database = new DatabaseController();
-		MyAppsController controller = new MyAppsController(database);
+		
+		Repository repo = new Repository();
+		MyAppsController controller = new MyAppsController(repo);
 		SessionController session = SessionController.getInstance();
+		
 		UUID id = UUID.fromString("c23f3b1e-6080-4a25-97d3-116e0d836943");
-		Developer dev = database.getOne(Developer.class, id);
+		Developer dev = repo.getOne(Developer.class, id);
+		
+		dev.addAppliedProjectId(repo.getProjects().get(0).getID());
 		session.setUser(dev);
+		
 		assertEquals(dev.getAppliedProjectIds().size(), controller.getUserApplications().size());
 	}
 	
 	@Test
 	public void testGetDevOfferMap() {
-		DatabaseController database = new DatabaseController();
-		MyAppsController controller = new MyAppsController(database);
+		
+		Repository repo = new Repository();
+		MyAppsController controller = new MyAppsController(repo);
 		SessionController session = SessionController.getInstance();
+		
 		UUID id = UUID.fromString("c23f3b1e-6080-4a25-97d3-116e0d836943");
-		Developer dev = database.getOne(Developer.class, id);
+		Developer dev = repo.getOne(Developer.class, id);
+		
+		dev.addOfferId(repo.getOffers().get(0).getId());
 		session.setUser(dev);
+		
 		assertEquals(dev.getOfferIds().size(), controller.getDevOfferMap().size());
 	}
 }
