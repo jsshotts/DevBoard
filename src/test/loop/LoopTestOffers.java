@@ -1,4 +1,4 @@
-package test.loopTests;
+package test.loop;
 
 import static org.junit.Assert.*;
 

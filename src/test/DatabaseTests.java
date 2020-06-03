@@ -4,8 +4,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import test.testClasses.DatabaseGetAll;
-import test.testClasses.DatabaseGetOne;
+import test.classes.DatabaseGetAll;
+import test.classes.DatabaseGetOne;
 
 @RunWith(Suite.class)
 @SuiteClasses({ DatabaseGetAll.class, DatabaseGetOne.class })
