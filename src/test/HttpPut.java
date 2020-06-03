@@ -17,12 +17,6 @@ public class HttpPut {
 	DatabaseController controller = new DatabaseController();
 	
 	@Test
-	public void testAddUser() {
-		Developer d = new Developer("test", "test", "test@gmail.com", "test");
-		System.out.println(controller.pushNew(d).toString());
-	}
-	
-	@Test
 	public void testPushRepoDataToFirebase() {
 		Repository.init();
 		Log.logger.log(Level.INFO, "\n Add Repo Projects:");
