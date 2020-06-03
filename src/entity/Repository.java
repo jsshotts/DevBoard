@@ -27,7 +27,11 @@ public class Repository implements DataSource{
 					new Developer("Joe Python", "I am a Python Developer", "joe@gmail.com"),
 					new Developer("Fred Java", "I am a Java Developer", "fred@gmail.com"),
 					new Developer("Bob John", "I am an IOS developer", "bob@gmail.com"),
-					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"))
+					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"),
+					new Developer("Tom Joe", "I am an Windows Developer", "tom@gmail.com"),
+					new Developer("Jerry Smith", "I am an Linux Developer", "jerry@gmail.com"),
+					new Developer("Antonio Swift", "I am an Swift Developer", "antonio@gmail.com"),
+					new Developer("Jacob Plus", "I am an C++ Developer", "jacob@gmail.com"))
 			);
 	
 	protected List<ProjectOwner> projectOwners = new ArrayList<>(
@@ -62,12 +66,18 @@ public class Repository implements DataSource{
 	
 	protected List<Offer> offers = new ArrayList<>(
 			Arrays.asList(
-				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"))
+				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"),
+				new Offer(projects.get(1).getID(), developers.get(1).getID(), "Here's an offer message"),
+				new Offer(projects.get(2).getID(), developers.get(2).getID(), "Here's an offer message"),
+				new Offer(projects.get(3).getID(), developers.get(3).getID(), "Here's an offer message"),
+				new Offer(projects.get(4).getID(), developers.get(4).getID(), "Here's an offer message"),
+				new Offer(projects.get(5).getID(), developers.get(5).getID(), "Here's an offer message"))
 			);
 	
 	public List<Developer> getDevelopers() {return developers;}
 	public List<ProjectOwner> getProjectOwners() {return projectOwners;}
 	public List<Project> getProjects() {return projects;}
+	public List<Offer> getOffers() {return offers;}
 	
 	public Project getProjectWithApplicants() {
 		return this.projects.get(0);
@@ -82,6 +92,9 @@ public class Repository implements DataSource{
 		}
 		else if (cls.equals(Developer.class)) {
 			return cls.cast(new Developer(id, "John Test", "This is my bio.", "testDevEmail@gmail.com"));
+		}
+		else if (cls.equals(Offer.class)) {
+			return cls.cast(new Offer(id, UUID.randomUUID()));
 		}
 		return null;
 	}

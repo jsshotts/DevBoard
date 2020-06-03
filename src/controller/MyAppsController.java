@@ -13,7 +13,11 @@ import entity.Project;
 
 public class MyAppsController {
 	
-	private DatabaseController database = new DatabaseController();
+	private DataSource database;
+	
+	public MyAppsController(DataSource database) {
+		this.database = database;
+	}
 	
 	public List<Project> getUserApplications(){		
 		List<Project> projects = new LinkedList<>();
