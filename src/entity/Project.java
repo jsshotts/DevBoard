@@ -72,10 +72,12 @@ public class Project {
 		this.location = location;
 	}
 	
+	private static final Random random = new Random();
 	public void setTestData() {
-		Random random = new Random();
 		this.location = "San Luis Obispo";
-		this.duration = (Math.abs(random.nextInt()) % 10) + 1 + " weeks";
+		int i = random.nextInt();
+		i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
+		this.duration = i % 10 + 1 + " weeks";
 		this.setLanguage(Language.PYTHON);
 		this.platform = ProjectPlatform.LINUX;
 		this.description = "This is a " + this.title + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
