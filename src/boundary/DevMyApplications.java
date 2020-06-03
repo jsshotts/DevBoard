@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.DatabaseController;
 import controller.Log;
 import controller.MyAppsController;
 import entity.Offer;
@@ -57,12 +58,12 @@ public class DevMyApplications {
 	}
 	
 	private List<Project> getApplications() {
-		MyAppsController controller = new MyAppsController();
+		MyAppsController controller = new MyAppsController(new DatabaseController());
 		return controller.getUserApplications();
 	}
 	
 	private Map<Project, Offer> getOfferMap() {
-		MyAppsController controller = new MyAppsController();
+		MyAppsController controller = new MyAppsController(new DatabaseController());
 		return controller.getDevOfferMap();
 	}
 	

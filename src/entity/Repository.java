@@ -13,6 +13,8 @@ import entity.Filters.ProjectPlatform;
 //Dummy Data class to be used until we have Firebase fully functional
 public class Repository implements DataSource{
 	
+	private static final String OFFER_MESSAGE = "Here's an offer message";
+	
 	protected String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
 			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
 	
@@ -27,7 +29,11 @@ public class Repository implements DataSource{
 					new Developer("Joe Python", "I am a Python Developer", "joe@gmail.com"),
 					new Developer("Fred Java", "I am a Java Developer", "fred@gmail.com"),
 					new Developer("Bob John", "I am an IOS developer", "bob@gmail.com"),
-					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"))
+					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"),
+					new Developer("Tom Joe", "I am an Windows Developer", "tom@gmail.com"),
+					new Developer("Jerry Smith", "I am an Linux Developer", "jerry@gmail.com"),
+					new Developer("Antonio Swift", "I am an Swift Developer", "antonio@gmail.com"),
+					new Developer("Jacob Plus", "I am an C++ Developer", "jacob@gmail.com"))
 			);
 	
 	protected List<ProjectOwner> projectOwners = new ArrayList<>(
@@ -62,12 +68,18 @@ public class Repository implements DataSource{
 	
 	protected List<Offer> offers = new ArrayList<>(
 			Arrays.asList(
-				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"))
+				new Offer(projects.get(0).getID(), developers.get(0).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(1).getID(), developers.get(1).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(2).getID(), developers.get(2).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(3).getID(), developers.get(3).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(4).getID(), developers.get(4).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(5).getID(), developers.get(5).getID(), OFFER_MESSAGE))
 			);
 	
 	public List<Developer> getDevelopers() {return developers;}
 	public List<ProjectOwner> getProjectOwners() {return projectOwners;}
 	public List<Project> getProjects() {return projects;}
+	public List<Offer> getOffers() {return offers;}
 	
 	public Project getProjectWithApplicants() {
 		return this.projects.get(0);
@@ -86,6 +98,9 @@ public class Repository implements DataSource{
 		else if (cls.equals(Developer.class)) {
 			return cls.cast(new Developer(id, NAME, BIO, "testDevEmail@gmail.com"));
 		}
+		else if (cls.equals(Offer.class)) {
+			return cls.cast(new Offer(id, UUID.randomUUID()));
+		}
 		return null;
 	}
 	
@@ -103,6 +118,7 @@ public class Repository implements DataSource{
 	public Repository() {
 		
 		setProjectData();
+		setDeveloperData();
 		
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(0).getID());
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(1).getID());
@@ -137,6 +153,20 @@ public class Repository implements DataSource{
 					locations[i % (locations.length-1)], 
 					languages[i % (languages.length-1)], 
 					platforms[i % (platforms.length-1)]);
+		}
+	}
+	
+	private void setDeveloperData() {
+		for(Developer developer : developers) {
+			
+			int i = random.nextInt();
+			i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
+			
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());			
+			i++;
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());
 		}
 	}
 }

@@ -1,5 +1,6 @@
 package boundary;
 
+import java.time.LocalDate;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -58,6 +59,15 @@ public class POPostProject {
 	
 	public void postProject() {
 		
+		if(projectName.getText().length() == 0 || platform.getText().length() == 0 || remote.getText().length() == 0
+				|| duration.getText().length() == 0 || loc.getText().length() == 0
+				|| language.getText().length() == 0 || description.getText().length() == 0) {
+			Window primaryWindow = projectName.getScene().getWindow();
+     		Toast toast = Toast.buildToast();
+     		toast.makeText(primaryWindow, "All Fields Are Required");
+			return;
+		}
+		
 		SessionController.getInstance().highlightPoNavBar();
 		ProjectOwner po = SessionController.getInstance().getProjectOwner();
 		
@@ -65,7 +75,9 @@ public class POPostProject {
 							description.getText(), duration.getText(), loc.getText());
 		project.setRemote(remote.getText());
 		project.setLanguage(extractLanguage());
-		project.setPlatform(extractPlatform());	
+		project.setPlatform(extractPlatform());
+		project.setStartDate(LocalDate.of(2020, 6, 17));
+		project.setEndDate(LocalDate.of(2020, 7, 15));
 		
 		Task<Void> task = new Task<Void>() {
 			@Override
