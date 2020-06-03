@@ -73,15 +73,18 @@ public class Repository implements DataSource{
 		return this.projects.get(0);
 	}
 	
+	private static final String NAME = "John Test";
+	private static final String BIO = "This is my bio.";
+	
 	public <T> T getOne(Class<T> cls, UUID id) {
 		if (cls.equals(Project.class)) {
 			return cls.cast(new Project(id, "Project Title", UUID.randomUUID(), "Sample Project Owner"));
 		}
 		else if (cls.equals(ProjectOwner.class)) {
-			return cls.cast(new ProjectOwner(id, "John Test", "This is my bio.", "testDevEmail@gmail.com"));
+			return cls.cast(new ProjectOwner(id, NAME, BIO, "testDevEmail@gmail.com"));
 		}
 		else if (cls.equals(Developer.class)) {
-			return cls.cast(new Developer(id, "John Test", "This is my bio.", "testDevEmail@gmail.com"));
+			return cls.cast(new Developer(id, NAME, BIO, "testDevEmail@gmail.com"));
 		}
 		return null;
 	}
@@ -89,10 +92,10 @@ public class Repository implements DataSource{
 	public <T> T getOne(Class<T> cls, String key, String value) {
 			
 		if(cls == Developer.class && key.equals("email")) {
-			return cls.cast(new Developer("John Test", "This is my bio.", value));
+			return cls.cast(new Developer(NAME, BIO, value));
 		}
 		else if(cls == ProjectOwner.class && key.equals("email")) {
-			return cls.cast(new ProjectOwner("Test Company", "This is my bio.", value));
+			return cls.cast(new ProjectOwner("Test Company", BIO, value));
 		}
 		return null;
 	}
@@ -124,8 +127,9 @@ public class Repository implements DataSource{
 		}
 	}
 	
+	private static final Random random = new Random();
+	
 	private void setProjectData() {
-		Random random = new Random();
 		for(Project project : projects) {
 			int i = Math.abs(random.nextInt());
 			project.setData(
