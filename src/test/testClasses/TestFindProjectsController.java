@@ -1,4 +1,4 @@
-package test;
+package test.testClasses;
 
 import controller.DatabaseController;
 import controller.FindProjectsController;
