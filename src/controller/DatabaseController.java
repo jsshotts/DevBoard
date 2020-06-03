@@ -190,6 +190,28 @@ public class DatabaseController {
 		return responseStr != null;
 	}
 	
+	public <T> UUID delete(Class<T> cls, UUID id)
+	{
+		String target = null;
+		if (cls.equals(Project.class))
+			target = PROJECTS;
+		if (cls.equals(ProjectOwner.class))
+			target = PROJECTOWNERS;
+		if (cls.equals(Developer.class))
+			target = DEVELOPERS;
+		if (cls.equals(Offer.class))
+			target = OFFERS;
+		
+		String url = BASEURL + target + id + JSON;
+		String responseStr = sendHttpRequest(url, RequestType.DELETE);
+		
+		if (responseStr == null)
+		{
+			return null;
+		}
+		return id;
+	}
+	
 	private String sendHttpRequest(String url, RequestType type)
 	{
 		try
