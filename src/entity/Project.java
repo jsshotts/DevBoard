@@ -1,9 +1,9 @@
 package entity;
 
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 import java.util.logging.Level;
 
@@ -72,7 +72,7 @@ public class Project {
 		this.location = location;
 	}
 	
-	private static final Random random = new Random();
+	private static final SecureRandom random = new SecureRandom();
 	public void setTestData() {
 		this.location = "San Luis Obispo";
 		int i = random.nextInt();

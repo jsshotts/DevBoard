@@ -2,10 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
 import org.junit.Test;
 
 import controller.MyAppsController;
@@ -24,7 +21,6 @@ public class LoopTestOffers {
 		SessionController session = SessionController.getInstance();
 		MyAppsController appsController = new MyAppsController(repo);
 		Developer developer = new Developer("John Test", "This is my bio.", "testDevEmail@gmail.com");
-		List<Project> projects = repo.getProjects();
 		
 		session.setUser(developer);
 		

@@ -1,9 +1,9 @@
 package entity;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import controller.DataSource;
@@ -12,6 +12,8 @@ import entity.Filters.ProjectPlatform;
 
 //Dummy Data class to be used until we have Firebase fully functional
 public class Repository implements DataSource{
+	
+	private static final String OFFER_MESSAGE = "Here's an offer message";
 	
 	protected String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
 			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
@@ -66,12 +68,12 @@ public class Repository implements DataSource{
 	
 	protected List<Offer> offers = new ArrayList<>(
 			Arrays.asList(
-				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"),
-				new Offer(projects.get(1).getID(), developers.get(1).getID(), "Here's an offer message"),
-				new Offer(projects.get(2).getID(), developers.get(2).getID(), "Here's an offer message"),
-				new Offer(projects.get(3).getID(), developers.get(3).getID(), "Here's an offer message"),
-				new Offer(projects.get(4).getID(), developers.get(4).getID(), "Here's an offer message"),
-				new Offer(projects.get(5).getID(), developers.get(5).getID(), "Here's an offer message"))
+				new Offer(projects.get(0).getID(), developers.get(0).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(1).getID(), developers.get(1).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(2).getID(), developers.get(2).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(3).getID(), developers.get(3).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(4).getID(), developers.get(4).getID(), OFFER_MESSAGE),
+				new Offer(projects.get(5).getID(), developers.get(5).getID(), OFFER_MESSAGE))
 			);
 	
 	public List<Developer> getDevelopers() {return developers;}
@@ -116,6 +118,7 @@ public class Repository implements DataSource{
 	public Repository() {
 		
 		setProjectData();
+		setDeveloperData();
 		
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(0).getID());
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(1).getID());
@@ -140,7 +143,7 @@ public class Repository implements DataSource{
 		}
 	}
 	
-	private static final Random random = new Random();
+	private static final SecureRandom random = new SecureRandom();
 	
 	private void setProjectData() {
 		for(Project project : projects) {
@@ -150,6 +153,20 @@ public class Repository implements DataSource{
 					locations[i % (locations.length-1)], 
 					languages[i % (languages.length-1)], 
 					platforms[i % (platforms.length-1)]);
+		}
+	}
+	
+	private void setDeveloperData() {
+		for(Developer developer : developers) {
+			
+			int i = random.nextInt();
+			i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
+			
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());			
+			i++;
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());
 		}
 	}
 }

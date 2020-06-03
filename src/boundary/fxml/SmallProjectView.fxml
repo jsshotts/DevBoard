@@ -27,7 +27,7 @@
                         </Label>
                      </children>
                   </VBox>
-                  <Label fx:id="description" layoutX="14.0" layoutY="32.0" maxWidth="340.0" minWidth="340.0" text="This is a short descriptive of a project. For instance: Our startup really needs a mobile app prototype so we can test our idea with customers." wrapText="true">
+                  <Label fx:id="description" layoutX="14.0" layoutY="32.0" maxHeight="100.0" maxWidth="340.0" minWidth="340.0" text="This is a short descriptive of a project. For instance: Our startup really needs a mobile app prototype so we can test our idea with customers." wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>

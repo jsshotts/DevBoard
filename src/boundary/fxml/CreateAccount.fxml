@@ -50,7 +50,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                <children>
-                  <TextField fx:id="name" prefWidth="400.0" promptText="Name*">
+                  <TextField fx:id="name" prefWidth="400.0" promptText="Name">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -59,7 +59,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0">
                <children>
-                  <TextField fx:id="email" prefWidth="400.0" promptText="Email*">
+                  <TextField fx:id="email" prefWidth="400.0" promptText="Email">
                      <font>
                         <Font size="20.0" />
                      </font>
