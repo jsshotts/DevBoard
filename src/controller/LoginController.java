@@ -7,8 +7,12 @@ import entity.ProjectOwner;
 
 public class LoginController {
 	
-	DatabaseController database = new DatabaseController();
 	SessionController session = SessionController.getInstance();
+	DataSource database;
+	
+	public LoginController(DataSource database) {
+		this.database = database;
+	}
 	
 	public boolean loginDeveloper(String email) {
 		Developer dev = database.getOne(Developer.class, "email", email);

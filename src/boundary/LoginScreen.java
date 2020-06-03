@@ -1,5 +1,6 @@
 package boundary;
 
+import controller.DatabaseController;
 import controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class LoginScreen {
 	@FXML
 	private ImageView imageView;
 	
-	private LoginController loginController = new LoginController();
+	private LoginController loginController = new LoginController(new DatabaseController());
 	
 	@FXML
 	private void initialize() {

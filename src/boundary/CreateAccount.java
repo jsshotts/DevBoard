@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.CreateAccountController;
+import controller.DatabaseController;
 import controller.Log;
 import controller.LoginController;
 import entity.Developer;
@@ -51,7 +52,7 @@ public class CreateAccount {
 	
 	private CreateAccountController createAccount = new CreateAccountController();
 	
-	private LoginController loginController = new LoginController();
+	private LoginController loginController = new LoginController(new DatabaseController());
 	
 	@FXML
 	private void initialize() {

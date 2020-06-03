@@ -1,28 +1,30 @@
 package entity;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
+import controller.DataSource;
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 
 //Dummy Data class to be used until we have Firebase fully functional
-public class Repository {
+public class Repository implements DataSource{
 	
-	private Repository() { throw new IllegalStateException("Utility class"); }
-	
-	protected static String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
+	protected String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
 			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
 	
-	protected static Language[] languages = {Language.PYTHON, Language.C, Language.CPP, Language.JAVA,
+	protected Language[] languages = {Language.PYTHON, Language.C, Language.CPP, Language.JAVA,
 			Language.JAVASCRIPT, Language.KOTLIN, Language.SWIFT};
 	
-	protected static ProjectPlatform[] platforms = {ProjectPlatform.IOS, ProjectPlatform.ANDROID, ProjectPlatform.LINUX,
+	protected ProjectPlatform[] platforms = {ProjectPlatform.IOS, ProjectPlatform.ANDROID, ProjectPlatform.LINUX,
 			ProjectPlatform.MAC, ProjectPlatform.WINDOWS};
 	
-	protected static List<Developer> developers = new ArrayList<>(
+	protected List<Developer> developers = new ArrayList<>(
 			Arrays.asList(
 					new Developer("Joe Python", "I am a Python Developer", "joe@gmail.com"),
 					new Developer("Fred Java", "I am a Java Developer", "fred@gmail.com"),
@@ -30,7 +32,7 @@ public class Repository {
 					new Developer("John Kotlin", "I am an Android Developer", "john@gmail.com"))
 			);
 	
-	protected static List<ProjectOwner> projectOwners = new ArrayList<>(
+	protected List<ProjectOwner> projectOwners = new ArrayList<>(
 			Arrays.asList(
 					new ProjectOwner("Flex Technologies", "We are a fitness company", "flex@gmail.com"),
 					new ProjectOwner("Proactive Co", "We sell local art to the community", "proactive@gmail.com"),
@@ -38,7 +40,7 @@ public class Repository {
 					new ProjectOwner("Kayak Today", "We rent kayaks to the community", "kayak@gmail.com"))
 			);
 	
-	protected static List<Project> projects = new ArrayList<>(
+	protected List<Project> projects = new ArrayList<>(
 			Arrays.asList(
 					new Project("Fitness IOS App ", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
 					new Project("Art Android App", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
@@ -60,27 +62,55 @@ public class Repository {
 					new Project("Warehouse Automation-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()))
 			);
 	
-	protected static List<Offer> offers = new ArrayList<>(
+	protected List<Offer> offers = new ArrayList<>(
 			Arrays.asList(
 				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"))
 			);
 	
-	public static List<Developer> getDevelopers() {return developers;}
-	public static List<ProjectOwner> getProjectOwners() {return projectOwners;}
-	public static List<Project> getProjects() {return projects;}
+	public List<Developer> getDevelopers() {return developers;}
+	public List<ProjectOwner> getProjectOwners() {return projectOwners;}
+	public List<Project> getProjects() {return projects;}
 	
-	public static void init() {
+	public Project getProjectWithApplicants() {
+		return this.projects.get(0);
+	}
+	
+	public <T> T getOne(Class<T> cls, UUID id) {
+		if (cls.equals(Project.class)) {
+			return cls.cast(this.projects.get(0));
+		}
+		else if (cls.equals(ProjectOwner.class)) {
+			return cls.cast(this.projectOwners.get(0));
+		}
+		else if (cls.equals(Developer.class)) {
+			return cls.cast(this.developers.get(0));
+		}
+		return null;
+	}
+	
+	public <T> T getOne(Class<T> cls, String key, String value) {
+			
+		if(cls == Developer.class && key.equals("email")) {
+			return cls.cast(new Developer("John Test", "This is my bio.", value));
+		}
+		else if(cls == ProjectOwner.class && key.equals("email")) {
+			return cls.cast(new ProjectOwner("Test Company", "This is my bio.", value));
+		}
+		return null;
+	}
+	
+	public Repository() {
 		
 		setProjectData();
 		
-		projects.get(0).addAppliedDeveloperID(developers.get(0).getID());
-		projects.get(0).addAppliedDeveloperID(developers.get(1).getID());
-		projects.get(0).addAppliedDeveloperID(developers.get(2).getID());
-		projects.get(0).addAppliedDeveloperID(developers.get(3).getID());
-		developers.get(0).addAppliedProjectId(projects.get(0).getID());
-		developers.get(1).addAppliedProjectId(projects.get(0).getID());
-		developers.get(2).addAppliedProjectId(projects.get(0).getID());
-		developers.get(3).addAppliedProjectId(projects.get(0).getID());
+		getProjectWithApplicants().addAppliedDeveloperID(developers.get(0).getID());
+		getProjectWithApplicants().addAppliedDeveloperID(developers.get(1).getID());
+		getProjectWithApplicants().addAppliedDeveloperID(developers.get(2).getID());
+		getProjectWithApplicants().addAppliedDeveloperID(developers.get(3).getID());
+		developers.get(0).addAppliedProjectId(getProjectWithApplicants().getID());
+		developers.get(1).addAppliedProjectId(getProjectWithApplicants().getID());
+		developers.get(2).addAppliedProjectId(getProjectWithApplicants().getID());
+		developers.get(3).addAppliedProjectId(getProjectWithApplicants().getID());
 		
 		projects.get(1).setStatus(Project.IN_PROGRESS);
 		projects.get(2).setStatus(Project.IN_PROGRESS);
@@ -96,7 +126,7 @@ public class Repository {
 		}
 	}
 	
-	private static void setProjectData() {
+	private void setProjectData() {
 		Random random = new Random();
 		for(Project project : projects) {
 			int i = Math.abs(random.nextInt());

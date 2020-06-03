@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-public class DatabaseController {
+public class DatabaseController implements DataSource{
 	
 	private static final Gson gson = new Gson();
 	
