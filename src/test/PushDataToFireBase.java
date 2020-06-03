@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.util.logging.Level;
 
 import org.junit.Test;
@@ -12,7 +10,7 @@ import entity.Project;
 import entity.ProjectOwner;
 import entity.Repository;
 
-public class HttpPut {
+public class PushDataToFireBase {
 
 	DatabaseController controller = new DatabaseController();
 	

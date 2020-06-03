@@ -1,4 +1,4 @@
-package test;
+package test.classes;
 
 import controller.MyAppsController;
 import controller.SessionController;
