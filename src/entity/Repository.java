@@ -1,9 +1,9 @@
 package entity;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import controller.DataSource;
@@ -143,7 +143,7 @@ public class Repository implements DataSource{
 		}
 	}
 	
-	private static final Random random = new Random();
+	private static final SecureRandom random = new SecureRandom();
 	
 	private void setProjectData() {
 		for(Project project : projects) {
