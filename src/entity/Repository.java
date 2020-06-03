@@ -131,7 +131,8 @@ public class Repository implements DataSource{
 	
 	private void setProjectData() {
 		for(Project project : projects) {
-			int i = Math.abs(random.nextInt());
+			int i = random.nextInt();
+			i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
 			project.setData(
 					locations[i % (locations.length-1)], 
 					languages[i % (languages.length-1)], 
