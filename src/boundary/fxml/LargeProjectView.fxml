@@ -39,7 +39,7 @@
                                     </HBox>
                                     <VBox alignment="CENTER" prefHeight="60.0">
                                        <children>
-                                          <Button fx:id="projectOwnerName" mnemonicParsing="false" text="Project Owner Name">
+                                          <Button fx:id="projectOwnerName" mnemonicParsing="false" onAction="#viewProjectOwnerProfile" text="Project Owner Name">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>

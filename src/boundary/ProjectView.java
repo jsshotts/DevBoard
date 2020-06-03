@@ -1,6 +1,9 @@
 package boundary;
 
+import controller.FindProjectsController;
 import entity.Project;
+import entity.ProjectOwner;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,5 +46,13 @@ public abstract class ProjectView {
 		projectPlatform.setText(project.getPlatform().getString());
 		remote.setText(project.getRemote());
 		projectOwnerName.setText(project.getProjectOwnerName().toUpperCase());
+	}
+	
+	public void viewProjectOwnerProfile(ActionEvent event) {
+		FindProjectsController findProjectsController = new FindProjectsController();
+		ProjectOwner projectOwner = findProjectsController.getProjectOwner(project.getProjectOwnerId());
+		if(projectOwner != null) {
+			POProfile.swapTo(event, projectOwner);
+		}
 	}
 }

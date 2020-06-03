@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import entity.Developer;
 import entity.Offer;
 import entity.Project;
+import entity.ProjectOwner;
 
 public class FindProjectsController{
 	
@@ -80,5 +81,9 @@ public class FindProjectsController{
 		else {
 			Log.logger.log(Level.WARNING, "attempting to close non-existing offer");
 		}
+	}
+	
+	public ProjectOwner getProjectOwner(UUID uid) {
+		return database.getOne(ProjectOwner.class, uid);		
 	}
 }
