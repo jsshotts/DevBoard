@@ -13,6 +13,8 @@ import entity.Filters.ProjectPlatform;
 //Dummy Data class to be used until we have Firebase fully functional
 public class Repository implements DataSource{
 	
+	private static final String offerMessage = "Here's an offer message";
+	
 	protected String[] locations = {"San Luis Obispo, CA", "Los Angeles, CA", "Chicago, Illinois", 
 			"New York, New York", "San Francisco, CA", "Miami, Florida", "Denver, Colorado"};
 	
@@ -66,12 +68,12 @@ public class Repository implements DataSource{
 	
 	protected List<Offer> offers = new ArrayList<>(
 			Arrays.asList(
-				new Offer(projects.get(0).getID(), developers.get(0).getID(), "Here's an offer message"),
-				new Offer(projects.get(1).getID(), developers.get(1).getID(), "Here's an offer message"),
-				new Offer(projects.get(2).getID(), developers.get(2).getID(), "Here's an offer message"),
-				new Offer(projects.get(3).getID(), developers.get(3).getID(), "Here's an offer message"),
-				new Offer(projects.get(4).getID(), developers.get(4).getID(), "Here's an offer message"),
-				new Offer(projects.get(5).getID(), developers.get(5).getID(), "Here's an offer message"))
+				new Offer(projects.get(0).getID(), developers.get(0).getID(), offerMessage),
+				new Offer(projects.get(1).getID(), developers.get(1).getID(), offerMessage),
+				new Offer(projects.get(2).getID(), developers.get(2).getID(), offerMessage),
+				new Offer(projects.get(3).getID(), developers.get(3).getID(), offerMessage),
+				new Offer(projects.get(4).getID(), developers.get(4).getID(), offerMessage),
+				new Offer(projects.get(5).getID(), developers.get(5).getID(), offerMessage))
 			);
 	
 	public List<Developer> getDevelopers() {return developers;}
