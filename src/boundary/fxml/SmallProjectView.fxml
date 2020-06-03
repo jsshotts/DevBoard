@@ -20,11 +20,15 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="projectOwnerName" alignment="CENTER" maxWidth="340.0" text="Project Owner Name" textAlignment="CENTER">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" maxHeight="45.0" minHeight="45.0" prefHeight="45.0">
+                           <children>
+                              <Button fx:id="projectOwnerName" mnemonicParsing="false" styleClass="smallButton" text="Project Owner Name">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                   <Label fx:id="description" layoutX="14.0" layoutY="32.0" maxHeight="100.0" maxWidth="340.0" minWidth="340.0" text="This is a short descriptive of a project. For instance: Our startup really needs a mobile app prototype so we can test our idea with customers." wrapText="true">
@@ -47,7 +51,7 @@
                               </Label>
                               <Label fx:id="projectPlatform" text="iOS">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
@@ -61,7 +65,7 @@
                               </Label>
                               <Label fx:id="projectLocation" text="San Luis Obispo">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
@@ -75,7 +79,7 @@
                               </Label>
                               <Label fx:id="duration" text="6 Weeks">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
@@ -89,7 +93,7 @@
                               </Label>
                               <Label fx:id="remote" text="Yes">
                                  <font>
-                                    <Font size="13.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>

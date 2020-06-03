@@ -10,7 +10,7 @@ public abstract class ProjectView {
 	@FXML
 	public Label headline;
 	@FXML
-	public Label projectOwnerName;
+	public Button projectOwnerName;
 	@FXML
 	public Label description;
 	@FXML
@@ -42,6 +42,6 @@ public abstract class ProjectView {
 		projectLocation.setText(project.getLocation());
 		projectPlatform.setText(project.getPlatform().getString());
 		remote.setText(project.getRemote());
-		projectOwnerName.setText(project.getProjectOwnerName());
+		projectOwnerName.setText(project.getProjectOwnerName().toUpperCase());
 	}
 }

@@ -31,8 +31,7 @@ public class TestHireController {
 			
 			List<Developer> applicants = hireController.getProjectApplicants(project);
 			
-			assertEquals(project.getAppliedDeveloperIDs().size(), applicants.size());
-			
+			assertEquals(project.getAppliedDeveloperIDs().size(), applicants.size());			
 		}		
 	}
 	

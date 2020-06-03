@@ -30,6 +30,7 @@ public class Main extends Application {
 			primaryStage.getScene().getStylesheets().add(WindowManager.SMALLPROJECTVIEW_STYLE);
 			primaryStage.getScene().getStylesheets().add(WindowManager.NAVBAR_STYLE);
 			primaryStage.getScene().getStylesheets().add(WindowManager.BIGBUTTON_STYLE);
+			primaryStage.getScene().getStylesheets().add(WindowManager.SMALLBUTTON_STYLE);
 			
 		}catch(Exception e){
 			Log.logger.log(Level.WARNING, e.getMessage());
