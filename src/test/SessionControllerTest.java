@@ -35,5 +35,4 @@ public class SessionControllerTest {
 		assertFalse(session.isDeveloper());
 		assertTrue(session.getProjectOwner() instanceof ProjectOwner);
 	}
-
 }

@@ -29,12 +29,12 @@
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="platform" layoutX="244.0" layoutY="30.0" promptText="Platform" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
+                        <TextField fx:id="duration" promptText="Duration" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="remote" layoutX="430.0" layoutY="30.0" promptText="Remote" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
+                        <TextField fx:id="loc" promptText="Location" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -43,21 +43,44 @@
                   </HBox>
                   <HBox layoutX="58.0" layoutY="81.0" spacing="40.0">
                      <children>
-                        <TextField fx:id="duration" layoutX="58.0" layoutY="81.0" promptText="Duration" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="language" layoutX="244.0" layoutY="81.0" promptText="Language" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="loc" layoutX="423.0" layoutY="81.0" promptText="Location" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
+                        <VBox alignment="CENTER" prefHeight="55.0" prefWidth="250.0">
+                           <children>
+                              <MenuButton fx:id="platformMenu" mnemonicParsing="false" styleClass="menuButton" text="Platform">
+                                <items>
+                                  <MenuItem fx:id="iosItem" mnemonicParsing="false" onAction="#setPlatform" text="iOS" />
+                                  <MenuItem fx:id="androidItem" mnemonicParsing="false" onAction="#setPlatform" text="Android" />
+                                    <MenuItem fx:id="windowsItem" mnemonicParsing="false" onAction="#setPlatform" text="Windows" />
+                                    <MenuItem fx:id="linuxItem" mnemonicParsing="false" onAction="#setPlatform" text="Linux" />
+                                    <MenuItem fx:id="macItem" mnemonicParsing="false" onAction="#setPlatform" text="Mac" />
+                                </items>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="55.0" prefWidth="250.0">
+                           <children>
+                              <MenuButton fx:id="langMenu" mnemonicParsing="false" styleClass="menuButton" text="Language">
+                                 <items>
+                                    <MenuItem fx:id="pythonItem" mnemonicParsing="false" onAction="#setLanguage" text="Python" />
+                                    <MenuItem fx:id="javaItem" mnemonicParsing="false" onAction="#setLanguage" text="Java" />
+                                    <MenuItem fx:id="cItem" mnemonicParsing="false" onAction="#setLanguage" text="C" />
+                                    <MenuItem fx:id="cppItem" mnemonicParsing="false" onAction="#setLanguage" text="C++" />
+                                    <MenuItem fx:id="jsItem" mnemonicParsing="false" onAction="#setLanguage" text="Javascript" />
+                                    <MenuItem fx:id="swiftItem" mnemonicParsing="false" onAction="#setPlatform" text="Swift" />
+                                    <MenuItem fx:id="kotlinItem" mnemonicParsing="false" onAction="#setLanguage" text="Kotlin" />
+                                 </items>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="55.0" prefWidth="250.0">
+                           <children>
+                              <MenuButton fx:id="remoteMenu" mnemonicParsing="false" styleClass="menuButton" text="Remote">
+                                 <items>
+                                    <MenuItem fx:id="yesItem" mnemonicParsing="false" onAction="#setRemote" text="Yes" />
+                                    <MenuItem fx:id="noItem" mnemonicParsing="false" onAction="#setRemote" text="No" />
+                                 </items>
+                              </MenuButton>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
@@ -71,11 +94,11 @@
                   </Button>
                </children>
             </VBox>
-            <TextField fx:id="description" alignment="TOP_LEFT" layoutX="147.0" layoutY="224.0" prefHeight="320.0" prefWidth="650.0" promptText="Description" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;">
+            <TextArea fx:id="description" layoutX="147.0" layoutY="207.0" prefHeight="320.0" prefWidth="650.0" promptText="Description" style="-fx-text-box-border: gray; -fx-prompt-text-fill: gray;" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
-            </TextField>
+            </TextArea>
       </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

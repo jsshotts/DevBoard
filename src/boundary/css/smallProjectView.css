@@ -15,6 +15,30 @@
 	-fx-border-width: 2;
 }
 
+.menu-item .label {
+    -fx-text-fill:  #102a50;
+}
+
+.menuButton {
+	-fx-background-color: transparent;
+}
+
+.menuButton .label {
+    -fx-text-fill:  #102a50;
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+}
+
+.menuButton:hover {
+	-fx-text-fill: #102a50;
+	-fx-background-color: transparent;
+	-fx-border-color: black;
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+	-fx-border-radius: 10;
+	-fx-border-width: 2;
+}
+
 .moreDetails:hover {
 	-fx-border-color: black;
 	-fx-border-radius: 10;

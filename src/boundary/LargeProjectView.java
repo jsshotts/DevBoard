@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.stage.Window;
 
 public class LargeProjectView extends ProjectView {
@@ -20,7 +21,8 @@ public class LargeProjectView extends ProjectView {
 	
 	@FXML
 	private Button apply;
-
+	@FXML
+	private Label language;
 	@FXML
 	public DatePicker startDatePicker;
 	@FXML
@@ -32,6 +34,7 @@ public class LargeProjectView extends ProjectView {
 		
 		startDatePicker.setValue(project.getStartDate());
 		endDatePicker.setValue(project.getEndDate());
+		language.setText(project.getLanguage().getString());
 		
 		Developer developer = SessionController.getInstance().getDeveloper();
 		if(developer != null && developer.getAppliedProjectIds().contains(this.project.getID())) {
