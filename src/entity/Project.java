@@ -47,6 +47,19 @@ public class Project {
 		this.projectOwnerName = poName;
 	}
 	
+	public Project(UUID uid, String title, UUID poID, String poName) {
+		this.title = title;
+		this.projectOwnerID = poID;
+		this.id = uid;
+		this.setLanguage(null);
+		
+		//for now, set dummy data for testing
+		this.setTestData();
+		this.projectOwnerName = "";
+		this.status = HIRING;
+		this.projectOwnerName = poName;
+	}
+	
 	public Project(UUID poId, String poName, String title, 
 			String description, String duration, String location)
 	{

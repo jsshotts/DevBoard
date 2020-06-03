@@ -2,8 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-import java.util.UUID;
 
 import org.junit.Test;
 

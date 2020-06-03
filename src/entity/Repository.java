@@ -1,12 +1,10 @@
 package entity;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import controller.DataSource;
 import entity.Filters.Language;
@@ -77,13 +75,13 @@ public class Repository implements DataSource{
 	
 	public <T> T getOne(Class<T> cls, UUID id) {
 		if (cls.equals(Project.class)) {
-			return cls.cast(this.projects.get(0));
+			return cls.cast(new Project(id, "Project Title", UUID.randomUUID(), "Sample Project Owner"));
 		}
 		else if (cls.equals(ProjectOwner.class)) {
-			return cls.cast(this.projectOwners.get(0));
+			return cls.cast(new ProjectOwner(id, "John Test", "This is my bio.", "testDevEmail@gmail.com"));
 		}
 		else if (cls.equals(Developer.class)) {
-			return cls.cast(this.developers.get(0));
+			return cls.cast(new Developer(id, "John Test", "This is my bio.", "testDevEmail@gmail.com"));
 		}
 		return null;
 	}
