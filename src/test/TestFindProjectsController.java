@@ -15,14 +15,14 @@ import org.junit.Test;
 public class TestFindProjectsController {
 
 	@Test
-	public void TestGetAllProjects() {
+	public void testGetAllProjects() {
 		FindProjectsController controller = new FindProjectsController();
 		DatabaseController database = new DatabaseController();
 		assertEquals(controller.getAllProjects().size(), database.getAll(database.PROJECT_TYPE).size());
 	}
 	
 	@Test
-	public void TestGetDevActiveProjects() {
+	public void testGetDevActiveProjects() {
 		DatabaseController database = new DatabaseController();
 		FindProjectsController controller = new FindProjectsController();
 		SessionController session = SessionController.getInstance();

@@ -14,7 +14,7 @@ import org.junit.Test;
 public class TestMyAppsController {
 
 	@Test
-	public void TestGetUserApps() {
+	public void testGetUserApps() {
 		DatabaseController database = new DatabaseController();
 		MyAppsController controller = new MyAppsController(database);
 		SessionController session = SessionController.getInstance();
@@ -25,7 +25,7 @@ public class TestMyAppsController {
 	}
 	
 	@Test
-	public void TestGetDevOfferMap() {
+	public void testGetDevOfferMap() {
 		DatabaseController database = new DatabaseController();
 		MyAppsController controller = new MyAppsController(database);
 		SessionController session = SessionController.getInstance();
