@@ -8,13 +8,13 @@ import entity.ProjectOwner;
 public class LoginController {
 	
 	DatabaseController database = new DatabaseController();
-	SessionController session = SessionController.getInstance();
+	private SessionController session = SessionController.getInstance();
 	
 	public boolean loginDeveloper(String email) {
 		Developer dev = database.getOne(Developer.class, "email", email);
 		if(dev != null) {
 			Log.logger.log(Level.INFO, () -> "Logged In! as Dev: " + dev.getName());
-			session.setUser(dev);
+			getSession().setUser(dev);
 			return true;
 		}
 		return false;
@@ -24,9 +24,17 @@ public class LoginController {
 		ProjectOwner po = database.getOne(ProjectOwner.class, "email", email);
 		if(po != null) {
 			Log.logger.log(Level.INFO, () -> "Logged In! as PO: " + po.getName());
-			session.setUser(po);
+			getSession().setUser(po);
 			return true;
 		}
 		return false;
+	}
+
+	public SessionController getSession() {
+		return session;
+	}
+
+	public void setSession(SessionController session) {
+		this.session = session;
 	}
 }

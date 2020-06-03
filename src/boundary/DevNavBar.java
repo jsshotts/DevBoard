@@ -61,7 +61,6 @@ public class DevNavBar {
 	}
 	
 	public void navBar(ActionEvent event) {
-
 		if (event.getSource() == findProjectsButton) {
 			DevFindProject.swapTo(event);
 			SessionController.getInstance().setPrevWindow(WindowManager.DEV_FINDPROJ_SCREEN);

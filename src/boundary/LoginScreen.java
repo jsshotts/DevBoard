@@ -22,12 +22,12 @@ public class LoginScreen {
 	public Button projectOwnerLogin;
 	
 	@FXML
-	private TextField usernameInput;
+	public TextField usernameInput;
 	
 	@FXML
 	private ImageView imageView;
 	
-	private LoginController loginController = new LoginController();
+	public LoginController loginController = new LoginController();
 	
 	@FXML
 	private void initialize() {

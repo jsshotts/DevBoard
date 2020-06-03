@@ -15,16 +15,26 @@ public class CreateAccountController {
 	SessionController session = SessionController.getInstance();
 	
 	public int AddDeveloper(String name, String bio, String email, String password) {
-		Developer d = new Developer(name, bio, email, password);
-		Log.logger.log(Level.INFO, database.pushNew(d).toString());
-		return 1;
+		/*if (Collections.emptyMap() == database.getOne(Developer.class, "name", name) &&
+				Collections.emptyMap() == database.getOne(Developer.class, "email", email)) {*/
+			Developer d = new Developer(name, bio, email, password);
+			Log.logger.log(Level.INFO, database.pushNew(d).toString());
+			return 1;
+		/*}
+		return 0;*/
 	}
 	
 	public int AddOwner(String name, String bio, String email, String password) {
-		ProjectOwner d = new ProjectOwner(name, bio, email, password);
-		Log.logger.log(Level.INFO, database.pushNew(d).toString());
-		System.out.println(1);
-		return 1;
+		/*System.out.println(database.getOne(ProjectOwner.class, "name", name));
+		System.out.println(database.getOne(ProjectOwner.class, "email", email));
+		if (Collections.emptyMap() == database.getOne(ProjectOwner.class, "name", name) &&
+				Collections.emptyMap() == database.getOne(ProjectOwner.class, "email", email)) {*/
+			ProjectOwner d = new ProjectOwner(name, bio, email, password);
+			Log.logger.log(Level.INFO, database.pushNew(d).toString());
+			System.out.println(1);
+			return 1;
+		/*}
+		return 0;*/
 
 	}
 }
