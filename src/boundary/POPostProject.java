@@ -59,6 +59,7 @@ public class POPostProject {
 	
 	public void postProject() {
 		
+		SessionController.getInstance().highlightPoNavBar();
 		ProjectOwner po = SessionController.getInstance().getProjectOwner();
 		
 		Project project = new Project(po.getID(), po.getName(), projectName.getText(), 

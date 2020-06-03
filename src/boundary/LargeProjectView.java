@@ -66,15 +66,7 @@ public class LargeProjectView extends ProjectView {
 	@FXML
 	public void back(ActionEvent event) {
 		SessionController session = SessionController.getInstance();
-		String prev = session.getPrevWindow();
-		
 		session.back(event);
-		
-		if (prev.equals(WindowManager.DEV_FINDPROJ_SCREEN))
-			session.getDevNavBar().findProjectsButton.requestFocus();
-		if (prev.equals(WindowManager.DEV_MYAPPLICATIONS_SCREEN))
-			session.getDevNavBar().myApplicationsButton.requestFocus();
-		if (prev.equals(WindowManager.DEV_PROFILE_SCREEN))
-			session.getDevNavBar().profileButton.requestFocus();
+		session.highlightDevNavBar();
 	}
 }

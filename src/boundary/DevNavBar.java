@@ -29,6 +29,7 @@ public class DevNavBar {
 			devNavBarController.init();
 			borderPane.setTop(devNavBarNode);
 			SessionController.getInstance().setDevNavBar(devNavBarController);
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_FINDPROJ_SCREEN);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -68,6 +69,7 @@ public class DevNavBar {
 		}
 		if (event.getSource() == activeProjectsButton) {
 			DevActiveProjects.swapTo(event);
+			SessionController.getInstance().setPrevWindow(WindowManager.DEV_ACTIVEPROJ_SCREEN);
 		}
 		if (event.getSource() == myApplicationsButton) {
 			DevMyApplications.swapTo(event);

@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import controller.Log;
+import controller.SessionController;
 import entity.Project;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -68,6 +69,7 @@ public class POActiveProjectCard {
 			getApplicantsInProgress = true;
 			displayProjectApplicants();
 		}
+		SessionController.getInstance().highlightPoNavBar();
 	}
 	
 	public void displayProjectApplicants() {
@@ -126,6 +128,7 @@ public class POActiveProjectCard {
 			offersVisible = true;
 			getOffersInProgress = false;
 		}
+		SessionController.getInstance().highlightPoNavBar();
 	}
 	
 	public void displayProjectOffers() {

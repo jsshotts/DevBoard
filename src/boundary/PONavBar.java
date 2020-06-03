@@ -38,6 +38,7 @@ public class PONavBar {
 			poNavBarController.init();
 			borderPane.setTop(poNavBarNode);
 			SessionController.getInstance().setPoNavBar(poNavBarController);
+			SessionController.getInstance().setPrevWindow(WindowManager.PO_POSTPROJ_SCREEN);
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
@@ -45,13 +46,13 @@ public class PONavBar {
 	}
 	
 	@FXML
-	private Button createProjectButton;
+	public Button createProjectButton;
 	
 	@FXML
-	private Button myProjectsButton;
+	public Button myProjectsButton;
 	
 	@FXML
-	private Button profileButton;
+	public Button profileButton;
 	
 	@FXML
 	public Label userName;
@@ -66,11 +67,14 @@ public class PONavBar {
 		
 		if (event.getSource() == createProjectButton) {
 			POPostProject.swapTo(event);
+			SessionController.getInstance().setPrevWindow(WindowManager.PO_POSTPROJ_SCREEN);
 		}
 		if (event.getSource() == myProjectsButton) {
 			POMyProjects.swapTo(event);
+			SessionController.getInstance().setPrevWindow(WindowManager.PO_MYPROJECTS_SCREEN);
 		}
 		if (event.getSource() == profileButton) {
+			SessionController.getInstance().setPrevWindow(WindowManager.PO_PROFILE_SCREEN);
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PO_PROFILE_SCREEN));
 				Node poProfileNode = fxmlLoader.load();
