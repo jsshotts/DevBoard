@@ -103,13 +103,7 @@ public class DatabaseController {
 	
 	public UUID update(User user)
 	{
-		String target = null;
-		if (user instanceof Developer)
-			target = DEVELOPERS;
-		if (user instanceof ProjectOwner)
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + user.getID() + JSON;
+		String url = BASEURL + getTarget(user) + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PATCH, user) == null ? null : user.getID();
 	}
 
@@ -120,14 +114,8 @@ public class DatabaseController {
 	}
 	
 	public UUID pushNew(User user)
-	{
-		String target = null;
-		if (user instanceof Developer)
-			target = DEVELOPERS;
-		if (user instanceof ProjectOwner)
-			target = PROJECTOWNERS;
-		
-		String url = BASEURL + target + user.getID() + JSON;
+	{		
+		String url = BASEURL + getTarget(user) + user.getID() + JSON;
 		return sendHttpRequest(url, RequestType.PUT, user) == null ? null : user.getID();
 	}
 	
@@ -196,6 +184,17 @@ public class DatabaseController {
 			target = DEVELOPERS;
 		if (cls.equals(Offer.class))
 			target = OFFERS;
+		
+		return target;
+	}
+	
+	private String getTarget(User user)
+	{
+		String target = null;
+		if (user instanceof Developer)
+			target = DEVELOPERS;
+		if (user instanceof ProjectOwner)
+			target = PROJECTOWNERS;
 		
 		return target;
 	}
