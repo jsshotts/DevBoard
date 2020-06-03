@@ -90,10 +90,10 @@ public class CreateAccount {
 	 		return;
 		}
 		
-		if(name.getText().length() < 1) {
+		if(name.getText().length() < 1 || bio.getText().length() < 1) {
 			Window primaryWindow = name.getScene().getWindow();				
 	 		Toast toast = Toast.buildToast();
-	 		toast.makeText(primaryWindow, "Name is Required");
+	 		toast.makeText(primaryWindow, "All Fields Are Required");
 	 		return;
 		}
 		

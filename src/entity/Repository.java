@@ -116,6 +116,7 @@ public class Repository implements DataSource{
 	public Repository() {
 		
 		setProjectData();
+		setDeveloperData();
 		
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(0).getID());
 		getProjectWithApplicants().addAppliedDeveloperID(developers.get(1).getID());
@@ -150,6 +151,20 @@ public class Repository implements DataSource{
 					locations[i % (locations.length-1)], 
 					languages[i % (languages.length-1)], 
 					platforms[i % (platforms.length-1)]);
+		}
+	}
+	
+	private void setDeveloperData() {
+		for(Developer developer : developers) {
+			
+			int i = random.nextInt();
+			i = i == Integer.MIN_VALUE ? 0 : Math.abs(i);
+			
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());			
+			i++;
+			developer.addLanguage(languages[i % (languages.length-1)]);
+			developer.addExperience(platforms[i % (platforms.length-1)].getString());
 		}
 	}
 }
