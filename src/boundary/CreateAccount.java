@@ -106,7 +106,7 @@ public class CreateAccount {
 	
 	public void createDeveloper(ActionEvent event) {
 		
-		Developer dev = createAccountController.AddDeveloper(name.getText(), bio.getText(), email.getText());
+		Developer dev = createAccountController.addDeveloper(name.getText(), bio.getText(), email.getText());
 		
 		if (dev != null) {
 			
@@ -135,7 +135,7 @@ public class CreateAccount {
 	
 	public void createProjectOwner(ActionEvent event) {
 		
-		ProjectOwner projectOwner = createAccountController.AddOwner(name.getText(), bio.getText(), email.getText());
+		ProjectOwner projectOwner = createAccountController.addOwner(name.getText(), bio.getText(), email.getText());
 		
 		if (projectOwner != null) {
 			
