@@ -21,6 +21,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 
@@ -44,9 +46,18 @@ public class CreateAccount {
 	@FXML
 	private TextField bio;
 	
+	@FXML
+	private ImageView imageView;
+	
 	private CreateAccountController createAccount = new CreateAccountController();
 	
 	private LoginController loginController = new LoginController();
+	
+	@FXML
+	private void initialize() {
+		Image img = new Image("res/LogoWhite.png");
+		imageView.setImage(img);
+	}
 	
 	static void swapTo(ActionEvent event)
 	{

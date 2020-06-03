@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -15,60 +17,70 @@
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.CreateAccount">
    <children>
-      <HBox prefHeight="41.0" prefWidth="600.0" styleClass="background" />
-      <HBox prefHeight="13.0" prefWidth="600.0" styleClass="background">
+      <HBox alignment="CENTER" prefHeight="280.0" prefWidth="600.0" style="-fx-background-color: #102a50;" styleClass="background">
          <children>
             <Region HBox.hgrow="ALWAYS" />
-            <Label text="DevBoard" textFill="WHITE" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font name="System Bold" size="50.0" />
-               </font></Label>
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="545.0" pickOnBounds="true" preserveRatio="true" />
             <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="41.0" prefWidth="600.0" styleClass="background" VBox.vgrow="ALWAYS" />
-      <CheckBox fx:id="POcheck" mnemonicParsing="false" onAction="#checkPO" prefHeight="17.0" prefWidth="105.0" text="ProjectOwner" />
-      <CheckBox fx:id="Dcheck" mnemonicParsing="false" onAction="#checkDev" text="Developer" />
-      <Region prefHeight="14.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER">
          <children>
-            <Label prefHeight="17.0" prefWidth="103.0" text="Name" HBox.hgrow="ALWAYS" />
-            <TextField fx:id="name" />
-            <Region HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <Region />
-      <HBox prefHeight="16.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="103.0" text="email" HBox.hgrow="ALWAYS" />
-            <TextField fx:id="email" prefHeight="25.0" prefWidth="153.0" />
-         </children>
-      </HBox>
-      <HBox prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-         <children>
-            <HBox prefHeight="16.0" prefWidth="600.0">
+            <VBox spacing="20.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="103.0" text="Bio" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="bio" prefHeight="26.0" prefWidth="386.0" />
-                  <Region HBox.hgrow="ALWAYS" />
+                  <CheckBox fx:id="POcheck" mnemonicParsing="false" onAction="#checkPO" text="ProjectOwner">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="Dcheck" mnemonicParsing="false" onAction="#checkDev" text="Developer">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
+      </HBox>
+      <Region prefHeight="14.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <VBox alignment="CENTER" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextField fx:id="name" prefWidth="400.0" promptText="Name*">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
                </children>
             </HBox>
-            <Region prefHeight="200.0" prefWidth="219.5" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0">
+               <children>
+                  <TextField fx:id="email" prefWidth="400.0" promptText="Email*">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextField fx:id="bio" alignment="TOP_LEFT" minHeight="100.0" prefHeight="100.0" prefWidth="400.0" promptText="Bio">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <Region prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Region HBox.hgrow="ALWAYS" />
-            <Region HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
+      </VBox>
       <Region prefHeight="32.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="cAccount" mnemonicParsing="false" onAction="#createAccount" prefHeight="27.0" prefWidth="212.0" text="CREATE NEW ACCOUNT" HBox.hgrow="ALWAYS" />
-            <Region prefHeight="49.0" prefWidth="194.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="cAccount" mnemonicParsing="false" onAction="#createAccount" styleClass="bigButton" text="CREATE NEW ACCOUNT" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <Region prefHeight="31.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
