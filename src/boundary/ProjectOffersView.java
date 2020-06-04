@@ -65,6 +65,8 @@ public class ProjectOffersView {
 		task.setOnSucceeded(succeededEvent -> {
 			updateOfferBoxes();
 			scrollPane.setMinHeight(getScrollPaneHeight());
+			scrollPane.setPrefHeight(getScrollPaneHeight());
+			scrollPane.setMaxHeight(getScrollPaneHeight());
          });
 		
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
