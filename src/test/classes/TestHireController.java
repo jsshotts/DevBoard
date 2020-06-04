@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import controller.DatabaseController;
 import controller.HireController;
 import entity.Developer;
 import entity.Offer;

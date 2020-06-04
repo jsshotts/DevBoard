@@ -4,14 +4,9 @@ import controller.DatabaseController;
 import controller.FindProjectsController;
 import controller.SessionController;
 import entity.Developer;
-import entity.Project;
 import entity.Repository;
 
 import static org.junit.Assert.*;
-
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 import org.junit.Test;
 
