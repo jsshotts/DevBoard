@@ -52,6 +52,7 @@ public class HireController {
 			Offer offer = new Offer(project.getID(), developer.getID(), "");
 			
 			project.setPendingOfferId(offer.getId());
+			project.removeAppliedDeveloperIDs(developer.getID());
 			developer.addOfferId(offer.getId());
 			developer.removeAppliedProjectId(project.getID());
 			database.pushNew(offer);

@@ -1,8 +1,8 @@
 package controller;
 
 import java.util.HashMap;
-
-
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -26,11 +26,16 @@ public class FindProjectsController{
 		
 		if(map != null) {
 			
+			List<UUID> removeProjectIds = new LinkedList<>();
 			for(Map.Entry<UUID, Project> entry : map.entrySet()) {
 				if(entry.getValue().getStatus() != Project.HIRING) {
-					map.remove(entry);
+					removeProjectIds.add(entry.getKey());
 				}
 			}
+			
+			for(UUID uid : removeProjectIds) {
+				map.remove(uid);
+			}			
 			return map;
 		}
 		return new HashMap<>();
