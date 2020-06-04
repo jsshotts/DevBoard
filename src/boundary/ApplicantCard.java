@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.DatabaseController;
 import controller.HireController;
 import controller.Log;
 import entity.Developer;
@@ -53,7 +54,7 @@ public class ApplicantCard {
 		
 		sendOffer.setDisable(true);
 		
-		HireController hireController = new HireController();
+		HireController hireController = new HireController(new DatabaseController());
 		
 		Task<Void> task = new Task<Void>() {
 			@Override

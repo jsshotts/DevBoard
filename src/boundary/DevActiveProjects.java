@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutorService;
 
 import java.util.concurrent.Executors;
 
+import controller.DatabaseController;
 import controller.FindProjectsController;
 import controller.Log;
 import entity.Project;
@@ -72,7 +73,7 @@ public class DevActiveProjects {
 	
 	private Map<UUID, Project> getDevActiveProjects()
 	{
-		FindProjectsController findProjectsController = new FindProjectsController();
+		FindProjectsController findProjectsController = new FindProjectsController(new DatabaseController());
 		return findProjectsController.getDevActiveProjects();
 	}
 	

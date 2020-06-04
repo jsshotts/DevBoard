@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.DatabaseController;
 import controller.HireController;
 import controller.Log;
 import entity.Developer;
@@ -39,7 +40,7 @@ public class ProjectOffersView {
 	
 	private int childCount = 0;
 	
-	private HireController hireController = new HireController();
+	private HireController hireController = new HireController(new DatabaseController());
 	
 	private List<Node> accepted = new LinkedList<>();
 	

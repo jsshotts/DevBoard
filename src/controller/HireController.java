@@ -13,7 +13,11 @@ import entity.ProjectOwner;
 
 public class HireController {
 	
-	DatabaseController database = new DatabaseController();
+	DataSource database;
+	
+	public HireController(DataSource database) {
+		this.database = database;
+	}
 	
 	public List<Project> getPOActiveProjects() {
 		

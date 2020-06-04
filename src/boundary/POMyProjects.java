@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.DatabaseController;
 import controller.HireController;
 import controller.Log;
 import entity.Project;
@@ -56,7 +57,7 @@ public class POMyProjects {
 	}
 	
 	private List<Project> getActiveProjects(){
-		HireController hireController = new HireController();
+		HireController hireController = new HireController(new DatabaseController());
 		return hireController.getPOActiveProjects();
 	}
 	

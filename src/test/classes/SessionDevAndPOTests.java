@@ -1,4 +1,4 @@
-package test;
+package test.classes;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import controller.SessionController;
 import entity.Developer;
 import entity.ProjectOwner;
 
-public class SessionControllerTest {
+public class SessionDevAndPOTests {
 	
 	private static final String TEST_BIO = "This is a test account";
 	
@@ -21,18 +21,16 @@ public class SessionControllerTest {
 		assertTrue(session.isDeveloper());
 		assertEquals(TEST_BIO,session.getUser().getBio());
 		d.setBio("This is the new bio of user.");
-		session.updateUser(d);
-		assertEquals("This is the new bio of user.",session.getUser().getBio());
-		assertTrue(session.getDeveloper() instanceof Developer);
 		
+		assertEquals(null, session.getProjectOwner());
 	}
 	
 	@Test
 	public void testProjectOwner() {
 		SessionController session = SessionController.getInstance();
-
 		session.setUser(new ProjectOwner("Test Test", TEST_BIO, "Test@test.com", "test"));
 		assertFalse(session.isDeveloper());
 		assertTrue(session.getProjectOwner() instanceof ProjectOwner);
+		assertEquals(null, session.getDeveloper());
 	}
 }

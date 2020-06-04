@@ -4,6 +4,7 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import controller.DatabaseController;
 import controller.FindProjectsController;
 import entity.Offer;
 import entity.Project;
@@ -93,7 +94,7 @@ public class DevOfferView {
 	        @Override
 	        protected Void call() throws Exception {
 	        	
-	        	FindProjectsController findProjectsController = new FindProjectsController();
+	        	FindProjectsController findProjectsController = new FindProjectsController(new DatabaseController());
 	    		findProjectsController.closeOffer(offerId, offerStatus);
 	    		
 	            return null;

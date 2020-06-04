@@ -4,9 +4,13 @@ import controller.DatabaseController;
 import controller.FindProjectsController;
 import controller.SessionController;
 import entity.Developer;
+import entity.Project;
+import entity.Repository;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.junit.Test;
@@ -16,18 +20,19 @@ public class TestFindProjectsController {
 
 	@Test
 	public void testGetAllProjects() {
-		FindProjectsController controller = new FindProjectsController();
-		DatabaseController database = new DatabaseController();
-		assertEquals(controller.getAllProjects().size(), database.getAll(DatabaseController.PROJECT_TYPE).size());
+		Repository repo = new Repository();
+		FindProjectsController controller = new FindProjectsController(repo);
+		assertEquals(controller.getAllProjects().size(), repo.getAll(DatabaseController.PROJECT_TYPE).size());
 	}
 	
 	@Test
 	public void testGetDevActiveProjects() {
-		DatabaseController database = new DatabaseController();
-		FindProjectsController controller = new FindProjectsController();
+		
+		Repository repo = new Repository();
+		FindProjectsController controller = new FindProjectsController(repo);
 		SessionController session = SessionController.getInstance();
-		UUID id = UUID.fromString("c23f3b1e-6080-4a25-97d3-116e0d836943");
-		Developer dev = database.getOne(Developer.class, id);
+		
+		Developer dev = repo.getDeveloperWithActiveProject();
 		session.setUser(dev);
 		assertEquals(dev.getActiveProjectIds().size(), controller.getDevActiveProjects().size());
 	}

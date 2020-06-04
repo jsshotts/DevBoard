@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
+import controller.DatabaseController;
 import controller.HireController;
 import controller.Log;
 import entity.Developer;
@@ -28,7 +29,7 @@ public class ProjectApplicantsView {
 	
 	private static int childSize = 52;
 	
-	private HireController hireController = new HireController();
+	private HireController hireController = new HireController(new DatabaseController());
 	
 	public void initialize(Project project) {
 		

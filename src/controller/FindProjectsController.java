@@ -14,7 +14,11 @@ import entity.ProjectOwner;
 
 public class FindProjectsController{
 	
-	private DatabaseController database = new DatabaseController();
+	private DataSource database;
+	
+	public FindProjectsController(DataSource database) {
+		this.database = database;
+	}
 	
 	public Map<UUID, Project> getAllProjects(){
 		

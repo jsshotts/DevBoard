@@ -19,26 +19,21 @@ public class TestHireController {
 	@Test
 	public void testGetProjectApplicants() {
 		
-		HireController hireController = new HireController();
-		DatabaseController database = new DatabaseController();
-		
+		HireController hireController = new HireController(new Repository());
 		Repository repo = new Repository();
+		
 		Project project = repo.getProjectWithApplicants();
 		
-		project = database.getOne(Project.class, project.getID());
+		project = repo.getOne(Project.class, project.getID());
 		
-		if(project != null) {
-			
-			List<Developer> applicants = hireController.getProjectApplicants(project);
-			
-			assertEquals(project.getAppliedDeveloperIDs().size(), applicants.size());			
-		}		
+		List<Developer> applicants = hireController.getProjectApplicants(project);	
+		assertEquals(project.getAppliedDeveloperIDs().size(), applicants.size());		
 	}
 	
 	@Test
 	public void testExistingOffer() {
 		
-		HireController hireController = new HireController();
+		HireController hireController = new HireController(new Repository());
 		Developer developer = new Developer("Joe Python", "I am a Python Developer", "joe@gmail.com");
 		Project project = new Project("Fitness IOS App ", UUID.randomUUID(), "Flex Technology");
 		

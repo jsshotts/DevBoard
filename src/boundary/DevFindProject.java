@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
+import controller.DatabaseController;
 import controller.FindProjectsController;
 import controller.Log;
 import controller.SessionController;
@@ -86,7 +87,7 @@ public class DevFindProject {
 	}
 	
 	private Collection<Project> getProjects(){
-		FindProjectsController controller = new FindProjectsController();
+		FindProjectsController controller = new FindProjectsController(new DatabaseController());
 		return controller.getAllProjects().values();
 	}
 	

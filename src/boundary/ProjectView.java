@@ -1,5 +1,6 @@
 package boundary;
 
+import controller.DatabaseController;
 import controller.FindProjectsController;
 import entity.Project;
 import entity.ProjectOwner;
@@ -49,7 +50,7 @@ public abstract class ProjectView {
 	}
 	
 	public void viewProjectOwnerProfile(ActionEvent event) {
-		FindProjectsController findProjectsController = new FindProjectsController();
+		FindProjectsController findProjectsController = new FindProjectsController(new DatabaseController());
 		ProjectOwner projectOwner = findProjectsController.getProjectOwner(project.getProjectOwnerId());
 		if(projectOwner != null) {
 			POProfile.swapTo(event, projectOwner);

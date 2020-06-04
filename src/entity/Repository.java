@@ -1,10 +1,15 @@
 package entity;
 
+import java.lang.reflect.Type;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import com.google.gson.reflect.TypeToken;
 
 import controller.DataSource;
 import entity.Filters.Language;
@@ -86,12 +91,22 @@ public class Repository implements DataSource{
 	public List<Project> getProjects() {return projects;}
 	public List<Offer> getOffers() {return offers;}
 	
-	public Project getProjectWithApplicants() {
-		return this.projects.get(0);
-	}
-	
 	private static final String NAME = "John Test";
 	private static final String BIO = "This is my bio.";
+	
+	public static final Type PROJECT_TYPE = new TypeToken<Map<UUID, Project>>(){}.getType();
+	public static final Type DEVELOPER_TYPE = new TypeToken<Map<UUID, Developer>>(){}.getType();
+	public static final Type PROJECTOWNER_TYPE = new TypeToken<Map<UUID, ProjectOwner>>(){}.getType();
+	
+	public <T> Map<UUID, T> getAll(Type type){
+		Map<UUID, T> map = new HashMap<>();
+		if(type == PROJECT_TYPE) {
+			for(Project project : projects) {
+				map.put(project.getID(), (T) project);
+			}
+		}
+		return map;
+	}
 	
 	public <T> T getOne(Class<T> cls, UUID id) {
 		if (cls.equals(Project.class)) {
@@ -120,6 +135,38 @@ public class Repository implements DataSource{
 		return null;
 	}
 	
+	public Developer getSingleDeveloper() {
+		return this.developers.get(0);
+	}
+	
+	public UUID update(Project project) {
+		return project.getID();
+	}
+	
+	public UUID update(User user) {
+		return user.getID();
+	}
+	
+	public UUID pushNew(Project project) {
+		return project.getID();
+	}
+	
+	public UUID pushNew(User user) {
+		return user.getID();
+	}
+	
+	public UUID pushNew(Offer offer) {
+		return offer.getId();
+	}
+	
+	public Project getProjectWithApplicants() {
+		return this.projects.get(0);
+	}
+	
+	public Developer getDeveloperWithActiveProject() {
+		return this.developers.get(1);
+	}
+	
 	public Repository() {
 		
 		setProjectData();
@@ -136,8 +183,8 @@ public class Repository implements DataSource{
 		
 		projects.get(1).setStatus(Project.IN_PROGRESS);
 		projects.get(2).setStatus(Project.IN_PROGRESS);
-		developers.get(1).addActiveProjectId(projects.get(1).getID());
-		developers.get(1).addActiveProjectId(projects.get(2).getID());
+		getDeveloperWithActiveProject().addActiveProjectId(projects.get(1).getID());
+		getDeveloperWithActiveProject().addActiveProjectId(projects.get(2).getID());
 		
 		for(Project project : projects) {
 			for(ProjectOwner po : projectOwners) {
