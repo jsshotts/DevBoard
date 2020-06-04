@@ -40,8 +40,13 @@ public class Repository implements DataSource{
 			Arrays.asList(
 					new ProjectOwner("Flex Technologies", "We are a fitness company", "flex@gmail.com"),
 					new ProjectOwner("Proactive Co", "We sell local art to the community", "proactive@gmail.com"),
-					new ProjectOwner("Better Italian", "We make the best Italian food in the county", "italian@gmail.com"),
-					new ProjectOwner("Kayak Today", "We rent kayaks to the community", "kayak@gmail.com"))
+					new ProjectOwner("Fresh Italian", "We make the best Italian food in the county", "italian@gmail.com"),
+					new ProjectOwner("Kayak Today", "We rent kayaks to the community", "kayak@gmail.com"),
+					new ProjectOwner("Gym Grind", "We provide the community's largest gym.", "gym@gmail.com"),
+					new ProjectOwner("Burger Buddy", "We make the best burgers in the county", "burger@gmail.com"),
+					new ProjectOwner("Car Rents", "We rent cars to the community", "car@gmail.com"),
+					new ProjectOwner("Computer Today", "We rent laptops to the community", "computer@gmail.com"),
+					new ProjectOwner("Speaker City", "We rent and sell speakers to the community", "speaker@gmail.com"))
 			);
 	
 	protected List<Project> projects = new ArrayList<>(
@@ -50,20 +55,20 @@ public class Repository implements DataSource{
 					new Project("Art Android App", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
 					new Project("Restaurant Warehouse Automation ", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
 					new Project("Kayak Server Linux Script ", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
-					new Project("Windows Application-0", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
-					new Project("Warehouse Automation-1", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
-					new Project("IOS App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
-					new Project("Linux Script-2", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
-					new Project("Warehouse Automation-6", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
-					new Project("Windows Application-2", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
-					new Project("Android App-2", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
-					new Project("Warehouse Automation-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
-					new Project("Linux Script-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
-					new Project("Windows Application-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
-					new Project("Warehouse Automation-5", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
-					new Project("IOS App-3", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
-					new Project("Windows Application-3", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
-					new Project("Warehouse Automation-4", projectOwners.get(1).getID(), projectOwners.get(1).getName()))
+					new Project("Gym App", projectOwners.get(4).getID(), projectOwners.get(4).getName()),
+					new Project("Burger App", projectOwners.get(5).getID(), projectOwners.get(5).getName()),
+					new Project("IOS App", projectOwners.get(6).getID(), projectOwners.get(6).getName()),
+					new Project("Computer Exchange Website", projectOwners.get(7).getID(), projectOwners.get(7).getName()),
+					new Project("Speaker Testing Service", projectOwners.get(8).getID(), projectOwners.get(8).getName()),
+					new Project("Windows Application", projectOwners.get(0).getID(), projectOwners.get(0).getName()),
+					new Project("Android App", projectOwners.get(1).getID(), projectOwners.get(1).getName()),
+					new Project("Warehouse Automation", projectOwners.get(2).getID(), projectOwners.get(2).getName()),
+					new Project("Linux Shell Script", projectOwners.get(3).getID(), projectOwners.get(3).getName()),
+					new Project("Windows Bash Script", projectOwners.get(4).getID(), projectOwners.get(4).getName()),
+					new Project("Company Website", projectOwners.get(5).getID(), projectOwners.get(5).getName()),
+					new Project("Company Android App", projectOwners.get(6).getID(), projectOwners.get(6).getName()),
+					new Project("Windows Shell Script", projectOwners.get(7).getID(), projectOwners.get(7).getName()),
+					new Project("Server Automation", projectOwners.get(8).getID(), projectOwners.get(8).getName()))
 			);
 	
 	protected List<Offer> offers = new ArrayList<>(
