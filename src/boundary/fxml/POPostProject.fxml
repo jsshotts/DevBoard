@@ -65,7 +65,7 @@
                                     <MenuItem fx:id="cItem" mnemonicParsing="false" onAction="#setLanguage" text="C" />
                                     <MenuItem fx:id="cppItem" mnemonicParsing="false" onAction="#setLanguage" text="C++" />
                                     <MenuItem fx:id="jsItem" mnemonicParsing="false" onAction="#setLanguage" text="Javascript" />
-                                    <MenuItem fx:id="swiftItem" mnemonicParsing="false" onAction="#setPlatform" text="Swift" />
+                                    <MenuItem fx:id="swiftItem" mnemonicParsing="false" onAction="#setLanguage" text="Swift" />
                                     <MenuItem fx:id="kotlinItem" mnemonicParsing="false" onAction="#setLanguage" text="Kotlin" />
                                  </items>
                               </MenuButton>
