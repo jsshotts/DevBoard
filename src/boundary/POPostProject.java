@@ -29,16 +29,10 @@ public class POPostProject {
 	
 	@FXML
 	private TextField projectName;	
-	//@FXML
-	//private TextField platform;	
-//	@FXML
-//	private TextField remote;	
 	@FXML
 	private TextField duration;	
 	@FXML
 	private TextField loc;
-//	@FXML
-//	private TextField language;	
 	@FXML
 	private TextArea description;
 	
@@ -79,6 +73,7 @@ public class POPostProject {
 	@FXML
 	private MenuItem kotlinItem;
 	
+	private static final String REMOTE_LABEL = "Remote";
 	
 	static void swapTo(ActionEvent event)
 	{
@@ -145,7 +140,7 @@ public class POPostProject {
 	
 	public void postProject() {
 		
-		if(projectName.getText().length() == 0 || platformMenu.getText().equals("Platform") || remoteMenu.getText().equals("Remote")
+		if(projectName.getText().length() == 0 || platformMenu.getText().equals("Platform") || remoteMenu.getText().equals(REMOTE_LABEL)
 				|| duration.getText().length() == 0 || loc.getText().length() == 0
 				|| langMenu.getText().equals("Language") || description.getText().length() == 0) {
 			Window primaryWindow = projectName.getScene().getWindow();
@@ -180,7 +175,7 @@ public class POPostProject {
      		toast.makeText(primaryWindow, "Project Created");
      		projectName.clear();
      		platformMenu.setText("Platform");
-     		remoteMenu.setText("Remote");
+     		remoteMenu.setText(REMOTE_LABEL);
      		duration.clear();
      		loc.clear();
      		langMenu.setText("Language");
@@ -220,7 +215,7 @@ public class POPostProject {
 		else if (remoteMenu.getText().equalsIgnoreCase("No")) {
 			return "no";
 		}
-		return "Remote";
+		return REMOTE_LABEL;
 	}
 	
 	private ProjectPlatform getPlatform() {
