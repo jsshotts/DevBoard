@@ -9,12 +9,12 @@
 
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.DevOfferView">
    <children>
-      <HBox style="-fx-border-color: gray; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="cardBox" HBox.hgrow="ALWAYS">
+      <HBox styleClass="cardBox" HBox.hgrow="ALWAYS">
          <children>
             <Region HBox.hgrow="ALWAYS" />
             <AnchorPane HBox.hgrow="ALWAYS">
                <children>
-                  <HBox layoutX="21.0" layoutY="521.0" spacing="150.0">
+                  <HBox layoutX="21.0" layoutY="521.0" spacing="100.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="30.0" prefWidth="180.0">
                            <children>
@@ -26,7 +26,7 @@
                               <Button fx:id="declineOfferButton" layoutX="248.0" layoutY="361.0" mnemonicParsing="false" onAction="#declineOffer" text="DECLINE OFFER" />
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="60.0" prefWidth="250.0">
+                        <VBox alignment="CENTER" prefHeight="60.0" prefWidth="280.0">
                            <children>
                               <Button fx:id="viewProjectDetailsButton" layoutX="457.0" layoutY="361.0" mnemonicParsing="false" text="VIEW PROJECT DETAILS" />
                            </children>
