@@ -39,6 +39,7 @@ public class PONavBar {
 			borderPane.setTop(poNavBarNode);
 			SessionController.getInstance().setPoNavBar(poNavBarController);
 			SessionController.getInstance().setPrevWindow(WindowManager.PO_POSTPROJ_SCREEN);
+			SessionController.getInstance().highlightPoNavBar();
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());

@@ -66,7 +66,8 @@ public class POMyProjects {
 		try {	
 			
 			for(Project project : projects) {
-				
+				if (project != null)
+				{
 				FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource(WindowManager.PO_ACTIVE_PROJECT_CARD));
 				Node projectCard = fxmlLoader.load();			
 				POActiveProjectCard activeProjectCard = fxmlLoader.<POActiveProjectCard>getController();
@@ -74,6 +75,7 @@ public class POMyProjects {
 				activeProjectCard.populate(project);
 				
 				vbox.getChildren().add(projectCard);
+				}
 			}
 		}
 		catch (Exception e) {

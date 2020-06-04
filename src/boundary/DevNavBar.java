@@ -30,6 +30,7 @@ public class DevNavBar {
 			borderPane.setTop(devNavBarNode);
 			SessionController.getInstance().setDevNavBar(devNavBarController);
 			SessionController.getInstance().setPrevWindow(WindowManager.DEV_FINDPROJ_SCREEN);
+			SessionController.getInstance().highlightPoNavBar();
 		}
 		catch(Exception e) {
 			Log.logger.log(Level.WARNING, e.getMessage());
