@@ -15,7 +15,6 @@ import controller.DataSource;
 import entity.Filters.Language;
 import entity.Filters.ProjectPlatform;
 
-//Dummy Data class to be used until we have Firebase fully functional
 public class Repository implements DataSource{
 	
 	private static final String OFFER_MESSAGE = "Here's an offer message";
