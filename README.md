@@ -17,6 +17,11 @@ Some other design patterns/strategies that are used include Singleton and Depend
 
 This application uses TravisCI to manage automated builds, and uses SonarLint to handle automated code linting.
 
+TravisCI: https://travis-ci.org/github/jsshotts/DevBoard
+
+SonarLint: https://sonarcloud.io/dashboard?id=jsshotts_DevBoard
+(Note: test coverage on SonarLint is not connected to the application's tests)
+
 ## Technical Highlights
 
 This project incorporates of number of technical features including
